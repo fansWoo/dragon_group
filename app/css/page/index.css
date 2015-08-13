@@ -1,1 +1,50 @@
-body {}
+body{background:url(../../img/index/bg.png) ; border:0px; margin:0px; background-size:contain;}
+
+
+
+
+.moveing_area { height:3500px; overflow: hidden; }
+.moveing_area .border{width:400px;height:400px;overflow:hidden;position:relative;margin:50px auto;}
+.moveing_area .border .ddd{display:none;width:350px;height:340px;overflow:hidden;position:absolute;z-index:4;top:50px;right:30px;}
+.moveing_area .circle{display:none;width:360px;height:360px;position:absolute;z-index:6;top:30px;right:34px;border-radius:500px;border:2px dashed #999;;}
+.content.one{width:1000px;height:500px;position: fixed; top:50%;margin-top:-210px; left:0px;z-index:3; background-color:rgba(47,132,132,0);}
+.content.one .circle-works__mask2{width:370px;height:395px;position:absolute;left:0px;top:0px;overflow:hidden;}
+.content.one .circle-works__mask{position:absolute;left:0px;top:0px;width:400px;height:400px;overflow:hidden;-webkit-animation:rotate 5s infinite;animation: rotate 5s infinite ; background-repeat: no-repeat;background-position: 0 0;z-index:3; }
+.img2{position:absolute;width:398px;height:398px;left:-24px;top:15px;z-index:5; }
+.img{position:absolute;left:-8px;top:13px;width:395px;}
+
+@-webkit-keyframes rotate
+{
+	0% {border-radius:200px;-webkit-transform: skewY(8deg) skewX(-5deg) rotate(360deg);transform-origin:30px 20px;}
+	10% {border-radius:200px;-webkit-transform:skewX(-5deg) skewY(5deg) rotate(-360deg);transform-origin:20px 30px;}
+	20% {border-radius:200px;-webkit-transform:skewY(5deg) skewX(-8deg) rotate(360deg);transform-origin:30px 20px;}
+	30% {border-radius:200px;-webkit-transform:skewX(-5deg) skewY(5deg) rotate(-360deg);transform-origin:20px 30px;}
+	40% { border-radius:200px;-webkit-transform: skewY(5deg) skewX(-5deg) rotate(360deg);transform-origin:30px 20px;}
+	50% {border-radius:200px;-webkit-transform: skewX(-5deg) skewY(5deg) rotate(-360deg);transform-origin:20px 30px;}
+	60% {border-radius:200px;-webkit-transform: skewY(8deg) skewX(-8deg) rotate(360deg);transform-origin:30px 20px;}
+	70% {border-radius:200px;-webkit-transform: skewX(-5deg) skewY(5deg) rotate(-360deg);transform-origin:20px 30px;}
+	80% {border-radius:200px;-webkit-transform: skewY(5deg) skewX(-8deg) rotate(360deg);transform-origin:30px 20px;}
+	90% {border-radius:200px;-webkit-transform:skewX(-8deg) skewY(5deg) rotate(-360deg);transform-origin:20px 30px;}
+	100% {border-radius:200px;-webkit-transform:skewY(8deg) skewX(-5deg) rotate(360deg);transform-origin:30px 20px;}
+}
+@keyframes rotate
+{
+	0% {border-radius:200px;transform: skewY(8deg) skewX(-5deg) rotate(360deg);transform-origin:30px 20px;}
+	10% {border-radius:200px;transform:skewX(-5deg) skewY(5deg) rotate(-360deg);transform-origin:20px 30px;}
+	20% {border-radius:200px;transform:skewY(5deg) skewX(-8deg) rotate(360deg);transform-origin:30px 20px;}
+	30% {border-radius:200px;transform:skewX(-5deg) skewY(5deg) rotate(-360deg);transform-origin:20px 30px;}
+	40% { border-radius:200px;transform: skewY(5deg) skewX(-5deg) rotate(360deg);transform-origin:30px 20px;}
+	50% {border-radius:200px;transform: skewX(-5deg) skewY(5deg) rotate(-360deg);transform-origin:20px 30px;}
+	60% {border-radius:200px;transform: skewY(8deg) skewX(-8deg) rotate(360deg);transform-origin:30px 20px;}
+	70% {border-radius:200px;transform: skewX(-5deg) skewY(5deg) rotate(-360deg);transform-origin:20px 30px;}
+	80% {border-radius:200px;transform: skewY(5deg) skewX(-8deg) rotate(360deg);transform-origin:30px 20px;}
+	90% {border-radius:200px;transform:skewX(-8deg) skewY(5deg) rotate(-360deg);transform-origin:20px 30px;}
+	100% {border-radius:200px;transform:skewY(8deg) skewX(-5deg) rotate(360deg);transform-origin:30px 20px;}
+}
+.content.two {width:1000px;height:500px;position: fixed; top:50%;margin-top:-210px; left:1000px;z-index:3; background-color:rgba(47,132,132,0.4);}
+.content.three {width:1000px;height:500px;position: fixed; top:50%;margin-top:-210px; left:2000px;z-index:3; background-color:rgba(47,132,132,0.3);}
+.content.four {width:1000px;height:500px;position: fixed; top:50%;margin-top:-210px; left:3000px;z-index:3; background-color:rgba(47,132,132,0.2);}
+.content.five {width:1000px;height:500px;position: fixed; top:50%;margin-top:-210px; left:4000px;z-index:3; background-color:rgba(47,132,132,0.1);}
+
+
+

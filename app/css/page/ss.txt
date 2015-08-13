@@ -1,0 +1,411 @@
+
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Organization" lang="ja" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ぷるぷるスパークリングゼリー | 白鶴酒造株式会社</title>
+    <meta name="viewport" content="width=1080">
+    <meta name="keywords" content="白鶴,酒造,日本酒,清酒,お酒,ぷるぷる,スパークリング,しゅわしゅわ,梅酒,林檎,りんご,柚子,ゆず,桃,檸檬,レモン,ゼリー,缶,リキュール" />
+    <meta name="description" content="白鶴酒造の振って飲む新感覚のゼリー果実酒「ぷるぷるスパークリングゼリー」。厳選された国産の梅・林檎・檸檬・桃・柚子を使った新感覚のお酒です。" />
+    <!--ogp-->
+    <meta property="og:title" content="ぷるぷるスパークリングゼリー | 白鶴酒造株式会社" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://www.hakutsuru.co.jp/purupuru/" />
+    <meta property="og:image" content="http://www.hakutsuru.co.jp/purupuru/img/ogpimage.png" />
+    <meta property="og:description" content="白鶴酒造の振って飲む新感覚のゼリー果実酒「ぷるぷるスパークリングゼリー」。厳選された国産の梅・林檎・檸檬・桃・柚子を使った新感覚のお酒です。">
+    <meta property="og:site_name" content="ぷるぷるスパークリングゼリー | 白鶴酒造株式会社" />
+    <meta property="fb:app_id" content="639585119503745" />
+    <meta property="og:locale" content="ja_JP" />
+    <!--ogp end-->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!--[if lt IE 9]>
+    <script src="js/html5.js"></script>
+    <![endif]-->
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+    </script>
+</head>
+<body id="top">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id; js.async = true;
+    js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div id="Wrapper">
+<nav class="fixedNav" id="FixedNav">
+    <ul>
+        <li><a href="#How_to_drink" class="scroll"><img src="img/common/fixednav_1.png" height="59" width="157" alt="おいしい飲み方"></a></li>
+        <li><a href="#Carefully_selected_fruits" class="scroll"><img src="img/common/fixednav_2.png" height="59" width="94" alt="こだわり"></a></li>
+        <li><a href="#Recommend_scene" class="scroll"><img src="img/common/fixednav_3.png" height="59" width="151" alt="おすすめシーン"></a></li>
+        <li><a href="#Arranged_recipe" class="scroll"><img src="img/common/fixednav_4.png" height="59" width="223" alt="ぷるぷるアレンジレシピ"></a></li>
+        <li><a href="#Bloggers_movies" class="scroll"><img src="img/common/fixednav_5.png" height="59" width="165" alt="ブロガームービー"></a></li>
+    </ul>
+    <div class="bar"></div>
+</nav>
+<header class="header">
+    <div class="inner">
+        <h1><a href="http://www.hakutsuru.co.jp/" target="_blank"><img src="img/common/header_logo.png" height="41" width="103" alt="白鶴"></a></h1>
+        <ul class="sns">
+            <li id="Facebook"><div class="fb-like" data-href="http://www.hakutsuru.co.jp/purupuru/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div></li>
+            <li id="Twitter"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.hakutsuru.co.jp/purupuru/" data-hashtags="ぷるぷる">Tweet</a></li>
+        </ul>
+    </div>
+</header><!-- /header -->
+<div class="kv">
+    <div id="Loading"><img src="img/index/loading.gif" height="24" width="84" alt="Loading"></div>
+    <div class="bg-pattern">
+        <div class="pt1"></div>
+        <div class="pt2"></div>
+        <div class="pt3"></div>
+        <div class="pt4"></div>
+        <div class="pt5"></div>
+    </div>
+    <div class="inner">
+        <div class="lead">
+            <img src="img/index/leadcopy0.png" height="80" width="473" alt="ふるふる振ってぷるぷる新食感！">
+            <img src="img/index/leadcopy1.png" height="80" width="473" alt="ふるふる振ってぷるぷる新食感！">
+            <img src="img/index/leadcopy2.png" height="80" width="473" alt="ふるふる振ってぷるぷる新食感！">
+            <img src="img/index/leadcopy3.png" height="80" width="473" alt="ふるふる振ってぷるぷる新食感！">
+            <img src="img/index/leadcopy4.png" height="80" width="473" alt="ふるふる振ってぷるぷる新食感！">
+        </div>
+        <div class="title">
+            <ul>
+                <li class="t0"><img src="img/index/title_0.png" height="85" width="83" alt="ぷ"></li>
+                <li class="t1"><img src="img/index/title_1.png" height="63" width="55" alt="る"></li>
+                <li class="t2"><img src="img/index/title_2.png" height="53" width="64" alt="ぷ"></li>
+                <li class="t3"><img src="img/index/title_3.png" height="60" width="50" alt="る"></li>
+                <li class="t4"><img src="img/index/title_4.png" height="57" width="38" alt="S"></li>
+                <li class="t5"><img src="img/index/title_5.png" height="55" width="46" alt="P"></li>
+                <li class="t6"><img src="img/index/title_6.png" height="57" width="58" alt="A"></li>
+                <li class="t7"><img src="img/index/title_7.png" height="55" width="52" alt="R"></li>
+                <li class="t8"><img src="img/index/title_8.png" height="55" width="52" alt="K"></li>
+                <li class="t9"><img src="img/index/title_9.png" height="55" width="52" alt="L"></li>
+                <li class="t10"><img src="img/index/title_10.png" height="55" width="31" alt="I"></li>
+                <li class="t11"><img src="img/index/title_11.png" height="56" width="56" alt="N"></li>
+                <li class="t12"><img src="img/index/title_12.png" height="57" width="57" alt="G"></li>
+                <li class="t13"><img src="img/index/title_13.png" height="61" width="73" alt="ゼ"></li>
+                <li class="t14"><img src="img/index/title_14.png" height="65" width="42" alt="リ"></li>
+                <li class="t15"><img src="img/index/title_15.png" height="20" width="66" alt="ー"></li>
+            </ul>
+        </div>
+        <div class="item">
+            <ul>
+                <li class="i0"><img src="img/index/item_0.png" height="300" width="187" alt="ぷるぷる梅酒ゼリー"></li>
+                <li class="i1"><img src="img/index/item_1.png" height="300" width="188" alt="ぷるぷる林檎酒ゼリー"></li>
+                <li class="i2"><img src="img/index/item_2.png" height="300" width="188" alt="ぷるぷる檸檬酒ゼリー"></li>
+                <li class="i3"><img src="img/index/item_3.png" height="300" width="188" alt="ぷるぷる桃酒ゼリー"></li>
+                <li class="i4"><img src="img/index/item_4.png" height="300" width="188" alt="ぷるぷる柚子酒ゼリー"></li>
+            </ul>
+        </div>
+        <div class="copy">
+            <p class="c0"><img src="img/index/copy_0.png" height="47" width="683" alt="厳選された国産果実が、ぷるぷるのスパークリングゼリーになりました。"></p>
+            <p class="c1"><img src="img/index/copy_1.png" height="37" width="513" alt="よく冷やして、振ってから楽しむ、新感覚のお酒です。"></p>
+        </div>
+    </div>
+    <nav class="nav" id="MainNav">
+        <ul>
+            <li class="n0">
+                <a href="#How_to_drink" class="scroll">
+                    <div class="bg"><img src="img/index/nav_0_bg.png" height="150" width="150" alt=""></div>
+                    <div class="txt"><img src="img/index/nav_0_txt.png" height="150" width="150" alt="おいしい飲み方"></div>
+                </a>
+            </li>
+            <li class="n1">
+                <a href="#Carefully_selected_fruits" class="scroll">
+                    <div class="bg"><img src="img/index/nav_1_bg.png" height="150" width="150" alt=""></div>
+                    <div class="txt"><img src="img/index/nav_1_txt.png" height="150" width="150" alt="こだわり"></div>
+                </a>
+            </li>
+            <li class="n2">
+                <a href="#Recommend_scene" class="scroll">
+                    <div class="bg"><img src="img/index/nav_2_bg.png" height="150" width="150" alt=""></div>
+                    <div class="txt"><img src="img/index/nav_2_txt.png" height="150" width="150" alt="おすすめシーン"></div>
+                </a>
+            </li>
+            <li class="n3">
+                <a href="#Arranged_recipe" class="scroll">
+                    <div class="bg"><img src="img/index/nav_3_bg.png" height="150" width="150" alt=""></div>
+                    <div class="txt"><img src="img/index/nav_3_txt.png" height="150" width="150" alt="ぷるぷるアレンジレシピ"></div>
+                </a>
+            </li>
+            <li class="n4">
+                <a href="#Bloggers_movies" class="scroll">
+                    <div class="bg"><img src="img/index/nav_4_bg.png" height="150" width="150" alt=""></div>
+                    <div class="txt"><img src="img/index/nav_4_txt.png" height="150" width="150" alt="ブロガームービー"></div>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<div class="contents">
+<div class="cont cont_01" id="How_to_drink">
+    <div class="inner">
+        <h2><img src="img/index/cont_01_title.png" height="61" width="301" alt="おいしい飲み方"></h2>
+        <ul>
+            <li><img src="img/index/cont_01_img1.png" height="148" width="316" alt="冷蔵庫でよく冷やします。"></li>
+            <li><img src="img/index/cont_01_img2.png" height="148" width="318" alt="10回ほど強く振ります。"><div class="shaking"></div></li>
+            <li><img src="img/index/cont_01_img3.png" height="148" width="316" alt="お気に入りのグラスに注ぎます。"></li>
+        </ul>
+    </div>
+</div>
+<div class="cont cont_02" id="Carefully_selected_fruits">
+    <div class="inner">
+        <h2><img src="img/index/cont_02_title.png" height="65" width="712" alt="こだわりの国産果実・果汁を使っています。"></h2>
+        <ul class="top">
+            <li class="no1">
+                <div class="img"><img src="img/index/cont_02_img1.png" height="200" width="200" alt=" ぷるぷる梅酒"></div>
+                <div class="txt"><img src="img/index/cont_02_txt1.png" height="128" width="233" alt="紀州梅100％の梅酒をベースにした
+SPARKLINGゼリー。甘酸っぱくて爽やかな味わいが楽しめます。"></div>
+                <div class="item"><a href="http://www.hakutsuru.co.jp/product/ume/puru_ume.shtml" target="_blank"><img src="img/index/cont_02_item1.png" height="200" width="200" alt=" ぷるぷる梅酒"></a></div>
+            </li>
+            <li class="no2">
+                <div class="img"><img src="img/index/cont_02_img2.png" height="200" width="200" alt=" ぷるぷる檸檬酒"></div>
+                <div class="txt"><img src="img/index/cont_02_txt2.png" height="127" width="224" alt="檸檬のさわやかな香りと、酸味が楽しめるSPARKRINGゼリーです。瀬戸内ブランド認定商品。"></div>
+                <div class="item"><a href="http://www.hakutsuru.co.jp/product/ume/puru_lemon.shtml" target="_blank"><img src="img/index/cont_02_item2.png" height="200" width="200" alt=" ぷるぷる檸檬酒"></a></div>
+            </li>
+        </ul>
+        <ul class="bottom">
+            <li class="no3">
+                <div class="img"><img src="img/index/cont_02_img3.png" height="150" width="150" alt="ぷるぷる林檎酒"></div>
+                <div class="txt"><img src="img/index/cont_02_txt3.png" height="104" width="240" alt="青森県産の林檎果汁を30％使用した贅沢仕立て。林檎の果実味あふれるSPARKLINGゼリーです。"></div>
+                <div class="item"><a href="http://www.hakutsuru.co.jp/product/ume/puru_apple.shtml" target="_blank"><img src="img/index/cont_02_item3.png" height="150" width="150" alt="ぷるぷる林檎酒"></a></div>
+            </li>
+            <li class="no4">
+                <div class="img"><img src="img/index/cont_02_img4.png" height="150" width="150" alt="ぷるぷる桃酒"></div>
+                <div class="txt"><img src="img/index/cont_02_txt4.png" height="127" width="223" alt="国産もも果汁を贅沢に25％使用。ももの豊かな香りと、ジューシーなおいしさが楽しめるSPARKLINGゼリーです。"></div>
+                <div class="item"><a href="http://www.hakutsuru.co.jp/product/ume/puru_peach.shtml" target="_blank"><img src="img/index/cont_02_item4.png" height="150" width="150" alt="ぷるぷる桃酒"></a></div>
+            </li>
+            <li class="no5">
+                <div class="img"><img src="img/index/cont_02_img5.png" height="150" width="150" alt="ぷるぷる柚子酒"></div>
+                <div class="txt"><img src="img/index/cont_02_txt5.png" height="127" width="256" alt="国産ゆず果汁使用。柚子ならではの甘酸っぱくほろ苦い味と、爽やかな香りが特長のSPARKLINGゼリーです。"></div>
+                <div class="item"><a href="http://www.hakutsuru.co.jp/product/ume/puru_yuzu.shtml" target="_blank"><img src="img/index/cont_02_item5.png" height="150" width="150" alt="ぷるぷる柚子酒"></a></div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="cont cont_03" id="Recommend_scene">
+    <div class="inner">
+        <h2><img src="img/index/cont_03_title.png" height="58" width="296" alt="おすすめシーン"></h2>
+        <ul>
+            <li class="no1">
+                <div class="img"><img src="img/index/cont_03_img1.png" height="230" width="293" alt="女子会で"></div>
+                <div class="txt"><img src="img/index/cont_03_txt1.png" height="72" width="273" alt="女子会で ゼリーのつるんとした食感がクセになる"></div>
+            </li>
+            <li class="no2">
+                <div class="txt"><img src="img/index/cont_03_txt2.png" height="72" width="273" alt="行楽で あますぎないから食前酒にもぴったり"></div>
+                <div class="img"><img src="img/index/cont_03_img2.png" height="230" width="293" alt="行楽で"></div>
+            </li>
+            <li class="no3">
+                <div class="img"><img src="img/index/cont_03_img3.png" height="230" width="293" alt="お家でまったり"></div>
+                <div class="txt"><img src="img/index/cont_03_txt3.png" height="72" width="273" alt="お家でまったり ゼリーだからグラスにいれるととってもキレイ"></div>
+            </li>
+            <li class="no4">
+                <div class="img"><img src="img/index/cont_03_img4.png" height="230" width="293" alt="BBQで"></div>
+                <div class="txt"><img src="img/index/cont_03_txt4.png" height="72" width="273" alt="BBQで デザート感覚でごくごく飲めちゃう"></div>
+            </li>
+            <li class="no5">
+                <div class="img"><img src="img/index/cont_03_img5.png" height="230" width="293" alt="お風呂上がりに"></div>
+                <div class="txt"><img src="img/index/cont_03_txt5.png" height="72" width="273" alt="お風呂上がりに しゅわしゅわ炭酸とゼリーで爽やかスッキリ"></div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="cont cont_04" id="Arranged_recipe">
+    <div class="inner">
+        <h2><img src="img/index/cont_04_title.png" height="60" width="418" alt="ぷるぷるアレンジレシピ"></h2>
+        <ul>
+            <li class="no1">
+                <div class="img"><img src="img/index/cont_04_img1.png" height="260" width="260" alt="ぷるぷる梅酒"></div>
+                <div class="txt"><a href="recipe/index.html#ume" target="_blank"><img src="img/index/cont_04_txt1.png" height="260" width="260" alt="ぷるぷる梅酒を使った簡単アレンジ"></a></div>
+            </li>
+            <li class="no2">
+                <div class="img"><img src="img/index/cont_04_img2.png" height="260" width="260" alt="ぷるぷる柚子酒"></div>
+                <div class="txt"><a href="recipe/index.html#yuzu" target="_blank"><img src="img/index/cont_04_txt2.png" height="260" width="260" alt="ぷるぷる柚子酒を使った簡単アレンジ"></a></div>
+            </li>
+            <li class="no3">
+                <div class="img"><img src="img/index/cont_04_img3.png" height="260" width="260" alt="ぷるぷる林檎酒"></div>
+                <div class="txt"><a href="recipe/index.html#apple" target="_blank"><img src="img/index/cont_04_txt3.png" height="260" width="260" alt="ぷるぷる林檎酒を使った簡単アレンジ"></a></div>
+            </li>
+            <li class="no4">
+                <div class="img"><img src="img/index/cont_04_img4.png" height="260" width="260" alt="ぷるぷる桃酒"></div>
+                <div class="txt"><a href="recipe/index.html#peach" target="_blank"><img src="img/index/cont_04_txt4.png" height="260" width="260" alt="ぷるぷる桃酒を使った簡単アレンジ"></a></div>
+            </li>
+            <li class="no5">
+                <div class="img"><img src="img/index/cont_04_img5.png" height="260" width="260" alt="ぷるぷる檸檬酒"></div>
+                <div class="txt"><a href="recipe/index.html#lemon" target="_blank"><img src="img/index/cont_04_txt5.png" height="260" width="260" alt="ぷるぷる檸檬酒を使った簡単アレンジ"></a></div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="cont cont_05" id="Bloggers_movies">
+    <div class="inner">
+        <h2><img src="img/index/cont_05_title.png" height="60" width="328" alt="ブロガームービー"></h2>
+        <p class="copy"><img src="img/index/cont_05_copy.png" height="18" width="483" alt="サンキュ！ブロガーのぷるぷるムービーはこちら！"></p>
+        <div class="videoWrap">
+            <div class="video">
+                <div id="player"></div>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li>
+                        <div class="txt"><a href="http://39.benesse.ne.jp/blog/1583/archive/322" target="_blank"><img src="img/index/cont_05_menu1.png" height="58" width="334" alt="サンキュ！主婦ブログ 山内郁美のHappy Life #01「お酒なのにゼリー！？」"></a></div>
+                    </li>
+                    <li>
+                        <div class="txt"><a href="http://39.benesse.ne.jp/blog/nakamuranami/archive/1605" target="_blank"><img src="img/index/cont_05_menu2.png" height="58" width="334" alt="サンキュ！主婦ブログ 中村奈未のあったかhome #02 「ぷるぷる シュワシュワ☆」"></a></div>
+                    </li>
+                    <li>
+                        <div class="txt"><a href="http://39.benesse.ne.jp/blog/usuiitsumi/daily/201506/01" target="_blank"><img src="img/index/cont_05_menu3.png" height="58" width="334" alt="サンキュ！主婦ブログ臼井愛美の☆MAMAGIRL～育児も家事もおしゃれもいっぱい～☆ #03 「☆女子力高めなDRINK☆」"></a></div>
+                    </li>
+                    <li>
+                        <div class="txt"><a href="http://39.benesse.ne.jp/blog/1342/daily/201507/01" target="_blank"><img src="img/index/cont_05_menu4.png" height="58" width="334" alt="サンキュ！主婦ブログ ササキミズホのササキ家の小さなこだわり豊かな暮らし 女子力あがるお酒♪"></a></div>
+                    </li>
+                    <li id="PlayMovie">
+                        <div class="txt"><a href="#" rel="IfLAhQvhdAA"><img src="img/index/cont_05_menu5.png" height="58" width="334" alt="サンキュ！トップブロガー 町田円香さん 白鶴 ぷるぷる檸檬酒を試してみた！"></a></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cont cont_06">
+    <div class="inner">
+        <div class="items">
+            <ul>
+                <li class="no1">
+                    <div class="item"><img src="img/index/cont_06_img1.png" height="127" width="60" alt="ぷるぷる梅酒"></div>
+                    <div class="txt">
+                        <h3>白鶴 ぷるぷる梅酒</h3>
+                        <dl>
+                            <dt>酒類の品目</dt>
+                            <dd>：リキュール（発泡性①）</dd>
+                            <dt>容量・容器</dt>
+                            <dd>：190ml缶</dd>
+                            <dt>原材料名</dt>
+                            <dd>：梅酒・糖類・酸味料・リン酸K・ゲル化剤（増粘多糖類）・乳酸Ca</dd>
+                            <dt>アルコール度数</dt>
+                            <dd>：5％</dd>
+                            <dt>価格</dt>
+                            <dd>：142円（消費税別）</dd>
+                        </dl>
+                    </div>
+                    <div class="btn"><a href="http://www.hakutsuru.co.jp/product/ume/puru_ume.shtml" target="_blank"><img src="img/index/cont_06_btn1.png" height="32" width="120" alt="商品詳細"></a></div>
+                </li>
+                <li class="no2">
+                    <div class="item"><img src="img/index/cont_06_img2.png" height="127" width="60" alt="ぷるぷる柚子酒"></div>
+                    <div class="txt">
+                        <h3>白鶴 ぷるぷる柚子酒</h3>
+                        <dl>
+                            <dt>酒類の品目</dt>
+                            <dd>：リキュール（発泡性①）</dd>
+                            <dt>容量・容器</dt>
+                            <dd>：190ml缶</dd>
+                            <dt>原材料名</dt>
+                            <dd>：ゆず・醸造アルコール・糖類・乳酸Ca・ビタミンC・ゲル化剤（増粘多糖類）・酸味料・リン酸K</dd>
+                            <dt>アルコール度数</dt>
+                            <dd>：5％</dd>
+                            <dt>価格</dt>
+                            <dd>：142円（消費税別）</dd>
+                        </dl>
+                    </div>
+                    <div class="btn"><a href="http://www.hakutsuru.co.jp/product/ume/puru_yuzu.shtml" target="_blank"><img src="img/index/cont_06_btn2.png" height="32" width="120" alt="商品詳細"></a></div>
+                </li>
+                <li class="no3">
+                    <div class="item"><img src="img/index/cont_06_img3.png" height="127" width="60" alt="ぷるぷる林檎酒"></div>
+                    <div class="txt">
+                        <h3>白鶴 ぷるぷる林檎酒</h3>
+                        <dl>
+                            <dt>酒類の品目</dt>
+                            <dd>：リキュール（発泡性①）</dd>
+                            <dt>容量・容器</dt>
+                            <dd>：190ml缶</dd>
+                            <dt>原材料名</dt>
+                            <dd>：りんご果汁・醸造アルコール・糖類・酸味料・乳酸Ca・ゲル化剤（増粘多糖類）・リン酸K・香料</dd>
+                            <dt>アルコール度数</dt>
+                            <dd>：5％</dd>
+                            <dt>価格</dt>
+                            <dd>：142円（消費税別）</dd>
+                        </dl>
+                    </div>
+                    <div class="btn"><a href="http://www.hakutsuru.co.jp/product/ume/puru_apple.shtml" target="_blank"><img src="img/index/cont_06_btn3.png" height="32" width="120" alt="商品詳細"></a></div>
+                </li>
+                <li class="no4">
+                    <div class="item"><img src="img/index/cont_06_img4.png" height="127" width="60" alt="ぷるぷる桃酒"></div>
+                    <div class="txt">
+                        <h3>白鶴 ぷるぷる桃酒</h3>
+                        <dl>
+                            <dt>酒類の品目</dt>
+                            <dd>：リキュール（発泡性①）</dd>
+                            <dt>容量・容器</dt>
+                            <dd>：190ml缶</dd>
+                            <dt>原材料名</dt>
+                            <dd>：もも果汁・醸造アルコール・糖類・香料・酸味料・乳酸Ｃａ・ゲル化剤（増粘多糖類）・リン酸Ｋ・ビタミンＣ</dd>
+                            <dt>アルコール度数</dt>
+                            <dd>：3％</dd>
+                            <dt>価格</dt>
+                            <dd>：142円（消費税別）</dd>
+                        </dl>
+                    </div>
+                    <div class="btn"><a href="http://www.hakutsuru.co.jp/product/ume/puru_peach.shtml" target="_blank"><img src="img/index/cont_06_btn4.png" height="32" width="120" alt="商品詳細"></a></div>
+                </li>
+                <li class="no5">
+                    <div class="item"><img src="img/index/cont_06_img5.png" height="127" width="60" alt="ぷるぷる檸檬酒"></div>
+                    <div class="txt">
+                        <h3>白鶴 ぷるぷる檸檬酒</h3>
+                        <dl>
+                            <dt>酒類の品目</dt>
+                            <dd>：リキュール（発泡性①）</dd>
+                            <dt>容量・容器</dt>
+                            <dd>：190ml缶</dd>
+                            <dt>原材料名</dt>
+                            <dd>：レモン果汁・醸造アルコール・糖類・酸味料・香料・乳酸Ca・ゲル化剤（増粘多糖類）・リン酸K・ビタミンC・紅花色素</dd>
+                            <dt>アルコール度数</dt>
+                            <dd>：3％</dd>
+                            <dt>価格</dt>
+                            <dd>：142円（消費税別）</dd>
+                        </dl>
+                    </div>
+                    <div class="btn"><a href="http://www.hakutsuru.co.jp/product/ume/puru_lemon.shtml" target="_blank"><img src="img/index/cont_06_btn5.png" height="32" width="120" alt="商品詳細"></a></div>
+                </li>
+            </ul>
+            <div class="bnr-area" style="margin-top: 15px;"><a href="http://www.hakutsuru.co.jp/ryokatsu/" target="_blank"><img src="/common/images/bnr_ryokatsu.jpg" width="280" height="70" alt="涼活コミュ"></a></div>
+        </div>
+    </div>
+</div>
+</div>
+<p class="totop"><a href="#top"><img src="http://www.hakutsuru.co.jp/common/images/ft_btn_pagetop.gif" alt="PAGE TOP" width="80" height="20" class="alpha"></a></p>
+<footer class="footer">
+    <div class="inner">
+        <ul class="footLink">
+            <li><a href="http://www.hakutsuru.co.jp/guide/index.shtml"><img src="http://www.hakutsuru.co.jp/common/images/ft_txt_guide.gif" width="58" height="10" alt="ご利用ガイド" class="alpha"></a></li>
+            <li><a href="http://www.hakutsuru.co.jp/privacy/index.shtml"><img src="http://www.hakutsuru.co.jp/common/images/ft_txt_privacy.gif" width="99" height="10" alt="プライバシーポリシー" class="alpha"></a></li>
+            <li><a href="http://www.hakutsuru-sake.com/" onClick="window.open('http://www.hakutsuru-sake.com/'); return false;"><img src="http://www.hakutsuru.co.jp/common/images/ft_txt_america.gif" width="167" height="10" alt="HAKUTSURU SAKE of America" class="alpha"></a></li>
+        </ul>
+        <p class="logo"><img src="http://www.hakutsuru.co.jp/common/images/ft_logo_txt.gif" alt="時をこえ 親しみの心をおくる　白鶴酒造株式会社" width="296" height="14"></p>
+        <p class="note"><img src="http://www.hakutsuru.co.jp/common/images/ft_tx_note.gif" alt="飲酒は20歳になってから。お酒はおいしく適量を。飲酒運転は絶対にやめましょう。妊娠中や授乳期の飲酒は、胎児・乳児の発育に影響するおそれがありますので、気をつけましょう。" width="490" height="28"></p>
+        <p class="copyright">Copyright© 2000-2015 HAKUTSURU SAKE BREWING CO.,LTD.</p>
+    </div>
+    <!-- end #footer -->
+</footer>
+</div>
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/jquery.transit.min.js"></script>
+<script src="js/jquery.easing.1.3.min.js"></script>
+<script src="js/util.min.js"></script>
+<script src="js/main.min.js"></script>
+<script src="js/func.min.js"></script>
+<!-- GoogleAnalytics -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-4239097-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<!-- /GoogleAnalytics -->
+</body>
+</html>

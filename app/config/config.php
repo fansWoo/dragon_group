@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= '/fanswoo-framework/';
+$config['base_url']	= '/dragon_group/';
 
 /*
 |--------------------------------------------------------------------------
