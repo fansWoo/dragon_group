@@ -90,8 +90,8 @@ $(function(){
 		
 		
 		
-		var content_bottom_top = $('.moveing_area').offset().top;
-		var content_bottom_height_all = $('.moveing_area').heightAll();
+		var content_bottom_top = $('.scroll_area').offset().top;
+		var content_bottom_height_all = $('.scroll_area').heightAll();
 		if(scroll_top == 0 )
         {
 
@@ -102,8 +102,8 @@ $(function(){
 		if(scroll_top_height >= content_bottom_top)
 		{
 			var s1 = (scroll_top_height - content_bottom_top) * 1.5;
-			$('.moveing_area').addClass('hover');
-			$('.moveing_area .content').css('transform', 'translate(-' + s1 + 'px, 0)');
+			$('.scroll_area').addClass('hover');
+			$('.scroll_area .content').css('transform', 'translate(-' + s1 + 'px, 0)');
 			
 		}
 
@@ -118,22 +118,41 @@ $(function(){
 <script src="js/test/main.min.js"></script>
 <script src="js/test/func.min.js"></script>
 
-<div class="moveing_area">
-	<div class="content one">
-		<div class="border">
-			<img src="app/img/index/789.png" class="ddd">
-			<div class="circle"></div>
-			<div class="circle-works__mask2">
-				<img src="app/img/index/aa.png" class="circle-works__mask">
-				<img src="app/img/index/aa.png" class="img2">
-				<img src="app/img/index/dd.png" class="img">
+<div class="scroll_area">
+	<div class="content one" id="content_one">
+		<div class="left_text_box">
+			<h1>引人注目的廣告文案</h1>
+			<h2>引人注目的廣告文案廣告文案，
+			的廣告文案廣告文案，
+			廣告文案、廣告文案、廣告文案，的廣告文案廣的廣告文案廣告文案廣告。</h2>
+			<h2>引人注目的廣告文案廣告文案，
+			的廣告文案廣告文案，
+			廣告文案、廣告文案、廣告文案，的廣告文案廣的廣告文案廣告文案廣告。</h2>
+		</div>
+	
+		<div class="moveing_box">
+			<div class="orange_box">
+				<img src="app/img/index/orange_circle.png" class="orange_circle">	
+				<div class="text">
+					<p>如何愛自己？</p>
+					<h4>傾聽身體的聲音<br>及時就診檢查</h4>
+					<h5>〉〉〉</h5>
+				</div>
+			</div>
+			<div class="circle_dashed"></div>
+			<div class="rotate_border_box">
+				<div class="circle_border">
+					<img src="app/img/index/aa.png" class="circle_border_pic">
+					<img src="app/img/index/aa.png" class="img2">
+					<img src="app/img/index/dd.png" class="img">
+				</div>
 			</div>
 		</div>
 	</div>
-	<div class="content two"></div>
-	<div class="content three"></div>
-	<div class="content four "></div>
-	<div class="content five"></div>
+	<div class="content two" id="content_two"></div>
+	<div class="content three" id="content_three"></div>
+	<div class="content four " id="content_four"></div>
+	<div class="content five" id="content_five"></div>
 </div>
 
 
