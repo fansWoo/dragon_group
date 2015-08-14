@@ -11,6 +11,10 @@ $('a[href^=#]').click(function () {
 </script>
 <div class="body">
 	<div class="header_bar">
+		<div class="center">
+			<div class="logo_logo"></div>
+		</div>
+	
 	</div>
 	<div class="header_bar_mobile">
 		<h2 class="ui_title">fansWoo</h2>
