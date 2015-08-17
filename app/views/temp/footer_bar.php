@@ -1,6 +1,10 @@
 </div>
 <div class="footer_bar">
 </div>
+
+
+
+
 <div class="footer_bar_mobile">
 	<a href="" class="nav_li">
 		選項1

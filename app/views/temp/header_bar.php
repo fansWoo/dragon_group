@@ -12,7 +12,14 @@ $('a[href^=#]').click(function () {
 <div class="body">
 	<div class="header_bar">
 		<div class="center">
-			<div class="logo_logo"></div>
+			<div class="logo_box">
+				<img src="app/img/logo.png">
+			</div>
+			<div class="right_nav">
+				<a href="">關於龍安</a>
+				<a href="">最新消息</a>
+				<a href="">聯繫我們</a>
+			</div>
 		</div>
 	
 	</div>
