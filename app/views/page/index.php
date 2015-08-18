@@ -6,32 +6,25 @@
 $(function(){
 	$(document).scroll(function(){
 		var window_width = $(window).width();
-
-		var scroll_top = $(document).scrollTop();
-		if(scroll_top == 0){
-			$('.wrapMarketing, .wrapGraphic, .wrapProgram , .portfolio_box1 , .portfolio_box2 , .portfolio_box3 , .portfolio_box4 , #pic_move_pic1' ).removeClass('hover');
-			$('.content1').addClass('hover');
-
-		}
+		var scroll_top = $(document).scrollTop();	
 		if(window_width > 1024 && window_width < 1400){
-			if(scroll_top > 4500 && scroll_top < 6500){
-				$('.videoFixed').addClass('hover');
+
+			if(scroll_top == 0){
+				$('#content_one , #content_two , .wrapProgram , .portfolio_box1 , .portfolio_box2 , .portfolio_box3 , .portfolio_box4 , #pic_move_pic1' ).removeClass('hover');
+
 			}
-			else if(scroll_top  < 4500){
-				$('.videoFixed').removeClass('hover');
+	
+			if(scroll_top >= 300 && scroll_top < 800){
+				$('#content_one').addClass('hover');
+				$('#content_two').removeClass('hover');
 			}
-			else if(scroll_top  > 6500){
-				$('.videoFixed').removeClass('hover');
+			else if(scroll_top >= 800 && scroll_top < 1500){
+				$('#content_two').addClass('hover');
 			}
-			
-			else if(scroll_top >= 1000 && scroll_top < 2000){
-				$('.wrapMarketing').addClass('hover');
-			}
-			else if(scroll_top >= 2000 && scroll_top < 2500){
-				$('.wrapGraphic').addClass('hover');
-			}
-			else if(scroll_top >= 2500 && scroll_top < 3100){
+			else if(scroll_top >= 1500 && scroll_top < 3100){
 				$('.wrapProgram').addClass('hover');
+				$('#content_two').removeClass('hover');
+				
 			}
 			else if(scroll_top >= 3100 && scroll_top < 4500){
 				$('.portfolio_box1').addClass('hover');
@@ -40,39 +33,16 @@ $(function(){
 				$('.portfolio_box2').addClass('hover');
 			   
 			}
-			else if(scroll_top >= 5000 && scroll_top < 7500 ){
-				$('.portfolio_box3').addClass('hover');
-			   
-			}
-			else if(scroll_top >= 7500 && scroll_top < 8450 ){
-				$('.portfolio_box4').addClass('hover');
-			   
-			}
-			else if(scroll_top >= 8450 && scroll_top < 9400 ){
-				$('#pic_move_pic1').addClass('hover');
-			   
-			}
-			else if(scroll_top >= 9400 && scroll_top < 9900 ){
-				$('#pic_move_pic2').addClass('hover');
-			   
-			}
-			else if(scroll_top >= 9900 && scroll_top < 10400 ){
-				$('#pic_move_pic3').addClass('hover');
-			   
-			}
-			else if(scroll_top >= 10400 && scroll_top < 14050 ){
-				$('#pic_move_pic4').addClass('hover');
-			   
-			}
+			
 		}
 		if(window_width >= 1400){
 		
 		}
 	});
-	$('a[href^=#]').click(function () {
+	$(' #content_four a[href^=#]').click(function () {
 		var speed = 500;
 		var href = $(this).attr("href");
-		var target = $(href == "#" || href == "" ? 'html' : href);
+		var target = $(href == "#content_one" || href == " #content_one " ? 'html' : href);
 		var position = target.offset().top;
 		$("html , body").animate({scrollTop: position}, speed, "swing");
 			return false;
@@ -90,35 +60,39 @@ $(function(){
 		//location.href = 'page/index';
 	//}
 	$(document).scroll(function(){
-        var scroll_top = $(document).scrollTop();
-        var scroll_top_height = scroll_top;
-		console.log(scroll_top);
-		var content_bottom_top = $('.scroll_area').offset().top;
-		var content_bottom_height_all = $('.scroll_area').heightAll();
-		
-		if(scroll_top_height >= content_bottom_top)
-		{
-			var s1 = (scroll_top_height - content_bottom_top) * 1.5;
-			var p7 = (scroll_top_height - content_bottom_top) / 1 ;
-			var p8 = (scroll_top_height - content_bottom_top) * 0.15 ;
+		var window_width = $(window).width();
+		var scroll_top = $(document).scrollTop();		
+		if(window_width > 450){
+
+			var scroll_top = $(document).scrollTop();
+			var scroll_top_height = scroll_top;
+			console.log(scroll_top);
+			var content_bottom_top = $('.scroll_area').offset().top;
+			var content_bottom_height_all = $('.scroll_area').heightAll();
 			
-			$('.scroll_area').addClass('hover');
-			$('.scroll_area .content').css('transform', 'translate(-' + s1 + 'px, 0)');
-			$('#content_three .plan').css('transform', 'translateY(+' + p8 + 'px) translateX(+' + p7  + 'px) rotate(-15deg)');
-		}
-		
-		var content_bottom_top = $('#content_two').offset().top;
-		var content_bottom_height_all = $(content_two).heightAll();
-		if(scroll_top_height >= content_bottom_top)
-		{
-		
-			var p7 = (scroll_top_height - content_bottom_top) / 1 ;
-			var p8 = (scroll_top_height - content_bottom_top) * 0.15 ;
+			if(scroll_top_height >= content_bottom_top)
+			{
+				var s1 = (scroll_top_height - content_bottom_top) * 1.5;
+				var p7 = (scroll_top_height - content_bottom_top) / 1 ;
+				var p8 = (scroll_top_height - content_bottom_top) * 0.15 ;
+				
+				$('.scroll_area').addClass('hover');
+				$('.scroll_area .content').css('transform', 'translate(-' + s1 + 'px, 0)');
+				$('#content_three .plan').css('transform', 'translateY(+' + p8 + 'px) translateX(+' + p7  + 'px) rotate(-15deg)');
+			}
 			
-			$('#content_two .bus').css('transform', 'translateY(+' + p8 + 'px) translateX(+' + p7  + 'px) rotate(-15deg)');
+			var content_bottom_top = $('#content_two').offset().top;
+			var content_bottom_height_all = $(content_two).heightAll();
+			if(scroll_top_height >= content_bottom_top)
+			{
+			
+				var p7 = (scroll_top_height - content_bottom_top) / 1 ;
+				var p8 = (scroll_top_height - content_bottom_top) * 0.15 ;
+				
+				$('#content_two .bus').css('transform', 'translateY(+' + p8 + 'px) translateX(+' + p7  + 'px) rotate(-15deg)');
+			}
+		
 		}
-		
-		
     });
 });
 </script>
@@ -133,10 +107,13 @@ $(function(){
 	<div class="content one"  id="content_one">
 		<div></div>
 		<div class="road">
-			<img src="app/img/index/road01.png" >	
+			<img src="app/img/index/road01.png" >
+			<p>錦州街</p>			
 		</div>
 		<div class="road2">
-			<img src="app/img/index/road02.png" >	
+			<img src="app/img/index/road02.png" >
+			<p>錦州街</p>	
+			<p>錦州街</p>			
 		</div>
 		<div class="heart">
 			<img src="app/img/index/heart.png" >
@@ -205,8 +182,14 @@ $(function(){
 	</div>
 	<!------------------------------------------------------------------------------------>
 	<div class="content two" id="content_two">
-		<div class="bus">
-			<img src="app/img/index/bus.png" >	
+		<div class="road3">
+			<img src="app/img/index/road031.png" >
+			<p>松江路</p>
+			<p>民生東路一段</p>				
+		</div>
+		<div class="bus_box">
+			<img src="app/img/index/bus.png" class="bus">
+			<img src="app/img/index/bus2.png" class="bus2">
 		</div>
 		<div class="sketch_light one">
 			<img src="app/img/index/sketch_light.gif" >	
@@ -261,11 +244,11 @@ $(function(){
 	</div>
 	<!------------------------------------------------------------------------------------>
 	<div class="content three" id="content_three">
-		<div class="road3">
-			<img src="app/img/index/road031.png" >	
-		</div>
 		<div class="ground">
 			<img src="app/img/index/map_taiwan.png" >	
+		</div>
+		<div class="sketch_sea">
+			<img src="app/img/index/sketch_sea.gif" >	
 		</div>
 		<div class="plan">
 			<img src="app/img/index/plan.png" >	
@@ -302,7 +285,7 @@ $(function(){
 				<div class="rotate_border_box">
 					<div class="circle_border">
 						<img src="app/img/index/bb.png" class="circle_border_pic">
-						<img src="app/img/index/bb.png" class="img2">
+						<img src="app/img/index/aa.png" class="img2">
 						<img src="app/img/index/pic03.png" class="img">
 						<div class="hover_box"></div>
 					</div>
@@ -312,7 +295,9 @@ $(function(){
 	</div>
 	<!------------------------------------------------------------------------------------>
 	<div class="content four " id="content_four">
-		<a href="#content_one" class="arrow2"></a>
+		<a href="#content_one" class="arrow">
+			<div></div>
+		</a>
 		<div class="ground">
 			<img src="app/img/index/map_china.png" >	
 		</div>
@@ -360,30 +345,35 @@ $(function(){
 			</div>
 		</div>	
 	</div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+</div>
+
+
+<!------------------------------手機板------------------------------------------------------>
+
+<div class="phone_area">
+	<div class="nav">
+		<a href="" class="li">關於龍安</a>
+		<a href="" class="li">最新消息</a>
+		<a href="" class="li">聯繫我們</a>
 	</div>
-	<!------------------------------------------------------------------------------------>
+
+</div>	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 </div>
 <div class="index_footer">
