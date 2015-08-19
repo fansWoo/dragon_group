@@ -7,10 +7,10 @@ $(function(){
 	$(document).scroll(function(){
 		var window_width = $(window).width();
 		var scroll_top = $(document).scrollTop();	
-		if(window_width > 1024 && window_width < 1400){
+		if(window_width > 450 && window_width <= 1400){
 
 			if(scroll_top == 0){
-				$('#content_one , #content_two , .wrapProgram , .portfolio_box1 , .portfolio_box2 , .portfolio_box3 , .portfolio_box4 , #pic_move_pic1' ).removeClass('hover');
+				$('#content_one , #content_two , #content_three , #content_four ').removeClass('hover');
 
 			}
 	
@@ -22,20 +22,48 @@ $(function(){
 				$('#content_two').addClass('hover');
 			}
 			else if(scroll_top >= 1500 && scroll_top < 3100){
-				$('.wrapProgram').addClass('hover');
+				$('#content_three').addClass('hover');
 				$('#content_two').removeClass('hover');
 				
 			}
 			else if(scroll_top >= 3100 && scroll_top < 4500){
-				$('.portfolio_box1').addClass('hover');
+				$('#content_four').addClass('hover');
+				$('#content_two').removeClass('hover');
 			}
 			else if(scroll_top >= 4500 && scroll_top < 5000 ){
-				$('.portfolio_box2').addClass('hover');
+				$('#content_two').removeClass('hover');
 			   
 			}
 			
 		}
 		if(window_width >= 1400){
+			
+			if(scroll_top == 0){
+				$('#content_one , #content_two , #content_three , #content_four ').removeClass('hover');
+
+			}
+	
+			if(scroll_top >= 300 && scroll_top < 600){
+				$('#content_one').addClass('hover');
+				$('#content_two').removeClass('hover');
+			}
+			else if(scroll_top >= 600 && scroll_top < 2000){
+				$('#content_two').addClass('hover');
+			}
+			else if(scroll_top >= 2000 && scroll_top < 3800){
+				$('#content_three').addClass('hover');
+				$('#content_two').removeClass('hover');
+				
+			}
+			else if(scroll_top >= 3800 && scroll_top < 4800){
+				$('#content_four').addClass('hover');
+				$('#content_two').removeClass('hover');
+			}
+			else if(scroll_top >= 4800 && scroll_top < 8000 ){
+				$('#content_two').removeClass('hover');
+			   
+			}
+			
 		
 		}
 	});
@@ -137,6 +165,9 @@ $(function(){
 			<h2>引人注目的廣告文案廣告文案，
 			的廣告文案廣告文案，
 			廣告文案、廣告文案、廣告文案，的廣告文案廣的廣告文案。</h2>
+			<img src="app/img/index/sign.png" class="sign">
+			<p>院長　簡凱偉</p>
+			
 		</div>
 		<div class="right_text_box">
 			<div class="title_box">
@@ -230,14 +261,11 @@ $(function(){
 			</a>
 			<img src="app/img/index/dotted_bg02.png" class="dotted_bg02">
 			<div class="moveing_box">
-				<div class="circle_dashed"></div>
-				<div class="rotate_border_box">
-					<div class="circle_border">
-						<img src="app/img/index/bb.png" class="circle_border_pic">
-						<img src="app/img/index/aa.png" class="img2">
-						<img src="app/img/index/pic02.png" class="img">
-						<div class="hover_box"></div>
-					</div>
+				<div class="circle_border">
+					<img src="app/img/index/bb.png" class="circle_border_pic">
+					<img src="app/img/index/aa.png" class="img2">
+					<img src="app/img/index/pic02.png" class="img">
+					<div class="hover_box"></div>
 				</div>
 			</div>
 		</div>	
@@ -280,15 +308,13 @@ $(function(){
 					<h5>〉〉〉</h5>
 				</div>
 			</a>
+			<img src="app/img/index/dotted_bg02.png" class="dotted_bg02">
 			<div class="moveing_box">
-				<div class="circle_dashed"></div>
-				<div class="rotate_border_box">
-					<div class="circle_border">
-						<img src="app/img/index/bb.png" class="circle_border_pic">
-						<img src="app/img/index/aa.png" class="img2">
-						<img src="app/img/index/pic03.png" class="img">
-						<div class="hover_box"></div>
-					</div>
+				<div class="circle_border">
+					<img src="app/img/index/bb.png" class="circle_border_pic">
+					<img src="app/img/index/aa.png" class="img2">
+					<img src="app/img/index/pic03.png" class="img">
+					<div class="hover_box"></div>
 				</div>
 			</div>
 		</div>	
@@ -332,15 +358,13 @@ $(function(){
 					<h5>〉〉〉</h5>
 				</div>
 			</a>
+			<img src="app/img/index/dotted_bg02.png" class="dotted_bg02">
 			<div class="moveing_box">
-				<div class="circle_dashed"></div>
-				<div class="rotate_border_box">
-					<div class="circle_border">
-						<img src="app/img/index/bb.png" class="circle_border_pic">
-						<img src="app/img/index/aa.png" class="img2">
-						<img src="app/img/index/pic04.png" class="img">
-						<div class="hover_box"></div>
-					</div>
+				<div class="circle_border">
+					<img src="app/img/index/bb.png" class="circle_border_pic">
+					<img src="app/img/index/aa.png" class="img2">
+					<img src="app/img/index/pic04.png" class="img">
+					<div class="hover_box"></div>
 				</div>
 			</div>
 		</div>	
@@ -357,28 +381,157 @@ $(function(){
 		<a href="" class="li">最新消息</a>
 		<a href="" class="li">聯繫我們</a>
 	</div>
-
+	<div class="phone_content1"> 
+		<div class="text">
+			<h1>引人注目的廣告文案</h1>
+			<h2>引人注目的廣告文案廣告文案，的廣告文案廣告文案，廣告文案、廣告文案、廣告文案，的廣告文案廣的廣告文案廣告文案廣告。</h2>
+		
+			<h2>廣告文案、廣告文案、廣告文案，廣告文案，的廣告文案廣告文案廣告。的廣告文案廣告文案廣告。廣告文案、廣告文案，的廣
+			告文案廣告文案廣告。</h2>
+		</div>
+		<div class="heart">
+			<img src="app/img/index/heart.png" >	
+		</div>
+		<div class="sign_box">
+			<p>院長　簡凱偉</p>
+			<img src="app/img/index/sign.png" class="sign">
+		</div>
+	</div>
+	<div class="phone_content2">
+		<div class="top_title">
+			<div class="border01"></div>
+			<div class="border02"></div>
+			<img src="app/img/index/mobile/text01.png">
+		</div>
+		<img src="app/img/index/sketch_grass1.gif"  class="sketch_grass1">	
+		<img src="app/img/index/mobile/title01.png" class="title">
+		<div class="pic_box">
+			<img src="app/img/index/mobile/pic01.png" class="pic">
+			<a href="" class="enter">
+				<img src="app/img/index/hover_text.png">
+			</a>
+		</div>
+		<div class="text_area">
+			<div class="left_text_box">
+				<h3>龍安診所</h3>
+				<p>所服務項目、溫馨動人，請提供診所服務項目介紹或溫馨動人請提供診所服務項目介紹或溫馨動人</p>
+			</div>
+			<div class="line"></div>
+			<div class="right_text_box">
+				<p><img src="app/img/index/icon01.png">台北市中山區錦州街296號</p>
+				<p><img src="app/img/index/icon02.png">(02) 2517-9979</p>
+				<p><img src="app/img/index/icon03.png">12:00～21:00  </p>
+			</div>
+		</div>
+	</div>
+	<div class="phone_content3">
+		<div class="top_title">
+			<div class="border01"></div>
+			<div class="border02"></div>
+			<img src="app/img/index/mobile/text01.png">
+		</div>
+		<img src="app/img/index/sketch_cloud2.gif"  class="sketch_cloud2">	
+		<img src="app/img/index/mobile/title02.png" class="title">
+		<div class="pic_box">
+			<img src="app/img/index/mobile/pic02.png" class="pic">
+			<a href="" class="enter">
+				<img src="app/img/index/hover_text.png">
+			</a>
+		</div>
+		<div class="text_area">
+			<div class="left_text_box">
+				<h3>啟美藥局</h3>
+				<p>所服務項目、溫馨動人，請提供診所服務項目介紹或溫馨動人請提供診所服務項目介紹或溫馨動人診所服務</p>
+			</div>
+			<div class="line"></div>
+			<div class="right_text_box">
+				<p><img src="app/img/index/icon01.png">台北市中山區錦州街282號</p>
+				<p><img src="app/img/index/icon02.png">(02) 2517-8032</p>
+				<p><img src="app/img/index/icon03.png">12:00～21:00  </p>
+			</div>
+		</div>
+	</div>
+	<div class="phone_content4">
+		<div class="top_title">
+			<div class="border01"></div>
+			<div class="border02"></div>
+			<img src="app/img/index/mobile/text01.png">
+		</div>
+		<img src="app/img/index/sketch_light.gif"  class="sketch_light">	
+		<img src="app/img/index/mobile/title03.png" class="title">
+		<div class="pic_box">
+			<img src="app/img/index/mobile/pic03.png" class="pic">
+			<a href="" class="enter">
+				<img src="app/img/index/hover_text.png">
+			</a>
+		</div>
+		<div class="text_area">
+			<div class="left_text_box">
+				<h3>亞欣醫美診所</h3>
+				<p>所服務項目、溫馨動人，請提供診所服務項目介紹或溫馨動人</p>
+			</div>
+			<div class="line"></div>
+			<div class="right_text_box">
+				<p><img src="app/img/index/icon01.png">台北市中山區民生東路一段14號2樓</p>
+				<p><img src="app/img/index/icon02.png">(02) 2581-3030</p>
+				<p><img src="app/img/index/icon03.png">12:00～21:00  </p>
+			</div>
+		</div>
+	</div>
+	<div class="phone_content5">
+		<div class="top_title">
+			<div class="border01"></div>
+			<div class="border02"></div>
+			<img src="app/img/index/mobile/text01.png">
+		</div>
+		<img src="app/img/index/plan.png"  class="plan">	
+		<img src="app/img/index/mobile/title04.png" class="title">
+		<div class="pic_box">
+			<img src="app/img/index/mobile/pic04.png" class="pic">
+			<a href="" class="enter">
+				<img src="app/img/index/hover_text.png">
+			</a>
+		</div>
+		<div class="text_area">
+			<div class="left_text_box">
+				<h3>USIES </h3>
+				<p>所服務項目、溫馨動人，請提供診所服務項目介紹或溫馨動人</p>
+			</div>
+			<div class="line"></div>
+			<div class="right_text_box">
+				<p><img src="app/img/index/icon01.png">台北市中山區民生東路一段14號2樓</p>
+				<p><img src="app/img/index/icon02.png">(02) 2581-3030</p>
+				<p><img src="app/img/index/icon03.png">12:00～21:00  </p>
+			</div>
+		</div>
+	</div>
+	<div class="footer_box">
+		<img src="app/img/index/mobile/bg.png">
+		<div class="footer_nav">
+			<div class="footer_li">
+				<p><a href="">龍安診所</a></p>
+			</div>
+			<div class="footer_li">
+				<p><a href="">啟美藥局</a></p>
+			</div>
+			<div class="footer_li">
+				<p><a href="">亞欣醫美診所</a></p>
+			</div>
+			<div class="footer_li">
+				<p><a href="">USIES</a></p>
+			</div>
+		</div>
+		
+	</div>
 </div>	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 </div>
 <div class="index_footer">
 	<p>design by <a href="">fanswoo</a></p>
-</div>
+</div>	
+
 
 
 
