@@ -1,5 +1,6 @@
 body{background:url(../../img/index/bg.png) fixed; border:0px; margin:0px; background-size:contain;}
-p{font-size:14px;line-height:22px;letter-spacing:2px;}
+p{font-size:14px;line-height:22px;letter-spacing:2px;font-family:Times New Roman  , LiHei Pro, "儷黑體" , sans-serif ;}
+html.agent-ie p{font-size:14px;line-height:22px;letter-spacing:2px;font-family:Times New Roman  , LiHei Pro, "儷黑體" , sans-serif ;}
 h2{font-size:20px;line-height:28px;letter-spacing:2px; }
 h3{font-size:28px;line-height:28px;letter-spacing:2px; }
 h1{font-size:34px;line-height:40px;letter-spacing:2px;}
@@ -364,7 +365,7 @@ h1{font-size:34px;line-height:40px;letter-spacing:2px;}
 .content.four .arrow div{width:40px;height:40px;background-color:#000;position:absolute;top:10px;left:11px;transform:rotate(-45deg);-webkit-transform:rotate(-45deg);box-shadow:-3px 2px 0px rgba(0,0,0,0.2);}
 .content.four .arrow:hover{opacity:1;}
 
-.content.four .ground{width:400px;position: absolute;left:-50px;bottom:-35px;}
+.content.four .ground{width:400px;position: absolute;left:-50px;bottom:-90px;}
 .content.four .ground img{width:100%;}
 .content.four .sketch_sea{width:220px;position: absolute;bottom:-35px;right:150px;}
 .content.four .sketch_sea img{width:100%;}
@@ -391,8 +392,10 @@ h1{font-size:34px;line-height:40px;letter-spacing:2px;}
 
 @media screen and (min-width:1400px){
 	.content.four{width:1000px;height:800px;position: fixed; top:50%;margin-top:-370px;left:3950px;z-index:2; background-color:rgba(47,132,132,0);padding-left:70px;}
+	.content.four .arrow{display:block;width:45px;height:85px;}
+	.content.four .arrow div{width:60px;height:60px;top:10px;left:15px;box-shadow:-4px 3px 0px rgba(0,0,0,0.2);}
 	
-	.content.four .ground{width:500px;position: absolute;left:-50px;bottom:-35px;}
+	.content.four .ground{width:500px;position: absolute;left:-50px;bottom:-60px;}
 	.content.four .sketch_sea{width:320px;position: absolute;bottom:-35px;right:150px;}
 	.content.four .right_text_box{width:350px;position:absolute;top:50%;left:50px; margin-top:-230px;}
 	
@@ -410,10 +413,14 @@ h1{font-size:34px;line-height:40px;letter-spacing:2px;}
 
 /*******************************************************************************************************/
 
-.index_footer{width:100%;position:fixed;z-index:9999;bottom:0px;height:40px;}
-.index_footer p{float:right;font-size:12px;color:#3b2814; line-height:30px; padding-right:20px;}
+.index_footer{width:100%;position:fixed;z-index:9999;bottom:0px;height:30px;}
+.index_footer p{float:right;font-size:14px;color:#3b2814; line-height:30px; padding-right:20px;}
+.index_footer p a{font-family:" Georgia " ;color:#000; display:block;height:20px;float:right; margin-left:5px;border-bottom:2px dashed #f4b538;padding-bottom:2px;}
+
 @media screen and (min-width:1400px){
-	.index_footer p{float:right;font-size:18px;line-height:40px; }
+	.index_footer{height:40px;}
+	.index_footer p{font-size:18px;line-height:40px; }
+	.index_footer p a{display:block;height:30px;}
 }
 
 
@@ -487,8 +494,11 @@ h1{font-size:34px;line-height:40px;letter-spacing:2px;}
 	.phone_area .footer_box .footer_nav .footer_li{width:100%;height:30px;}
 	.phone_area .footer_box .footer_nav .footer_li p{line-height:30px;text-align:center;color:#000;}
 	.phone_area .footer_box .footer_nav .footer_li a{font-size:14px;line-height:30px;text-align:center;color:#000;}
-	
-	
+	.phone_area .footer_box .footer_bottom{width:100%;}
+	.phone_area .footer_box .footer_bottom p{font-size:13px; text-align:center;line-height:18px;}
+	.phone_area .footer_box .footer_bottom img{width:100%;height:16px;}
+	.phone_area .footer_box .footer_bottom p span{height:20px;margin-left:5px;border-bottom:2px dashed #f4b538;padding-bottom:2px;}
+	.phone_area .footer_box .footer_bottom p a{font-family:" Georgia " ;color:#000; }
 	
 }
 

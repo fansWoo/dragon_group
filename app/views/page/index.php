@@ -521,7 +521,12 @@ $(function(){
 				<p><a href="">USIES</a></p>
 			</div>
 		</div>
-		
+		<div class="footer_bottom">
+			<img src="app/img/index/mobile/footer_line.png">
+			<p>龍安集團 版權所有<br>
+			© 2015 Dragon Healthcare Group</p>
+			<p>design by <span><a href="">fanswoo</a></span> </p>
+		</div>
 	</div>
 </div>	
 

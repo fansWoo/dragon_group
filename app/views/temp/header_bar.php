@@ -23,8 +23,8 @@ $('a[href^=#]').click(function () {
 		</div>
 	</div>
 	<div class="header_bar_mobile">
-		<div class="logo_box">
-			<img src="app/img/logo.png">
+		<div class="phone_logo_box">
+			<img src="app/img/header/mobile_logo.png">
 		</div>
 		<div class="menu">
 			<img src="app/img/menu.png">
