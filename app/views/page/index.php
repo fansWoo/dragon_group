@@ -67,10 +67,18 @@ $(function(){
 		
 		}
 	});
-	$(' #content_four a[href^=#]').click(function () {
+	$(' #content_four .arrow').click(function () {
 		var speed = 500;
 		var href = $(this).attr("href");
 		var target = $(href == "#content_one" || href == " #content_one " ? 'html' : href);
+		var position = target.offset().top;
+		$("html , body").animate({scrollTop: position}, speed, "swing");
+			return false;
+	});
+	$(' #content_one .arrow').click(function () {
+		var speed = 500;
+		var href = $(this).attr("href");
+		var target = $(href == "#" || href == " #content_four " ? 'html' : href);
 		var position = target.offset().top;
 		$("html , body").animate({scrollTop: position}, speed, "swing");
 			return false;
@@ -133,7 +141,9 @@ $(function(){
 
 <div class="scroll_area">
 	<div class="content one"  id="content_one">
-		<div></div>
+		<a href="#content_four" class="arrow">
+			<div></div>
+		</a>
 		<div class="road">
 			<img src="app/img/index/road01.png" >
 			<p>錦州街</p>			
@@ -158,28 +168,22 @@ $(function(){
 			<img src="app/img/index/sketch_light.gif" >	
 		</div>
 		<div class="left_text_box">
-			<h1>引人注目的廣告文案</h1>
-			<h2>引人注目的廣告文案廣告文案，
-			的廣告文案廣告文案，
-			廣告文案、廣告文案、廣告文案，的廣告文案廣的廣告文案廣告文案廣告。</h2>
-			<h2>引人注目的廣告文案廣告文案，
-			的廣告文案廣告文案，
-			廣告文案、廣告文案、廣告文案，的廣告文案廣的廣告文案。</h2>
+			<img src="app/img/index/title.png" class="title">
 			<img src="app/img/index/sign.png" class="sign">
 			<p>院長　簡凱偉</p>
 			
 		</div>
 		<div class="right_text_box">
 			<div class="title_box">
-				<img src="app/img/index/logo01.png" class="logo">
+				<img src="app/img/index/logo04.png" class="logo">
 				<h3>龍安診所</h3>
 			</div>
-			<p>請提供診所服務項目介紹或溫馨動人的小故事。請提供診所服務項目、溫馨動人，請提供診所服務項目介紹或溫馨動人的小故事。溫馨動人的小故事，</p>
-			<p>請提供診所服務項目、溫馨動人</p>
+			<p>醫美權威簡凱偉醫師所帶領的龍安集團，從專診醫療服務到各領域的專門診所結合。目的不僅是要給消費者全方位的服務，更提供消費者完整、完美的照護。</p>
+			
 			<div class="icon_box">
-				<p><img src="app/img/index/icon01.png">台北市中山區錦州街296號</p>
+				<p><img src="app/img/index/icon01.png">台北市中山區錦州街296號1樓</p>
 				<p><img src="app/img/index/icon02.png">(02) 2517-9979</p>
-				<p><img src="app/img/index/icon03.png">12:00～21:00  </p>
+				<p><img src="app/img/index/icon03.png">8:30～12:30  </p>
 			</div>
 		</div>
 		<div class="big_pic_box">
@@ -192,9 +196,7 @@ $(function(){
 					<img src="app/img/index/hover_text.png" >
 				</div>			
 				<div class="text">
-					<p>如何愛自己？</p>
-					<h4>傾聽身體的聲音<br>及時就診檢查</h4>
-					<h5>〉〉〉</h5>
+					<img src="app/img/index/circle_text01.png" >
 				</div>
 			</a>
 			<img src="app/img/index/dotted_bg01.png" class="dotted_bg01">
@@ -219,8 +221,8 @@ $(function(){
 			<p>民生東路一段</p>				
 		</div>
 		<div class="bus_box">
-			<img src="app/img/index/bus.png" class="bus">
-			<img src="app/img/index/bus2.png" class="bus2">
+			<img src="app/img/index/bus.gif" class="bus">
+			<img src="app/img/index/bus2.gif" class="bus2">
 		</div>
 		<div class="sketch_light one">
 			<img src="app/img/index/sketch_light.gif" >	
@@ -234,14 +236,14 @@ $(function(){
 		<div class="right_text_box">
 			<div class="title_box">
 				<img src="app/img/index/logo01.png" class="logo">
-				<h3>啟美藥局</h3>
+				<h3>啟美藥師藥局</h3>
 			</div>
-			<p>請提供診所服務項目介紹或溫馨動人的小故事。請提供診所服務項目、溫馨動人，請提供診所服務項目介紹或溫馨動人的小故事。溫馨動人的小故事，</p>
-			<p>請提供診所服務項目、溫馨動人</p>
+			<p>本藥局為新式開架式複合式健保藥局，多年配制健保處方籤經驗及專業細心提供使用者各項藥品等注意事項，更有醫學美容保養品之專業咨詢!讓使用者美的健康! </p>
+		
 			<div class="icon_box">
-				<p><img src="app/img/index/icon01.png">台北市中山區錦州街296號</p>
-				<p><img src="app/img/index/icon02.png">(02) 2517-9979</p>
-				<p><img src="app/img/index/icon03.png">12:00～21:00  </p>
+				<p><img src="app/img/index/icon01.png">台北市中山區錦州街282號</p>
+				<p><img src="app/img/index/icon02.png">(02) 2517-8032</p>
+				<p><img src="app/img/index/icon03.png">09:00～21:30  </p>
 			</div>
 		</div>
 		<div class="big_pic_box">
@@ -254,9 +256,7 @@ $(function(){
 					<img src="app/img/index/hover_text.png" >
 				</div>			
 				<div class="text">
-					<p>如何愛自己？</p>
-					<h4>遵守醫生指示<br> 正確服藥</h4>
-					<h5>〉〉〉</h5>
+					<img src="app/img/index/circle_text02.png" >
 				</div>
 			</a>
 			<img src="app/img/index/dotted_bg02.png" class="dotted_bg02">
@@ -284,17 +284,19 @@ $(function(){
 		<div class="right_text_box">
 			<div class="title_box">
 				<img src="app/img/index/logo02.png" class="logo">
-				<h3>亞欣醫美診所</h3>
+				<h3>亞欣醫美</h3>
 			</div>
-			<p>請提供診所服務項目介紹或溫馨動人的小故事。請提供診所服務項目、溫馨動人，請提供診所服務項目介紹或溫馨動人的小故事。溫馨動人的小故事，</p>
+			<p>高端的醫療設備及專業細心的諮詢師，為您私人訂製您的完美比例。<br>
+				無論是專業的肌膚保養或是醫學美容微整手術皆有多年的經驗及客戶的保證！<br>
+				就是要您有最好的醫療體驗!</p>
 			<div class="icon_box">
-				<p><img src="app/img/index/icon01.png">台北市中山區錦州街296號</p>
-				<p><img src="app/img/index/icon02.png">(02) 2517-9979</p>
+				<p><img src="app/img/index/icon01.png">台北市中山區民生東路一段14號2樓</p>
+				<p><img src="app/img/index/icon02.png">(02) 2581 3030</p>
 				<p><img src="app/img/index/icon03.png">12:00～21:00  </p>
 			</div>
 		</div>
 		<div class="big_pic_box">
-			<a href="" class="orange_box">
+			<a href="http://www.yasin-beauty.com/" target="_blank" class="orange_box">
 				<div class="orange_circle">
 					<img src="app/img/index/orange_circle.png" class="orange_pic">
 					<img src="app/img/index/orange_circle_hover.png" class="hover_orange_pic">	
@@ -303,9 +305,7 @@ $(function(){
 					<img src="app/img/index/hover_text.png" >
 				</div>			
 				<div class="text">
-					<p>如何愛自己？</p>
-					<h4>遵守醫生指示<br> 正確服藥</h4>
-					<h5>〉〉〉</h5>
+					<img src="app/img/index/circle_text03.png" >
 				</div>
 			</a>
 			<img src="app/img/index/dotted_bg02.png" class="dotted_bg02">
@@ -335,16 +335,16 @@ $(function(){
 				<img src="app/img/index/logo03.png" class="logo">
 				<h3>USIES</h3>
 			</div>
-			<p>請提供診所服務項目介紹或溫馨動人的小故事。請提供診所服務項目、溫馨動人，請提供診所服務項目介紹或溫馨動人的小故事。溫馨動人的小故事，</p>
-			<p>請提供診所服務項目、溫馨動人請提供診所服務項目介紹或溫馨動人的小故事。溫馨動人的小故事，</p>
+			<p>來自台灣的醫學美容概念保養品，成份控管以國家合格標準規定，更經過嚴格的檢驗審核!</p>
+			<p>製成品質經由臨床證明保證產品耐受性及有效性!才是真正是合使用者的專業醫療保養品!</p>
 		</div>
 		<div class="icon_box">
-			<p><img src="app/img/index/icon01.png">台北市中山區錦州街296號</p>
-			<p><img src="app/img/index/icon02.png">(02) 2517-9979</p>
+			<p><img src="app/img/index/icon01.png">台灣省桃園市龜山區楓樹七街31號</p>
+			<p><img src="app/img/index/icon02.png">(02) 3349-0033</p>
 			<p><img src="app/img/index/icon03.png">12:00～21:00  </p>
 		</div>
 		<div class="big_pic_box">
-			<a href="" class="orange_box">
+			<a href="http://www.usies.com.tw/about.php?lang=tw"  target="_blank" class="orange_box">
 				<div class="orange_circle">
 					<img src="app/img/index/orange_circle2.png" class="orange_pic">
 					<img src="app/img/index/orange_circle2_hover.png" class="hover_orange_pic">	
@@ -353,9 +353,7 @@ $(function(){
 					<img src="app/img/index/hover_text.png" >
 				</div>			
 				<div class="text">
-					<p>如何愛自己？</p>
-					<h4>遵守醫生指示<br> 正確服藥</h4>
-					<h5>〉〉〉</h5>
+					<img src="app/img/index/circle_text04.png" >
 				</div>
 			</a>
 			<img src="app/img/index/dotted_bg02.png" class="dotted_bg02">
@@ -376,18 +374,14 @@ $(function(){
 <!------------------------------手機板------------------------------------------------------>
 
 <div class="phone_area">
-	<div class="nav">
+	<!--<div class="nav">
 		<a href="" class="li">關於龍安</a>
 		<a href="" class="li">最新消息</a>
 		<a href="" class="li">聯繫我們</a>
-	</div>
+	</div>-->
 	<div class="phone_content1"> 
 		<div class="text">
-			<h1>引人注目的廣告文案</h1>
-			<h2>引人注目的廣告文案廣告文案，的廣告文案廣告文案，廣告文案、廣告文案、廣告文案，的廣告文案廣的廣告文案廣告文案廣告。</h2>
-		
-			<h2>廣告文案、廣告文案、廣告文案，廣告文案，的廣告文案廣告文案廣告。的廣告文案廣告文案廣告。廣告文案、廣告文案，的廣
-			告文案廣告文案廣告。</h2>
+			<img src="app/img/index/mobile/phone_title.png">
 		</div>
 		<div class="heart">
 			<img src="app/img/index/heart.png" >	
@@ -418,9 +412,9 @@ $(function(){
 			</div>
 			<div class="line"></div>
 			<div class="right_text_box">
-				<p><img src="app/img/index/icon01.png">台北市中山區錦州街296號</p>
+				<p><img src="app/img/index/icon01.png">台北市中山區錦州街296號1樓</p>
 				<p><img src="app/img/index/icon02.png">(02) 2517-9979</p>
-				<p><img src="app/img/index/icon03.png">12:00～21:00  </p>
+				<p><img src="app/img/index/icon03.png">8:30～12:30  </p>
 			</div>
 		</div>
 	</div>
@@ -440,14 +434,14 @@ $(function(){
 		</div>
 		<div class="text_area">
 			<div class="left_text_box">
-				<h3>啟美藥局</h3>
-				<p>所服務項目、溫馨動人，請提供診所服務項目介紹或溫馨動人請提供診所服務項目介紹或溫馨動人診所服務</p>
+				<h3>啟美藥師藥局</h3>
+				<p>本藥局為新式開架式複合式健保藥局，多年配制健保處方籤經驗及專業細心提供使用者各項藥品等注意事項，更有醫學美容保養品之專業咨詢!讓使用者美的健康!</p>
 			</div>
 			<div class="line"></div>
 			<div class="right_text_box">
 				<p><img src="app/img/index/icon01.png">台北市中山區錦州街282號</p>
 				<p><img src="app/img/index/icon02.png">(02) 2517-8032</p>
-				<p><img src="app/img/index/icon03.png">12:00～21:00  </p>
+				<p><img src="app/img/index/icon03.png">09:00～21:30  </p>
 			</div>
 		</div>
 	</div>
@@ -467,13 +461,13 @@ $(function(){
 		</div>
 		<div class="text_area">
 			<div class="left_text_box">
-				<h3>亞欣醫美診所</h3>
-				<p>所服務項目、溫馨動人，請提供診所服務項目介紹或溫馨動人</p>
+				<h3>亞欣醫美</h3>
+				<p>高端的醫療設備及專業細心的諮詢師，為您私人訂製您的完美比例。無論是專業的肌膚保養或是醫學美容微整手術皆有多年的經驗及客戶的保證！就是要您有最好的醫療體驗!</p>
 			</div>
 			<div class="line"></div>
 			<div class="right_text_box">
 				<p><img src="app/img/index/icon01.png">台北市中山區民生東路一段14號2樓</p>
-				<p><img src="app/img/index/icon02.png">(02) 2581-3030</p>
+				<p><img src="app/img/index/icon02.png">(02) 2581 3030</p>
 				<p><img src="app/img/index/icon03.png">12:00～21:00  </p>
 			</div>
 		</div>
@@ -488,14 +482,15 @@ $(function(){
 		<img src="app/img/index/mobile/title04.png" class="title">
 		<div class="pic_box">
 			<img src="app/img/index/mobile/pic04.png" class="pic">
-			<a href="" class="enter">
+			<a href="http://www.usies.com.tw/about.php?lang=tw" target="_blank" class="enter">
 				<img src="app/img/index/hover_text.png">
 			</a>
 		</div>
 		<div class="text_area">
 			<div class="left_text_box">
 				<h3>USIES </h3>
-				<p>所服務項目、溫馨動人，請提供診所服務項目介紹或溫馨動人</p>
+				<p>來自台灣的醫學美容概念保養品，成份控管以國家合格標準規定，更經過嚴格的檢驗審核!
+				製成品質經由臨床證明保證產品耐受性及有效性!才是真正是合使用者的專業醫療保養品!</p>
 			</div>
 			<div class="line"></div>
 			<div class="right_text_box">
@@ -515,10 +510,10 @@ $(function(){
 				<p><a href="">啟美藥局</a></p>
 			</div>
 			<div class="footer_li">
-				<p><a href="">亞欣醫美診所</a></p>
+				<p><a href="http://www.yasin-beauty.com/" target="_blank">亞欣醫美診所</a></p>
 			</div>
 			<div class="footer_li">
-				<p><a href="">USIES</a></p>
+				<p><a href="http://www.usies.com.tw/about.php?lang=tw" target="_blank">USIES</a></p>
 			</div>
 		</div>
 		<div class="footer_bottom">

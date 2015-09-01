@@ -440,3 +440,19 @@ ERROR - 2015-08-21 10:33:17 --> Severity: 8192  --> mysql_pconnect(): The mysql 
 ERROR - 2015-08-21 10:33:18 --> Severity: Notice  --> Undefined index: pager.pagerid C:\D\app\xampp\htdocs\dragon_group\fanswoo-framework\models\ObjDbBase.php 92
 ERROR - 2015-08-21 10:33:18 --> Severity: Notice  --> Undefined index: pagerid C:\D\app\xampp\htdocs\dragon_group\fanswoo-framework\models\ObjDbBase.php 99
 ERROR - 2015-08-21 10:33:18 --> Severity: Notice  --> Undefined index: body_end C:\D\app\xampp\htdocs\dragon_group\app\views\page\index.php 545
+ERROR - 2015-08-21 10:34:27 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\D\app\xampp\htdocs\dragon_group\fanswoo-framework\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2015-08-21 10:34:27 --> Severity: Notice  --> Undefined index: pager.pagerid C:\D\app\xampp\htdocs\dragon_group\fanswoo-framework\models\ObjDbBase.php 92
+ERROR - 2015-08-21 10:34:27 --> Severity: Notice  --> Undefined index: pagerid C:\D\app\xampp\htdocs\dragon_group\fanswoo-framework\models\ObjDbBase.php 99
+ERROR - 2015-08-21 10:34:27 --> Severity: Notice  --> Undefined index: body_end C:\D\app\xampp\htdocs\dragon_group\app\views\page\index.php 545
+ERROR - 2015-08-21 10:34:35 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\D\app\xampp\htdocs\dragon_group\fanswoo-framework\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2015-08-21 10:34:35 --> Severity: Notice  --> Undefined index: pager.pagerid C:\D\app\xampp\htdocs\dragon_group\fanswoo-framework\models\ObjDbBase.php 92
+ERROR - 2015-08-21 10:34:35 --> Severity: Notice  --> Undefined index: pagerid C:\D\app\xampp\htdocs\dragon_group\fanswoo-framework\models\ObjDbBase.php 99
+ERROR - 2015-08-21 10:34:35 --> Severity: Notice  --> Undefined index: body_end C:\D\app\xampp\htdocs\dragon_group\app\views\page\index.php 545
+ERROR - 2015-08-21 13:09:05 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\D\app\xampp\htdocs\dragon_group\fanswoo-framework\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2015-08-21 13:09:05 --> Severity: Notice  --> Undefined index: pager.pagerid C:\D\app\xampp\htdocs\dragon_group\fanswoo-framework\models\ObjDbBase.php 92
+ERROR - 2015-08-21 13:09:05 --> Severity: Notice  --> Undefined index: pagerid C:\D\app\xampp\htdocs\dragon_group\fanswoo-framework\models\ObjDbBase.php 99
+ERROR - 2015-08-21 13:09:05 --> Severity: Notice  --> Undefined index: body_end C:\D\app\xampp\htdocs\dragon_group\app\views\page\index.php 545
+ERROR - 2015-08-21 16:56:41 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\D\app\xampp\htdocs\dragon_group\fanswoo-framework\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2015-08-21 16:56:41 --> Severity: Notice  --> Undefined index: pager.pagerid C:\D\app\xampp\htdocs\dragon_group\fanswoo-framework\models\ObjDbBase.php 92
+ERROR - 2015-08-21 16:56:41 --> Severity: Notice  --> Undefined index: pagerid C:\D\app\xampp\htdocs\dragon_group\fanswoo-framework\models\ObjDbBase.php 99
+ERROR - 2015-08-21 16:56:41 --> Severity: Notice  --> Undefined index: body_end C:\D\app\xampp\htdocs\dragon_group\app\views\page\index.php 545

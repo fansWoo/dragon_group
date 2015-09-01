@@ -1,13 +1,19 @@
 <script>
-$('a[href^=#]').click(function () {
-	var speed = 500;
-	var href = $(this).attr("href");
-	var target = $(href == "#" || href == "" ? 'html' : href);
-	var position = target.offset().top;
-	$("html, body").animate({scrollTop: position}, speed, "swing");
-		return false;
+$(function(){
+	$('a[href^=#]').click(function () {
+		var speed = 500;
+		var href = $(this).attr("href");
+		var target = $(href == "#" || href == "" ? 'html' : href);
+		var position = target.offset().top;
+		$("html, body").animate({scrollTop: position}, speed, "swing");
+			return false;
+	});
+	$(".header_bar_mobile_content .father_area").click(function() {
+		$(this).toggleClass("active");
+		$(this).children(".child_area").slideToggle();
+		
+	});
 });
-
 </script>
 <div class="body">
 	<div class="header_bar">
@@ -15,10 +21,21 @@ $('a[href^=#]').click(function () {
 			<div class="logo_box">
 				<img src="app/img/logo.png">
 			</div>
+			<div class="left_text">
+				為您經營 由內而外 專屬您的美
+			</div>
 			<div class="right_nav">
-				<a href="">關於龍安</a>
-				<a href="">最新消息</a>
-				<a href="">聯繫我們</a>
+				<div class="li">
+					<a href="" class="button">關於我們</a>
+					<div class="down_box">
+						<a href="" class="button2">了解龍安</a>
+						<a href="" class="button2">歷史沿革</a>
+						<a href="" class="button2" >合作夥伴</a>
+					</div>
+				</div>
+				<div class="li"><a href="" class="button">最新消息</a></div>
+				<div class="li"><a href="" class="button">聯繫我們</a></div>
+				<div class="li fb"><a href="https://www.facebook.com/DragonHealthcare?skip_nax_wizard=true&ref_type=bookmark" class="button fb"><img src="app/img/header/fb.png"></a></div>
 			</div>
 		</div>
 	</div>
@@ -31,9 +48,20 @@ $('a[href^=#]').click(function () {
 		</div>
 	</div>
 	<div class="header_bar_mobile_content">
-		<a href="<?=base_url()?>">首頁</a>
-		<a href="admin">後台</a>
-		<a href="user/logout">登出</a>
+		<a class="li" href="<?=base_url()?>">首頁</a>
+		<div class="father_area">
+			關於我們
+			<div class="child_area">
+				<a href="">了解龍安</a>
+				<a href="">歷史沿革</a>
+				<a href="">合作夥伴</a>
+			</div>
+		</div>
+		<a class="li" href="">最新消息</a>
+		<a class="li" href="">聯繫我們</a>
+		<a class="li" href="https://www.facebook.com/DragonHealthcare?skip_nax_wizard=true&ref_type=bookmark">facebook</a>
+		<a class="li" href="admin">後台</a>
+		<a class="li" href="user/logout">登出</a>
 	</div>
 	<div class="wrap_shadow"></div>
 	<div class="wrap">
