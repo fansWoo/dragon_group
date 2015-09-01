@@ -25,6 +25,10 @@ h1{font-size:34px;line-height:40px;letter-spacing:2px;}
 }
 .phone_area{display:none;}
 
+.fixed_arrow_right{display:block;width:30px;height:65px;position:fixed;right:100px;bottom:30px;overflow:hidden;opacity:0.6;transition:0.3s; z-index: 9999999;}
+.fixed_arrow_right div{width:40px;height:40px;background-color:#000;top:10px;left:11px;transform:rotate(-45deg);-webkit-transform:rotate(-45deg);box-shadow:-3px 2px 0px rgba(0,0,0,0.2);}
+.fixed_arrow_right:hover{opacity:1;}
+
 .content.one{width:1300px;height:500px;position: fixed; top:50%;margin-top:-210px; left:0px;z-index:3; background-color:rgba(47,132,132,0);padding-left:70px;}
 .content.one .arrow{display:none;width:30px;height:65px;position:absolute;right:130px;bottom:30px;z-index:989;overflow:hidden;opacity:1;transition:0.3s;transform:scaleX(-1);-webkit-transform:scaleX(-1);}
 .content.one .arrow div{width:40px;height:40px;background-color:#000;position:absolute;top:10px;left:11px;transform:rotate(-45deg);-webkit-transform:rotate(-45deg);box-shadow:-3px 2px 0px rgba(0,0,0,0.2);}
@@ -178,7 +182,7 @@ h1{font-size:34px;line-height:40px;letter-spacing:2px;}
 .content.two .bus_box{display:block;width:150px;height:68px;position:absolute; bottom:18px;right:50px;z-index:80;}
 .content.two .bus_box .bus{display:none;width:100%;position:absolute;top:0px;left:0px; }
 .content.two .bus_box .bus2{display:none;opacity:0;width:71px;position:absolute;top:0px;left:62px; }
-#content_two.hover .bus_box{display:block;-webkit-animation:bus 8s ;animation: bus 8s  ;}
+#content_two.hover .bus_box{display:block;-webkit-animation:bus 4s ;animation: bus 8s  ;}
 #content_two.hover .bus_box .bus2{display:block;opacity:0;-webkit-animation:bus2 6s ;animation: bus2 6s  ;}
 #content_two.hover .bus_box .bus{display:block;opacity:0;-webkit-animation:bus3 6s ;animation: bus3 6s  ;}
 @-webkit-keyframes bus
@@ -370,9 +374,6 @@ h1{font-size:34px;line-height:40px;letter-spacing:2px;}
 /*******************************************************************************************************/
 
 .content.four {width:800px;height:500px;position: fixed; top:50%;margin-top:-210px; left:3050px;z-index:1; background-color:rgba(47,132,132,0);}
-.content.four .arrow{display:block;width:30px;height:65px;position:absolute;right:100px;bottom:30px;z-index:989;overflow:hidden;opacity:0.6;transition:0.3s;}
-.content.four .arrow div{width:40px;height:40px;background-color:#000;position:absolute;top:10px;left:11px;transform:rotate(-45deg);-webkit-transform:rotate(-45deg);box-shadow:-3px 2px 0px rgba(0,0,0,0.2);}
-.content.four .arrow:hover{opacity:1;}
 
 .content.four .ground{width:400px;position: absolute;left:-50px;bottom:-60px;}
 .content.four .ground img{width:100%;}

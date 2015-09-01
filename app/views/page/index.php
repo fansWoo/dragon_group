@@ -67,21 +67,29 @@ $(function(){
 		
 		}
 	});
-	$(' #content_four .arrow').click(function () {
-		var speed = 500;
-		var href = $(this).attr("href");
-		var target = $(href == "#content_one" || href == " #content_one " ? 'html' : href);
-		var position = target.offset().top;
-		$("html , body").animate({scrollTop: position}, speed, "swing");
-			return false;
-	});
-	$(' #content_one .arrow').click(function () {
-		var speed = 500;
-		var href = $(this).attr("href");
-		var target = $(href == "#" || href == " #content_four " ? 'html' : href);
-		var position = target.offset().top;
-		$("html , body").animate({scrollTop: position}, speed, "swing");
-			return false;
+	$('.fixed_arrow_right').click(function () {
+		console.log($(document).scrollTop());
+		if($(document).scrollTop() == 0)
+		{
+			$("html , body").animate({scrollTop: 500}, 1000, "swing");
+		}
+		else if($(document).scrollTop() >= 500 && $(document).scrollTop() < 1000)
+		{
+			$("html , body").animate({scrollTop: 1000}, 1000, "swing");
+		}
+		else if($(document).scrollTop() >= 1000 && $(document).scrollTop() < 1500)
+		{
+			console.log('h');
+			$("html , body").animate({scrollTop: 1500}, 1000, "swing");
+		}
+		else if($(document).scrollTop() >= 1500 && $(document).scrollTop() < 2000)
+		{
+			$("html , body").animate({scrollTop: 2000}, 1000, "swing");
+		}
+		else if($(document).scrollTop() >= 2000 && $(document).scrollTop() < 2500)
+		{
+			$("html , body").animate({scrollTop: 2500}, 1000, "swing");
+		}
 	});
 	$(document).on('mouseenter', ' .big_pic_box  ', function(){
 		$(this).addClass('hover');
@@ -95,6 +103,7 @@ $(function(){
 		//$(document).scrollTop(0);
 		//location.href = 'page/index';
 	//}
+
 	$(document).scroll(function(){
 		var window_width = $(window).width();
 		var scroll_top = $(document).scrollTop();		
@@ -102,7 +111,6 @@ $(function(){
 
 			var scroll_top = $(document).scrollTop();
 			var scroll_top_height = scroll_top;
-			console.log(scroll_top);
 			var content_bottom_top = $('.scroll_area').offset().top;
 			var content_bottom_height_all = $('.scroll_area').heightAll();
 			
@@ -139,11 +147,11 @@ $(function(){
 <script src="js/test/main.min.js"></script>
 <script src="js/test/func.min.js"></script>
 
+		<div class="fixed_arrow_right">
+		<div></div>
+		</div>
 <div class="scroll_area">
 	<div class="content one"  id="content_one">
-		<a href="#content_four" class="arrow">
-			<div></div>
-		</a>
 		<div class="road">
 			<img src="app/img/index/road01.png" >
 			<p>錦州街</p>			
