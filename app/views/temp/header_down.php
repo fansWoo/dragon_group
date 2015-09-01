@@ -5,3 +5,4 @@
 	<?endif?>
 </head>
 <body>
+	<?=$temp['message_window']?>

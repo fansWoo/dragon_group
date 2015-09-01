@@ -2,7 +2,7 @@
 <html lang="zh-tw" class="<?=$global['browser_agent']['browser']?><?if(!empty($global['browser_agent']['browser_ie'])){echo ' '.$global['browser_agent']['browser_ie'];}?>">
 <head>
 	<meta charset="utf-8">
-	<title><?=$global['website_title_name']?> - <?=$global['website_title_introduction']?></title>
+	<title><?=$global['website_title_name']?><?if($global['website_title_introduction']):?> - <?=$global['website_title_introduction']?><?endif?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 	<?if(isset($global['website_metatag_array'])):?>
 	<?foreach($global['website_metatag_array'] as $value):?>
