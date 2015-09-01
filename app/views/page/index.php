@@ -6,7 +6,13 @@
 $(function(){
 	$(document).scroll(function(){
 		var window_width = $(window).width();
-		var scroll_top = $(document).scrollTop();	
+		var scroll_top = $(document).scrollTop();
+		setTimeout(function(){
+			if(scroll_top == $(document).scrollTop())
+			{
+				console.log('hey');
+			}
+		}, 500);
 		if(window_width > 450 && window_width <= 1400){
 
 			if(scroll_top == 0){
@@ -146,7 +152,7 @@ $(function(){
 <script src="js/test/util.min.js"></script>
 <script src="js/test/main.min.js"></script>
 <script src="js/test/func.min.js"></script>
-
+<div class="opacity0_coverbg"></div>
 		<div class="fixed_arrow_right">
 		<div></div>
 		</div>
