@@ -1,5 +1,6 @@
 <?=$temp['header_up']?>
-<?=$temp['admin_header_down']?>
+<?=$temp['header_down']?>
+<?=$temp['admin_header_bar']?>
 <h2>照片管理 - 新增照片</h2>
 <div class="contentBox allWidth">
 	<h3>新增照片</h3>
@@ -97,11 +98,12 @@
             </div>
             <div class="spanLineRight">
                 <?if(!empty($PicObj->picid_Num)):?><input type="hidden" name="picid_Num" value="<?=$PicObj->picid_Num?>"><?endif?>
-                <input type="submit" class="submit" value="<?if(!empty($PicObj->picid_Num)):?>儲存變更<?else:?>新增產品<?endif?>">
+                <input type="submit" class="submit" value="<?if(!empty($PicObj->picid_Num)):?>儲存變更<?else:?>新增照片<?endif?>">
                 <?if(!empty($PicObj->picid_Num)):?><span class="submit gray" onClick="fanswoo.check_href_action('確定要刪除嗎？', 'admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/delete/?picid=<?=$PicObj->picid_Num?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除<?=$child3_title_Str?></span><?endif?>
             </div>
         </div>
 	</div>
 	</form>
 </div>
-<?=$temp['admin_footer']?>
+<?=$temp['admin_footer_bar']?>
+<?=$temp['body_end']?>

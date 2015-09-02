@@ -49,9 +49,9 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'fansw_fanswoo';
+$db['default']['username'] = 'root';
 $db['default']['password'] = '1234qwera';
-$db['default']['database'] = 'fanswoo_com_fanswoo-framework';
+$db['default']['database'] = 'fanswoo_com_dragon_group';
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = 'fs_';
 $db['default']['pconnect'] = TRUE;

@@ -36,7 +36,7 @@ class Setting extends ObjDbBase
     }
 	
     //將物件資料更新至資料庫
-    public function update()
+    public function update($arg = [])
     {
         $db_name_Str = $this->db_name_Str;
         

@@ -1,5 +1,6 @@
 <?php
 
+//購物網站的寄送單位，以及網站連結查詢位置
 class SentUnitShop extends ObjDbBase {
 
     public $sent_unitid_Num = 0;
@@ -7,7 +8,7 @@ class SentUnitShop extends ObjDbBase {
     public $name_Str = '';
     public $href_Str = '';
     public $status_Num = 1;
-    public $db_name_Str = 'shop_sent_unit';//填寫物件聯繫資料庫之名稱
+    public $db_name_Str = 'shop_sent_unit';
     public $db_uniqueid_Str = 'sent_unitid';//填寫物件聯繫資料庫之唯一ID
     public $db_field_Arr = array(//填寫資料庫欄位與本物件屬性之關係，前者為資料庫欄位，後者為屬性
         'sent_unitid' => 'sent_unitid_Num',

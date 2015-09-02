@@ -171,6 +171,7 @@ class OrderShop extends ObjDbBase
     public function add_cart($arg)
     {
         $productid_Num = !empty($arg['productid_Num']) ? $arg['productid_Num'] : 0;
+        $stockid_Num = !empty($arg['stockid_Num']) ? $arg['stockid_Num'] : 0;
         $amount_Num = !empty($arg['amount_Num']) ? $arg['amount_Num'] : 0;
 
         $uid_Num = $this->uid_Num;
@@ -183,6 +184,7 @@ class OrderShop extends ObjDbBase
             'db_where_Arr' => array(
                 'orderid_Num' => $orderid_Num,
                 'productid_Num' => $productid_Num,
+                'stockid_Num' => $stockid_Num,
                 'status_Num' => 1
             )
         ));
@@ -194,13 +196,13 @@ class OrderShop extends ObjDbBase
             $CartShop = new CartShop();
             $CartShop->construct(array(
                 'productid_Num' => $productid_Num,
+                'stockid_Num' => $stockid_Num,
                 'orderid_Num' => $orderid_Num,
                 'uid_Num' => $uid_Num,
                 'amount_Num' => $amount_Num
             ));
         }
-
-        $CartShop->update(array());
+        $CartShop->update();
 
         $cart_CartShopList = new ObjList();
         $cart_CartShopList->construct_db(array(
@@ -259,6 +261,33 @@ class OrderShop extends ObjDbBase
 
         $this->cart_CartShopList = $cart_CartShopList;
         $this->pay_price_total_Num = $pay_price_total_Num;
+    }
+
+    public function finish_order()
+    {
+        //檢查購物車的購買數量是否都低於庫存數量
+        foreach($this->cart_CartShopList->obj_Arr as $key => $value_CartShop)
+        {
+            if($value_CartShop->StockProductShop->stocknum_Num < $value_CartShop->amount_Num)
+            {
+                //如果庫存數量低於購買數量，就刪除這個購物選項
+                $value_CartShop->delete();
+                return '選購的部份產品已售出，已刪除庫存不足的產品項目';
+            }
+        }
+
+        //將庫存扣除購物選項的購物數量
+        foreach($this->cart_CartShopList->obj_Arr as $key => $value_CartShop)
+        {
+            $value_CartShop->StockProductShop->set('stocknum_Num', $value_CartShop->StockProductShop->stocknum_Num - $value_CartShop->amount_Num);
+            $value_CartShop->StockProductShop->update();
+        }
+
+        //設定訂單成功
+        $this->order_status_Num = 0;
+        $this->update();
+
+        return TRUE;
     }
 	
 }

@@ -1,5 +1,6 @@
 <?=$temp['header_up']?>
-<?=$temp['admin_header_down']?>
+<?=$temp['header_down']?>
+<?=$temp['admin_header_bar']?>
 <h2><?=$child2_title_Str?> - <?=$child3_title_Str?></h2>
 <div class="contentBox allWidth">
     <h3><?=$child3_title_Str?> > <?if(!empty($product_ProductShop->productid_Num)):?>編輯<?else:?>新增<?endif?></h3>
@@ -164,11 +165,81 @@
                 <span class="gray">請選擇二級分類及分類標籤，多種分類可以重複選取</span>
             </div>
         </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                產品庫存
+            </div>
+            <div class="spanLineLeft width500 stock_area">
+                <?if($product_ProductShop->stock_StockProductShopList->obj_Arr):?>
+                <?foreach($product_ProductShop->stock_StockProductShopList->obj_Arr as $key => $value_StockProductShop):?>
+                <div class="selectLine">
+                    <input type="text" class="text width100 stock_class1" name="stock_classname1_StrArr[]" placeholder="規格1" data-value="<?=$value_StockProductShop->classname1_Str?>" value="<?=$value_StockProductShop->classname1_Str?>">
+                    <input type="text" class="text width100 stock_class2" name="stock_classname2_StrArr[]" placeholder="規格2" data-value="<?=$value_StockProductShop->classname2_Str?>" value="<?=$value_StockProductShop->classname2_Str?>">
+                    <input type="text" class="text width100 color_rgb" name="stock_color_rgb_StrArr[]" placeholder="RGB色碼" data-value="<?=$value_StockProductShop->color_rgb_Str?>" value="<?=$value_StockProductShop->color_rgb_Str?>">
+                    <input type="number" class="text width100" min="0" name="stock_stocknum_NumArr[]" placeholder="庫存" data-value="<?=$value_StockProductShop->stocknum_Num?>" value="<?=$value_StockProductShop->stocknum_Num?>">
+                    <input type="hidden" class="stockid" name="stockid_NumArr[]" value="<?=$value_StockProductShop->stockid_Num?>">
+                    <span class="delete" style="color: blue; cursor: pointer;">清除</span>
+                </div>
+                <?endforeach?>
+                <?else:?>
+                <div class="selectLine">
+                    <input type="text" class="text width100 stock_class1" name="stock_classname1_StrArr[]" placeholder="規格1" data-value="" value="">
+                    <input type="text" class="text width100 stock_class2" name="stock_classname2_StrArr[]" placeholder="規格2" data-value="" value="">
+                    <input type="text" class="text width100 color_rgb" name="stock_color_rgb_StrArr[]" placeholder="RGB色碼">
+                    <input type="number" class="text width100" min="0" name="stock_stocknum_NumArr[]" placeholder="庫存" data-value="" value="">
+                    <input type="hidden" name="stockid_NumArr[]" value="">
+                </div>
+                <?endif?>
+            </div>
+            <div class="selectLine stock_line_clone" style="display: none;">
+                <input type="text" class="text width100 stock_class1" name="stock_classname1_StrArr[]" placeholder="規格1" data-value="">
+                <input type="text" class="text width100 stock_class2" name="stock_classname2_StrArr[]" placeholder="規格2" data-value="">
+                <input type="text" class="text width100 color_rgb" name="stock_color_rgb_StrArr[]" placeholder="RGB色碼">
+                <input type="number" class="text width100" min="0" name="stock_stocknum_NumArr[]" placeholder="庫存" data-value="">
+                <span class="delete" style="color: blue; cursor: pointer;">清除</span>
+            </div>
+            <script>
+            $(function(){
+                $('.stock_line_clone').clone().removeClass('stock_line_clone').css('display', 'block').disableSelection().insertAfter('.stock_area .selectLine:last');
+                $(document).on('change', '.stock_area .stock_class1', function(){
+                    $(this).attr('data-value', $(this).val());
+                    if( $(".stock_area > .selectLine > .stock_class1[data-value='']").size() === 0 )
+                    {
+                        $('.stock_line_clone').clone().removeClass('stock_line_clone').css('display', 'block').disableSelection().insertAfter('.stock_area .selectLine:last');
+                    }
+                });
+                $('.stock_area .delete').disableSelection();
+                $(document).on('click', '.stock_area .delete', function(){
+                    var stockid = $(this).parents('.selectLine').children('.stockid').val();
+                    $.ajax({
+                        url: 'ajax/product/delete_stock/?stockid=' + stockid,
+                        error: function(xhr){},
+                        success: function(response){
+                        }
+                    });
+                    if(
+                        $(".stock_area > .selectLine").size() > 2
+                    )
+                    {
+                        $(this).parent('.selectLine').remove();
+                    }
+                    else
+                    {
+                        $(this).parent('.selectLine').children(':input').val('');
+                        $(this).parent('.selectLine').children(':input').attr('data-value', '');
+                    }
+                });
+            });
+            </script>
+        </div>
         <div class="spanStage">
             <div class="spanLineLeft">
             </div>
             <div class="spanLineLeft width500">
-                <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/classmeta2/tablelist">管理二級分類</a>
+                <p class="gray">請填寫規格1、規格2的庫存數量，可以依照不同種類之規格填寫顏色、尺寸等自定義規格</p>
+                <p class="gray">至少必須填寫第一筆規格，讓系統計算庫存資訊</p>
             </div>
         </div>
     </div>
@@ -254,4 +325,5 @@
 	</div>
 	</form>
 </div>
-<?=$temp['admin_footer']?>
+<?=$temp['admin_footer_bar']?>
+<?=$temp['body_end']?>

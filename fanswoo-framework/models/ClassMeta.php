@@ -52,7 +52,7 @@ class ClassMeta extends ObjDbBase {
         if(empty($uid_Num))
         {
             $data['user'] = get_user();
-            $uid_Num = $data['user']['uid'];
+            $uid_Num = $data['User']->uid_Num;
         }
         
         //建立ClassMetaList物件
@@ -71,7 +71,7 @@ class ClassMeta extends ObjDbBase {
         }
 
         //建立DateTime物件
-        $updatetime_DateTime = $this->load->add('DateTimeObj');
+        $updatetime_DateTime = new DateTimeObj();
         $updatetime_DateTime->construct(array(
             'datetime_Str' => $updatetime_Str,
             'inputtime_date_Str' => $updatetime_inputtime_date_Str,

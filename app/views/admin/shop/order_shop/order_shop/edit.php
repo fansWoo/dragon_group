@@ -29,7 +29,8 @@ $(function(){
     });
 });
 </script>
-<?=$temp['admin_header_down']?>
+<?=$temp['header_down']?>
+<?=$temp['admin_header_bar']?>
 <h2>訂單管理 - 確認訂單</h2>
 <div class="contentBox allWidth">
     <?php echo form_open("admin/$child1_name_Str/$child2_name_Str/$child3_name_Str/{$child4_name_Str}_post/") ?>
@@ -181,8 +182,8 @@ $(function(){
             <div class="spanLineLeft">
             </div>
             <div class="spanLineLeft width300">
-                <a href="product/?productid=<?=$value_CartShop->product_ProductShop->productid_Num?>" target="_blank">
-                    <?=$value_CartShop->product_ProductShop->name_Str?>
+                <a href="admin/shop/product/product/edit/?productid=<?=$value_CartShop->product_ProductShop->productid_Num?>" target="_blank">
+                    <?=$value_CartShop->product_ProductShop->name_Str?> ( <?=$value_CartShop->StockProductShop->classname1_Str?> / <?=$value_CartShop->StockProductShop->classname2_Str?> )
                 </a>
             </div>
             <div class="spanLineLeft width100 aligncenter">
@@ -341,4 +342,5 @@ $(function(){
 	</div>
 	</form>
 </div>
-<?=$temp['admin_footer']?>
+<?=$temp['admin_footer_bar']?>
+<?=$temp['body_end']?>

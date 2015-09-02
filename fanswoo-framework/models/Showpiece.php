@@ -78,10 +78,15 @@ class Showpiece extends ObjDbBase
         foreach($arg as $key => $value) ${$key} = $arg[$key];
 
         //若uid為空則以登入者uid作為本物件之預設uid
-        if(empty($uid_Num) || empty($uid_Num))
+        if(empty($uid_Num))
         {
-            $data['user'] = get_user();
-            $uid_Num = $data['user']['uid'];
+            $User = new User();
+            $User->construct_db([
+                'db_where_Arr' => [
+                    'uid' => $this->session->userdata('uid')
+                ]
+            ]);
+            $uid_Num = $User->uid_Num;
         }
 
         $this->uid_Num = $uid_Num;

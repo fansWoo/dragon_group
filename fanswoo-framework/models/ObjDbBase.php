@@ -11,7 +11,7 @@ class ObjDbBase extends ObjBase {
 //        'title' => 'title_Str'
     );
 
-    public function construct()
+    public function construct($arg)
     {
 
     }
@@ -351,7 +351,7 @@ class ObjDbBase extends ObjBase {
             ]);
             $query = $this->db->get();
             $class_Arr = $query->row_array();
-            if(empty($class_Arr[$db_uniqueid_Str]))
+            if(empty($class_Arr))
             {
                 $class_slug_Bln = TRUE;
             }

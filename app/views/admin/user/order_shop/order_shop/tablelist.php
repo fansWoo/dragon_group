@@ -1,5 +1,6 @@
 <?=$temp['header_up']?>
-<?=$temp['admin_header_down']?>
+<?=$temp['header_down']?>
+<?=$temp['admin_header_bar']?>
 <h2>訂單管理 - 訂單列表</h2>
 <div class="contentBox allWidth">
 	<h3>訂單列表</h3>
@@ -75,4 +76,5 @@
     <?endforeach?>
     <div class="pageLink"><?=$page_links?></div>
 </div>
-<?=$temp['admin_footer']?>
+<?=$temp['admin_footer_bar']?>
+<?=$temp['body_end']?>

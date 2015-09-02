@@ -1,5 +1,6 @@
 <?=$temp['header_up']?>
-<?=$temp['admin_header_down']?>
+<?=$temp['header_down']?>
+<?=$temp['admin_header_bar']?>
 <h2><?=$child2_title_Str?> - <?=$child3_title_Str?></h2>
 <div class="contentBox allWidth">
 	<h3><?=$child3_title_Str?> > <?=$child4_title_Str?></h3>
@@ -41,18 +42,18 @@
             </div>
         </div>
     </form>
-    <?if(!empty($showpiece_ShowpieceSolnineList->obj_Arr)):?>
-    <?foreach($showpiece_ShowpieceSolnineList->obj_Arr as $key => $value_ShowpieceSolnine):?>
+    <?if(!empty($showpiece_ShowpieceList->obj_Arr)):?>
+    <?foreach($showpiece_ShowpieceList->obj_Arr as $key => $value_Showpiece):?>
     <div class="spanLine">
         <div class="spanLineLeft text width100">
-            <?=$value_ShowpieceSolnine->showpieceid_Num?>
+            <?=$value_Showpiece->showpieceid_Num?>
         </div>
         <div class="spanLineLeft text width500">
-            <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/edit/?showpieceid=<?=$value_ShowpieceSolnine->showpieceid_Num?>"><?=$value_ShowpieceSolnine->name_Str?></a>
+            <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/edit/?showpieceid=<?=$value_Showpiece->showpieceid_Num?>"><?=$value_Showpiece->name_Str?></a>
         </div>
         <div class="spanLineLeft text width150">
-            <?if(!empty($value_ShowpieceSolnine->class_ClassMetaList->obj_Arr)):?>
-            <?foreach($value_ShowpieceSolnine->class_ClassMetaList->obj_Arr as $key => $value_ClassMeta):?>
+            <?if(!empty($value_Showpiece->class_ClassMetaList->obj_Arr)):?>
+            <?foreach($value_Showpiece->class_ClassMetaList->obj_Arr as $key => $value_ClassMeta):?>
                 <?if($key !== 0):?>,<?endif?><?=$value_ClassMeta->classname_Str?>
             <?endforeach?>
             <?else:?>
@@ -60,8 +61,8 @@
             <?endif?>
         </div>
         <div class="spanLineLeft width300 hoverHidden">
-            <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/edit/?showpieceid=<?=$value_ShowpieceSolnine->showpieceid_Num?>">編輯</a>
-            <span class="ahref" onClick="fanswoo.check_href_action('確定要刪除嗎？', 'admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/delete/?showpieceid=<?=$value_ShowpieceSolnine->showpieceid_Num?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除</span>
+            <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/edit/?showpieceid=<?=$value_Showpiece->showpieceid_Num?>">編輯</a>
+            <span class="ahref" onClick="fanswoo.check_href_action('確定要刪除嗎？', 'admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/delete/?showpieceid=<?=$value_Showpiece->showpieceid_Num?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除</span>
         </div>
 	</div>
     <?endforeach?>
@@ -74,4 +75,5 @@
     <?endif?>
     <div class="pageLink"><?=$showpiece_links?></div>
 </div>
-<?=$temp['admin_footer']?>
+<?=$temp['admin_footer_bar']?>
+<?=$temp['body_end']?>

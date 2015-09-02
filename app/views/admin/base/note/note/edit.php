@@ -1,5 +1,6 @@
 <?=$temp['header_up']?>
-<?=$temp['admin_header_down']?>
+<?=$temp['header_down']?>
+<?=$temp['admin_header_bar']?>
 <h2><?=$child2_title_Str?> - <?=$child3_title_Str?></h2>
 <div class="contentBox allWidth">
     <h3><?=$child3_title_Str?> > <?if(!empty($NoteField->noteid_Num)):?>編輯<?else:?>新增<?endif?></h3>
@@ -15,7 +16,6 @@
 		    </div>
 		</div>
 	</div>
-    <?if(0):?>
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
@@ -51,7 +51,6 @@
             </div>
         </div>
     </div>
-    <?endif?>
     <?if(0):?>
 	<div class="spanLine">
 	    <div class="spanStage">
@@ -96,6 +95,26 @@
 		    </div>
 		</div>
 	</div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                文章新增時間
+            </div>
+            <div class="spanLineLeft">
+                <script src="app/js/jquery-ui-timepicker-addon/script.js"></script>
+                <link rel="stylesheet" type="text/css" href="app/js/jquery-ui-timepicker-addon/style.css"></link>
+                <script>
+                $(function(){
+                    $('#updatetime_Str').datetimepicker({
+                        dateFormat: 'yy-mm-dd',
+                        timeFormat: 'HH:mm:ss'
+                    });
+                });
+                </script>
+                <input type="text" id="updatetime_Str" class="text" name="updatetime_Str" value="<?=$NoteField->updatetime_DateTime->datetime_Str?>">
+            </div>
+        </div>
+    </div>
 	<div class="spanLine">
 	    <div class="spanStage">
             <div class="spanLineLeft">
@@ -129,7 +148,7 @@
     </div>
     <?endif?>
     <?if(!empty($NoteField->noteid_Num)):?>
-    <div class="spanLine">
+    <!-- <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
                 更新日期
@@ -138,7 +157,7 @@
                 <?=$NoteField->updatetime_DateTime->datetime_Str?>
             </div>
         </div>
-    </div>
+    </div>-->
     <?endif?>
 	<div class="spanLine spanSubmit">
 	    <div class="spanStage">
@@ -153,4 +172,5 @@
 	</div>
 	</form>
 </div>
-<?=$temp['admin_footer']?>
+<?=$temp['admin_footer_bar']?>
+<?=$temp['body_end']?>

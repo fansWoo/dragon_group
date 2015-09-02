@@ -10,7 +10,8 @@ class CartShop extends ObjDbBase {
     public $price_Num = 0;
     public $price_total_Num = 0;
     public $product_ProductShop;
-    public $amount_Num = '';
+    public $StockProductShop;
+    public $amount_Num = 0;
     public $status_Num = 1;
     public $db_name_Str = 'shop_cart';//填寫物件聯繫資料庫之名稱
     public $db_uniqueid_Str = 'cartid';//填寫物件聯繫資料庫之唯一ID
@@ -44,6 +45,13 @@ class CartShop extends ObjDbBase {
             )
         ));
 
+        $StockProductShop = new StockProductShop();
+        $StockProductShop->construct_db(array(
+            'db_where_Arr' => array(
+                'stockid_Num' => $stockid_Num
+            )
+        ));
+
         if($price_Num === 0)
         {
             $price_Num = $product_ProductShop->price_Num;
@@ -60,6 +68,7 @@ class CartShop extends ObjDbBase {
         $this->price_Num = $price_Num;
         $this->price_total_Num = $price_total_Num;
         $this->product_ProductShop = $product_ProductShop;
+        $this->StockProductShop = $StockProductShop;
         $this->amount_Num = $amount_Num;
         $this->status_Num = $status_Num;
         

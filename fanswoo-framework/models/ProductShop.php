@@ -13,6 +13,9 @@ class ProductShop extends ObjDbBase
     public $synopsis_Str = '';
     public $price_Num = 0;
     public $class_ClassMetaList;//分類標籤類別列表
+    public $stock_StockProductShopList;
+    public $stock_classname1_Arr = [];
+    public $stock_classname2_Arr = [];
     public $prioritynum_Num = 0;
     public $updatetime_DateTime;
     public $status_Num = 1;
@@ -113,6 +116,30 @@ class ProductShop extends ObjDbBase
         //HTML值運算
         $content_Html = $content_Str;
         $content_specification_Html = $content_specification_Str;
+
+        $stock_StockProductShopList = new ObjList();
+        $stock_StockProductShopList->construct_db([
+            'db_where_Arr' => [
+                'productid' => $productid_Num
+            ],
+            'model_name_Str' => 'StockProductShop',
+            'limitstart_Num' => 0,
+            'limitcount_Num' => 100
+        ]);
+
+        $stock_classname1_Arr = [];
+        $stock_classname2_Arr = [];
+        foreach($stock_StockProductShopList->obj_Arr as $key => $value_StockProductShop)
+        {
+            if( !in_array($value_StockProductShop->classname1_Str, $stock_classname1_Arr) )
+            {
+                $stock_classname1_Arr[$value_StockProductShop->color_rgb_Str] = $value_StockProductShop->classname1_Str;
+            }
+            if( !in_array($value_StockProductShop->classname2_Str, $stock_classname2_Arr) )
+            {
+                $stock_classname2_Arr[] = $value_StockProductShop->classname2_Str;
+            }
+        }
         
         //將建構方法所計算出的值存入此類別之屬性
         $this->productid_Num = $productid_Num;
@@ -121,6 +148,9 @@ class ProductShop extends ObjDbBase
         $this->mainpic_PicObjList = $mainpic_PicObjList;
         $this->uid_Num = $uid_Num;
         $this->content_Html = $content_Html;
+        $this->stock_StockProductShopList = $stock_StockProductShopList;
+        $this->stock_classname1_Arr = $stock_classname1_Arr;
+        $this->stock_classname2_Arr = $stock_classname2_Arr;
         $this->content_specification_Html = $content_specification_Html;
         $this->synopsis_Str = $synopsis_Str;
         $this->price_Num = $price_Num;

@@ -364,6 +364,7 @@ html.agent-ie8 .header .logo {
     border: 1px solid #027de5;
 }
 .content .contentBox .spanLine .selectLine { display: block; overflow: hidden; border-bottom: 1px dashed #DDD; padding: 5px 0 10px; }
+.content .contentBox .spanLine .selectLine input.text.width100 { width: 100px; }
 .content .contentBox .spanLine input.text {
     width: calc(100% - 20px);
     padding: 5px;
@@ -428,10 +429,11 @@ html.agent-ie8 .header .logo {
     height: 30px;
     line-height: 30px;
     width: 100%;
+    letter-spacing: 2px;
     text-align: center;
     overflow: hidden;
     background: rgba(0, 0, 0, 0.9);
-    color: #FFF;
+    color: #AAA;
 }
 .footer a {
     color: #FFF;

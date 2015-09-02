@@ -64,10 +64,25 @@ class ObjBase extends CI_Model {
             ));
         }
 
-        if($value_Str === NULL || $value_Str === FALSE || $value_Str === '')
+        if($value_Str === NULL)
+        {
+            $this->$name_Str = NULL;
+            return FALSE;
+        }
+        else if($value_Str === FALSE)
         {
             $this->$name_Str = FALSE;
             return FALSE;
+        }
+        else if($value_Str === '')
+        {
+            $this->$name_Str = '';
+            return FALSE;
+        }
+        else if($value_Str === 0)
+        {
+            $this->$name_Str = 0;
+            return $this->$name_Str;
         }
         else
         {

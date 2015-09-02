@@ -3,9 +3,11 @@
 class Message extends CI_Model {
 
     private $data = array();
-    
-	public function __construct()
+	
+	public function show_turnpage($arg = array('message' => '', 'url' => '', 'second' => 2))
 	{
+        $data = $this->data;
+
         $SettingList = new SettingList();
         $SettingList->construct_db(array(
             'db_where_Arr' => array(
@@ -17,13 +19,6 @@ class Message extends CI_Model {
         $data['global']['website_metatag_Arr'] = explode(PHP_EOL, $data['global']['website_metatag']);
 
         $data['global']['browser_agent'] = browser_agent();
-
-        $this->data = $data;
-	}
-	
-	public function show($arg = array('message' => '', 'url' => '', 'second' => 2))
-	{
-        $data = $this->data;
         
 		$message = isset($arg['message']) ? $arg['message'] : '';
 		$url = isset($arg['url']) ? $arg['url'] : '';
@@ -36,7 +31,7 @@ class Message extends CI_Model {
         
         //style
 		$data['global']['style'][] = 'global';
-		$data['global']['style'][] = 'temp/message';
+		$data['global']['style'][] = 'temp/message_turnpage';
         
         //temp
 		$data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -47,6 +42,30 @@ class Message extends CI_Model {
 		$this->load->view('temp/message', $data);
         
         return FALSE;
+	}
+
+	public function show($arg)
+	{
+        //引入引數並將空值的變數給予空值
+        reset_null_arr($arg, ['message', 'url', 'second']);
+        foreach($arg as $key => $value) ${$key} = $arg[$key];
+
+        $second = !empty($second) ? $second : 5 ;
+
+        //data
+        $this->input->set_cookie([
+        	'name' => 'message_show_content',
+        	'value' => $message,
+        	'expire' => '60'
+        ]);
+        $this->input->set_cookie([
+        	'name' => 'message_show_second',
+        	'value' => $second,
+        	'expire' => '60'
+        ]);
+
+        header("Location: " . base_url( $url ) );
+        exit;
 	}
 	
 }

@@ -7,15 +7,22 @@ class Contact extends ObjDbBase
     public $uid_Num = 0;
     public $username_Str = '';
     public $email_Str = '';
+    public $phone_Str = '';
+    public $content_Str = '';
+    public $classtype_Str = '';
+    public $status_process_Num = 0;
     public $updatetime_DateTime;
     public $status_Num = 1;
     public $db_name_Str = 'contact';//填寫物件聯繫資料庫之名稱
     public $db_uniqueid_Str = 'contactid';//填寫物件聯繫資料庫之唯一ID
     public $db_field_Arr = array(//填寫資料庫欄位與本物件屬性之關係，前者為資料庫欄位，後者為屬性
         'contactid' => 'contactid_Num',
-        'uid' => 'uid_Num',
         'username' => 'username_Str',
         'email' => 'email_Str',
+        'phone' => 'phone_Str',
+        'content' => 'content_Str',
+        'classtype' => 'classtype_Str',
+        'status_process' => 'status_process_Num',
         'updatetime' => array('updatetime_DateTime', 'datetime_Str'),
         'status' => 'status_Num'
     );
@@ -31,6 +38,10 @@ class Contact extends ObjDbBase
         $this->set('uid_Num', $uid_Num);
         $this->set('username_Str', $username_Str);
         $this->set('email_Str', $email_Str);
+        $this->set('phone_Str', $phone_Str);
+        $this->set('content_Str', $content_Str);
+        $this->set('classtype_Str', $classtype_Str);
+        $this->set('status_process_Num', $status_process_Num);
         $this->set('status_Num', $status_Num);
         $this->set('updatetime_DateTime', [
             'datetime_Str' => $updatetime_Str,

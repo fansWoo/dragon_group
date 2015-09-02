@@ -108,12 +108,12 @@ class PicObj extends ObjDbBase {
             $dir2_Num = substr($substr_picid_Num, 2, 2);
             $dir3_Num = substr($substr_picid_Num, 4, 2);
             $dir4_Num = substr($substr_picid_Num, 6, 2);
-            $path_Arr['w0h0'] = APPPATH.'./pic/'.$dir1_Num.'/'.$dir2_Num.'/'.$dir3_Num.'/'.$dir4_Num.'-'.$md5_Str.'.jpg';
+            $path_Arr['w0h0'] = base_url('app/pic/'.$dir1_Num.'/'.$dir2_Num.'/'.$dir3_Num.'/'.$dir4_Num.'-'.$md5_Str.'.jpg');
             
             $thumb_Arr = explode(',', $thumb_Str);
             foreach($thumb_Arr as $key => $value)
             {
-                $path_Arr[$value] = APPPATH.'./pic/'.$dir1_Num.'/'.$dir2_Num.'/'.$dir3_Num.'/'.$dir4_Num.'-'.$md5_Str.'-'.$value.'.jpg';
+                $path_Arr[$value] = base_url('app/pic/'.$dir1_Num.'/'.$dir2_Num.'/'.$dir3_Num.'/'.$dir4_Num.'-'.$md5_Str.'-'.$value.'.jpg');
             }
         }
         else
