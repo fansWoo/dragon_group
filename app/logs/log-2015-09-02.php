@@ -1145,3 +1145,23 @@ ERROR - 2015-09-02 16:00:40 --> Severity: Notice  --> Undefined index: pager.pag
 ERROR - 2015-09-02 16:00:40 --> Severity: Notice  --> Undefined index: pagerid D:\app\xampp\htdocs\dragon_group\fanswoo-framework\models\ObjDbBase.php 99
 ERROR - 2015-09-02 16:00:40 --> Severity: Notice  --> Undefined index: message_window D:\app\xampp\htdocs\dragon_group\app\views\temp\header_down.php 8
 ERROR - 2015-09-02 16:00:40 --> Severity: Notice  --> Undefined index: body_end D:\app\xampp\htdocs\dragon_group\app\views\page\index.php 635
+ERROR - 2015-09-02 16:02:08 --> Severity: Notice  --> Undefined index: pager.pagerid D:\app\xampp\htdocs\dragon_group\fanswoo-framework\models\ObjDbBase.php 92
+ERROR - 2015-09-02 16:02:08 --> Severity: Notice  --> Undefined index: pagerid D:\app\xampp\htdocs\dragon_group\fanswoo-framework\models\ObjDbBase.php 99
+ERROR - 2015-09-02 16:02:08 --> Severity: Notice  --> Undefined index: message_window D:\app\xampp\htdocs\dragon_group\app\views\temp\header_down.php 8
+ERROR - 2015-09-02 16:02:08 --> Severity: Notice  --> Undefined index: body_end D:\app\xampp\htdocs\dragon_group\app\views\page\index.php 635
+ERROR - 2015-09-02 16:03:48 --> Severity: Notice  --> Undefined index: pager.pagerid D:\app\xampp\htdocs\dragon_group\fanswoo-framework\models\ObjDbBase.php 92
+ERROR - 2015-09-02 16:03:48 --> Severity: Notice  --> Undefined index: pagerid D:\app\xampp\htdocs\dragon_group\fanswoo-framework\models\ObjDbBase.php 99
+ERROR - 2015-09-02 16:03:48 --> Severity: Notice  --> Undefined index: message_window D:\app\xampp\htdocs\dragon_group\app\views\temp\header_down.php 8
+ERROR - 2015-09-02 16:03:48 --> Severity: Notice  --> Undefined index: body_end D:\app\xampp\htdocs\dragon_group\app\views\page\index.php 635
+ERROR - 2015-09-02 16:06:22 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\app\xampp\htdocs\dragon_group\fanswoo-framework\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2015-09-02 16:06:23 --> Severity: Notice  --> Undefined index: pager.pagerid D:\app\xampp\htdocs\dragon_group\fanswoo-framework\models\ObjDbBase.php 92
+ERROR - 2015-09-02 16:06:23 --> Severity: Notice  --> Undefined index: pagerid D:\app\xampp\htdocs\dragon_group\fanswoo-framework\models\ObjDbBase.php 99
+ERROR - 2015-09-02 16:06:23 --> Severity: Notice  --> Undefined index: message_window D:\app\xampp\htdocs\dragon_group\app\views\temp\header_down.php 8
+ERROR - 2015-09-02 16:06:23 --> Severity: Notice  --> Undefined index: body_end D:\app\xampp\htdocs\dragon_group\app\views\page\index.php 635
+ERROR - 2015-09-02 16:07:55 --> Severity: Notice  --> Undefined index: pager.pagerid D:\app\xampp\htdocs\dragon_group\fanswoo-framework\models\ObjDbBase.php 92
+ERROR - 2015-09-02 16:07:55 --> Severity: Notice  --> Undefined index: pagerid D:\app\xampp\htdocs\dragon_group\fanswoo-framework\models\ObjDbBase.php 99
+ERROR - 2015-09-02 16:07:55 --> Severity: Notice  --> Undefined index: message_window D:\app\xampp\htdocs\dragon_group\app\views\temp\header_down.php 8
+ERROR - 2015-09-02 16:07:55 --> Severity: Notice  --> Undefined index: body_end D:\app\xampp\htdocs\dragon_group\app\views\page\index.php 635
+ERROR - 2015-09-02 16:45:10 --> Severity: Compile Error --> Cannot redeclare get_user() (previously declared in D:\app\xampp\htdocs\dragon_group\fanswoo-framework\helpers\fanswoo_helper.php:5) D:\app\xampp\htdocs\dragon_group\app\helpers\common_helper.php 23
+ERROR - 2015-09-02 16:45:10 --> Severity: Warning --> include(D:\app\xampp\htdocs\dragon_group\app\views\errors\html\error_php.php): failed to open stream: No such file or directory D:\app\xampp\htdocs\dragon_group\codeigniter\core\Exceptions.php 269
+ERROR - 2015-09-02 16:45:11 --> Severity: Warning --> include(): Failed opening 'D:\app\xampp\htdocs\dragon_group\app\views\errors\html\error_php.php' for inclusion (include_path='.;D:\app\xampp\php\PEAR') D:\app\xampp\htdocs\dragon_group\codeigniter\core\Exceptions.php 269
