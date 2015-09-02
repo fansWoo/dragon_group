@@ -48,11 +48,11 @@ class ClassMeta extends ObjDbBase {
         $prioritynum_Num = !empty($arg['prioritynum_Num']) ? $arg['prioritynum_Num'] : 0;
         $status_Num = !empty($arg['status_Num']) ? $arg['status_Num'] : 1;
         
-        //uid
-        if(empty($uid_Num))
+        //若uid為空則以登入者uid作為本物件之預設uid
+        if(empty($uid_Num) || empty($uid_Num))
         {
             $data['user'] = get_user();
-            $uid_Num = $data['User']->uid_Num;
+            $uid_Num = $data['user']['uid'];
         }
         
         //建立ClassMetaList物件

@@ -21,7 +21,12 @@ class MY_Controller extends FS_Controller
 
         $data['global']['browser_agent'] = browser_agent();
 
-        $data['user'] = get_user();
+        $data['User'] = new User();
+        $data['User']->construct_db(array(
+            'db_where_Arr' => array(
+                'uid_Num' => $this->session->userdata('uid')
+            )
+        ));
 
         $this->data = $data;
     }

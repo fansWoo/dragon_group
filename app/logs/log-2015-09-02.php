@@ -1165,3 +1165,21 @@ ERROR - 2015-09-02 16:07:55 --> Severity: Notice  --> Undefined index: body_end 
 ERROR - 2015-09-02 16:45:10 --> Severity: Compile Error --> Cannot redeclare get_user() (previously declared in D:\app\xampp\htdocs\dragon_group\fanswoo-framework\helpers\fanswoo_helper.php:5) D:\app\xampp\htdocs\dragon_group\app\helpers\common_helper.php 23
 ERROR - 2015-09-02 16:45:10 --> Severity: Warning --> include(D:\app\xampp\htdocs\dragon_group\app\views\errors\html\error_php.php): failed to open stream: No such file or directory D:\app\xampp\htdocs\dragon_group\codeigniter\core\Exceptions.php 269
 ERROR - 2015-09-02 16:45:11 --> Severity: Warning --> include(): Failed opening 'D:\app\xampp\htdocs\dragon_group\app\views\errors\html\error_php.php' for inclusion (include_path='.;D:\app\xampp\php\PEAR') D:\app\xampp\htdocs\dragon_group\codeigniter\core\Exceptions.php 269
+ERROR - 2015-09-02 16:54:16 --> 404 Page Not Found: App_Controller/css
+ERROR - 2015-09-02 16:54:18 --> 404 Page Not Found: App_Controller/css
+ERROR - 2015-09-02 16:54:19 --> 404 Page Not Found: App_Controller/css
+ERROR - 2015-09-02 16:54:20 --> 404 Page Not Found: App_Controller/css
+ERROR - 2015-09-02 16:54:21 --> 404 Page Not Found: App_Controller/css
+ERROR - 2015-09-02 16:55:13 --> 404 Page Not Found: App_Controller/pic
+ERROR - 2015-09-02 16:55:13 --> 404 Page Not Found: App_Controller/pic
+ERROR - 2015-09-02 16:55:13 --> 404 Page Not Found: App_Controller/pic
+ERROR - 2015-09-02 16:55:14 --> 404 Page Not Found: App_Controller/pic
+ERROR - 2015-09-02 16:55:14 --> 404 Page Not Found: App_Controller/pic
+ERROR - 2015-09-02 16:55:14 --> 404 Page Not Found: App_Controller/pic
+ERROR - 2015-09-02 16:55:16 --> 404 Page Not Found: App_Controller/pic
+ERROR - 2015-09-02 16:55:16 --> 404 Page Not Found: App_Controller/pic
+ERROR - 2015-09-02 16:55:18 --> 404 Page Not Found: App_Controller/pic
+ERROR - 2015-09-02 16:56:19 --> Query error: Column 'uid' cannot be null - Invalid query: INSERT INTO `fs_class` (`classid`, `uid`, `classname`, `slug`, `content`, `modelname`, `amountnum`, `classids`, `updatetime`, `prioritynum`, `status`) VALUES (528616, NULL, '123', '123', '', 'pager', 0, '528597', '2015-09-02 16:56:19', 0, 1)
+ERROR - 2015-09-02 16:58:04 --> Severity: Warning --> in_array() expects parameter 2 to be array, null given D:\app\xampp\htdocs\dragon_group\app\controllers\admin\base\user\User.php 46
+ERROR - 2015-09-02 16:58:04 --> Severity: Warning --> in_array() expects parameter 2 to be array, null given D:\app\xampp\htdocs\dragon_group\app\controllers\admin\base\user\User.php 48
+ERROR - 2015-09-02 16:58:04 --> Severity: Warning --> in_array() expects parameter 2 to be array, null given D:\app\xampp\htdocs\dragon_group\app\controllers\admin\base\user\User.php 51
