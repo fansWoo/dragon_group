@@ -1,4 +1,7 @@
 a { color:#0063b1; }
+body{background:url(../../img/index/bg.png) fixed; border:0px; margin:0px; background-size:contain;}
+p{font-size:14px;line-height:22px;letter-spacing:2px;font-family:Times New Roman  , LiHei Pro, "儷黑體" , sans-serif ;}
+html.agent-ie p{font-size:14px;line-height:22px;letter-spacing:2px;font-family:Times New Roman  , LiHei Pro, "儷黑體" , sans-serif ;}
 
 /*RWD手機版自動調整.wrap大小*/
 @media screen and (max-width: 450px) {
