@@ -24,28 +24,23 @@ $(function(){
 			if(scroll_top >= 300 && scroll_top < 700){
 				$('#content_one').addClass('hover');
 				$('#content_two').removeClass('hover');
-				$('#content_two .bus_box').css('opacity', '0');
-				$('#content_two .bus_box').css('transform', 'translate( 300px , 410px)');
+				
 				
 			}
 			if(scroll_top >= 700 && scroll_top < 1500){
+				/*
 					$('#content_two').addClass('hover');
 						$('#content_two .bus_box').css('opacity', '1');
 						$('#content_two .bus_box .bus').css('opacity', '1');
 						$('#content_two .bus_box .bus2').css('opacity', '0');
 						
-					if(scroll_top >= 700 && scroll_top < 800){
+					if(scroll_top >= 700 && scroll_top < 900){
 						$('#content_two .bus_box').css('opacity', '1');
 						$('#content_two .bus_box').css('transform', 'translate( 300px , 410px)');
 						$('#content_two .bus_box .bus').css('opacity', '1');
 						$('#content_two .bus_box .bus2').css('opacity', '0');
 					}
-					if(scroll_top >= 800 && scroll_top < 900){
-						
-						$('#content_two .bus_box').css('transform', 'translate( 300px , 410px)');
-						$('#content_two .bus_box .bus').css('opacity', '1');
-						$('#content_two .bus_box .bus2').css('opacity', '0');
-					}
+					
 					if(scroll_top >= 900 && scroll_top < 1000){
 						
 						$('#content_two .bus_box').css('transform', 'translate( 620px , 410px)');
@@ -79,12 +74,12 @@ $(function(){
 						$('#content_two .bus_box .bus2').css('opacity', '0');
 					}
 				
-				
+				*/
 			}
 			else if(scroll_top >= 1500 && scroll_top < 3100){
 				$('#content_three').addClass('hover');
 				$('#content_two').removeClass('hover');
-				$('#content_two .bus_box').css('opacity', '0');
+				
 				
 			}
 			else if(scroll_top >= 3100 && scroll_top < 4500){
@@ -131,9 +126,12 @@ $(function(){
 	});
 	$('.fixed_arrow_right').click(function () {
 		console.log($(document).scrollTop());
+		$('#content_two .bus_box .bus').css('transform', 'scaleX(1)');
+		$('#content_two .bus_box .bus2').css('transform', 'scaleX(1)');
 		if($(document).scrollTop() == 0)
 		{
 			$("html , body").animate({scrollTop: 500}, 1000, "swing");
+			
 		}
 		else if($(document).scrollTop() >= 500 && $(document).scrollTop() < 1000)
 		{
@@ -155,6 +153,8 @@ $(function(){
 	});
 	$('.fixed_arrow_left').click(function () {
 		console.log($(document).scrollTop());
+		$('#content_two .bus_box .bus').css('transform', 'scaleX(-1)');
+		$('#content_two .bus_box .bus2').css('transform', 'scaleX(-1)');
 		if($(document).scrollTop() == 0)
 		{
 			$("html , body").animate({scrollTop: 0}, 1000, "swing");
@@ -163,12 +163,12 @@ $(function(){
 		{
 			$("html , body").animate({scrollTop: 0}, 1000, "swing");
 		}
-		else if($(document).scrollTop() >= 1000 && $(document).scrollTop() < 1500)
+		else if($(document).scrollTop() >= 1000 && $(document).scrollTop() < 1300)
 		{
 			console.log('h');
-			$("html , body").animate({scrollTop: 800}, 1000, "swing");
+			$("html , body").animate({scrollTop: 900}, 1000, "swing");
 		}
-		else if($(document).scrollTop() >= 1500 && $(document).scrollTop() < 2000)
+		else if($(document).scrollTop() >= 1300 && $(document).scrollTop() < 2000)
 		{
 			$("html , body").animate({scrollTop: 1000}, 1000, "swing");
 		}
@@ -192,7 +192,7 @@ $(function(){
 
 	$(document).scroll(function(){
 		var window_width = $(window).width();
-		var scroll_top = $(document).scrollTop();		
+		var scroll_top = $(document).scrollTop();	
 		if(window_width > 450){
 
 			var scroll_top = $(document).scrollTop();
@@ -200,18 +200,41 @@ $(function(){
 			var content_bottom_top = $('.scroll_area').offset().top;
 			var content_bottom_height_all = $('.scroll_area').heightAll();
 			
+			if(scroll_top == 0)
+			{
+				$('#content_two .bus1').css('display','block');	
+			}
+				
+			
 			if(scroll_top_height >= content_bottom_top)
 			{
 				var s1 = (scroll_top_height - content_bottom_top) * 1.5;
 				var p7 = (scroll_top_height - content_bottom_top) / 1 ;
 				var p8 = (scroll_top_height - content_bottom_top) * 0.15 ;
-				var p9 = (scroll_top_height - content_bottom_top) / 2 ;
+				var p9 = (scroll_top_height - content_bottom_top) / 1 ;
+				var p10 = (scroll_top_height - content_bottom_top) / 1 ;
 				
 				$('.scroll_area').addClass('hover');
 				$('.scroll_area .content').css('transform', 'translate(-' + s1 + 'px , 0)');
 				$('#content_three .plan').css('transform', 'translateY(+' + p8 + 'px) translateX(+' + p7  + 'px) rotate(-15deg)');
+		
+				if(scroll_top >= 700 && scroll_top < 1000 ){
+					$('#content_two .bus1').css('transform', 'translateX(+' + p9  + 'px)');
+	
+				}
+				else if(scroll_top >= 1000 ){
+					$('#content_two .bus1').css('display','none');	
+					
+				}
 				
-				
+				if(scroll_top >= 1000 && scroll_top < 1350 ){
+					$('#content_two .bus2').css('transform', 'translateY(-' +  p10  + 'px)');
+	
+				}
+				else if(scroll_top >= 1300 ){
+					$('#content_two .bus1').css('display','none');	
+					
+				}
 				
 			}
 			
@@ -315,10 +338,11 @@ $(function(){
 			<p>松江路</p>
 			<p>民生東路一段</p>				
 		</div>
-		<div class="bus_box">
-			<img src="app/img/index/bus.gif" class="bus">
+		
+			<img src="app/img/index/bus.gif" class="bus1">
 			<img src="app/img/index/bus2.gif" class="bus2">
-		</div>
+			<img src="app/img/index/bus.gif" class="bus3">
+		
 		<div class="sketch_light one">
 			<img src="app/img/index/sketch_light.gif" >	
 		</div>
