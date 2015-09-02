@@ -1101,3 +1101,7 @@ ERROR - 2015-09-02 15:31:25 --> Severity: Notice  --> Undefined index: body_end 
 ERROR - 2015-09-02 15:37:35 --> Severity: Notice  --> Undefined index: pager.pagerid D:\app\xampp\htdocs\dragon_group\fanswoo-framework\models\ObjDbBase.php 92
 ERROR - 2015-09-02 15:37:35 --> Severity: Notice  --> Undefined index: pagerid D:\app\xampp\htdocs\dragon_group\fanswoo-framework\models\ObjDbBase.php 99
 ERROR - 2015-09-02 15:37:35 --> Severity: Notice  --> Undefined index: body_end D:\app\xampp\htdocs\dragon_group\app\views\page\index.php 634
+ERROR - 2015-09-02 15:47:07 --> Severity: Notice  --> Undefined index: pager.pagerid D:\app\xampp\htdocs\dragon_group\fanswoo-framework\models\ObjDbBase.php 92
+ERROR - 2015-09-02 15:47:07 --> Severity: Notice  --> Undefined index: pagerid D:\app\xampp\htdocs\dragon_group\fanswoo-framework\models\ObjDbBase.php 99
+ERROR - 2015-09-02 15:47:07 --> Severity: Notice  --> Undefined index: message_window D:\app\xampp\htdocs\dragon_group\app\views\temp\header_down.php 8
+ERROR - 2015-09-02 15:47:07 --> Severity: Notice  --> Undefined index: body_end D:\app\xampp\htdocs\dragon_group\app\views\page\index.php 635

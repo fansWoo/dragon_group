@@ -6,7 +6,14 @@
 $(function(){
 	$(document).scroll(function(){
 		var window_width = $(window).width();
-		var scroll_top = $(document).scrollTop();	
+		var scroll_top = $(document).scrollTop();
+		$('.opacity0_coverbg').css('display', 'block');
+		setTimeout(function(){
+			if(scroll_top == $(document).scrollTop())
+			{
+				$('.opacity0_coverbg').css('display', 'none');
+			}
+		}, 500);
 		if(window_width > 450 && window_width <= 1400){
 
 			if(scroll_top == 0){
@@ -223,13 +230,7 @@ $(function(){
     });
 });
 </script>
-<script src="js/test/jquery-1.11.2.min.js"></script>
-<script src="js/test/jquery.transit.min.js"></script>
-<script src="js/test/jquery.easing.1.3.min.js"></script>
-<script src="js/test/util.min.js"></script>
-<script src="js/test/main.min.js"></script>
-<script src="js/test/func.min.js"></script>
-
+<div class="opacity0_coverbg"></div>
 		<div class="fixed_arrow_right">
 			<div></div>
 		</div>
