@@ -1,14 +1,60 @@
 
+
+.footer_bar{width:100%;height:300px; clear:both; margin-top:0px;position:relative;}
+.footer_bar .bg_box{width:100%;height:300px; background:url(../../img/footer/line2.png) bottom left repeat-x; }
+.footer_bar .bg_box .pic_box{width:1100px;height:300px;position:absolute;left:50%;margin-left:-500px;bottom:0px;}
+.footer_bar .bg_box .pic_box .house{position:absolute;width:1100px;margin:0 auto;margin-bottom:3px;bottom:3px;}
+.footer_bar .bg_box .pic_box .sketch_cloud2{position:absolute;width:300px;top:50px;left:50%;margin-left:-155px;}
+.footer_bar .bg_box .pic_box .bus{position:absolute;width:150px;bottom:0px;left:50%;margin-left:-75px;}
+.footer_bar .bg_box .pic_box .sketch_light1{position:absolute;width:30px;bottom:0px;left:-20px;}
+.footer_bar .bg_box .pic_box .sketch_light2{position:absolute;width:30px;bottom:0px;left:50%;margin-left:-120px;}
+
+
+.footer_bar .center_box{width:900px; margin:10px auto;padding:15px 0px;overflow:hidden; padding-left:30px;}
+.footer_bar .center_box .item_box{float:left;padding:0px 10px;width:20%; margin-left:15px;border-right:1px solid rgba(150,96,28,0.5);}
+.footer_bar .center_box .item_box:nth-of-type(4){border-right:none;}
+.footer_bar .center_box .item_box h3{font-size:20px; margin-bottom:15px; }
+.footer_bar .center_box .item_box h3 img{margin-right:10px;}
+.footer_bar .center_box .item_box .icon_box{ margin-bottom:15px;}
+.footer_bar .center_box .item_box .icon_box p{display:block;margin-bottom:5px;padding-left:15px;position:relative;}
+.footer_bar .center_box .item_box .icon_box img{position:absolute;width:14px; margin-right:10px;left:-5px;top:1px;}
+
+
+.footer_bar .bottom_box{width:100%;background:url(../../img/footer/line2.png) top left repeat-x; padding:20px 0px;text-align:center;position:relative;}
+.footer_bar .bottom_box .fanswoo {position:absolute;bottom:20px;right:20px;}
+.footer_bar .bottom_box .fanswoo span{height:20px;margin-left:5px;border-bottom:2px dashed #f4b538;padding-bottom:2px;}
+.footer_bar .bottom_box .fanswoo a{font-family:" Georgia " ;color:#000; }
+
+
 .footer_bar_mobile { display: none; }
+.mobile_footer_box{display:none;width:100%;}
+
+
+
+
 
 @media screen and (max-width: 450px) {
+.footer_bar{display:none; }
 
-.footer_bar { display: none; }
+.mobile_footer_box{display:block;width:100%;}
+.mobile_footer_box {width:100%;overflow:hidden;}
+.mobile_footer_box  img{width:100%; margin-bottom:10px;}
+.mobile_footer_box .footer_nav{width:100%;}
+.mobile_footer_box .footer_nav .footer_li{width:100%;height:30px;}
+.mobile_footer_box .footer_nav .footer_li p{line-height:30px;text-align:center;color:#000;}
+.mobile_footer_box .footer_nav .footer_li a{font-size:14px;line-height:30px;text-align:center;color:#000;}
+.mobile_footer_box .footer_bottom{width:100%;}
+.mobile_footer_box .footer_bottom p{font-size:13px; text-align:center;line-height:18px;}
+.mobile_footer_box .footer_bottom img{width:100%;height:16px;}
+.mobile_footer_box .footer_bottom p span{height:20px;margin-left:5px;border-bottom:2px dashed #f4b538;padding-bottom:2px;}
+.mobile_footer_box .footer_bottom p a{font-family:" Georgia " ;color:#000; }
+
+
 .footer_bar_mobile { display: none; width: 100%; padding: 0 6%; height: 50px; line-height: 50px; text-align: center; position: fixed; bottom: 0; background: #333; transform: translateY(0%); transition: all 0.3s; }
-.footer_bar_mobile.clicked { transform: translateY(100%); }
-.footer_bar_mobile a { display: block; width: 22%; font-size: 15px; float: left; color: #FFF; text-align: center; 
-
-
-
+.footer_bar_mobile.clicked { display: none;transform: translateY(100%); }
+.footer_bar_mobile a { display: none;display: block; width: 22%; font-size: 15px; float: left; color: #FFF; text-align: center; }
 
 }
+
+
+

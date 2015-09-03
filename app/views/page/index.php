@@ -28,53 +28,9 @@ $(function(){
 				
 			}
 			if(scroll_top >= 700 && scroll_top < 1500){
-				/*
-					$('#content_two').addClass('hover');
-						$('#content_two .bus_box').css('opacity', '1');
-						$('#content_two .bus_box .bus').css('opacity', '1');
-						$('#content_two .bus_box .bus2').css('opacity', '0');
-						
-					if(scroll_top >= 700 && scroll_top < 900){
-						$('#content_two .bus_box').css('opacity', '1');
-						$('#content_two .bus_box').css('transform', 'translate( 300px , 410px)');
-						$('#content_two .bus_box .bus').css('opacity', '1');
-						$('#content_two .bus_box .bus2').css('opacity', '0');
-					}
-					
-					if(scroll_top >= 900 && scroll_top < 1000){
-						
-						$('#content_two .bus_box').css('transform', 'translate( 620px , 410px)');
-						$('#content_two .bus_box .bus').css('opacity', '0');
-						$('#content_two .bus_box .bus2').css('opacity', '1');
-					}
-					if(scroll_top >= 1000 && scroll_top < 1100){
-						$('#content_two .bus_box').css('display', 'block');	
-						$('#content_two .bus_box').css('transform', 'translate( 620px , 100px)');
-						$('#content_two .bus_box .bus').css('opacity', '0');
-						$('#content_two .bus_box .bus2').css('opacity', '1');
-						
-					}
-					if(scroll_top >= 1100 && scroll_top < 1200){
-						$('#content_two .bus_box').css('display', 'block');	
-						$('#content_two .bus_box').css('transform', 'translate( 620px , 100px)');
-						$('#content_two .bus_box .bus').css('opacity', '1');
-						$('#content_two .bus_box .bus2').css('opacity', '0');
-						
-					}
-					if(scroll_top >= 1300 && scroll_top < 1400){
-						$('#content_two .bus_box').css('display', 'block');
-						$('#content_two .bus_box').css('transform', 'translate( 1200px , 100px)');
-						$('#content_two .bus_box .bus').css('opacity', '1');
-						$('#content_two .bus_box .bus2').css('opacity', '0');
-					}
-					if(scroll_top >= 1400 && scroll_top < 1500){
-						$('#content_two .bus_box').css('display', 'block');
-						$('#content_two .bus_box').css('transform', 'translate( 1200px , 100px)');
-						$('#content_two .bus_box .bus').css('opacity', '1');
-						$('#content_two .bus_box .bus2').css('opacity', '0');
-					}
 				
-				*/
+					$('#content_two').addClass('hover');
+				
 			}
 			else if(scroll_top >= 1500 && scroll_top < 3100){
 				$('#content_three').addClass('hover');
@@ -123,11 +79,27 @@ $(function(){
 			
 		
 		}
+		if(scroll_top == 0){
+			
+			$('.fixed_arrow_left').removeClass('hover');	
+		}
+		else if(scroll_top >= 300){
+			
+			$('.fixed_arrow_left').addClass('hover');	
+		}
+		
+		
+		if( scroll_top < 1500){
+			
+			$('.fixed_arrow_right').removeClass('hover');	
+		}
+		else if(scroll_top > 1500){
+			
+			$('.fixed_arrow_right').addClass('hover');	
+		}
 	});
 	$('.fixed_arrow_right').click(function () {
 		console.log($(document).scrollTop());
-		$('#content_two .bus_box .bus').css('transform', 'scaleX(1)');
-		$('#content_two .bus_box .bus2').css('transform', 'scaleX(1)');
 		if($(document).scrollTop() == 0)
 		{
 			$("html , body").animate({scrollTop: 500}, 1000, "swing");
@@ -137,12 +109,12 @@ $(function(){
 		{
 			$("html , body").animate({scrollTop: 1000}, 1000, "swing");
 		}
-		else if($(document).scrollTop() >= 1000 && $(document).scrollTop() < 1300)
+		else if($(document).scrollTop() >= 1000 && $(document).scrollTop() < 1500)
 		{
 			console.log('h');
 			$("html , body").animate({scrollTop: 1500}, 1000, "swing");
 		}
-		else if($(document).scrollTop() >= 1300 && $(document).scrollTop() < 2000)
+		else if($(document).scrollTop() >= 1500 && $(document).scrollTop() < 2000)
 		{
 			$("html , body").animate({scrollTop: 2000}, 1000, "swing");
 		}
@@ -153,8 +125,6 @@ $(function(){
 	});
 	$('.fixed_arrow_left').click(function () {
 		console.log($(document).scrollTop());
-		$('#content_two .bus_box .bus').css('transform', 'scaleX(-1)');
-		$('#content_two .bus_box .bus2').css('transform', 'scaleX(-1)');
 		if($(document).scrollTop() == 0)
 		{
 			$("html , body").animate({scrollTop: 0}, 1000, "swing");
@@ -163,10 +133,10 @@ $(function(){
 		{
 			$("html , body").animate({scrollTop: 0}, 1000, "swing");
 		}
-		else if($(document).scrollTop() >= 1000 && $(document).scrollTop() < 1300)
+		else if($(document).scrollTop() >= 1000 && $(document).scrollTop() < 1500)
 		{
 			console.log('h');
-			$("html , body").animate({scrollTop: 900}, 1000, "swing");
+			$("html , body").animate({scrollTop: 500}, 1000, "swing");
 		}
 		else if($(document).scrollTop() >= 1300 && $(document).scrollTop() < 2000)
 		{
@@ -202,53 +172,89 @@ $(function(){
 			
 			if(scroll_top == 0)
 			{
-				$('#content_two .bus1').css('display','block');	
+				$('#content_one .bus1').attr('data-status', 1);
+				$('#content_two .bus2').attr('data-status', 1);
+				$('#content_two .bus3').attr('data-status', 1);
 			}
-				
-			
+		
 			if(scroll_top_height >= content_bottom_top)
 			{
 				var s1 = (scroll_top_height - content_bottom_top) * 1.5;
 				var p7 = (scroll_top_height - content_bottom_top) / 1 ;
 				var p8 = (scroll_top_height - content_bottom_top) * 0.15 ;
-				var p9 = (scroll_top_height - content_bottom_top) / 1 ;
-				var p10 = (scroll_top_height - content_bottom_top) / 1 ;
+				var p9 = (scroll_top_height - content_bottom_top) / 0.9 ;
+				var p10 = (scroll_top_height - content_bottom_top) / 0.9 ;
+				var p11 = (scroll_top_height - content_bottom_top) / 0.8 ;
 				
 				$('.scroll_area').addClass('hover');
 				$('.scroll_area .content').css('transform', 'translate(-' + s1 + 'px , 0)');
 				$('#content_three .plan').css('transform', 'translateY(+' + p8 + 'px) translateX(+' + p7  + 'px) rotate(-15deg)');
 		
-				if(scroll_top >= 700 && scroll_top < 1000 ){
-					$('#content_two .bus1').css('transform', 'translateX(+' + p9  + 'px)');
-	
-				}
-				else if(scroll_top >= 1000 ){
-					$('#content_two .bus1').css('display','none');	
-					
-				}
+				if(window_width >= 450 && window_width < 1400 ){	
 				
-				if(scroll_top >= 1000 && scroll_top < 1350 ){
-					$('#content_two .bus2').css('transform', 'translateY(-' +  p10  + 'px)');
-	
-				}
-				else if(scroll_top >= 1300 ){
-					$('#content_two .bus1').css('display','none');	
-					
-				}
-				
-			}
-			
-			var content_bottom_top = $('#content_two').offset().top;
-			var content_bottom_height_all = $(content_two).heightAll();
-			if(scroll_top_height >= content_bottom_top)
-			{
-			
-				var p7 = (scroll_top_height - content_bottom_top) / 1 ;
-				var p8 = (scroll_top_height - content_bottom_top) * 0.15 ;
-				
-				/*$('#content_two .bus').css('transform', 'translateY(+' + p8 + 'px) translateX(+' + p7  + 'px) rotate(-15deg)');*/
-			}
+					if(scroll_top >= 500 && scroll_top < 850 ){
+						
+						$('#content_one .bus1').attr('data-status', 2);
+						$('#content_one .bus1').css('transform', 'translateX(+' + p9  + 'px)');
 		
+					}
+					else if(scroll_top >= 850 ){
+						$('#content_one .bus1').attr('data-status', 3);
+
+					}
+					
+					if(scroll_top >= 900 && scroll_top < 1190 ){
+						
+						$('#content_two .bus2').attr('data-status', 2);
+						$('#content_two .bus2').css('transform', 'translateY(-' +  p10  + 'px)');
+		
+					}
+					else if(scroll_top >= 1190 ){
+						$('#content_two .bus2').attr('data-status', 3);
+					}
+					
+					if(scroll_top >= 1190 && scroll_top < 1690 ){
+						
+						$('#content_two .bus3').attr('data-status', 2);
+						$('#content_two .bus3').css('transform', 'translateX(+' +  p9  + 'px)');
+		
+					}
+					else if(scroll_top >= 1690 ){
+						$('#content_two .bus3').attr('data-status', 3);
+					}
+				
+				}
+				if(window_width >= 1400 ){	
+				
+					if(scroll_top >= 600 && scroll_top < 1050 ){
+						
+						$('#content_one .bus1').css('transform', 'translateX(+' + p9  + 'px)');
+		
+					}
+					else if(scroll_top >= 1050 ){
+						$('#content_one .bus1').css('display','none');	
+
+					}
+					
+					if(scroll_top >= 1050 && scroll_top < 1370 ){
+						
+						$('#content_two .bus2').css('transform', 'translateY(-' +  p10  + 'px)');
+		
+					}
+					else if(scroll_top >= 1370 ){
+						$('#content_two .bus2').css('display','none');	
+					}
+					if(scroll_top >= 1370 && scroll_top < 1890 ){
+						
+						$('#content_two .bus3').css('transform', 'translateX(+' +  p9  + 'px)');
+		
+					}
+					else if(scroll_top >= 1890 ){
+						$('#content_two .bus3').css('display','none');	
+					}
+				
+				}
+			}
 		}
     });
 });
@@ -262,6 +268,7 @@ $(function(){
 		</div>
 <div class="scroll_area">
 	<div class="content one"  id="content_one">
+		<img src="app/img/index/bus.gif" data-status="1" class="bus1">
 		<div class="road">
 			<img src="app/img/index/road01.png" >
 			<p>錦州街</p>			
@@ -339,9 +346,9 @@ $(function(){
 			<p>民生東路一段</p>				
 		</div>
 		
-			<img src="app/img/index/bus.gif" class="bus1">
-			<img src="app/img/index/bus2.gif" class="bus2">
-			<img src="app/img/index/bus.gif" class="bus3">
+			
+			<img src="app/img/index/bus2.gif" class="bus2" data-status="1" style="display:none;">
+			<img src="app/img/index/bus.gif" class="bus3" data-status="1" style="display:none;">
 		
 		<div class="sketch_light one">
 			<img src="app/img/index/sketch_light.gif" >	
@@ -440,9 +447,7 @@ $(function(){
 	</div>
 	<!------------------------------------------------------------------------------------>
 	<div class="content four " id="content_four">
-		<a href="#content_one" class="arrow">
-			<div></div>
-		</a>
+	
 		<div class="ground">
 			<img src="app/img/index/map_china.png" >	
 		</div>
@@ -459,8 +464,8 @@ $(function(){
 		</div>
 		<div class="icon_box">
 			<p><img src="app/img/index/icon01.png">台灣省桃園市龜山區楓樹七街31號</p>
-			<p><img src="app/img/index/icon02.png">(02) 3349-0033</p>
-			<p><img src="app/img/index/icon03.png">12:00～21:00  </p>
+			<p><img src="app/img/index/icon02.png">(03) 3349-0033</p>
+			<p><img src="app/img/index/icon03.png">9:00～18:00  </p>
 		</div>
 		<div class="big_pic_box">
 			<a href="http://www.usies.com.tw/about.php?lang=tw"  target="_blank" class="orange_box">
@@ -613,9 +618,9 @@ $(function(){
 			</div>
 			<div class="line"></div>
 			<div class="right_text_box">
-				<p><img src="app/img/index/icon01.png">台北市中山區民生東路一段14號2樓</p>
-				<p><img src="app/img/index/icon02.png">(02) 2581-3030</p>
-				<p><img src="app/img/index/icon03.png">12:00～21:00  </p>
+				<p><img src="app/img/index/icon01.png">台灣省桃園市龜山區楓樹七街31號</p>
+				<p><img src="app/img/index/icon02.png">(03) 3349-0033</p>
+				<p><img src="app/img/index/icon03.png">9:00～18:00  </p>
 			</div>
 		</div>
 	</div>

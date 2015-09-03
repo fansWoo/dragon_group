@@ -1183,3 +1183,9 @@ ERROR - 2015-09-02 16:56:19 --> Query error: Column 'uid' cannot be null - Inval
 ERROR - 2015-09-02 16:58:04 --> Severity: Warning --> in_array() expects parameter 2 to be array, null given D:\app\xampp\htdocs\dragon_group\app\controllers\admin\base\user\User.php 46
 ERROR - 2015-09-02 16:58:04 --> Severity: Warning --> in_array() expects parameter 2 to be array, null given D:\app\xampp\htdocs\dragon_group\app\controllers\admin\base\user\User.php 48
 ERROR - 2015-09-02 16:58:04 --> Severity: Warning --> in_array() expects parameter 2 to be array, null given D:\app\xampp\htdocs\dragon_group\app\controllers\admin\base\user\User.php 51
+ERROR - 2015-09-02 18:27:18 --> Severity: Warning --> mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES) D:\app\xampp\htdocs\dragon_group\codeigniter\database\drivers\mysqli\mysqli_driver.php 135
+ERROR - 2015-09-02 18:27:18 --> Unable to connect to the database
+ERROR - 2015-09-02 18:28:01 --> Severity: Warning --> mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES) D:\app\xampp\htdocs\dragon_group\codeigniter\database\drivers\mysqli\mysqli_driver.php 135
+ERROR - 2015-09-02 18:28:01 --> Unable to connect to the database
+ERROR - 2015-09-02 18:29:31 --> Severity: Warning --> mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES) D:\app\xampp\htdocs\dragon_group\codeigniter\database\drivers\mysqli\mysqli_driver.php 135
+ERROR - 2015-09-02 18:29:31 --> Unable to connect to the database

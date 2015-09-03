@@ -3,9 +3,13 @@ body{background:url(../../img/index/bg.png) fixed; border:0px; margin:0px; backg
 p{font-size:14px;line-height:22px;letter-spacing:2px;font-family:Times New Roman  , LiHei Pro, "儷黑體" , sans-serif ;}
 html.agent-ie p{font-size:14px;line-height:22px;letter-spacing:2px;font-family:Times New Roman  , LiHei Pro, "儷黑體" , sans-serif ;}
 
+
+
 /*RWD手機版自動調整.wrap大小*/
 @media screen and (max-width: 450px) {
 	body { overflow:hidden; }
 	.wrap { overflow-y: scroll; margin: 50px 0 0; padding: 0px;padding-top:20px; }
 	/*.wrap { overflow-y: scroll; margin: 50px 0 0; padding: 20px; }*/
+	
+	
 }

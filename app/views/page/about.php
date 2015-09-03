@@ -22,63 +22,8 @@ $(function(){
 				
 			}
 			if(scroll_top >= 700 && scroll_top < 1500){
-					$('#content_two').addClass('hover');
-						$('#content_two .bus_box').css('opacity', '1');
-						$('#content_two .bus_box .bus').css('opacity', '1');
-						$('#content_two .bus_box .bus2').css('opacity', '0');
+				$('#content_two').addClass('hover');
 						
-					if(scroll_top >= 700 && scroll_top < 800){
-						$('#content_two .bus_box').css('opacity', '1');
-						$('#content_two .bus_box').css('transform', 'translate( 300px , 410px)');
-						$('#content_two .bus_box .bus').css('opacity', '1');
-						$('#content_two .bus_box .bus2').css('opacity', '0');
-					}
-					if(scroll_top >= 800 && scroll_top < 900){
-						
-						$('#content_two .bus_box').css('transform', 'translate( 300px , 410px)');
-						$('#content_two .bus_box .bus').css('opacity', '1');
-						$('#content_two .bus_box .bus2').css('opacity', '0');
-					}
-					if(scroll_top >= 900 && scroll_top < 1000){
-						
-						$('#content_two .bus_box').css('transform', 'translate( 620px , 410px)');
-						$('#content_two .bus_box .bus').css('opacity', '0');
-						$('#content_two .bus_box .bus2').css('opacity', '1');
-					}
-					if(scroll_top >= 1000 && scroll_top < 1100){
-						$('#content_two .bus_box').css('display', 'block');	
-						$('#content_two .bus_box').css('transform', 'translate( 620px , 100px)');
-						$('#content_two .bus_box .bus').css('opacity', '0');
-						$('#content_two .bus_box .bus2').css('opacity', '1');
-						
-					}
-					if(scroll_top >= 1100 && scroll_top < 1200){
-						$('#content_two .bus_box').css('display', 'block');	
-						$('#content_two .bus_box').css('transform', 'translate( 620px , 100px)');
-						$('#content_two .bus_box .bus').css('opacity', '1');
-						$('#content_two .bus_box .bus2').css('opacity', '0');
-						
-					}
-					if(scroll_top >= 1300 && scroll_top < 1400){
-						$('#content_two .bus_box').css('display', 'block');
-						$('#content_two .bus_box').css('transform', 'translate( 1200px , 100px)');
-						$('#content_two .bus_box .bus').css('opacity', '1');
-						$('#content_two .bus_box .bus2').css('opacity', '0');
-					}
-					if(scroll_top >= 1400 && scroll_top < 1500){
-						$('#content_two .bus_box').css('display', 'block');
-						$('#content_two .bus_box').css('transform', 'translate( 1200px , 100px)');
-						$('#content_two .bus_box .bus').css('opacity', '1');
-						$('#content_two .bus_box .bus2').css('opacity', '0');
-					}
-				
-				
-			}
-			else if(scroll_top >= 1500 && scroll_top < 3100){
-				$('#content_three').addClass('hover');
-				$('#content_two').removeClass('hover');
-				$('#content_two .bus_box').css('opacity', '0');
-				
 			}
 			else if(scroll_top >= 3100 && scroll_top < 4500){
 				$('#content_four').addClass('hover');
@@ -122,513 +67,77 @@ $(function(){
 		
 		}
 	});
-	$('.fixed_arrow_right').click(function () {
-		console.log($(document).scrollTop());
-		if($(document).scrollTop() == 0)
-		{
-			$("html , body").animate({scrollTop: 500}, 1000, "swing");
-		}
-		else if($(document).scrollTop() >= 500 && $(document).scrollTop() < 1000)
-		{
-			$("html , body").animate({scrollTop: 1000}, 1000, "swing");
-		}
-		else if($(document).scrollTop() >= 1000 && $(document).scrollTop() < 1300)
-		{
-			console.log('h');
-			$("html , body").animate({scrollTop: 1500}, 1000, "swing");
-		}
-		else if($(document).scrollTop() >= 1300 && $(document).scrollTop() < 2000)
-		{
-			$("html , body").animate({scrollTop: 2000}, 1000, "swing");
-		}
-		else if($(document).scrollTop() >= 2000 && $(document).scrollTop() < 2500)
-		{
-			$("html , body").animate({scrollTop: 2500}, 1000, "swing");
-		}
-	});
-	$('.fixed_arrow_left').click(function () {
-		console.log($(document).scrollTop());
-		if($(document).scrollTop() == 0)
-		{
-			$("html , body").animate({scrollTop: 0}, 1000, "swing");
-		}
-		else if($(document).scrollTop() >= 500 && $(document).scrollTop() < 1000)
-		{
-			$("html , body").animate({scrollTop: 0}, 1000, "swing");
-		}
-		else if($(document).scrollTop() >= 1000 && $(document).scrollTop() < 1500)
-		{
-			console.log('h');
-			$("html , body").animate({scrollTop: 800}, 1000, "swing");
-		}
-		else if($(document).scrollTop() >= 1500 && $(document).scrollTop() < 2000)
-		{
-			$("html , body").animate({scrollTop: 1000}, 1000, "swing");
-		}
-		else if($(document).scrollTop() >= 2000 && $(document).scrollTop() < 2500)
-		{
-			$("html , body").animate({scrollTop: 1500}, 1000, "swing");
-		}
-	});
-	$(document).on('mouseenter', ' .big_pic_box  ', function(){
-		$(this).addClass('hover');
-
-	});
-	$(document).on('mouseleave', ' .big_pic_box  ', function(){
-		$(this).removeClass('hover');
-	});
-	//if($(document).scrollTop() !== 0)
-	//{
-		//$(document).scrollTop(0);
-		//location.href = 'page/index';
-	//}
-
-	$(document).scroll(function(){
-		var window_width = $(window).width();
-		var scroll_top = $(document).scrollTop();		
-		if(window_width > 450){
-
-			var scroll_top = $(document).scrollTop();
-			var scroll_top_height = scroll_top;
-			var content_bottom_top = $('.scroll_area').offset().top;
-			var content_bottom_height_all = $('.scroll_area').heightAll();
+		$(".left_area .nav .father").click(function() {
+			$(this).toggleClass("active");
+			$(this).children(".child_area").slideToggle();
 			
-			if(scroll_top_height >= content_bottom_top)
-			{
-				var s1 = (scroll_top_height - content_bottom_top) * 1.5;
-				var p7 = (scroll_top_height - content_bottom_top) / 1 ;
-				var p8 = (scroll_top_height - content_bottom_top) * 0.15 ;
-				var p9 = (scroll_top_height - content_bottom_top) / 2 ;
-				
-				$('.scroll_area').addClass('hover');
-				$('.scroll_area .content').css('transform', 'translate(-' + s1 + 'px , 0)');
-				$('#content_three .plan').css('transform', 'translateY(+' + p8 + 'px) translateX(+' + p7  + 'px) rotate(-15deg)');
-				
-				
-				
-			}
-			
-			var content_bottom_top = $('#content_two').offset().top;
-			var content_bottom_height_all = $(content_two).heightAll();
-			if(scroll_top_height >= content_bottom_top)
-			{
-			
-				var p7 = (scroll_top_height - content_bottom_top) / 1 ;
-				var p8 = (scroll_top_height - content_bottom_top) * 0.15 ;
-				
-				/*$('#content_two .bus').css('transform', 'translateY(+' + p8 + 'px) translateX(+' + p7  + 'px) rotate(-15deg)');*/
-			}
-		
-		}
-    });
+		});
+
 });
 </script>
-<script src="js/test/jquery-1.11.2.min.js"></script>
-<script src="js/test/jquery.transit.min.js"></script>
-<script src="js/test/jquery.easing.1.3.min.js"></script>
-<script src="js/test/util.min.js"></script>
-<script src="js/test/main.min.js"></script>
-<script src="js/test/func.min.js"></script>
 
-		<div class="fixed_arrow_right">
-			<div></div>
-		</div>
-		<div class="fixed_arrow_left">
-			<div></div>
-		</div>
-<div class="scroll_area">
-	<div class="content one"  id="content_one">
-		<div class="road">
-			<img src="app/img/index/road01.png" >
-			<p>錦州街</p>			
-		</div>
-		<div class="road2">
-			<img src="app/img/index/road02.png" >
-			<p>錦州街</p>	
-			<p>錦州街</p>			
-		</div>
-		<div class="heart">
-			<img src="app/img/index/heart.png" >
-			<p>龍安集團 版權所有<br>
-			© 2015 Dragon Healthcare Group</p>			
-		</div>
-		<div class="sketch_grass2">
-			<img src="app/img/index/sketch_grass2.gif" >	
-		</div>
-		<div class="sketch_light one">
-			<img src="app/img/index/sketch_light.gif" >	
-		</div>
-		<div class="sketch_light two">
-			<img src="app/img/index/sketch_light.gif" >	
-		</div>
-		<div class="left_text_box">
-			<img src="app/img/index/title.png" class="title">
-			<img src="app/img/index/sign.png" class="sign">
-			<p>院長　簡凱偉</p>
+<div class="top_banner_box">
+	<div class="bg"></div>
+	<div class="text_pic_box">
+		<img src="app/img/default/heart.png">
+		<h2>Listen to the voice <br>
+			of the body...</h2>
+	</div>
+	<div class="bottom_pic"></div>
+</div>
+<div class="content01">
+	<div class="left_area">
+		<div class="nav">
+			<div class="father">
+				<a href="" class="li">
+					關於龍安
+					<span></span>
+				</a>
+			</div>
+			<div href="" class="father">
+				<a href="" class="li">
+					歷史沿革
+					<span></span>
+				</a>
+			</div>
+			<div  class="father">
+				<a class="li">
+					合作夥伴
+					<span></span>
+				</a>
+				<div class="child_area">
+					<a href="" class="button">啟美藥局</a>
+					<a href="" class="button">亞欣醫美診所</a>
+					<a href="" class="button" >USIES</a>
+				</div>
+				
+			</div>
 			
-		</div>
-		<div class="right_text_box">
-			<div class="title_box">
-				<img src="app/img/index/logo04.png" class="logo">
-				<h3>龍安診所</h3>
-			</div>
-			<p>醫美權威簡凱偉醫師所帶領的龍安集團，從專診醫療服務到各領域的專門診所結合。目的不僅是要給消費者全方位的服務，更提供消費者完整、完美的照護。</p>
-			
-			<div class="icon_box">
-				<p><img src="app/img/index/icon01.png">台北市中山區錦州街296號1樓</p>
-				<p><img src="app/img/index/icon02.png">(02) 2517-9979</p>
-				<p><img src="app/img/index/icon03.png">8:30～12:30  </p>
-			</div>
-		</div>
-		<div class="big_pic_box">
-			<a href="" class="orange_box">
-				<div class="orange_circle">
-					<img src="app/img/index/orange_circle.png" class="orange_pic">
-					<img src="app/img/index/orange_circle_hover.png" class="hover_orange_pic">	
-				</div>
-				<div class="hover_text">
-					<img src="app/img/index/hover_text.png" >
-				</div>			
-				<div class="text">
-					<img src="app/img/index/circle_text01.png" >
-				</div>
-			</a>
-			<img src="app/img/index/dotted_bg01.png" class="dotted_bg01">
-			<div class="moveing_box">
-				<div class="circle_dashed"></div>
-				<div class="rotate_border_box">
-					<div class="circle_border">
-						<img src="app/img/index/bb.png" class="circle_border_pic">
-						<img src="app/img/index/aa.png" class="img2">
-						<img src="app/img/index/pic01.png" class="img">
-						<div class="hover_box"></div>
-					</div>
-				</div>
-			</div>
 		</div>
 	</div>
-	<!------------------------------------------------------------------------------------>
-	<div class="content two" id="content_two">
-		<div class="road3">
-			<img src="app/img/index/road031.png" >
-			<p>松江路</p>
-			<p>民生東路一段</p>				
-		</div>
-		<div class="bus_box">
-			<img src="app/img/index/bus.gif" class="bus">
-			<img src="app/img/index/bus2.gif" class="bus2">
-		</div>
-		<div class="sketch_light one">
-			<img src="app/img/index/sketch_light.gif" >	
-		</div>
-		<div class="cloudy">
-			<img src="app/img/index/sketch_cloud2.gif" >	
-		</div>
-		<div class="sketch_grass1">
-			<img src="app/img/index/sketch_grass1.gif" >	
-		</div>
-		<div class="right_text_box">
-			<div class="title_box">
-				<img src="app/img/index/logo01.png" class="logo">
-				<h3>啟美藥師藥局</h3>
+	<div class="right_area">
+		<div class="top_title_box">
+			<div class="title">
+				<img src="app/img/index/sketch_light.gif" class="sketch_light">
+				<h1>關於龍安</h1>
 			</div>
-			<p>本藥局為新式開架式複合式健保藥局，多年配制健保處方籤經驗及專業細心提供使用者各項藥品等注意事項，更有醫學美容保養品之專業咨詢!讓使用者美的健康! </p>
+			<div class="sketch_grass">
+				<img src="app/img/index/sketch_grass2.gif">
+			</div>
+		</div>
+		<div class="text_area">
 		
-			<div class="icon_box">
-				<p><img src="app/img/index/icon01.png">台北市中山區錦州街282號</p>
-				<p><img src="app/img/index/icon02.png">(02) 2517-8032</p>
-				<p><img src="app/img/index/icon03.png">09:00～21:30  </p>
-			</div>
-		</div>
-		<div class="big_pic_box">
-			<a href="" class="orange_box">
-				<div class="orange_circle">
-					<img src="app/img/index/orange_circle2.png" class="orange_pic">
-					<img src="app/img/index/orange_circle2_hover.png" class="hover_orange_pic">	
-				</div>
-				<div class="hover_text">
-					<img src="app/img/index/hover_text.png" >
-				</div>			
-				<div class="text">
-					<img src="app/img/index/circle_text02.png" >
-				</div>
-			</a>
-			<img src="app/img/index/dotted_bg02.png" class="dotted_bg02">
-			<div class="moveing_box">
-				<div class="circle_border">
-					<img src="app/img/index/bb.png" class="circle_border_pic">
-					<img src="app/img/index/aa.png" class="img2">
-					<img src="app/img/index/pic02.png" class="img">
-					<div class="hover_box"></div>
-				</div>
-			</div>
-		</div>	
-	</div>
-	<!------------------------------------------------------------------------------------>
-	<div class="content three" id="content_three">
-		<div class="ground">
-			<img src="app/img/index/map_taiwan.png" >	
-		</div>
-		<div class="sketch_sea">
-			<img src="app/img/index/sketch_sea.gif" >	
-		</div>
-		<div class="plan">
-			<img src="app/img/index/plan.png" >	
-		</div>
-		<div class="right_text_box">
-			<div class="title_box">
-				<img src="app/img/index/logo02.png" class="logo">
-				<h3>亞欣醫美</h3>
-			</div>
-			<p>高端的醫療設備及專業細心的諮詢師，為您私人訂製您的完美比例。<br>
-				無論是專業的肌膚保養或是醫學美容微整手術皆有多年的經驗及客戶的保證！<br>
-				就是要您有最好的醫療體驗!</p>
-			<div class="icon_box">
-				<p><img src="app/img/index/icon01.png">台北市中山區民生東路一段14號2樓</p>
-				<p><img src="app/img/index/icon02.png">(02) 2581 3030</p>
-				<p><img src="app/img/index/icon03.png">12:00～21:00  </p>
-			</div>
-		</div>
-		<div class="big_pic_box">
-			<a href="http://www.yasin-beauty.com/" target="_blank" class="orange_box">
-				<div class="orange_circle">
-					<img src="app/img/index/orange_circle.png" class="orange_pic">
-					<img src="app/img/index/orange_circle_hover.png" class="hover_orange_pic">	
-				</div>
-				<div class="hover_text">
-					<img src="app/img/index/hover_text.png" >
-				</div>			
-				<div class="text">
-					<img src="app/img/index/circle_text03.png" >
-				</div>
-			</a>
-			<img src="app/img/index/dotted_bg02.png" class="dotted_bg02">
-			<div class="moveing_box">
-				<div class="circle_border">
-					<img src="app/img/index/bb.png" class="circle_border_pic">
-					<img src="app/img/index/aa.png" class="img2">
-					<img src="app/img/index/pic03.png" class="img">
-					<div class="hover_box"></div>
-				</div>
-			</div>
-		</div>	
-	</div>
-	<!------------------------------------------------------------------------------------>
-	<div class="content four " id="content_four">
-		<a href="#content_one" class="arrow">
-			<div></div>
-		</a>
-		<div class="ground">
-			<img src="app/img/index/map_china.png" >	
-		</div>
-		<div class="sketch_sea">
-			<img src="app/img/index/sketch_sea.gif" >	
-		</div>
-		<div class="right_text_box">
-			<div class="title_box">
-				<img src="app/img/index/logo03.png" class="logo">
-				<h3>USIES</h3>
-			</div>
-			<p>來自台灣的醫學美容概念保養品，成份控管以國家合格標準規定，更經過嚴格的檢驗審核!</p>
-			<p>製成品質經由臨床證明保證產品耐受性及有效性!才是真正是合使用者的專業醫療保養品!</p>
-		</div>
-		<div class="icon_box">
-			<p><img src="app/img/index/icon01.png">台灣省桃園市龜山區楓樹七街31號</p>
-			<p><img src="app/img/index/icon02.png">(02) 3349-0033</p>
-			<p><img src="app/img/index/icon03.png">12:00～21:00  </p>
-		</div>
-		<div class="big_pic_box">
-			<a href="http://www.usies.com.tw/about.php?lang=tw"  target="_blank" class="orange_box">
-				<div class="orange_circle">
-					<img src="app/img/index/orange_circle2.png" class="orange_pic">
-					<img src="app/img/index/orange_circle2_hover.png" class="hover_orange_pic">	
-				</div>
-				<div class="hover_text">
-					<img src="app/img/index/hover_text.png" >
-				</div>			
-				<div class="text">
-					<img src="app/img/index/circle_text04.png" >
-				</div>
-			</a>
-			<img src="app/img/index/dotted_bg02.png" class="dotted_bg02">
-			<div class="moveing_box">
-				<div class="circle_border">
-					<img src="app/img/index/bb.png" class="circle_border_pic">
-					<img src="app/img/index/aa.png" class="img2">
-					<img src="app/img/index/pic04.png" class="img">
-					<div class="hover_box"></div>
-				</div>
-			</div>
-		</div>	
-	</div>
-
-</div>
-
-
-<!------------------------------手機板------------------------------------------------------>
-
-<div class="phone_area">
-	<!--<div class="nav">
-		<a href="" class="li">關於龍安</a>
-		<a href="" class="li">最新消息</a>
-		<a href="" class="li">聯繫我們</a>
-	</div>-->
-	<div class="phone_content1"> 
-		<div class="text">
-			<img src="app/img/index/mobile/phone_title.png">
-		</div>
-		<div class="heart">
-			<img src="app/img/index/heart.png" >	
-		</div>
-		<div class="sign_box">
-			<p>院長　簡凱偉</p>
-			<img src="app/img/index/sign.png" class="sign">
-		</div>
-	</div>
-	<div class="phone_content2">
-		<div class="top_title">
-			<div class="border01"></div>
-			<div class="border02"></div>
-			<img src="app/img/index/mobile/text01.png">
-		</div>
-		<img src="app/img/index/sketch_grass1.gif"  class="sketch_grass1">	
-		<img src="app/img/index/mobile/title01.png" class="title">
-		<div class="pic_box">
-			<img src="app/img/index/mobile/pic01.png" class="pic">
-			<a href="" class="enter">
-				<img src="app/img/index/hover_text.png">
-			</a>
-		</div>
-		<div class="text_area">
-			<div class="left_text_box">
-				<h3>龍安診所</h3>
-				<p>所服務項目、溫馨動人，請提供診所服務項目介紹或溫馨動人請提供診所服務項目介紹或溫馨動人</p>
-			</div>
-			<div class="line"></div>
-			<div class="right_text_box">
-				<p><img src="app/img/index/icon01.png">台北市中山區錦州街296號1樓</p>
-				<p><img src="app/img/index/icon02.png">(02) 2517-9979</p>
-				<p><img src="app/img/index/icon03.png">8:30～12:30  </p>
-			</div>
-		</div>
-	</div>
-	<div class="phone_content3">
-		<div class="top_title">
-			<div class="border01"></div>
-			<div class="border02"></div>
-			<img src="app/img/index/mobile/text01.png">
-		</div>
-		<img src="app/img/index/sketch_cloud2.gif"  class="sketch_cloud2">	
-		<img src="app/img/index/mobile/title02.png" class="title">
-		<div class="pic_box">
-			<img src="app/img/index/mobile/pic02.png" class="pic">
-			<a href="" class="enter">
-				<img src="app/img/index/hover_text.png">
-			</a>
-		</div>
-		<div class="text_area">
-			<div class="left_text_box">
-				<h3>啟美藥師藥局</h3>
-				<p>本藥局為新式開架式複合式健保藥局，多年配制健保處方籤經驗及專業細心提供使用者各項藥品等注意事項，更有醫學美容保養品之專業咨詢!讓使用者美的健康!</p>
-			</div>
-			<div class="line"></div>
-			<div class="right_text_box">
-				<p><img src="app/img/index/icon01.png">台北市中山區錦州街282號</p>
-				<p><img src="app/img/index/icon02.png">(02) 2517-8032</p>
-				<p><img src="app/img/index/icon03.png">09:00～21:30  </p>
-			</div>
-		</div>
-	</div>
-	<div class="phone_content4">
-		<div class="top_title">
-			<div class="border01"></div>
-			<div class="border02"></div>
-			<img src="app/img/index/mobile/text01.png">
-		</div>
-		<img src="app/img/index/sketch_light.gif"  class="sketch_light">	
-		<img src="app/img/index/mobile/title03.png" class="title">
-		<div class="pic_box">
-			<img src="app/img/index/mobile/pic03.png" class="pic">
-			<a href="" class="enter">
-				<img src="app/img/index/hover_text.png">
-			</a>
-		</div>
-		<div class="text_area">
-			<div class="left_text_box">
-				<h3>亞欣醫美</h3>
-				<p>高端的醫療設備及專業細心的諮詢師，為您私人訂製您的完美比例。無論是專業的肌膚保養或是醫學美容微整手術皆有多年的經驗及客戶的保證！就是要您有最好的醫療體驗!</p>
-			</div>
-			<div class="line"></div>
-			<div class="right_text_box">
-				<p><img src="app/img/index/icon01.png">台北市中山區民生東路一段14號2樓</p>
-				<p><img src="app/img/index/icon02.png">(02) 2581 3030</p>
-				<p><img src="app/img/index/icon03.png">12:00～21:00  </p>
-			</div>
-		</div>
-	</div>
-	<div class="phone_content5">
-		<div class="top_title">
-			<div class="border01"></div>
-			<div class="border02"></div>
-			<img src="app/img/index/mobile/text01.png">
-		</div>
-		<img src="app/img/index/plan.png"  class="plan">	
-		<img src="app/img/index/mobile/title04.png" class="title">
-		<div class="pic_box">
-			<img src="app/img/index/mobile/pic04.png" class="pic">
-			<a href="http://www.usies.com.tw/about.php?lang=tw" target="_blank" class="enter">
-				<img src="app/img/index/hover_text.png">
-			</a>
-		</div>
-		<div class="text_area">
-			<div class="left_text_box">
-				<h3>USIES </h3>
-				<p>來自台灣的醫學美容概念保養品，成份控管以國家合格標準規定，更經過嚴格的檢驗審核!
-				製成品質經由臨床證明保證產品耐受性及有效性!才是真正是合使用者的專業醫療保養品!</p>
-			</div>
-			<div class="line"></div>
-			<div class="right_text_box">
-				<p><img src="app/img/index/icon01.png">台北市中山區民生東路一段14號2樓</p>
-				<p><img src="app/img/index/icon02.png">(02) 2581-3030</p>
-				<p><img src="app/img/index/icon03.png">12:00～21:00  </p>
-			</div>
-		</div>
-	</div>
-	<div class="footer_box">
-		<img src="app/img/index/mobile/bg.png">
-		<div class="footer_nav">
-			<div class="footer_li">
-				<p><a href="">龍安診所</a></p>
-			</div>
-			<div class="footer_li">
-				<p><a href="">啟美藥局</a></p>
-			</div>
-			<div class="footer_li">
-				<p><a href="http://www.yasin-beauty.com/" target="_blank">亞欣醫美診所</a></p>
-			</div>
-			<div class="footer_li">
-				<p><a href="http://www.usies.com.tw/about.php?lang=tw" target="_blank">USIES</a></p>
-			</div>
-		</div>
-		<div class="footer_bottom">
-			<img src="app/img/index/mobile/footer_line.png">
-			<p>龍安集團 版權所有<br>
-			© 2015 Dragon Healthcare Group</p>
-			<p>design by <span><a href="">fanswoo</a></span> </p>
+			<p>我們已經在地服務將近20年，長期以來不斷照護著大直地區的居民，我們秉持著關懷的心與專業的技術，不斷更新醫療器材以及聘請優良的醫師來為大家服務，近年來更配合政府的免費健康服務，提供多元化的免費醫療檢查，歡迎大家多多利用，平時多關心家人及朋友的健康，並長期做運動來保健身體。您的支持與認同就是龍安最大的原動力。</p>
+			<p>Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.</p>
+			<p>Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.</p>
+			
+			
+			
+			<img src="app/img/default/pic3.png">
+			
 		</div>
 	</div>
 </div>	
 
-	
-	
-</div>
-<div class="index_footer">
-	<p>design by <a href="">fanswoo</a></p>
-</div>	
-
-
-
-
-
-
+<?=$temp['footer_bar']?>
 <?=$temp['body_end']?>
