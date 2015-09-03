@@ -53,6 +53,9 @@ class Note_Controller extends MY_controller {
         //global
 		$data['global']['style'][] = 'temp/global';
 		$data['global']['style'][] = 'note/index';
+		
+		$data['global']['style'][] = 'temp/header_bar';
+		$data['global']['style'][] = 'temp/footer_bar';
         
         //temp
 		$data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -111,6 +114,9 @@ class Note_Controller extends MY_controller {
         //global
         $data['global']['style'][] = 'temp/global';
         $data['global']['style'][] = 'note/view';
+		
+		$data['global']['style'][] = 'temp/header_bar';
+		$data['global']['style'][] = 'temp/footer_bar';
         
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);

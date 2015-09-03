@@ -1,36 +1,149 @@
 <?=$temp['header_up']?>
 <?=$temp['header_down']?>
 <?=$temp['header_bar']?>
-<div class="newsContant">
-	<div class="content">
-	   <h1>NEWS</h1>
-	</div> 
-	<div class="contentArea">
-		<div class="leftBar">
-			<h3>分類</h3>
-			<div class="box">
-				<?foreach($ClassMetaList->obj_Arr as $key => $value_ClassMeta):?>
-				<a href="news/?class_slug=<?=$value_ClassMeta->slug_Str?>" class="li"><?=$value_ClassMeta->classname_Str?><img src="app/img/arrow.png" class="arrow">
+<script src="app/js/smooth_scrollerator.js"></script>
+<script>
+$(function(){
+	$(document).scroll(function(){
+		var window_width = $(window).width();
+		var scroll_top = $(document).scrollTop();	
+		if(window_width > 450 && window_width <= 1400){
+
+			if(scroll_top == 0){
+				$('#content_one , #content_two , #content_three , #content_four ').removeClass('hover');
+
+			}
+	
+			if(scroll_top >= 300 && scroll_top < 700){
+				$('#content_one').addClass('hover');
+				$('#content_two').removeClass('hover');
+				$('#content_two .bus_box').css('opacity', '0');
+				$('#content_two .bus_box').css('transform', 'translate( 300px , 410px)');
+				
+			}
+			if(scroll_top >= 700 && scroll_top < 1500){
+				$('#content_two').addClass('hover');
+						
+			}
+			else if(scroll_top >= 3100 && scroll_top < 4500){
+				$('#content_four').addClass('hover');
+				$('#content_two').removeClass('hover');
+			}
+			else if(scroll_top >= 4500 && scroll_top < 5000 ){
+				$('#content_two').removeClass('hover');
+			   
+			}
+			
+		}
+		if(window_width >= 1400){
+			
+			if(scroll_top == 0){
+				$('#content_one , #content_two , #content_three , #content_four ').removeClass('hover');
+
+			}
+	
+			if(scroll_top >= 300 && scroll_top < 600){
+				$('#content_one').addClass('hover');
+				$('#content_two').removeClass('hover');
+			}
+			else if(scroll_top >= 600 && scroll_top < 2000){
+				$('#content_two').addClass('hover');
+				
+			}
+			else if(scroll_top >= 2000 && scroll_top < 3800){
+				$('#content_three').addClass('hover');
+				$('#content_two').removeClass('hover');
+				
+			}
+			else if(scroll_top >= 3800 && scroll_top < 4800){
+				$('#content_four').addClass('hover');
+				$('#content_two').removeClass('hover');
+			}
+			else if(scroll_top >= 4800 && scroll_top < 8000 ){
+				$('#content_two').removeClass('hover');
+			   
+			}
+			
+		
+		}
+	});
+		$(".left_area .nav .father").click(function() {
+			$(this).toggleClass("active");
+			$(this).children(".child_area").slideToggle();
+			
+		});
+
+});
+</script>
+
+<div class="top_banner_box">
+	<div class="bg"></div>
+	<div class="text_pic_box">
+		<img src="app/img/default/heart.png">
+		<h2>Listen to the voice <br>
+			of the body...</h2>
+	</div>
+	<div class="bottom_pic"></div>
+</div>
+<div class="content01">
+	<div class="left_area">
+		<div class="nav">
+			<div class="father">
+				<a href="" class="li">
+					關於龍安
+					<span></span>
 				</a>
-				<?endforeach?>
+			</div>
+			<div href="" class="father">
+				<a href="" class="li">
+					歷史沿革
+					<span></span>
+				</a>
+			</div>
+			<div  class="father">
+				<a class="li">
+					合作夥伴
+					<span></span>
+				</a>
+				<div class="child_area">
+					<a href="" class="button">啟美藥局</a>
+					<a href="" class="button">亞欣醫美診所</a>
+					<a href="" class="button" >USIES</a>
+				</div>
+				
+			</div>
+			
+		</div>
+	</div>
+	<div class="right_area">
+		<div class="top_title_box">
+			<div class="title">
+				<img src="app/img/index/sketch_light.gif" class="sketch_light">
+				<h1>最新消息</h1>
+			</div>
+			<div class="sketch_grass">
+				<img src="app/img/index/sketch_grass2.gif">
 			</div>
 		</div>
-		<div class="stageBox">
-			<?if(!empty($new_NoteFieldList->obj_Arr)):?>
-			<?foreach($new_NoteFieldList->obj_Arr as $key => $value_NoteField):?>
-			<div class="stage">
-				<h2><a href="news/view/?noteid=<?=$value_NoteField->noteid_Num?>"><?=$value_NoteField->title_Str?></a></h2>	
-				<p><?=mb_substr(strip_tags($value_NoteField->content_Html), 0, 150, 'utf-8')?></p>
-				<a href="news/view/?noteid=<?=$value_NoteField->noteid_Num?>"class="more">
-					more
-				</a>
+		<div class="text_area">
+			<div class="item_box">
+				<div class="pic_box">
+					<div class="pic">
+						<img>
+					</div>
+					<div class="dotted_bg"></div>
+				</div>
+				<div class="text_box">
+					<div class="date"></div>
+					<h2></h2>
+					<p></p>
+				</div>
 			</div>
-			<?endforeach?>
-			<div class="pageLink"><?=$page_link?></div>
-			<?else:?>
-			<p>這個分類沒有最新訊息</p>
-			<?endif?>
-		</div>		
+			
+			
+		</div>
 	</div>
+</div>	
+
 <?=$temp['footer_bar']?>
 <?=$temp['body_end']?>
