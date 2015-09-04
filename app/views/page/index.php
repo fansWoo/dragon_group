@@ -193,8 +193,11 @@ $(function(){
 				if(window_width >= 450 && window_width < 1400 ){	
 				
 					if(scroll_top >= 500 && scroll_top < 850 ){
-						
-						$('#content_one .bus1').attr('data-status', 2);
+						if( $('#content_one .bus1').attr('data-status') == 1 )
+						{
+							$('#content_one .bus1').attr('data-status', 2);
+						}
+
 						$('#content_one .bus1').css('transform', 'translateX(+' + p9  + 'px)');
 		
 					}
@@ -203,9 +206,13 @@ $(function(){
 
 					}
 					
-					if(scroll_top >= 900 && scroll_top < 1190 ){
+					if(scroll_top >= 850 && scroll_top < 1190 )
+					{
+						if( $('#content_two .bus2').attr('data-status') == 1 )
+						{
+							$('#content_two .bus2').attr('data-status', 2);
+						}
 						
-						$('#content_two .bus2').attr('data-status', 2);
 						$('#content_two .bus2').css('transform', 'translateY(-' +  p10  + 'px)');
 		
 					}
@@ -213,13 +220,15 @@ $(function(){
 						$('#content_two .bus2').attr('data-status', 3);
 					}
 					
-					if(scroll_top >= 1190 && scroll_top < 1690 ){
-						
-						$('#content_two .bus3').attr('data-status', 2);
+					if(scroll_top >= 1190 && scroll_top < 1590 ){
+						if( $('#content_two .bus3').attr('data-status') == 1 )
+						{
+							$('#content_two .bus3').attr('data-status', 2);
+						}
 						$('#content_two .bus3').css('transform', 'translateX(+' +  p9  + 'px)');
 		
 					}
-					else if(scroll_top >= 1690 ){
+					else if(scroll_top >= 1590 ){
 						$('#content_two .bus3').attr('data-status', 3);
 					}
 				
@@ -347,8 +356,8 @@ $(function(){
 		</div>
 		
 			
-			<img src="app/img/index/bus2.gif" class="bus2" data-status="1" style="display:none;">
-			<img src="app/img/index/bus.gif" class="bus3" data-status="1" style="display:none;">
+			<img src="app/img/index/bus2.gif" class="bus2" data-status="1">
+			<img src="app/img/index/bus.gif" class="bus3" data-status="1">
 		
 		<div class="sketch_light one">
 			<img src="app/img/index/sketch_light.gif" >	
