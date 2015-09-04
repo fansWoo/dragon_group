@@ -90,29 +90,9 @@ $(function(){
 		<div class="nav">
 			<div class="father">
 				<a href="" class="li">
-					關於龍安
-					<span></span>
+					Sed id dolor. In hac habitasse platea dictumst.
 				</a>
 			</div>
-			<div href="" class="father">
-				<a href="" class="li">
-					歷史沿革
-					<span></span>
-				</a>
-			</div>
-			<div  class="father">
-				<a class="li">
-					合作夥伴
-					<span></span>
-				</a>
-				<div class="child_area">
-					<a href="" class="button">啟美藥局</a>
-					<a href="" class="button">亞欣醫美診所</a>
-					<a href="" class="button" >USIES</a>
-				</div>
-				
-			</div>
-			
 		</div>
 	</div>
 	<div class="right_area">
@@ -126,21 +106,80 @@ $(function(){
 			</div>
 		</div>
 		<div class="text_area">
-			<div class="item_box">
+		
+			<a href="" class="item_box">
 				<div class="pic_box">
 					<div class="pic">
-						<img>
+						<img src="app/img/note/pic.jpg">
 					</div>
 					<div class="dotted_bg"></div>
 				</div>
-				<div class="text_box">
-					<div class="date"></div>
-					<h2></h2>
-					<p></p>
+				<div class="text_date_box">
+					<div class="date">2015.09.02</div>
+					<div class="text">
+						<h2>This is Lorem Ipsum,</h2>
+						<p>我們已經在地服務將近20年，長期以來不斷照護著大直地區的居民，我們秉持著關懷的心與專業的技術，...</p>
+					</div>
 				</div>
-			</div>
-			
-			
+				<div  class="arrow">
+					<img src="app/img/note/arrow.png">
+				</div>
+			</a>
+			<a href="" class="item_box">
+				<div class="pic_box">
+					<div class="pic">
+						<img src="app/img/note/pic.jpg">
+					</div>
+					<div class="dotted_bg"></div>
+				</div>
+				<div class="text_date_box">
+					<div class="date">2015.09.02</div>
+					<div class="text">
+						<h2>This is Lorem Ipsum,</h2>
+						<p>我們已經在地服務將近20年，長期以來不斷照護著大直地區的居民，我們秉持著關懷的心與專業的技術，...</p>
+					</div>
+				</div>
+				<div  class="arrow">
+					<img src="app/img/note/arrow.png">
+				</div>
+			</a>
+			<a href="" class="item_box">
+				<div class="pic_box">
+					<div class="pic">
+						<img src="app/img/note/pic.jpg">
+					</div>
+					<div class="dotted_bg"></div>
+				</div>
+				<div class="text_date_box">
+					<div class="date">2015.09.02</div>
+					<div class="text">
+						<h2>This is Lorem Ipsum,</h2>
+						<p>我們已經在地服務將近20年，長期以來不斷照護著大直地區的居民，我們秉持著關懷的心與專業的技術，...</p>
+					</div>
+				</div>
+				<div  class="arrow">
+					<img src="app/img/note/arrow.png">
+				</div>
+			</a>
+				<a href="" class="item_box">
+				<div class="pic_box">
+					<div class="pic">
+						<img src="app/img/note/pic.jpg">
+					</div>
+					<div class="dotted_bg"></div>
+				</div>
+				<div class="text_date_box">
+					<div class="date">2015.09.02</div>
+					<div class="text">
+						<h2>This is Lorem Ipsum,</h2>
+						<p>我們已經在地服務將近20年，長期以來不斷照護著大直地區的居民，我們秉持著關懷的心與專業的技術，...</p>
+					</div>
+				</div>
+				<div  class="arrow">
+					<img src="app/img/note/arrow.png">
+				</div>
+			</a>
+		
 		</div>
 	</div>
 </div>	

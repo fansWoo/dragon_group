@@ -67,12 +67,17 @@ $(function(){
 		
 		}
 	});
-		$(".left_area .nav .father").click(function() {
-			$(this).toggleClass("active");
-			$(this).children(".child_area").slideToggle();
-			
-		});
-
+	
+	$(".left_area .nav .father").click(function() {
+		$(this).toggleClass("active");
+		$(this).children(".child_area").slideToggle();
+		
+	});
+	$(" .phone_nav  .hide_box ").hide()
+	$(" .phone_nav .phone_father ").click(function() {
+		$(this).toggleClass("active");
+		$(" .phone_nav  .hide_box ").slideToggle();
+	});
 });
 </script>
 
@@ -101,18 +106,34 @@ $(function(){
 				</a>
 			</div>
 			<div  class="father">
-				<a class="li">
+				<a href="" class="li">
 					合作夥伴
 					<span></span>
 				</a>
-				<div class="child_area">
+				<!--<div class="child_area">
 					<a href="" class="button">啟美藥局</a>
 					<a href="" class="button">亞欣醫美診所</a>
 					<a href="" class="button" >USIES</a>
-				</div>
-				
+				</div>-->
 			</div>
-			
+			<div  class="father">
+				<a href="" class="li">
+					服務項目
+					<span></span>
+				</a>
+			</div>
+		</div>
+		<div class="phone_nav">
+			<div class="phone_father">
+				關於我們
+				<span></span>
+			</div>
+			<div class="hide_box">	
+				<a href="" class="li">關於龍安</a>
+				<a href="" class="li">歷史沿革</a>
+				<a href="" class="li">合作夥伴</a>
+				<a href="" class="li">服務項目</a>
+			</div>
 		</div>
 	</div>
 	<div class="right_area">
@@ -120,6 +141,7 @@ $(function(){
 			<div class="title">
 				<img src="app/img/index/sketch_light.gif" class="sketch_light">
 				<h1>關於龍安</h1>
+				
 			</div>
 			<div class="sketch_grass">
 				<img src="app/img/index/sketch_grass2.gif">
