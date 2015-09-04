@@ -165,7 +165,6 @@ $(function(){
 		var scroll_top = $(document).scrollTop();	
 		if(window_width > 450){
 
-			var scroll_top = $(document).scrollTop();
 			var scroll_top_height = scroll_top;
 			var content_bottom_top = $('.scroll_area').offset().top;
 			var content_bottom_height_all = $('.scroll_area').heightAll();
@@ -186,7 +185,6 @@ $(function(){
 				var p10 = (scroll_top_height - content_bottom_top) / 0.9 ;
 				var p11 = (scroll_top_height - content_bottom_top) / 0.8 ;
 				
-				$('.scroll_area').addClass('hover');
 				$('.scroll_area .content').css('transform', 'translate(-' + s1 + 'px , 0)');
 				$('#content_three .plan').css('transform', 'translateY(+' + p8 + 'px) translateX(+' + p7  + 'px) rotate(-15deg)');
 		
