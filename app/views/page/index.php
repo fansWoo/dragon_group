@@ -171,7 +171,7 @@ $(function(){
 			
 			if(scroll_top == 0)
 			{
-				$('#content_one .bus1').attr('data-status', 1);
+				$('#content_two .bus1').attr('data-status', 1);
 				$('#content_two .bus2').attr('data-status', 1);
 				$('#content_two .bus3').attr('data-status', 1);
 			}
@@ -191,16 +191,16 @@ $(function(){
 				if(window_width >= 450 && window_width < 1400 ){	
 				
 					if(scroll_top >= 500 && scroll_top < 850 ){
-						if( $('#content_one .bus1').attr('data-status') == 1 )
+						if( $('#content_two .bus1').attr('data-status') == 1 )
 						{
-							$('#content_one .bus1').attr('data-status', 2);
+							$('#content_two .bus1').attr('data-status', 2);
 						}
 
-						$('#content_one .bus1').css('transform', 'translateX(+' + p9  + 'px)');
+						$('#content_two .bus1').css('transform', 'translateX(+' + p9  + 'px)');
 		
 					}
 					else if(scroll_top >= 850 ){
-						$('#content_one .bus1').attr('data-status', 3);
+						$('#content_two .bus1').attr('data-status', 3);
 
 					}
 					
@@ -218,7 +218,7 @@ $(function(){
 						$('#content_two .bus2').attr('data-status', 3);
 					}
 					
-					if(scroll_top >= 1190 && scroll_top < 1590 ){
+					if(scroll_top >= 1190 && scroll_top < 1690 ){
 						if( $('#content_two .bus3').attr('data-status') == 1 )
 						{
 							$('#content_two .bus3').attr('data-status', 2);
@@ -226,7 +226,7 @@ $(function(){
 						$('#content_two .bus3').css('transform', 'translateX(+' +  p9  + 'px)');
 		
 					}
-					else if(scroll_top >= 1590 ){
+					else if(scroll_top >= 1690 ){
 						$('#content_two .bus3').attr('data-status', 3);
 					}
 				
@@ -235,32 +235,46 @@ $(function(){
 				
 					if(scroll_top >= 600 && scroll_top < 1050 ){
 						
-						$('#content_one .bus1').css('transform', 'translateX(+' + p9  + 'px)');
+						if( $('#content_two .bus1').attr('data-status') == 1 )
+						{
+							$('#content_two .bus1').attr('data-status', 2);
+						}
+
+						$('#content_two .bus1').css('transform', 'translateX(+' + p9  + 'px)');
 		
 					}
 					else if(scroll_top >= 1050 ){
-						$('#content_one .bus1').css('display','none');	
+						$('#content_two .bus1').attr('data-status', 3);
 
 					}
 					
 					if(scroll_top >= 1050 && scroll_top < 1370 ){
 						
+						if( $('#content_two .bus2').attr('data-status') == 1 )
+						{
+							$('#content_two .bus2').attr('data-status', 2);
+						}
+						
 						$('#content_two .bus2').css('transform', 'translateY(-' +  p10  + 'px)');
 		
-					}
-					else if(scroll_top >= 1370 ){
-						$('#content_two .bus2').css('display','none');	
-					}
-					if(scroll_top >= 1370 && scroll_top < 1890 ){
-						
-						$('#content_two .bus3').css('transform', 'translateX(+' +  p9  + 'px)');
-		
-					}
-					else if(scroll_top >= 1890 ){
-						$('#content_two .bus3').css('display','none');	
-					}
+						}
+						else if(scroll_top >= 1370 ){
+							$('#content_two .bus2').attr('data-status', 3);
+						}
+						if(scroll_top >= 1370 && scroll_top < 2090 ){
+							
+							if( $('#content_two .bus3').attr('data-status') == 1 )
+							{
+								$('#content_two .bus3').attr('data-status', 2);
+							}
+							$('#content_two .bus3').css('transform', 'translateX(+' +  p9  + 'px)');
+			
+							}
+						else if(scroll_top >= 2090 ){
+							$('#content_two .bus3').attr('data-status', 3);
+						}
 				
-				}
+				}	
 			}
 		}
     });
@@ -275,7 +289,7 @@ $(function(){
 		</div>
 <div class="scroll_area">
 	<div class="content one"  id="content_one">
-		<img src="app/img/index/bus.gif" data-status="1" class="bus1">
+		
 		<div class="road">
 			<img src="app/img/index/road01.png" >
 			<p>錦州街</p>			
@@ -353,7 +367,7 @@ $(function(){
 			<p>民生東路一段</p>				
 		</div>
 		
-			
+			<img src="app/img/index/bus.gif" data-status="1" class="bus1">
 			<img src="app/img/index/bus2.gif" class="bus2" data-status="1">
 			<img src="app/img/index/bus.gif" class="bus3" data-status="1">
 		

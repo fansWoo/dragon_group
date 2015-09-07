@@ -67,16 +67,16 @@ class Note_Controller extends MY_controller {
 		$this->load->view('note/index', $data);
 	}
 
-    public function view($noteid_Num)
+    public function view()
     {
         $data = $this->data;
 
-        if(empty($noteid_Num))
-        {
-            $this->load->model('Message');
-            $this->Message->show(array('message' => '連結輸入錯誤', 'url' => 'note'));
-            return FALSE;
-        }
+        //if(empty($noteid_Num))
+        //{
+            //$this->load->model('Message');
+            //$this->Message->show(array('message' => '連結輸入錯誤', 'url' => 'note'));
+            //return FALSE;
+        //}
         
         $data['ClassMetaList'] = new ObjList();
         $data['ClassMetaList']->construct_db(array(

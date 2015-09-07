@@ -9,69 +9,17 @@ $(function(){
 		var scroll_top = $(document).scrollTop();	
 		if(window_width > 450 && window_width <= 1400){
 
-			if(scroll_top == 0){
-				$('#content_one , #content_two , #content_three , #content_four ').removeClass('hover');
-
-			}
-	
-			if(scroll_top >= 300 && scroll_top < 700){
-				$('#content_one').addClass('hover');
-				$('#content_two').removeClass('hover');
-				$('#content_two .bus_box').css('opacity', '0');
-				$('#content_two .bus_box').css('transform', 'translate( 300px , 410px)');
-				
-			}
-			if(scroll_top >= 700 && scroll_top < 1500){
-				$('#content_two').addClass('hover');
-						
-			}
-			else if(scroll_top >= 3100 && scroll_top < 4500){
-				$('#content_four').addClass('hover');
-				$('#content_two').removeClass('hover');
-			}
-			else if(scroll_top >= 4500 && scroll_top < 5000 ){
-				$('#content_two').removeClass('hover');
-			   
-			}
+			
 			
 		}
 		if(window_width >= 1400){
 			
-			if(scroll_top == 0){
-				$('#content_one , #content_two , #content_three , #content_four ').removeClass('hover');
-
-			}
-	
-			if(scroll_top >= 300 && scroll_top < 600){
-				$('#content_one').addClass('hover');
-				$('#content_two').removeClass('hover');
-			}
-			else if(scroll_top >= 600 && scroll_top < 2000){
-				$('#content_two').addClass('hover');
-				
-			}
-			else if(scroll_top >= 2000 && scroll_top < 3800){
-				$('#content_three').addClass('hover');
-				$('#content_two').removeClass('hover');
-				
-			}
-			else if(scroll_top >= 3800 && scroll_top < 4800){
-				$('#content_four').addClass('hover');
-				$('#content_two').removeClass('hover');
-			}
-			else if(scroll_top >= 4800 && scroll_top < 8000 ){
-				$('#content_two').removeClass('hover');
-			   
-			}
+			
 			
 		
 		}
 	});
-		$(".left_area .nav .father").click(function() {
-			$(this).toggleClass("active");
-			$(this).children(".child_area").slideToggle();
-			
-		});
+	
 
 });
 </script>
@@ -87,11 +35,28 @@ $(function(){
 </div>
 <div class="content01">
 	<div class="left_area">
+		<div class="hot_note"> HOT NOTE</div>
 		<div class="nav">
 			<div class="father">
-				<a href="" class="li">
-					Sed id dolor. In hac habitasse platea dictumst.
-				</a>
+				<a href="">Sed id dolor. In hac habitasse platea dictumst.</a>
+			</div>
+			<div class="father">
+				<a href="">Sed id dolor. In hac .</a>
+			</div>
+			<div class="father">
+				<a href="">Sed id dolor. In hac habitasse platea dictumst.</a>
+			</div>
+			<div class="father">
+				<a href="">Sed id dolor. In hac habitasse platea dictumst.</a>
+			</div>
+			<div class="father">
+				<a href="">Sed id dolor. In hac .</a>
+			</div>
+			<div class="father">
+				<a href="">Sed id dolor. In hac habitasse platea dictumst.</a>
+			</div>
+			<div class="father">
+				<a href="">Sed id dolor. In hac .</a>
 			</div>
 		</div>
 	</div>
@@ -106,83 +71,44 @@ $(function(){
 			</div>
 		</div>
 		<div class="text_area">
-		
-			<a href="" class="item_box">
-				<div class="pic_box">
-					<div class="pic">
-						<img src="app/img/note/pic.jpg">
+			<?for($i=0;$i<6;$i++):?>
+			<a href="note/view" class="item_box">
+				<div class="center_box">
+					<div class="pic_box">
+						<div class="pic">
+							<img src="app/img/note/pic.jpg">
+						</div>
+						<div class="dotted_bg"></div>
 					</div>
-					<div class="dotted_bg"></div>
-				</div>
-				<div class="text_date_box">
-					<div class="date">2015.09.02</div>
-					<div class="text">
-						<h2>This is Lorem Ipsum,</h2>
-						<p>我們已經在地服務將近20年，長期以來不斷照護著大直地區的居民，我們秉持著關懷的心與專業的技術，...</p>
+					<div class="text_date_box">
+						<div class="date">2015.09.02</div>
+						<div class="text">
+							<h2>This is Lorem Ipsum,</h2>
+							<p>我們已經在地服務將近20年，長期以來不斷照護著大直地區的居民，我們秉持著關懷的心與專業的技術，...關懷的心與專業的技術關懷的心與專業的技術關懷的心與專業的技術關懷的心與專業的技術關懷的心與專業的技術關懷的心與專業的技術關懷的心與專業的技術關懷的心與專業的技術關懷的心與專業的技術</p>
+						</div>
 					</div>
-				</div>
-				<div  class="arrow">
-					<img src="app/img/note/arrow.png">
+					<div  class="arrow">
+						<img src="app/img/note/arrow.png">
+					</div>
 				</div>
 			</a>
-			<a href="" class="item_box">
-				<div class="pic_box">
-					<div class="pic">
-						<img src="app/img/note/pic.jpg">
-					</div>
-					<div class="dotted_bg"></div>
-				</div>
-				<div class="text_date_box">
-					<div class="date">2015.09.02</div>
-					<div class="text">
-						<h2>This is Lorem Ipsum,</h2>
-						<p>我們已經在地服務將近20年，長期以來不斷照護著大直地區的居民，我們秉持著關懷的心與專業的技術，...</p>
-					</div>
-				</div>
-				<div  class="arrow">
-					<img src="app/img/note/arrow.png">
-				</div>
-			</a>
-			<a href="" class="item_box">
-				<div class="pic_box">
-					<div class="pic">
-						<img src="app/img/note/pic.jpg">
-					</div>
-					<div class="dotted_bg"></div>
-				</div>
-				<div class="text_date_box">
-					<div class="date">2015.09.02</div>
-					<div class="text">
-						<h2>This is Lorem Ipsum,</h2>
-						<p>我們已經在地服務將近20年，長期以來不斷照護著大直地區的居民，我們秉持著關懷的心與專業的技術，...</p>
-					</div>
-				</div>
-				<div  class="arrow">
-					<img src="app/img/note/arrow.png">
-				</div>
-			</a>
-				<a href="" class="item_box">
-				<div class="pic_box">
-					<div class="pic">
-						<img src="app/img/note/pic.jpg">
-					</div>
-					<div class="dotted_bg"></div>
-				</div>
-				<div class="text_date_box">
-					<div class="date">2015.09.02</div>
-					<div class="text">
-						<h2>This is Lorem Ipsum,</h2>
-						<p>我們已經在地服務將近20年，長期以來不斷照護著大直地區的居民，我們秉持著關懷的心與專業的技術，...</p>
-					</div>
-				</div>
-				<div  class="arrow">
-					<img src="app/img/note/arrow.png">
-				</div>
-			</a>
-		
-		</div>
-	</div>
-</div>	
+			<?endfor?>
 
+			<div class="pager_bottom">
+				<div class="pageLinks_bg">
+					<div class="pageLinks">
+						<a class="prev"><img src="app/img/note/pager.png"></a>
+						<strong>1</strong>
+						<a>2</a>
+						<a>3</a>
+						<a>4</a>
+						<a>5</a>
+						<a class="next"><img src="app/img/note/pager.png"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+</div>	
 <?=$temp['footer_bar']?>
 <?=$temp['body_end']?>
