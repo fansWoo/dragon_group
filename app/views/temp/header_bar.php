@@ -1,5 +1,15 @@
 <script>
 $(function(){
+	
+	var window_width = $(window).width();
+	var window_height = $(window).height();
+	if(window_width <= 700){
+		$(window).resize(function(){
+			$(document).scrollTop(0);
+			location.href = ' ';
+		});
+	}
+	
 	$('a[href^=#]').click(function () {
 		var speed = 500;
 		var href = $(this).attr("href");

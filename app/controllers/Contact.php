@@ -21,6 +21,8 @@ class Contact_Controller extends MY_Controller {
 		
 		$data['global']['style'][] = 'temp/header_bar';
 		$data['global']['style'][] = 'temp/footer_bar';
+		
+	    $data['global']['js'][] = 'script_header_bar_mobile';
         
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
