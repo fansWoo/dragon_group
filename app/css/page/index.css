@@ -4,7 +4,7 @@ html.agent-ie p{font-size:14px;line-height:22px;letter-spacing:2px;font-family:T
 h2{font-size:20px;line-height:28px;letter-spacing:2px; }
 h3{font-size:28px;line-height:28px;letter-spacing:2px; }
 h1{font-size:34px;line-height:40px;letter-spacing:2px;}
-.scroll_area { height:2300px; overflow: hidden; background:url(../../img/index/bg.png) fixed;background-size:contain;position:relative;}
+.scroll_area { height:2300px; overflow: hidden; background:url(../../img/index/bg.png) ;background-size:contain;position:relative;background-attachment:fixed;}
 @media screen and (min-width:1400px){
 	.scroll_area { height:3150px; }
 	p{font-size:18px;line-height:24px;letter-spacing:5px;}
@@ -16,7 +16,7 @@ h1{font-size:34px;line-height:40px;letter-spacing:2px;}
 	.scroll_area { height:2500px; }
 }
 @media screen and ( max-width:959px ) and (min-width: 450px) {
-	.scroll_area { height:2700px; }
+	.scroll_area { height:2700px; background-attachment: ;}
 }
 @media screen and ( max-width:450px ) {
 	h2{font-size:18px;line-height:28px; }
@@ -31,8 +31,6 @@ h1{font-size:34px;line-height:40px;letter-spacing:2px;}
 .fixed_arrow_right div{position:absolute;width:40px;height:40px;background-color:#000;top:20px;left:-21px;transform:rotate(-45deg);-webkit-transform:rotate(-45deg);box-shadow:-3px 2px 0px rgba(0,0,0,0.2);}
 .fixed_arrow_right:hover{opacity:1;}
 .fixed_arrow_right.hover{display:none;}
-
-
 
 .fixed_arrow_left{display:none;width:30px;height:75px;position:fixed;left:100px;bottom:30px;overflow:hidden;opacity:0.6;/*transition:0.3s;*/ z-index: 9999999;}
 .fixed_arrow_left div{width:40px;height:40px;position:absolute;background-color:#000;top:20px;left:10px;transform:rotate(-45deg);-webkit-transform:rotate(-45deg);box-shadow:-3px 2px 0px rgba(0,0,0,0.2);}
