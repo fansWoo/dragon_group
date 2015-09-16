@@ -27,6 +27,14 @@ class MY_Controller extends FS_Controller
                 'uid_Num' => $this->session->userdata('uid')
             )
         ));
+        
+        //開發期間，限定使用者必須登入後始可瀏覽全部頁面
+        $no_rewrite_Str = $this->input->get('no_rewrite');
+        if($data['User']->uid_Num == '' && $no_rewrite_Str !== 'true')
+        {
+            $url = base_url('user/login/?no_rewrite=true');
+            header('Location: '.$url);
+        }
 
         $this->data = $data;
     }
