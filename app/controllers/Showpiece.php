@@ -1,6 +1,6 @@
 <?php
 
-class Showpiece_Controller extends MY_controller {
+class Showpiece_Controller extends MY_Controller {
 
     public function index()
     {
@@ -31,8 +31,8 @@ class Showpiece_Controller extends MY_controller {
         ));
         
         //global
-        $data['global']['style'][] = 'style';
-        $data['global']['style'][] = 'showpiece/index';
+        $data['global']['style'][] = 'app/css/temp/global.css';
+        $data['global']['style'][] = 'app/css/showpiece/index.css';
         
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -40,6 +40,7 @@ class Showpiece_Controller extends MY_controller {
         $data['temp']['header_bar'] = $this->load->view('temp/header_bar', $data, TRUE);
         $data['temp']['sidebar'] = $this->load->view('showpiece/sidebar', $data, TRUE);
         $data['temp']['footer_bar'] = $this->load->view('temp/footer_bar', $data, TRUE);
+        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
         
         //輸出模板
         $this->load->view('showpiece/index', $data);
@@ -96,8 +97,8 @@ class Showpiece_Controller extends MY_controller {
         ));
         
         //global
-        $data['global']['style'][] = 'style';
-		$data['global']['style'][] = 'showpiece/tablelist';
+        $data['global']['style'][] = 'app/css/temp/global.css';
+		$data['global']['style'][] = 'app/css/showpiece/tablelist.css';
         
         //temp
 		$data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -105,6 +106,7 @@ class Showpiece_Controller extends MY_controller {
         $data['temp']['header_bar'] = $this->load->view('temp/header_bar', $data, TRUE);
         $data['temp']['sidebar'] = $this->load->view('showpiece/sidebar', $data, TRUE);
 		$data['temp']['footer_bar'] = $this->load->view('temp/footer_bar', $data, TRUE);
+        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 		
 		//輸出模板
 		$this->load->view('showpiece/tablelist', $data);
@@ -165,8 +167,8 @@ class Showpiece_Controller extends MY_controller {
         ));
         
         //global
-        $data['global']['style'][] = 'style';
-        $data['global']['style'][] = 'showpiece/view';
+        $data['global']['style'][] = 'app/css/global.css';
+        $data['global']['style'][] = 'app/css/showpiece/view.css';
         
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -174,6 +176,7 @@ class Showpiece_Controller extends MY_controller {
         $data['temp']['header_bar'] = $this->load->view('temp/header_bar', $data, TRUE);
         $data['temp']['sidebar'] = $this->load->view('showpiece/sidebar', $data, TRUE);
         $data['temp']['footer_bar'] = $this->load->view('temp/footer_bar', $data, TRUE);
+        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
         
         //輸出模板
         $this->load->view('showpiece/view', $data);

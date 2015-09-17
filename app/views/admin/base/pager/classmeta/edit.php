@@ -72,14 +72,7 @@
             <div class="spanLineLeft">
             </div>
             <div class="spanLineLeft width500">
-                <span class="gray">請選擇二級分類</span>
-            </div>
-        </div>
-        <div class="spanStage">
-            <div class="spanLineLeft">
-            </div>
-            <div class="spanLineLeft width500">
-                <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/classmeta2/tablelist">管理二級分類</a>
+                <span class="gray">請選擇對應的二級分類</span>
             </div>
         </div>
     </div>

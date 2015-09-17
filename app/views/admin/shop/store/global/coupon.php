@@ -12,7 +12,7 @@
                 單次折扣金滿額限制
             </div>
             <div class="spanLineLeft width500">
-                單次購物訂單滿 <input type="text" name="shop_rule_use_coupon_count_Num" placeholder="贈送金額" style="width: 80px;" value="<?=$coupon_SettingList->obj_Arr['shop_rule_use_coupon_count']->value_Str?>"> 元，可以使用 <input type="text" name="shop_rule_use_get_coupon_count_Num" placeholder="贈送金額" style="width: 80px;" value="<?=$coupon_SettingList->obj_Arr['shop_rule_use_get_coupon_count']->value_Str?>"> 元折扣金
+                單次購物訂單滿 <input type="text" name="shop_rule_use_coupon_count_Num" placeholder="贈送金額" style="width: 80px;" value="<?=$coupon_SettingList->obj_Arr['shop_rule_use_coupon_count']->value_Str?>"> 元，可以使用 <input type="text" name="shop_rule_use_get_coupon_count_Num" placeholder="使用金額" style="width: 80px;" value="<?=$coupon_SettingList->obj_Arr['shop_rule_use_get_coupon_count']->value_Str?>"> 元折扣金
             </div>
         </div>
         <div class="spanStage">

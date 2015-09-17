@@ -1,8 +1,6 @@
-	<?if(!empty($global['style'])):?>
-	<?foreach($global['style'] as $value):?>
-	<link rel="stylesheet" type="text/css" href="app/css/<?=$value?>.css"></link>
+	<?foreach( (array) $global['style'] as $value):?>
+	<link rel="stylesheet" type="text/css" href="<?=$value?>"></link>
 	<?endforeach?>
-	<?endif?>
 </head>
 <body>
 	<?=$temp['message_window']?>

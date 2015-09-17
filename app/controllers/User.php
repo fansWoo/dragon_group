@@ -40,8 +40,7 @@ class User_Controller extends MY_Controller
 		$data['page'] = 'user';
         
         //global
-        $data['global']['style'][] = 'style';
-        $data['global']['style'][] = 'user/user';
+        $data['global']['style'][] = 'app/css/user/user.css';
         
         //temp
 		$data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -74,6 +73,7 @@ class User_Controller extends MY_Controller
 				'password_Str' => $password_Str,
 				'password2_Str' => $password2_Str
 			));
+
 			if($register_status === TRUE)
 			{
 				$url_Str = $this->next_url_Str;
@@ -116,8 +116,7 @@ class User_Controller extends MY_Controller
         $data['url_Str'] = $this->input->get('url');
 
         //global
-        $data['global']['style'][] = 'style';
-        $data['global']['style'][] = 'user/user';
+        $data['global']['style'][] = 'app/css/user/user.css';
             
         //temp
 		$data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -192,8 +191,7 @@ class User_Controller extends MY_Controller
 		$data['page'] = 'user';
         
         //global
-        $data['global']['style'][] = 'style';
-        $data['global']['style'][] = 'user/user';
+        $data['global']['style'][] = 'app/css/user/user.css';
         
         //temp
 		$data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -268,8 +266,7 @@ class User_Controller extends MY_Controller
 		$data['page'] = 'user';
         
         //global
-        $data['global']['style'][] = 'style';
-        $data['global']['style'][] = 'user/user';
+        $data['global']['style'][] = 'app/css/user/user.css';
         
         //temp
 		$data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);

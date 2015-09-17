@@ -394,7 +394,7 @@ $(function(){
 			</div>
 		</div>
 		<div class="big_pic_box">
-			<a href="" class="orange_box">
+			<a class="orange_box">
 				<div class="orange_circle">
 					<img src="app/img/index/orange_circle2.png" class="orange_pic">
 					<img src="app/img/index/orange_circle2_hover.png" class="hover_orange_pic">	

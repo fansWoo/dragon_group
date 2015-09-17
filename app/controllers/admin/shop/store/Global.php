@@ -42,9 +42,8 @@ class Global_Controller extends MY_Controller {
         $data['global']['shop_hot_product'] = $shop_hot_product_Setting->value_Str;
 
         //global
-        $data['global']['style'][] = 'admin/global';
-        $data['global']['js'][] = 'script_common';
-        $data['global']['js'][] = 'admin';
+        $data['global']['style'][] = 'app/css/admin/global.css';
+        $data['global']['js'][] = 'app/js/admin.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -97,9 +96,8 @@ class Global_Controller extends MY_Controller {
         ]);
 
         //global
-        $data['global']['style'][] = 'admin/global';
-        $data['global']['js'][] = 'script_common';
-        $data['global']['js'][] = 'admin';
+        $data['global']['style'][] = 'app/css/admin/global.css';
+        $data['global']['js'][] = 'app/js/admin.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);

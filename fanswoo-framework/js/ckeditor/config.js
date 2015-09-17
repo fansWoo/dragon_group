@@ -13,7 +13,7 @@ CKEDITOR.editorConfig = function( config ) {
     // 使用bbcode 開啟 BB Code 模式 ， extraPlugins: 'bbcode'
     // config.extraPlugins = 'bbcode';
     config.font_names = 'Arial;Arial Black;Comic Sans MS;Courier New;Tahoma;Times New Roman;Verdana;新細明體;細明體;標楷體;微軟正黑體';
-    config.fontSize_sizes = '100%/100%;120%/120%;150%/150%;200%/200%;250%/250%;300%/300%;350%/350%';
+    config.fontSize_sizes = '1.0X/100%;1.2X/120%;1.5X/150%;2.0X/200%;2.5X/250%;3.0X/300%;3.5X/350%';
     config.toolbar = 'basic';
     config.toolbar_bbcode =
     [

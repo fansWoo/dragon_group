@@ -30,7 +30,7 @@ class Contact extends ObjDbBase
 	public function construct($arg)
 	{
         //引入引數並將空值的變數給予空值
-        reset_null_arr($arg, ['contactid_Num', 'uid_Num', 'username_Str', 'email_Str', 'updatetime_Str', 'updatetime_inputtime_date_Str', 'updatetime_inputtime_time_Str', 'status_Num']);
+        reset_null_arr($arg, ['contactid_Num', 'uid_Num', 'username_Str', 'email_Str', 'phone_Str', 'content_Str', 'classtype_Str', 'updatetime_Str', 'updatetime_inputtime_date_Str', 'updatetime_inputtime_time_Str', 'status_Num']);
         foreach($arg as $key => $value) ${$key} = $arg[$key];
         
         //將引數設為物件屬性，或將引數作為物件型屬性的建構值

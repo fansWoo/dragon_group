@@ -53,9 +53,8 @@ class Order_shop_Controller extends MY_Controller {
         }
 
         //global
-        $data['global']['style'][] = 'admin/global';
-        $data['global']['js'][] = 'script_common';
-        $data['global']['js'][] = 'admin';
+        $data['global']['style'][] = 'app/css/admin/global.css';
+        $data['global']['js'][] = 'app/js/admin.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -74,10 +73,9 @@ class Order_shop_Controller extends MY_Controller {
 
         $orderid_Num = $this->input->post('orderid_Num', TRUE);
 
-        $this->form_validation->set_rules('orderid_Num', '網站標題名稱', 'required');
-        $this->form_validation->set_rules('pay_account_Str', '網站標題名稱', 'required');
-        $this->form_validation->set_rules('pay_name_Str', '網站標題名稱', 'required');
-        $this->form_validation->set_rules('pay_paytime_Str', '網站標題名稱', 'required');
+        $this->form_validation->set_rules('pay_account_Str', '轉帳帳號', 'required');
+        $this->form_validation->set_rules('pay_name_Str', '轉帳人姓名', 'required');
+        $this->form_validation->set_rules('pay_paytime_Str', '轉帳時間', 'required');
 
         if ($this->form_validation->run() === TRUE)
         {
@@ -117,9 +115,12 @@ class Order_shop_Controller extends MY_Controller {
         else
         {
             //送出成功訊息
+            $validation_errors_Str = validation_errors();
+            $validation_errors_Str = !empty($validation_errors_Str) ? $validation_errors_Str : '設定錯誤' ;
+
             $this->load->model('Message');
             $this->Message->show(array(
-                'message' => '設定失敗',
+                'message' => $validation_errors_Str,
                 'url' => 'admin/user/order_shop/order_shop/edit/?orderid='.$orderid_Num
             ));
         }
@@ -164,9 +165,8 @@ class Order_shop_Controller extends MY_Controller {
         $data['admin_sidebox'] = $this->AdminModel->reset_sidebox();
 
         //global
-        $data['global']['style'][] = 'admin/global';
-        $data['global']['js'][] = 'script_common';
-        $data['global']['js'][] = 'admin';
+        $data['global']['style'][] = 'app/css/admin/global.css';
+        $data['global']['js'][] = 'app/js/admin.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);

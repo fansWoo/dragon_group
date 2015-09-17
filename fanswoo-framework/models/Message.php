@@ -30,8 +30,8 @@ class Message extends CI_Model {
 		$data['second'] = $second;
         
         //style
-		$data['global']['style'][] = 'global';
-		$data['global']['style'][] = 'temp/message_turnpage';
+		$data['global']['style'][] = 'app/style/temp/global.css';
+		$data['global']['style'][] = 'app/style/temp/message_turnpage.css';
         
         //temp
 		$data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);

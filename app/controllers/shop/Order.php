@@ -1,6 +1,6 @@
 <?php
 
-class Order_Controller extends MY_controller
+class Order_Controller extends MY_Controller
 {
 
     function __construct()
@@ -8,7 +8,7 @@ class Order_Controller extends MY_controller
         parent::__construct();
         $data = $this->data;
 
-        if($data['user']['uid'] == '')
+        if($data['User']->uid_Num == '')
         {
             $url = base_url('user/login/?url=order');
             header('Location: '.$url);
@@ -20,7 +20,7 @@ class Order_Controller extends MY_controller
 	
 	public function index()
 	{
-        $url_Str = base_url('shop/order/cartlist');
+        $url_Str = base_url('order/cartlist');
         header("Location: $url_Str");
 	}
 
@@ -32,7 +32,7 @@ class Order_Controller extends MY_controller
         $data['OrderShop'] = new OrderShop();
         $data['OrderShop']->construct_db(array(
             'db_where_Arr' => array(
-                'uid_Num' => $data['user']['uid'],
+                'uid_Num' => $data['User']->uid_Num,
                 'order_status_Num' => -1//建構中的訂單
             )
         ));
@@ -41,23 +41,45 @@ class Order_Controller extends MY_controller
         {
             $data['OrderShop'] = new OrderShop();
             $data['OrderShop']->construct(array(
-                'uid_Num' => $data['user']['uid'],
+                'uid_Num' => $data['User']->uid_Num,
                 'pay_price_freight_Num' => 80,
                 'pay_paytype_Str' => 'atm',
                 'order_status_Num' => -1//建構中的訂單
             ));
             $data['OrderShop']->update(array());
         }
+
+        $data['UserFieldShop'] = new UserFieldShop();
+        $data['UserFieldShop']->construct_db(array(
+            'db_where_Arr' => array(
+                'user.uid' => $data['User']->uid_Num
+            )
+        ));
+
+        $data['shop_rule_use_coupon_count_Setting'] = new Setting();
+        $data['shop_rule_use_coupon_count_Setting']->construct_db([
+            'db_where_Arr' => [
+                'keyword' => 'shop_rule_use_coupon_count'
+            ]
+        ]);
+
+        $data['shop_rule_use_get_coupon_count_Setting'] = new Setting();
+        $data['shop_rule_use_get_coupon_count_Setting']->construct_db([
+            'db_where_Arr' => [
+                'keyword' => 'shop_rule_use_get_coupon_count'
+            ]
+        ]);
         
         //global
-        $data['global']['style'][] = 'temp/global';
-        $data['global']['style'][] = 'shop/order';
+        $data['global']['style'][] = 'app/css/temp/global.css';
+        $data['global']['style'][] = 'app/css/shop/order.css';
         
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
         $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
         $data['temp']['header_bar'] = $this->load->view('temp/header_bar', $data, TRUE);
         $data['temp']['footer_bar'] = $this->load->view('temp/footer_bar', $data, TRUE);
+        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
         
         //輸出模板
         $this->load->view('shop/order/cartlist', $data);
@@ -68,6 +90,7 @@ class Order_Controller extends MY_controller
         $data = $this->data;
 
         $pay_paytype_Str = $this->input->post('pay_paytype_Str', TRUE);
+        $coupon_count_Num = $this->input->post('coupon_count_Num', TRUE);
         if($pay_paytype_Str == 'atm')
         {
             $pay_sendtype_Str = 'delivery';
@@ -88,7 +111,7 @@ class Order_Controller extends MY_controller
         $OrderShop = new OrderShop();
         $OrderShop->construct_db(array(
             'db_where_Arr' => array(
-                'uid_Num' => $data['user']['uid'],
+                'uid_Num' => $data['User']->uid_Num,
                 'order_status_Num' => -1//建構中的訂單
             )
         ));
@@ -96,7 +119,7 @@ class Order_Controller extends MY_controller
         if(empty($OrderShop->cart_CartShopList->obj_Arr))
         {
             $message_Str = '請先選擇想要購買的產品';
-            $url_Str = 'shop/order/cartlist';
+            $url_Str = 'order/cartlist';
             $this->load->model('Message');
             $this->Message->show(array('message' => $message_Str, 'url' => $url_Str));
             return FALSE;
@@ -107,10 +130,21 @@ class Order_Controller extends MY_controller
         $OrderShop->change_freight(array(
             'pay_price_freight_Num' => $pay_price_freight_Num
         ));
-        $OrderShop->update();
-
-        $url_Str = base_url('shop/order/checkout');
-        header("Location: $url_Str");
+        $coupon_count_status = $OrderShop->change_coupon_count(['coupon_count_Num' => $coupon_count_Num]);
+        if( $coupon_count_status === TRUE )
+        {
+            $OrderShop->update();
+            $url_Str = base_url('order/checkout');
+            header("Location: $url_Str");
+        }
+        else
+        {
+            $message_Str = $coupon_count_status;
+            $url_Str = 'order/cartlist';
+            $this->load->model('Message');
+            $this->Message->show(array('message' => $message_Str, 'url' => $url_Str));
+            return TRUE;
+        }
     }
 
     public function checkout()
@@ -121,26 +155,27 @@ class Order_Controller extends MY_controller
         $data['OrderShop'] = new OrderShop();
         $data['OrderShop']->construct_db(array(
             'db_where_Arr' => array(
-                'uid_Num' => $data['user']['uid'],
+                'uid_Num' => $data['User']->uid_Num,
                 'order_status_Num' => -1//建構中的訂單
             )
         ));
         //如果沒有建構中的訂單則建立一個新的訂單
         if(empty($data['OrderShop']->orderid_Num))
         {
-            $url_Str = base_url('shop/order/cartlist');
+            $url_Str = base_url('order/cartlist');
             header("Location: $url_Str");
         }
         
         //global
-        $data['global']['style'][] = 'temp/global';
-        $data['global']['style'][] = 'shop/order';
+        $data['global']['style'][] = 'app/css/temp/global.css';
+        $data['global']['style'][] = 'app/css/shop/order.css';
         
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
         $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
         $data['temp']['header_bar'] = $this->load->view('temp/header_bar', $data, TRUE);
         $data['temp']['footer_bar'] = $this->load->view('temp/footer_bar', $data, TRUE);
+        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
         
         //輸出模板
         $this->load->view('shop/order/checkout', $data);
@@ -166,34 +201,48 @@ class Order_Controller extends MY_controller
             $OrderShop = new OrderShop();
             $OrderShop->construct_db(array(
                 'db_where_Arr' => array(
-                    'uid_Num' => $data['user']['uid'],
+                    'uid_Num' => $data['User']->uid_Num,
                     'order_status_Num' => -1//建構中的訂單
                 )
             ));
-            if(
-                $OrderShop->pay_paytype_Str === 'card' ||
-                $OrderShop->pay_paytype_Str === 'cash_on_delivery')
+            if($OrderShop->pay_paytype_Str === 'card')
             {
                 $OrderShop->pay_status_Num = 1;
                 $OrderShop->paycheck_status_Num = 1;
+            }
+            else if($OrderShop->pay_paytype_Str === 'cash_on_delivery')
+            {
+                $OrderShop->pay_status_Num = 1;
             }
             $OrderShop->receive_name_Str = $receive_name_Str;
             $OrderShop->receive_address_Str = $receive_address_Str;
             $OrderShop->receive_phone_Str = $receive_phone_Str;
             $OrderShop->receive_time_Str = $receive_time_Str;
             $OrderShop->receive_remark_Str = $receive_remark_Str;
-            $OrderShop->order_status_Num = 0;//將訂單從建構中改為已建立
-            $OrderShop->update(array());
 
-            $message_Str = '訂單完成';
-            $url_Str = 'shop';
-            $this->load->model('Message');
-            $this->Message->show(array('message' => $message_Str, 'url' => $url_Str));
+            //將訂單從建構中改為已建立
+            $finish_order_Return = $OrderShop->finish_order();
+            if( $finish_order_Return === TRUE )
+            {
+                $message_Str = '訂單完成';
+                $url_Str = 'admin/user/order_shop/order_shop/tablelist';
+                $this->load->model('Message');
+                $this->Message->show(array('message' => $message_Str, 'url' => $url_Str));
+                return TRUE;
+            }
+            else
+            {
+                $message_Str = $finish_order_Return;
+                $url_Str = 'order/cartlist';
+                $this->load->model('Message');
+                $this->Message->show(array('message' => $message_Str, 'url' => $url_Str, 'second' => 7));
+                return TRUE;
+            }
         }
         else
         {
             $message_Str = '請填寫詳細收件人資料';
-            $url_Str = 'shop/order/checkout';
+            $url_Str = 'order/checkout';
             $this->load->model('Message');
             $this->Message->show(array('message' => $message_Str, 'url' => $url_Str));
         }
@@ -219,7 +268,7 @@ class Order_Controller extends MY_controller
             $OrderShop = new OrderShop();
             $OrderShop->construct_db(array(
                 'db_where_Arr' => array(
-                    'uid_Num' => $data['user']['uid'],
+                    'uid_Num' => $data['User']->uid_Num,
                     'order_status_Num' => -1//建構中的訂單
                 )
             ));
@@ -266,7 +315,7 @@ class Order_Controller extends MY_controller
         else
         {
             $message_Str = '請填寫詳細收件人資料';
-            $url_Str = 'shop/order/checkout';
+            $url_Str = 'order/checkout';
             $this->load->model('Message');
             $this->Message->show(array('message' => $message_Str, 'url' => $url_Str));
         }
@@ -308,7 +357,7 @@ class Order_Controller extends MY_controller
             $OrderShop = new OrderShop();
             $OrderShop->construct_db(array(
                 'db_where_Arr' => array(
-                    'uid_Num' => $data['user']['uid'],
+                    'uid_Num' => $data['User']->uid_Num,
                     'order_status_Num' => -1//建構中的訂單
                 )
             ));
@@ -325,7 +374,7 @@ class Order_Controller extends MY_controller
         else
         {
             $message_Str = '信用卡交易失敗';
-            $url_Str = 'shop/order/cartlist';
+            $url_Str = 'order/cartlist';
             $this->load->model('Message');
             $this->Message->show(array('message' => $message_Str, 'url' => $url_Str));
         }
@@ -341,7 +390,7 @@ class Order_Controller extends MY_controller
         $OrderShop = new OrderShop();
         $OrderShop->construct_db(array(
             'db_where_Arr' => array(
-                'uid_Num' => $data['user']['uid'],
+                'uid_Num' => $data['User']->uid_Num,
                 'order_status_Num' => -1//建構中的訂單
             )
         ));
@@ -351,7 +400,7 @@ class Order_Controller extends MY_controller
 
         $OrderShop->update(array());
 
-        $url_Str = base_url('shop/order/cartlist');
+        $url_Str = base_url('order/cartlist');
         header("Location: $url_Str");
     }
 
@@ -360,13 +409,22 @@ class Order_Controller extends MY_controller
         $data = $this->data;
 
         $productid_Num = $this->input->post('productid_Num', TRUE);
+        $stockid_Num = $this->input->post('stockid_Num', TRUE);
         $amount_Num = $this->input->post('amount_Num', TRUE);
+
+        if( empty($productid_Num) || empty($stockid_Num) || empty($amount_Num) )
+        {
+            $message_Str = '產品訊息傳遞錯誤';
+            $url_Str = 'order/cartlist';
+            $this->load->model('Message');
+            $this->Message->show(array('message' => $message_Str, 'url' => $url_Str));
+        }
 
         //讀取建構中的訂單
         $OrderShop = new OrderShop();
         $OrderShop->construct_db(array(
             'db_where_Arr' => array(
-                'uid_Num' => $data['user']['uid'],
+                'uid_Num' => $data['User']->uid_Num,
                 'order_status_Num' => -1//建構中的訂單
             )
         ));
@@ -375,22 +433,23 @@ class Order_Controller extends MY_controller
         {
             $OrderShop = new OrderShop();
             $OrderShop->construct(array(
-                'uid_Num' => $data['user']['uid'],
+                'uid_Num' => $data['User']->uid_Num,
                 'pay_price_freight_Num' => 80,
                 'pay_paytype_Str' => 'atm',
                 'order_status_Num' => -1//建構中的訂單
             ));
-            $OrderShop->update(array());
+            $OrderShop->update();
         }
 
-        $OrderShop->add_cart(array(
+        $OrderShop->add_cart([
             'productid_Num' => $productid_Num,
+            'stockid_Num' => $stockid_Num,
             'amount_Num' => $amount_Num
-        ));
+        ]);
 
-        $OrderShop->update(array());
+        $OrderShop->update();
 
-        $url_Str = base_url('shop/order/cartlist');
+        $url_Str = base_url('order/cartlist');
         header("Location: $url_Str");
     }
 	

@@ -43,37 +43,43 @@
                 <?endif?>
             </div>
         </div>
-        <div class="spanStage">
-            <div class="spanLineLeft">
-            </div>
-            <div class="spanLineLeft width500">
-                <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/classmeta/tablelist">管理廣告分類</a>
-            </div>
-        </div>
     </div>
 	<div class="spanLine">
 	    <div class="spanStage">
             <div class="spanLineLeft">
-                廣告圖
+                廣告圖片
             </div>
-            <div class="spanLineLeft width500">
-                <div class="fileMultiple1"><input type="file" name="picids_FilesArr[]" accept="image/*"></div>
-                <?if(!empty($Advertising->pic_PicObjList->obj_Arr[0]->picid_Num)):?>
-                <div class="picidUploadList">
-                    <div fanswoo-picid="<?=$Advertising->pic_PicObjList->obj_Arr[0]->picid_Num?>" class="picidUploadLi">
-                        <div fanswoo-picDelete class="picDelete"></div>
-                        <img src="<?=$Advertising->pic_PicObjList->obj_Arr[0]->path_Arr['w50h50']?>">
-                        <input type="hidden" name="picids_Arr[]" value="<?=$Advertising->pic_PicObjList->obj_Arr[0]->picid_Num?>">
+            <div class="spanLineRight">
+                <div fanswoo-pic_upload_ajax>上傳更多圖片</div>
+                <div class="picidUploadList" fanswoo-piclist>
+                    <div fanswoo-picid class="picidUploadLi" fanswoo-clone>
+                        <div class="pic"><img src="" fanswoo-picid_img></div>
+                        <div class="other">
+                            <div class="pic_copy"><input type="text" fanswoo-picid_path_input fanswoo-input_copy readonly /></div>
+                            <div fanswoo-pic_delete class="pic_delete">刪除圖片</div>
+                        </div>
+                        <input type="hidden" fanswoo-picid_input_hidden_picid name="picids_Arr[]">
                     </div>
+                    <?if(!empty($Advertising->pic_PicObjList->obj_Arr)):?>
+                    <?foreach($Advertising->pic_PicObjList->obj_Arr as $key => $value_PicObj):?>
+                    <div fanswoo-picid="<?=$value_PicObj->picid_Num?>" class="picidUploadLi">
+                        <div class="pic"><img src="<?=$value_PicObj->path_Arr['w50h50']?>" fanswoo-picid_img></div>
+                        <div class="other">
+                            <div class="pic_copy"><input type="text" fanswoo-picid_path_input fanswoo-input_copy readonly value="<?=$value_PicObj->path_Arr['w0h0']?>" /></div>
+                            <div fanswoo-pic_delete class="pic_delete">刪除圖片</div>
+                        </div>
+                        <input type="hidden" fanswoo-picid_input_hidden_picid name="picids_Arr[]" value="<?=$value_PicObj->picid_Num?>">
+                    </div>
+                    <?endforeach?>
+                    <?endif?>
                 </div>
-                <?endif?>
 		    </div>
 		</div>
 	    <div class="spanStage">
             <div class="spanLineLeft">
             </div>
             <div class="spanLineLeft width500">
-                <span class="gray">請上傳300x300之圖檔</span>
+                <span class="gray">請上傳300x300之圖檔，多張圖檔將以第一張為默認顯示圖檔</span>
 		    </div>
 		</div>
 	</div>

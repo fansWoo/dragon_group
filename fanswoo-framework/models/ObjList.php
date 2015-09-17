@@ -36,17 +36,20 @@ class ObjList extends CI_Model {
             foreach($construct_Arr as $key => $value_Arr)
             {
                 $Model = new $model_name_Str;
+                // $this->obj_Arr[] = new $model_name_Str;
                 foreach($this->child_value_Arr as $key2 => $value2_Str)
                 {
                     $Model->set($key2, $value2_Str);
+                    // $this->obj_Arr[$key]->set($key2, $value2_Str);
                 }
+                // $this->obj_Arr[$key]->construct($value_Arr);
 
                 $Model->construct($value_Arr);
                 $model_db_uniqueid_Str = $Model->$db_uniqueid_Str;
                 $this->uniqueids_Arr[] = $model_db_uniqueid_Str;
                 if(!empty($model_db_uniqueid_Str) && !is_numeric($model_db_uniqueid_Str))
                 {
-                    $this->obj_Arr[] = $Model;
+                    $this->obj_Arr[$model_db_uniqueid_Str] = $Model;
                 }
                 else
                 {
@@ -93,14 +96,13 @@ class ObjList extends CI_Model {
         $this->db_uniqueid_Str = $db_uniqueid_Str;
 
         //取得類別資料庫名稱
-        $Model = new $model_name_Str();
-        if(!empty($Model->db_name_Arr))
+        if(!empty($model_Obj->db_name_Arr))
         {
-            $db_name_Str = $Model->db_name_Arr[0];
+            $db_name_Str = $model_Obj->db_name_Arr[0];
         }
         else
         {
-            $db_name_Str = $Model->db_name_Str;
+            $db_name_Str = $model_Obj->db_name_Str;
         }
         
         if($limitstart_Num < 1)
@@ -188,10 +190,10 @@ class ObjList extends CI_Model {
         {
             $db_where_Arr['status'] = 1;
         }
-        
-        if(!empty($Model->db_name_Arr))
+
+        if(!empty($model_Obj->db_name_Arr))
         {
-            foreach($Model->db_name_Arr as $key => $value_Str)
+            foreach($model_Obj->db_name_Arr as $key => $value_Str)
             {
                 if($key == 0)
                 {
@@ -199,7 +201,7 @@ class ObjList extends CI_Model {
                 }
                 else
                 {
-                    $this->db->join($value_Str, $Model->db_name_Arr[0].'.'.$db_uniqueid_Str.' = '.$value_Str.'.'.$db_uniqueid_Str, 'left');
+                    $this->db->join($value_Str, $model_Obj->db_name_Arr[0].'.'.$db_uniqueid_Str.' = '.$value_Str.'.'.$db_uniqueid_Str, 'left');
                 }
             }
         }
@@ -214,6 +216,7 @@ class ObjList extends CI_Model {
             {
                 foreach($value_Arr as $key2 => $value2)
                 {
+                    $value2 = trim($value2);
                     // $this->db->or_where(array($key => $value2));
                     $this->db->or_where("FIND_IN_SET('$value2', $key) !=", 0);
                     if(!empty($db_where_Arr))
@@ -241,11 +244,13 @@ class ObjList extends CI_Model {
                             {
                                 foreach($value3 as $key4 => $value4)
                                 {
+                                    $value2 = trim($value4);
                                     $this->db->like("FIND_IN_SET('$value4', $key4) !=", 0);
                                 }
                             }
                             else
                             {
+                                $value3 = trim($value4);
                                 $this->db->like($key3, $value3);
                             }
                         }
@@ -259,7 +264,11 @@ class ObjList extends CI_Model {
             {
                 foreach($db_where_Arr as $key => $value)
                 {
-                    if(is_array($value))
+                    if(!empty($model_Obj->db_name_Arr) && $key == 'status')
+                    {
+                        $this->db->where($model_Obj->db_name_Arr[0].'.'.$key, $value);
+                    }
+                    else if(is_array($value))
                     {
                         foreach($value as $key2 => $value2)
                         {
@@ -291,31 +300,31 @@ class ObjList extends CI_Model {
             }
         }
 
-//        這個才是正確的
-//        if(!empty($db_orderby_Arr))
-//        {
-//            if(is_array($db_orderby_Arr))
-//            {
-//                foreach($db_orderby_Arr as $key => $value)
-//                {
-//                    $this->db->order_by($key, $value);
-//                }
-//            }
-//        }
-        
-//這段是錯誤的，只是暫時放錯誤的
         if(!empty($db_orderby_Arr))
         {
-            if(is_array($db_orderby_Arr[0]))
+            //這個才是正確的推薦寫法
+            if(is_array($db_orderby_Arr) && !is_array($db_orderby_Arr[0]) )
+            {
+                foreach($db_orderby_Arr as $key => $value)
+                {
+                    if( !empty($value) && !empty($value[0]) && is_array($value) )
+                    {
+                        $field_implode_Str = implode(", ", $value);
+                        $this->db->order_by("field($key, $field_implode_Str)", NULL, FALSE);
+                    }
+                    else if( !empty($key) && !empty($value) && !is_array($value) )
+                    {
+                        $this->db->order_by($key, $value);
+                    }
+                }
+            }
+            //這段是舊的寫法，只是為了維持舊版相容性而暫時放錯誤的寫法
+            else if(is_array($db_orderby_Arr[0]))
             {
                 foreach($db_orderby_Arr as $key => $value)
                 {
                     $this->db->order_by($value[0], $value[1]);
                 }
-            }
-            else
-            {
-                $this->db->order_by($db_orderby_Arr[0], $db_orderby_Arr[1]);
             }
         }
 
@@ -431,7 +440,7 @@ class ObjList extends CI_Model {
 
         foreach($obj_Arr as $key => $value_Obj)
         {
-            $value_Obj->update();
+            $value_Obj->update(array());
         }
     }
 }

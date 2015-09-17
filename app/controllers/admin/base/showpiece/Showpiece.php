@@ -63,9 +63,9 @@ class Showpiece_Controller extends MY_Controller {
         ));
 
         //global
-        $data['global']['style'][] = 'admin/global';
-        $data['global']['js'][] = 'script_common';
-        $data['global']['js'][] = 'admin';
+        $data['global']['style'][] = 'app/css/admin/global.css';
+        $data['global']['js'][] = 'app/js/admin.js';
+        $data['global']['js'][] = 'fanswoo-framework/js/jquery.form.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -95,40 +95,7 @@ class Showpiece_Controller extends MY_Controller {
             $content_Str = $this->input->post('content_Str');
             $content_specification_Str = $this->input->post('content_specification_Str');
             $prioritynum_Num = $this->input->post('prioritynum_Num', TRUE);
-
-            //主要圖片上傳（單張上傳）
-            $mainpicids_Arr = $this->input->post('mainpicids_Arr', TRUE);
-            $mainpicids_FileArr = $this->input->file('mainpicids_FileArr');
-            if(!empty($mainpicids_FileArr['name']))
-            {
-                $mainpic_PicObj = new PicObj();
-                $mainpic_PicObj->construct(array(
-                    'picfile_FileArr' => $mainpicids_FileArr,
-                    'thumb_Str' => 'w50h50,w300h300,w600h600'
-                ));
-                $mainpic_PicObj->upload();
-                $mainpicids_Arr[] = $mainpic_PicObj->picid_Num;
-            }
-
-            //其它圖片上傳（多張上傳）
             $picids_Arr = $this->input->post('picids_Arr', TRUE);
-            $picids_FilesArr = $this->input->file('picids_FilesArr');
-            foreach($picids_FilesArr['name'] as $key => $value)
-            {
-                if(!empty($value))
-                {
-                    $pic_PicObj = new PicObj();
-                    $pic_PicObj->construct(array(
-                        'picfile_FileArr' => getfile_from_files(array(
-                            'files_Arr' => $picids_FilesArr,
-                            'key_Str' => $key
-                        )),
-                        'thumb_Str' => 'w50h50,w300h300,w600h600'
-                    ));
-                    $pic_PicObj->upload();
-                    $picids_Arr[] = $pic_PicObj->picid_Num;
-                }
-            }
 
             //建構Showpiece物件，並且更新
             $showpiece_Showpiece = new Showpiece();
@@ -220,9 +187,8 @@ class Showpiece_Controller extends MY_Controller {
         ));
 
         //global
-        $data['global']['style'][] = 'admin/global';
-        $data['global']['js'][] = 'script_common';
-        $data['global']['js'][] = 'admin';
+        $data['global']['style'][] = 'app/css/admin/global.css';
+        $data['global']['js'][] = 'app/js/admin.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);

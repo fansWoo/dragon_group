@@ -51,9 +51,9 @@ class Advertising_Controller extends MY_Controller {
         ));
 
         //global
-        $data['global']['style'][] = 'admin/global';
-        $data['global']['js'][] = 'script_common';
-        $data['global']['js'][] = 'admin';
+        $data['global']['style'][] = 'app/css/admin/global.css';
+        $data['global']['js'][] = 'app/js/admin.js';
+        $data['global']['js'][] = 'fanswoo-framework/js/jquery.form.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -82,26 +82,7 @@ class Advertising_Controller extends MY_Controller {
             $classids_Arr = $this->input->post('classids_Arr', TRUE);
             $content_Str = $this->input->post('content_Str');
             $prioritynum_Num = $this->input->post('prioritynum_Num', TRUE);
-
-            //其它圖片上傳（多張上傳）
             $picids_Arr = $this->input->post('picids_Arr', TRUE);
-            $picids_FilesArr = $this->input->file('picids_FilesArr');
-            foreach($picids_FilesArr['name'] as $key => $value)
-            {
-                if(!empty($value))
-                {
-                    $pic_PicObj = new PicObj();
-                    $pic_PicObj->construct(array(
-                        'picfile_FileArr' => getfile_from_files(array(
-                            'files_Arr' => $picids_FilesArr,
-                            'key_Str' => $key
-                        )),
-                        'thumb_Str' => 'w50h50,w300h300,w600h600'
-                    ));
-                    $pic_PicObj->upload();
-                    $picids_Arr[] = $pic_PicObj->picid_Num;
-                }
-            }
 
             //建構Advertising物件，並且更新
             $Advertising = new Advertising();
@@ -168,10 +149,10 @@ class Advertising_Controller extends MY_Controller {
             'db_where_or_Arr' => array(
                 'classids' => array($class_ClassMeta->classid_Num)
             ),
-            'db_orderby_Arr' => array(
-                array('prioritynum', 'DESC'),
-                array('updatetime', 'DESC')
-            ),
+            'db_orderby_Arr' => [
+                'prioritynum' => 'DESC',
+                'updatetime' => 'DESC'
+            ],
             'db_where_deletenull_Bln' => TRUE,
             'model_name_Str' => 'Advertising',
             'limitstart_Num' => $limitstart_Num,
@@ -188,9 +169,8 @@ class Advertising_Controller extends MY_Controller {
         ));
 
         //global
-        $data['global']['style'][] = 'admin/global';
-        $data['global']['js'][] = 'script_common';
-        $data['global']['js'][] = 'admin';
+        $data['global']['style'][] = 'app/css/admin/global.css';
+        $data['global']['js'][] = 'app/js/admin.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);

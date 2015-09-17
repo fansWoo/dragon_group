@@ -39,7 +39,7 @@
             <div class="spanLineLeft">
                 產品分類
             </div>
-                <?if(!empty($PagerField->class_ClassMetaList->obj_Arr)):?>
+            <?if(!empty($PagerField->class_ClassMetaList->obj_Arr)):?>
                 <?foreach($PagerField->class_ClassMetaList->obj_Arr as $key => $value_ClassMeta):?>
                     <div class="selectLine" fanswoo-selectEachLine>
                         <span class="floatleft">分類：</span>
@@ -109,21 +109,13 @@
                     <?endforeach?>
                     </span>
                 </div>
-                <?endif?>
-
+            <?endif?>
         </div>
         <div class="spanStage">
             <div class="spanLineLeft">
             </div>
             <div class="spanLineLeft width500">
                 <span class="gray">請選擇二級分類及分類標籤，多種分類可以重複選取</span>
-            </div>
-        </div>
-        <div class="spanStage">
-            <div class="spanLineLeft">
-            </div>
-            <div class="spanLineLeft width500">
-                <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/classmeta2/tablelist">管理二級分類</a>
             </div>
         </div>
     </div>
@@ -133,8 +125,19 @@
                 頁面內容
             </div>
             <div class="spanLineRight">
+                <div fanswoo-pic_upload_ajax>上傳更多圖片</div>
+                <div class="picidUploadList" fanswoo-piclist>
+                    <div fanswoo-picid class="picidUploadLi" fanswoo-clone>
+                        <div class="pic"><img src="" fanswoo-picid_img></div>
+                        <div class="other">
+                            <div class="pic_copy"><input type="text" fanswoo-picid_path_input fanswoo-input_copy readonly /></div>
+                            <div fanswoo-pic_delete class="pic_delete">刪除圖片</div>
+                        </div>
+                        <input type="hidden" fanswoo-picid_input_hidden_picid name="picids_Arr[]">
+                    </div>
+                </div>
                 <textarea cols="80" id="content_Str" name="content_Str" rows="10"><?=$PagerField->content_Html?></textarea>
-                <script src="app/js/ckeditor/ckeditor.js"></script>
+                <script src="fanswoo-framework/js/ckeditor/ckeditor.js"></script>
                 <script>
                     CKEDITOR.replace( 'content_Str', {
                         toolbar: 'html'

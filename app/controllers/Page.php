@@ -1,8 +1,13 @@
 <?php
 
-class Page_Controller extends MY_controller {
+class Page_Controller extends MY_Controller {
 
     public $data = array();
+
+    public function index()
+    {
+    	header("Location: page/index");
+    }
     
 	public function _remap($slug_Str = 'index'){
         $data = $this->data;
@@ -45,14 +50,15 @@ class Page_Controller extends MY_controller {
 	        ));
 
 	        //global
-			$data['global']['style'][] = 'temp/global';
-	        $data['global']['style'][] = 'pager/default';
+			$data['global']['style'][] = 'app/css/temp/global.css';
+	        $data['global']['style'][] = 'app/css/pager/default.css';
 	        
 	        //temp
 			$data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
 			$data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
 			$data['temp']['header_bar'] = $this->load->view('temp/header_bar', $data, TRUE);
 			$data['temp']['footer_bar'] = $this->load->view('temp/footer_bar', $data, TRUE);
+			$data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 			
 			//輸出模板
 			$this->load->view('pager/default', $data);
@@ -71,18 +77,18 @@ class Page_Controller extends MY_controller {
 			}
 	        
 	        //global
-	    	$data['global']['js'][] = 'script_header_bar_mobile';
+	    	$data['global']['js'][] = 'app/js/script_header_bar_mobile.js';
 	    	
-			$data['global']['style'][] = 'temp/global';
-			$data['global']['style'][] = 'temp/header_bar';
-			$data['global']['style'][] = 'temp/footer_bar';
+			$data['global']['style'][] = 'app/css/temp/global.css';
+			$data['global']['style'][] = 'app/css/temp/header_bar.css';
+			$data['global']['style'][] = 'app/css/temp/footer_bar.css';
 	        if($slug_Str == 'index')
 	        {
-				$data['global']['style'][] = 'page/index';
+				$data['global']['style'][] = 'app/css/page/index.css';
 	        }
 	        else
 	        {
-			  $data['global']['style'][] = 'page/'.$slug_Str;
+			  $data['global']['style'][] = 'app/css/page/'.$slug_Str.'.css';
 	        }
 	        
 	        //temp
@@ -90,6 +96,7 @@ class Page_Controller extends MY_controller {
 			$data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
 			$data['temp']['header_bar'] = $this->load->view('temp/header_bar', $data, TRUE);
 			$data['temp']['footer_bar'] = $this->load->view('temp/footer_bar', $data, TRUE);
+			$data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 			
 			//輸出模板
 			$this->load->view('page/'.$slug_Str, $data);

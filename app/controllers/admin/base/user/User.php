@@ -70,9 +70,35 @@ class User_Controller extends MY_Controller {
             ));
             return FALSE;
         }
+        
+        //權限判斷
+        if(
+            in_array( 1, $data['User']->group_UserGroupList->uniqueids_Arr)
+        )
+        {
+        }
+        else if(
+            in_array( 2, $data['User']->group_UserGroupList->uniqueids_Arr)
+        )
+        {
+            $groupids_1_purview = 1;
+        }
+        else if(
+            in_array( 3, $data['User']->group_UserGroupList->uniqueids_Arr)
+        )
+        {
+            $groupids_1_purview = 1;
+            $groupids_2_purview = 2;
+            $groupids_3_purview = 3;
+        }
 
         $data['UserGroupList'] = new ObjList();
         $data['UserGroupList']->construct_db(array(
+            'db_where_Arr' => array(
+                'groupid !=' => $groupids_1_purview,
+                'groupid != ' => $groupids_2_purview,
+                'groupid !=  ' => $groupids_3_purview
+            ),
             'db_where_deletenull_Bln' => TRUE,
             'model_name_Str' => 'UserGroup',
             'limitstart_Num' => 0,
@@ -80,9 +106,8 @@ class User_Controller extends MY_Controller {
         ));
 
         //global
-        $data['global']['style'][] = 'admin/global';
-        $data['global']['js'][] = 'script_common';
-        $data['global']['js'][] = 'admin';
+        $data['global']['style'][] = 'app/css/admin/global.css';
+        $data['global']['js'][] = 'app/js/admin.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -133,6 +158,7 @@ class User_Controller extends MY_Controller {
 
             //基本post欄位
             $username_Str = $this->input->post('username_Str', TRUE);
+            $groupids_Arr = $this->input->post('groupids_Arr', TRUE);
 
             //建構User物件，並且更新
             $UserFieldShop = new UserFieldShop();
@@ -140,9 +166,22 @@ class User_Controller extends MY_Controller {
                 'uid_Num' => $uid_Num,
                 'username_Str' => $username_Str
             ));
+            
+            //建立UserGroupList物件
+            check_comma_array($groupids_Str, $groupids_Arr);
+            $UserFieldShop->group_UserGroupList = new ObjList;
+            $UserFieldShop->group_UserGroupList->construct_db(array(
+                'db_where_or_Arr' => array(
+                    'groupid_Num' => $groupids_Arr
+                ),
+                'model_name_Str' => 'UserGroup',
+                'limitstart_Num' => 0,
+                'limitcount_Num' => 100
+            ));
+
             $UserFieldShop->update(array(
                 'db_update_Arr' => array(
-                    'user.username', 'user.updatetime'
+                    'user.username', 'user.updatetime', 'user.groupids'
                 )
             ));
 
@@ -292,6 +331,11 @@ class User_Controller extends MY_Controller {
 
         $data['UserGroupList'] = new ObjList();
         $data['UserGroupList']->construct_db(array(
+            'db_where_Arr' => array(
+                'groupid !=' => $groupids_1_purview,
+                'groupid != ' => $groupids_2_purview,
+                'groupid !=  ' => $groupids_3_purview
+            ),
             'db_where_deletenull_Bln' => TRUE,
             'model_name_Str' => 'UserGroup',
             'limitstart_Num' => 0,
@@ -299,9 +343,8 @@ class User_Controller extends MY_Controller {
         ));
 
         //global
-        $data['global']['style'][] = 'admin/global';
-        $data['global']['js'][] = 'script_common';
-        $data['global']['js'][] = 'admin';
+        $data['global']['style'][] = 'app/css/admin/global.css';
+        $data['global']['js'][] = 'app/js/admin.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -364,7 +407,7 @@ class User_Controller extends MY_Controller {
             $this->load->model('Message');
             $this->Message->show(array(
                 'message' => '刪除成功',
-                'url' => 'admin/shop/product_shop/product/product_list'
+                'url' => 'admin/base/user/user/tablelist'
             ));
         }
         else
@@ -372,7 +415,7 @@ class User_Controller extends MY_Controller {
             $this->load->model('Message');
             $this->Message->show(array(
                 'message' => 'hash驗證失敗，請使用標準瀏覽器進行刪除動作',
-                'url' => 'admin/shop/product_shop/product/product_list'
+                'url' => 'admin/base/user/user/tablelist'
             ));
         }
     }

@@ -36,6 +36,25 @@ class MY_Controller extends FS_Controller
             header('Location: '.$url);
         }
 
+        //顯示提示訊息
+        $data['global']['message_show']['content'] = $this->input->cookie('message_show_content');
+        $data['global']['message_show']['second'] = $this->input->cookie('message_show_second');
+
+        if(!empty( $data['global']['message_show']['content']) )
+        {
+            $data['global']['style'][] = 'app/css/temp/message_window.css';
+            $data['temp']['message_window'] = $this->load->view('temp/message_window', $data, TRUE);
+            //刪除提示訊息
+            $this->input->set_cookie([
+                'name' => 'message_show_content',
+                'expire' => ''
+            ]);
+            $this->input->set_cookie([
+                'name' => 'message_show_second',
+                'expire' => ''
+            ]);
+        }
+
         $this->data = $data;
     }
 }

@@ -9,11 +9,6 @@
 		var cssPath = cssPath[0];
 		$("<link>").attr({ rel: "stylesheet", href: cssPath + "fanswoo-js.css"}).appendTo("head");
 		
-		//版本提示
-		//if($.browser.msie && $.browser.version < 8){
-		//	alert("您的瀏覽器版本過舊，無法正常支援HTML5及CSS3的最新功能，請下載Chrome、Firefox或將您的IE更新到最新版本。\n\nYour browser version is too old, can not properly support the latest features of HTML5 and CSS3, please download Chrome, Firefox or update your IE to the latest version.");
-		//}
-		
 		// $('#my-container').imagesLoaded(myFunction)
 		// or
 		// $('img').imagesLoaded(myFunction)
@@ -115,40 +110,6 @@
 		//$().widthAll()回傳width+padding-left+padding-right
 		$.fn.widthAll = function(){
 			return $(this).width() + parseInt($(this).css("padding-left")) + parseInt($(this).css("padding-right"));
-		};
-		
-		//$().scrollWatchOver({watchingDistance:0, watchedDistance:0, callback:function(){}});
-		//偵測網頁瀏覽位置，網頁瀏覽位置由下而上出現後觸發callback
-		$.fn.scrollWatchOver = function(_settings){
-			var defaultSettings = {
-				watchingDistance: 0,
-				callback: function() {}
-			};
-			var settings = $.extend(defaultSettings, _settings);
-			$("[fanswoo-scrollWatchOver]").attr('fanswoo-scrollWatchOver','none');
-			var handler = function(){
-				$(window).scroll(function(){
-					//watching向下轉動
-					var loop = true;
-					while(loop){
-						var x = $("[fanswoo-scrollWatchOver='none']:first").offset();
-						if(x !== null){
-							if($(window).scrollTop() + $(window).height() - settings.watchingDistance > x.top){
-								//初始直線型瀏覽
-								$("[fanswoo-scrollWatchOver='none']:first").attr('fanswoo-scrollWatchOver','watching');
-								settings.callback();
-							}
-							else{//結束迴圈
-								var loop = false;
-							}
-						}
-						else{//結束迴圈
-							var loop = false;
-						}
-					}
-				});
-			}
-			return this.each(handler);
 		};
 		
 		//$.mousewheel(function(event, delta){});滑鼠滾輪偵測，delta若是負值為往下滾；反之則往上滾
@@ -336,109 +297,6 @@
 			// Loop.
 			loopy();
 			}, jq_resize[ str_delay ] );
-		};
-		
-		//$().scrollWatch({watchingDistance:0, watchedDistance:0, callback:function(){}});
-		//偵測網頁瀏覽位置，網頁瀏覽位置由下而上出現後觸發callback
-		$.fn.scrollWatch = function(_settings){
-			this.scrollTopNow = 0;
-			var _this = this;
-			var defaultSettings = {
-				watchingDistance: 0,
-				bottomCallback: function() {},
-				topCallback: function() {}
-			};
-			var settings = $.extend(defaultSettings, _settings);
-			$("[fanswoo-scrollWatch]").attr('fanswoo-scrollWatch','none');
-			var handler = function(){
-				$(window).scroll(function(){
-					if($(window).scrollTop() >= _this.scrollTopNow){
-						_this.scrollTopNow = $(window).scrollTop();
-						//watching向下轉動
-						var loop = true;
-						while(loop){
-							if($("[fanswoo-scrollWatch='watching']").length > 0){//watching已經存在
-								var x = $("[fanswoo-scrollWatch='watching']:last").nextAll("[fanswoo-scrollWatch='none']:first").offset();
-							}
-							else{//初始直線型瀏覽
-								var x = $("[fanswoo-scrollWatch='none']:first").offset();
-							}
-							if(x !== null){
-								if($(window).scrollTop() + $(window).height() - settings.watchingDistance > x.top){
-									if($("[fanswoo-scrollWatch='watching']").length > 0){//watching已經存在
-										$("[fanswoo-scrollWatch='watching']:last").nextAll("[fanswoo-scrollWatch='none']:first").attr('fanswoo-scrollWatch','watching');
-									}
-									else{//初始直線型瀏覽
-										$("[fanswoo-scrollWatch='none']:first").attr('fanswoo-scrollWatch','watching');
-									}
-									settings.bottomCallback();
-								}
-								else{//結束迴圈
-									var loop = false;
-								}
-							}
-							else{//結束迴圈
-								var loop = false;
-							}
-						}
-						//none向下捲動
-						var loop = true;
-						while(loop){
-							var x = $("[fanswoo-scrollWatch='watching']:first").offset();
-							if(x !== null){
-								var objHeight = $("[fanswoo-scrollWatch='watching']:first").heightAll();
-								if($(window).scrollTop() - objHeight > x.top){
-									$("[fanswoo-scrollWatch='watching']:first").attr('fanswoo-scrollWatch','none');
-								}
-								else{
-									var loop = false;
-								}
-							}
-							else{
-								var loop = false;
-							}
-						}
-					}
-					else if($(window).scrollTop() < _this.scrollTopNow){
-						_this.scrollTopNow = $(window).scrollTop();
-						//watching向上轉動
-						var loop = true;
-						while(loop){
-							var x = $("[fanswoo-scrollWatch='watching']:first").prevAll("[fanswoo-scrollWatch='none']:first").offset();
-							if(x !== null){
-								var objHeight = $("[fanswoo-scrollWatch='watching']:first").prevAll("[fanswoo-scrollWatch='none']:first").heightAll();
-								if($(window).scrollTop() - objHeight < x.top){
-									$("[fanswoo-scrollWatch='watching']:first").prevAll("[fanswoo-scrollWatch='none']:first").attr('fanswoo-scrollWatch','watching');
-									settings.topCallback();
-								}
-								else{//結束迴圈
-									var loop = false;
-								}
-							}
-							else{//結束迴圈
-								var loop = false;
-							}
-						}
-						//none向上捲動
-						var loop = true;
-						while(loop){
-							var x = $("[fanswoo-scrollWatch='watching']:last").offset();
-							if(x !== null){
-								if($(window).scrollTop() + $(window).height() < x.top){
-									$("[fanswoo-scrollWatch='watching']:last").attr('fanswoo-scrollWatch','none');
-								}
-								else{
-									var loop = false;
-								}
-							}
-							else{
-								var loop = false;
-							}
-						}
-					}
-				});
-			}
-			return this.each(handler);
 		};
 		
 		//fanswoo-textareaAutoHeight自動調整textarea高度
@@ -749,11 +607,11 @@
 	            }
 	        }
 	        var select_value = $(this).val();
-	        $('[fanswoo-selectEachLineSlave=' + select_each_line_master + ']').find('select').css('display', 'none');
-	        $('[fanswoo-selectEachLineSlave=' + select_each_line_master + ']').find('select').removeAttr('name');
-	        $('[fanswoo-selectEachLineSlave=' + select_each_line_master + ']').find('option').removeAttr('selected');
-	        $('[fanswoo-selectEachLineSlave=' + select_each_line_master + ']').children('select[fanswoo-selectValue=' + select_value + ']').css('display', 'block');
-	        $('[fanswoo-selectEachLineSlave=' + select_each_line_master + ']').children('select[fanswoo-selectValue=' + select_value + ']').attr('name', $('[fanswoo-selectEachLineSlave=' + select_each_line_master + '] > select[fanswoo-selectValue=' + select_value + ']').attr('fanswoo-selectName'));
+	        $(this).next('[fanswoo-selectEachLineSlave=' + select_each_line_master + ']').find('select').css('display', 'none');
+	        $(this).next('[fanswoo-selectEachLineSlave=' + select_each_line_master + ']').find('select').removeAttr('name');
+	        $(this).next('[fanswoo-selectEachLineSlave=' + select_each_line_master + ']').find('option').removeAttr('selected');
+	        $(this).next('[fanswoo-selectEachLineSlave=' + select_each_line_master + ']').children('select[fanswoo-selectValue=' + select_value + ']').css('display', 'block');
+	        $(this).next('[fanswoo-selectEachLineSlave=' + select_each_line_master + ']').children('select[fanswoo-selectValue=' + select_value + ']').attr('name', $('[fanswoo-selectEachLineSlave=' + select_each_line_master + '] > select[fanswoo-selectValue=' + select_value + ']').attr('fanswoo-selectName'));
 	    });
 		
 		//fanswoo-imgLoading
@@ -879,96 +737,6 @@ function fanswoo(){
 		}
 		//起始的地方，沒有這個就不會動囉
 		setTimeout(s, delay);
-	}
-	
-	//Mywindow視窗class
-	myWindowOpenNow = false;
-	this.MyWindow = function(){
-		var _this = this;
-		var bodyScrollTop = 0;//攝影機位置紀錄
-		//開啟mywindow視窗
-		this.myWindowOpen = function(_id, _myWindowMajorWidth){
-			var id = _id || '';
-			var myWindowMajor = '#' + id + '.myWindowMajor';
-			if(myWindowOpenNow == false){
-				myWindowOpenNow = true;
-			}
-			else{
-				return false;
-			}
-			$("<div>").addClass("myWindowShadow").insertAfter(".myWindowMajor");
-			$("<div>").addClass("myWindowBg myWindowClose").insertAfter(".myWindowMajor");
-			$("body").css("overflow-y","scroll");
-			if($.browser.msie){
-				$(myWindowMajor).css("display","block");
-				$(".myWindowShadow").css("display","block");
-				$(".myWindowBg").css("display","block");
-			}
-			else{
-				$(myWindowMajor).fadeIn(300);
-				$(".myWindowShadow").fadeIn(300);
-				$(".myWindowBg").fadeIn(300);
-			}
-			//計算主要視窗數據
-			var myWindowMajorWidth = _myWindowMajorWidth || 400;
-			var myWindowMajorHeight = $(myWindowMajor).height();
-			var myWindowMajorMarginLeft = parseInt('-' + myWindowMajorWidth) / 2 + 'px';
-			var myWindowMajorMarginTop = parseInt('-' + myWindowMajorHeight) / 2 + 'px';
-			//計算背景視窗數據
-			var myWindowBgWidth = (parseInt(myWindowMajorWidth) + 20 ) + 'px';
-			var myWindowBgHeight = (parseInt(myWindowMajorHeight) + 20 ) + 'px';
-			var myWindowBgMarginLeft = (((parseInt('-' + myWindowMajorWidth) + 20 ) / 2 ) -20) + 'px';
-			var myWindowBgMarginTop = (((parseInt('-' + myWindowMajorHeight) + 20 ) / 2 ) -20) + 'px';
-			//改變視窗大小位置
-			$(myWindowMajor).css({"width":myWindowMajorWidth,"height":myWindowMajorHeight,"margin-left":myWindowMajorMarginLeft,"margin-top":myWindowMajorMarginTop});
-			$(".myWindowShadow").css({"width":myWindowBgWidth,"height":myWindowBgHeight,"margin-left":myWindowBgMarginLeft,"margin-top":myWindowBgMarginTop});
-			//改變body能見度與捲軸
-			this.bodyScrollTop = $(window).scrollTop();
-			var windowHeight = $(window).height();
-			var windowWidth = $(window).width();
-			var windowMargin = parseInt('-' + windowWidth) / 2;
-			$(".body").css({"overflow-y":"hidden", "position":"fixed", "width":windowWidth, "height":windowHeight});
-			$(".body").scrollTop(this.bodyScrollTop);
-		}
-		//mywindow關閉事件
-		$(document).on('click', '.myWindowClose', function(event){
-			_this.close();
-		});
-		//mywindow關閉事件
-		$(document).on('click', '.myWindowSendSubmit', function(event){
-			_this.close();
-		});
-		//mywindow關閉事件
-		$(document).on('click', '.myWindowCancelSubmit', function(event){
-			_this.close();
-		});
-		this.close = function(){
-			myWindowOpenNow = false;
-			$("body").css("overflow-y","auto");
-			if($.browser.msie){
-				$(".myWindowMajor").css("display","none");
-				$(".myWindowShadow").css("display","none");
-				$(".myWindowBg").css("display","none");
-			}
-			else{
-				$(".myWindowMajor").fadeOut(300);
-				$(".myWindowShadow").fadeOut(300);
-				$(".myWindowBg").fadeOut(300);
-			}
-			//改變body能見度與捲軸
-			$(".body").css({"overflow-y":"visible","position":"static","margin":"0","height":"auto"});
-			$(window).scrollTop(_this.bodyScrollTop);
-			fanswoo.delayExecute(
-				function() {
-					return true;
-				},
-				function() {
-					$(".myWindowMajor").remove();
-					$(".myWindowShadow").remove();
-					$(".myWindowBg").remove();
-				}//如果已經登出就重新整理
-			);
-		}
 	}
 	
 	//檢查XXX，如果XXX已經變化就執行XXX的函式

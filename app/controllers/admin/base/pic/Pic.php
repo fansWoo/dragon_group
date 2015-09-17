@@ -55,9 +55,9 @@ class Pic_Controller extends MY_Controller {
         ));
 
         //global
-        $data['global']['style'][] = 'admin/global';
-        $data['global']['js'][] = 'script_common';
-        $data['global']['js'][] = 'admin';
+        $data['global']['style'][] = 'app/css/admin/global.css';
+        $data['global']['js'][] = 'app/js/admin.js';
+        $data['global']['js'][] = 'fanswoo-framework/js/jquery.form.js';
             
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -72,6 +72,7 @@ class Pic_Controller extends MY_Controller {
 
 	public function edit_post()
 	{
+        $picids_Arr = $this->input->post('picids_Arr');
 
 		$picid_Num = $this->input->post('picid_Num');
         $classids_Arr = $this->input->post('classids_Arr');
@@ -95,8 +96,8 @@ class Pic_Controller extends MY_Controller {
                 'limitcount_Num' => 100
             ));
             $PicObj->updatetime_DateTime = new DateTimeObj();
-		    $PicObj->updatetime_DateTime->construct(array());
-		    $PicObj->update(array());
+		    $PicObj->updatetime_DateTime->construct();
+		    $PicObj->update();
 
 			$this->load->model('Message');
 			$this->Message->show(array(
@@ -104,35 +105,42 @@ class Pic_Controller extends MY_Controller {
 			    'url' => 'admin/base/pic/pic/tablelist'
 			));
 		}
-		else
+		else if( !empty($picids_Arr) )
 		{
-	        $picfile_FileArr = $this->input->file('picfile_FileArr');
-		    if(!empty($picfile_FileArr))
-		    {
-		        $PicObj = new PicObj();
-		        $PicObj->construct(array(
-		           	'picfile_FileArr' => $picfile_FileArr,
-                    'classids_Arr' => $classids_Arr,
-		            'thumb_Str' => 'w50h50,w300h300'
-		        ));
-		        $PicObj->upload();
-
-			    $this->load->model('Message');
-			    $this->Message->show(array(
-			        'message' => '設定成功',
-			        'url' => 'admin/base/pic/pic/tablelist'
-			    ));
-		    }
-		    else
-		    {
-			    $this->load->model('Message');
-			    $this->Message->show(array(
-			        'message' => '設定失敗',
-			        'url' => 'admin/base/pic/pic/tablelist'
-			    ));
-		    }
+		    $PicObjList = new ObjList;
+            $PicObjList->construct_db([
+                'db_where_or_Arr' => [
+                    'picid' => $picids_Arr
+                ],
+                'model_name_Str' => 'PicObj',
+                'db_orderby_Arr' => [
+                    ['prioritynum', 'DESC'],
+                    ['updatetime', 'DESC']
+                ],
+                'limitstart_Num' => 0,
+                'limitcount_Num' => 100
+            ]);
+            foreach($PicObjList->obj_Arr as $key => $value_PicObj)
+            {
+                $value_PicObj->set('class_ClassMetaList', [
+                    'classids_Arr' => $classids_Arr
+                ], 'ClassMetaList');
+                $value_PicObj->update();
+            }
+            $this->load->model('Message');
+            $this->Message->show(array(
+                'message' => '設定成功',
+                'url' => 'admin/base/pic/pic/tablelist'
+            ));
 		}
-	        
+        else
+        {
+            $this->load->model('Message');
+            $this->Message->show(array(
+                'message' => '未知的錯誤',
+                'url' => 'admin/base/pic/pic/tablelist'
+            ));
+        }
 
 	}
 	
@@ -161,7 +169,7 @@ class Pic_Controller extends MY_Controller {
             'db_where_deletenull_Bln' => FALSE
         ));
 
-        $data['piclist_PicList'] = $this->load->model('ObjList', nrnum());
+        $data['piclist_PicList'] = new ObjList;
         $data['piclist_PicList']->construct_db(array(
             'db_where_Arr' => array(
                 'picid_Num' => $data['search_picid_Num'],
@@ -176,8 +184,8 @@ class Pic_Controller extends MY_Controller {
             'db_where_deletenull_Bln' => TRUE,
             'model_name_Str' => 'PicObj',
             'db_orderby_Arr' => array(
-                array('prioritynum', 'DESC'),
-                array('updatetime', 'DESC')
+                'prioritynum' => 'DESC',
+                'updatetime' => 'DESC'
             ),
             'limitstart_Num' => $limitstart_Num,
             'limitcount_Num' => $limitcount_Num
@@ -201,9 +209,8 @@ class Pic_Controller extends MY_Controller {
         ));
 
         //global
-        $data['global']['style'][] = 'admin/global';
-        $data['global']['js'][] = 'script_common';
-        $data['global']['js'][] = 'admin';
+        $data['global']['style'][] = 'app/css/admin/global.css';
+        $data['global']['js'][] = 'app/js/admin.js';
             
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);

@@ -53,19 +53,6 @@ class Advertising extends ObjDbBase
             $uid_Num = $data['user']['uid'];
         }
         
-        //建立PicObjList物件
-        check_comma_array($picids_Str, $picids_Arr);
-        $pic_PicObjList = new ObjList();
-        $pic_PicObjList->construct_db(array(
-            'db_where_or_Arr' => array(
-                'picid_Num' => $picids_Arr
-            ),
-            'db_from_Str' => 'pic',
-            'model_name_Str' => 'PicObj',
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 100
-        ));
-        
         //建立ClassMetaList物件
         check_comma_array($classids_Str, $classids_Arr);
         $class_AdvertisingClassList = new ObjList();
@@ -93,13 +80,18 @@ class Advertising extends ObjDbBase
         $this->advertisingid_Num = $advertisingid_Num;
         $this->title_Str = $title_Str;
         $this->href_Str = $href_Str;
-        $this->pic_PicObjList = $pic_PicObjList;
         $this->uid_Num = $uid_Num;
         $this->content_Html = $content_Html;
         $this->class_AdvertisingClassList = $class_AdvertisingClassList;
         $this->prioritynum_Num = $prioritynum_Num;
         $this->updatetime_DateTime = $updatetime_DateTime;
         $this->status_Num = $status_Num;
+        
+        //建立PicObjList物件
+        $this->set('pic_PicObjList', [
+            'picids_Str' => $picids_Str,
+            'picids_Arr' => $picids_Arr
+        ], 'PicObjList');
         
         return TRUE;
     }

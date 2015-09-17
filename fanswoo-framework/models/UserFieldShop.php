@@ -29,7 +29,7 @@ class UserFieldShop extends User {
         $receive_name_Str = !empty($arg['receive_name_Str']) ? $arg['receive_name_Str'] : '';
         $receive_phone_Str = !empty($arg['receive_phone_Str']) ? $arg['receive_phone_Str'] : '';
         $receive_address_Str = !empty($arg['receive_address_Str']) ? $arg['receive_address_Str'] : '';
-        $coupon_count_Num = !empty($arg['coupon_count_Num']) ? $arg['coupon_count_Num'] : '';
+        $coupon_count_Num = !empty($arg['coupon_count_Num']) ? $arg['coupon_count_Num'] : 0;
 
         $this->set('receive_name_Str', $receive_name_Str);
         $this->set('receive_phone_Str', $receive_phone_Str);

@@ -57,6 +57,16 @@
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
+                會員折扣金
+            </div>
+            <div class="spanLineLeft width200">
+                <?=$user_UserFieldShop->coupon_count_Num?> 元
+            </div>
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
                 常用收件人姓名
             </div>
             <div class="spanLineLeft width200">

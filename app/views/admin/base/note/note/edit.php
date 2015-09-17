@@ -85,8 +85,18 @@
                 文章簡介
             </div>
             <div class="spanLineRight">
+                <div fanswoo-pic_upload_ajax>上傳更多圖片</div>
+                <div class="picidUploadList" fanswoo-piclist>
+                    <div fanswoo-picid class="picidUploadLi" fanswoo-clone>
+                        <div class="pic"><img src="" fanswoo-picid_img></div>
+                        <div class="other">
+                            <div class="pic_copy"><input type="text" fanswoo-picid_path_input fanswoo-input_copy readonly /></div>
+                            <div fanswoo-pic_delete class="pic_delete">刪除圖片</div>
+                        </div>
+                    </div>
+                </div>
                 <textarea cols="80" id="content_Str" name="content_Str" rows="10"><?=$NoteField->content_Html?></textarea>
-                <script src="app/js/ckeditor/ckeditor.js"></script>
+                <script src="fanswoo-framework/js/ckeditor/ckeditor.js"></script>
                 <script>
                     CKEDITOR.replace( 'content_Str', {
                         toolbar: 'html'
@@ -101,8 +111,8 @@
                 文章新增時間
             </div>
             <div class="spanLineLeft">
-                <script src="app/js/jquery-ui-timepicker-addon/script.js"></script>
-                <link rel="stylesheet" type="text/css" href="app/js/jquery-ui-timepicker-addon/style.css"></link>
+                <script src="fanswoo-framework/js/jquery-ui-timepicker-addon/script.js"></script>
+                <link rel="stylesheet" type="text/css" href="fanswoo-framework/js/jquery-ui-timepicker-addon/style.css"></link>
                 <script>
                 $(function(){
                     $('#updatetime_Str').datetimepicker({

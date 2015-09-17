@@ -7,7 +7,6 @@ class ProductShop extends ObjDbBase
     public $uid_Num = 0;
     public $name_Str = '';
     public $pic_PicObjList;//照片類別列表
-    public $mainpic_PicObjList;//照片類別列表
     public $content_Html = '';//網頁語言類別
     public $content_specification_Html = '';//網頁語言類別
     public $synopsis_Str = '';
@@ -28,7 +27,6 @@ class ProductShop extends ObjDbBase
         'price' => 'price_Num',
         'synopsis' => 'synopsis_Str',
         'picids' => array('pic_PicObjList', 'uniqueids_Str'),
-        'mainpicids' => array('mainpic_PicObjList', 'uniqueids_Str'),
         'classids' => array('class_ClassMetaList', 'uniqueids_Str'),
         'content' => 'content_Html',
         'content_specification' => 'content_specification_Html',
@@ -46,8 +44,6 @@ class ProductShop extends ObjDbBase
         $name_Str = !empty($arg['name_Str']) ? $arg['name_Str'] : '';
         $picids_Str = !empty($arg['picids_Str']) ? $arg['picids_Str'] : '';
         $picids_Arr = !empty($arg['picids_Arr']) ? $arg['picids_Arr'] : array();
-        $mainpicids_Str = !empty($arg['mainpicids_Str']) ? $arg['mainpicids_Str'] : '';
-        $mainpicids_Arr = !empty($arg['mainpicids_Arr']) ? $arg['mainpicids_Arr'] : array();
         $content_Str = !empty($arg['content_Str']) ? $arg['content_Str'] : '' ;
         $content_specification_Str = !empty($arg['content_specification_Str']) ? $arg['content_specification_Str'] : '' ;
         $synopsis_Str = !empty($arg['synopsis_Str']) ? $arg['synopsis_Str'] : '' ;
@@ -66,32 +62,6 @@ class ProductShop extends ObjDbBase
             $data['user'] = get_user();
             $uid_Num = $data['user']['uid'];
         }
-        
-        //建立PicObjList物件
-        check_comma_array($mainpicids_Str, $mainpicids_Arr);
-        $mainpic_PicObjList = $this->load->model('ObjList', nrnum());
-        $mainpic_PicObjList->construct_db(array(
-            'db_where_or_Arr' => array(
-                'picid_Num' => $mainpicids_Arr
-            ),
-            'db_from_Str' => 'pic',
-            'model_name_Str' => 'PicObj',
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 100
-        ));
-        
-        //建立PicObjList物件
-        check_comma_array($picids_Str, $picids_Arr);
-        $pic_PicObjList = $this->load->model('ObjList', nrnum());
-        $pic_PicObjList->construct_db(array(
-            'db_where_or_Arr' => array(
-                'picid_Num' => $picids_Arr
-            ),
-            'db_from_Str' => 'pic',
-            'model_name_Str' => 'PicObj',
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 100
-        ));
         
         //建立ClassMetaList物件
         check_comma_array($classids_Str, $classids_Arr);
@@ -144,8 +114,6 @@ class ProductShop extends ObjDbBase
         //將建構方法所計算出的值存入此類別之屬性
         $this->productid_Num = $productid_Num;
         $this->name_Str = $name_Str;
-        $this->pic_PicObjList = $pic_PicObjList;
-        $this->mainpic_PicObjList = $mainpic_PicObjList;
         $this->uid_Num = $uid_Num;
         $this->content_Html = $content_Html;
         $this->stock_StockProductShopList = $stock_StockProductShopList;
@@ -158,6 +126,12 @@ class ProductShop extends ObjDbBase
         $this->prioritynum_Num = $prioritynum_Num;
         $this->updatetime_DateTime = $updatetime_DateTime;
         $this->status_Num = $status_Num;
+        
+        //建立PicObjList物件
+        $this->set('pic_PicObjList', [
+            'picids_Str' => $picids_Str,
+            'picids_Arr' => $picids_Arr
+        ], 'PicObjList');
         
         return TRUE;
     }

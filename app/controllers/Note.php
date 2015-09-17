@@ -1,6 +1,6 @@
 <?php
 
-class Note_Controller extends MY_controller {
+class Note_Controller extends MY_Controller {
     
 	public function index()
     {
@@ -51,32 +51,33 @@ class Note_Controller extends MY_controller {
         ));
         
         //global
-		$data['global']['style'][] = 'temp/global';
-		$data['global']['style'][] = 'note/index';
-		
-		$data['global']['style'][] = 'temp/header_bar';
-		$data['global']['style'][] = 'temp/footer_bar';
+        $data['global']['js'][] = 'app/js/script_header_bar_mobile.js';
+        $data['global']['style'][] = 'app/css/temp/header_bar.css';
+        $data['global']['style'][] = 'app/css/temp/footer_bar.css';
+		$data['global']['style'][] = 'app/css/temp/global.css';
+		$data['global']['style'][] = 'app/css/note/index.css';
         
         //temp
-		$data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
-		$data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
+        $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
+        $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
         $data['temp']['header_bar'] = $this->load->view('temp/header_bar', $data, TRUE);
-		$data['temp']['footer_bar'] = $this->load->view('temp/footer_bar', $data, TRUE);
+        $data['temp']['footer_bar'] = $this->load->view('temp/footer_bar', $data, TRUE);
+        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 		
 		//輸出模板
 		$this->load->view('note/index', $data);
 	}
 
-    public function view()
+    public function view($noteid_Num)
     {
         $data = $this->data;
 
-        //if(empty($noteid_Num))
-        //{
-            //$this->load->model('Message');
-            //$this->Message->show(array('message' => '連結輸入錯誤', 'url' => 'note'));
-            //return FALSE;
-        //}
+        if(empty($noteid_Num))
+        {
+            $this->load->model('Message');
+            $this->Message->show(array('message' => '連結輸入錯誤', 'url' => 'note'));
+            return FALSE;
+        }
         
         $data['ClassMetaList'] = new ObjList();
         $data['ClassMetaList']->construct_db(array(
@@ -112,17 +113,16 @@ class Note_Controller extends MY_controller {
         ));
         
         //global
-        $data['global']['style'][] = 'temp/global';
-        $data['global']['style'][] = 'note/view';
-		
-		$data['global']['style'][] = 'temp/header_bar';
-		$data['global']['style'][] = 'temp/footer_bar';
+        $data['global']['js'][] = 'app/js/script_header_bar_mobile.js';
+        $data['global']['style'][] = 'app/css/temp/global.css';
+        $data['global']['style'][] = 'app/css/note/view.css';
         
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
         $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
         $data['temp']['header_bar'] = $this->load->view('temp/header_bar', $data, TRUE);
         $data['temp']['footer_bar'] = $this->load->view('temp/footer_bar', $data, TRUE);
+        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
         
         //輸出模板
         $this->load->view('note/view', $data);

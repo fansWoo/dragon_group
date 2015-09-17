@@ -63,9 +63,9 @@ class Product_Controller extends MY_Controller {
         ));
 
         //global
-        $data['global']['style'][] = 'admin/global';
-        $data['global']['js'][] = 'script_common';
-        $data['global']['js'][] = 'admin';
+        $data['global']['style'][] = 'app/css/admin/global.css';
+        $data['global']['js'][] = 'app/js/admin.js';
+        $data['global']['js'][] = 'fanswoo-framework/js/jquery.form.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -97,40 +97,7 @@ class Product_Controller extends MY_Controller {
             $content_Str = $this->input->post('content_Str');
             $content_specification_Str = $this->input->post('content_specification_Str');
             $prioritynum_Num = $this->input->post('prioritynum_Num', TRUE);
-
-            //主要圖片上傳（單張上傳）
-            $mainpicids_Arr = $this->input->post('mainpicids_Arr', TRUE);
-            $mainpicids_FileArr = $this->input->file('mainpicids_FileArr');
-            if(!empty($mainpicids_FileArr['name']))
-            {
-                $mainpic_PicObj = new PicObj();
-                $mainpic_PicObj->construct(array(
-                    'picfile_FileArr' => $mainpicids_FileArr,
-                    'thumb_Str' => 'w50h50,w300h300,w600h600'
-                ));
-                $mainpic_PicObj->upload();
-                $mainpicids_Arr[] = $mainpic_PicObj->picid_Num;
-            }
-
-            //其它圖片上傳（多張上傳）
             $picids_Arr = $this->input->post('picids_Arr', TRUE);
-            $picids_FilesArr = $this->input->file('picids_FilesArr');
-            foreach($picids_FilesArr['name'] as $key => $value)
-            {
-                if(!empty($value))
-                {
-                    $pic_PicObj = new PicObj();
-                    $pic_PicObj->construct(array(
-                        'picfile_FileArr' => getfile_from_files(array(
-                            'files_Arr' => $picids_FilesArr,
-                            'key_Str' => $key
-                        )),
-                        'thumb_Str' => 'w50h50,w300h300,w600h600'
-                    ));
-                    $pic_PicObj->upload();
-                    $picids_Arr[] = $pic_PicObj->picid_Num;
-                }
-            }
 
             //建構ProductShop物件，並且更新
             $product_ProductShop = new ProductShop();
@@ -139,7 +106,6 @@ class Product_Controller extends MY_Controller {
                 'name_Str' => $name_Str,
                 'price_Num' => $price_Num,
                 'synopsis_Str' => $synopsis_Str,
-                'mainpicids_Arr' => $mainpicids_Arr,
                 'picids_Arr' => $picids_Arr,
                 'classids_Arr' => $classids_Arr,
                 'content_Str' => $content_Str,
@@ -187,6 +153,52 @@ class Product_Controller extends MY_Controller {
             $this->Message->show(array(
                 'message' => $validation_errors_Str,
                 'url' => 'admin/shop/product/product/edit/?productid='.$productid_Num
+            ));
+        }
+    }
+
+    public function copy()
+    {
+        $data = $this->data;//取得公用數據
+
+        $productid_Num = $this->input->get('productid');
+
+        $ProductShop = new ProductShop();
+        $ProductShop->construct_db(array(
+            'db_where_Arr' => array(
+                'productid_Num' => $productid_Num
+            )
+        ));
+        $ProductShop->set('productid_Num', NULL);
+        $ProductShop->update();
+
+        foreach( $ProductShop->stock_StockProductShopList->obj_Arr as $key => $value_StockProductShop)
+        {
+            $StockProductShop = new StockProductShop();
+            $StockProductShop->construct([
+                'productid_Num' => $ProductShop->productid_Num,
+                'classname1_Str' => $value_StockProductShop->classname1_Str,
+                'classname2_Str' => $value_StockProductShop->classname2_Str,
+                'color_rgb_Str' => $value_StockProductShop->color_rgb_Str,
+                'stocknum_Num' => $value_StockProductShop->stocknum_Num
+            ]);
+            $StockProductShop->update();
+        }
+
+        if( !empty($ProductShop->productid_Num) )
+        {
+            $this->load->model('Message');
+            $this->Message->show(array(
+                'message' => '複製成功',
+                'url' => 'admin/shop/product/product/tablelist'
+            ));
+        }
+        else
+        {
+            $this->load->model('Message');
+            $this->Message->show(array(
+                'message' => '複製失敗',
+                'url' => 'admin/shop/product/product/tablelist'
             ));
         }
     }
@@ -246,9 +258,8 @@ class Product_Controller extends MY_Controller {
         ));
 
         //global
-        $data['global']['style'][] = 'admin/global';
-        $data['global']['js'][] = 'script_common';
-        $data['global']['js'][] = 'admin';
+        $data['global']['style'][] = 'app/css/admin/global.css';
+        $data['global']['js'][] = 'app/js/admin.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);

@@ -41,6 +41,9 @@ class ObjBase extends CI_Model {
                     'classid_Num' => $classids_Arr
                 ),
                 'model_name_Str' => 'ClassMeta',
+                'db_orderby_Arr' => [
+                    'classid' => $classids_Arr
+                ],
                 'limitstart_Num' => 0,
                 'limitcount_Num' => 100
             ));
@@ -59,6 +62,9 @@ class ObjBase extends CI_Model {
                     'picid_Num' => $picids_Arr
                 ),
                 'model_name_Str' => 'PicObj',
+                'db_orderby_Arr' => [
+                    'picid' => $picids_Arr
+                ],
                 'limitstart_Num' => 0,
                 'limitcount_Num' => 100
             ));

@@ -56,8 +56,8 @@ $(function(){
             <div class="spanLineLeft">
                 付款總金額
             </div>
-            <div class="spanLineLeft">
-                <?=$OrderShop->pay_price_total_Num?>（含運費 <?=$OrderShop->pay_price_freight_Num?> 元）
+            <div class="spanLineLeft width400">
+                NT$<?=$OrderShop->pay_price_total_Num?>（含運費 NT$<?=$OrderShop->pay_price_freight_Num?> <?if($OrderShop->coupon_count_Num > 0):?>、 訂單折扣 NT$<?=$OrderShop->coupon_count_Num?> <?endif?>）
 		    </div>
 		</div>
 	</div>
@@ -122,8 +122,8 @@ $(function(){
                 <?if($OrderShop->pay_status_Num == 1):?>
                 <?=$OrderShop->pay_paytime_DateTimeObj->datetime_Str?>
                 <?else:?>
-                <script src="app/js/jquery-ui-timepicker-addon/script.js"></script>
-                <link rel="stylesheet" type="text/css" href="app/js/jquery-ui-timepicker-addon/style.css"></link>
+                <script src="fanswoo-framework/js/jquery-ui-timepicker-addon/script.js"></script>
+                <link rel="stylesheet" type="text/css" href="fanswoo-framework/js/jquery-ui-timepicker-addon/style.css"></link>
                 <script>
                 $(function(){
                     $('#pay_paytime_Str').datetimepicker({

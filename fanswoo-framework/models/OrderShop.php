@@ -17,6 +17,7 @@ class OrderShop extends ObjDbBase
     public $pay_account_Str = '';
     public $pay_remark_Str = '';
     public $pay_price_freight_Num = 0;
+    public $coupon_count_Num = 0;
     public $pay_paytime_DateTimeObj;
     public $pay_status_Num = 0;
     public $paycheck_status_Num = 0;
@@ -44,6 +45,7 @@ class OrderShop extends ObjDbBase
         'pay_account' => 'pay_account_Str',
         'pay_remark' => 'pay_remark_Str',
         'pay_price_freight' => 'pay_price_freight_Num',
+        'coupon_count' => 'coupon_count_Num',
         'pay_paytime' => array('pay_paytime_DateTimeObj', 'datetime_Str'),
         'sendtime' => array('sendtime_DateTimeObj', 'datetime_Str'),
         'setuptime' => array('setuptime_DateTimeObj', 'datetime_Str'),
@@ -59,7 +61,7 @@ class OrderShop extends ObjDbBase
 	public function construct($arg)
 	{
         //引入引數並將空值的變數給予空值
-        reset_null_arr($arg, ['orderid_Num', 'uid_Num', 'pay_price_total_Num', 'receive_name_Str', 'receive_phone_Str', 'receive_time_Str', 'receive_address_Str', 'receive_remark_Str', 'pay_account_Str', 'pay_paytype_Str', 'pay_sendtype_Str', 'pay_remark_Str', 'pay_price_freight_Num', 'pay_name_Str', 'pay_paytime_Str', 'sendtime_Str', 'updatetime_Str', 'setuptime_Str', 'pay_status_Num', 'paycheck_status_Num', 'product_status_Num', 'order_status_Num', 'status_Num']);
+        reset_null_arr($arg, ['orderid_Num', 'uid_Num', 'pay_price_total_Num', 'receive_name_Str', 'receive_phone_Str', 'receive_time_Str', 'receive_address_Str', 'receive_remark_Str', 'pay_account_Str', 'pay_paytype_Str', 'pay_sendtype_Str', 'pay_remark_Str', 'pay_price_freight_Num', 'coupon_count_Num', 'pay_name_Str', 'pay_paytime_Str', 'sendtime_Str', 'updatetime_Str', 'setuptime_Str', 'pay_status_Num', 'paycheck_status_Num', 'product_status_Num', 'order_status_Num', 'status_Num']);
         foreach($arg as $key => $value) ${$key} = $arg[$key];
         
         //若uid為空則以登入者uid作為本物件之預設uid
@@ -126,6 +128,7 @@ class OrderShop extends ObjDbBase
         $this->pay_account_Str = $pay_account_Str;
         $this->pay_remark_Str = $pay_remark_Str;
         $this->pay_price_freight_Num = $pay_price_freight_Num;
+        $this->coupon_count_Num = $coupon_count_Num;
         $this->pay_paytime_DateTimeObj = $pay_paytime_DateTimeObj;
         $this->cart_CartShopList = $cart_CartShopList;
         $this->sendtime_DateTimeObj = $sendtime_DateTimeObj;
@@ -144,28 +147,53 @@ class OrderShop extends ObjDbBase
     {
         $pay_price_freight_Num = !empty($arg['pay_price_freight_Num']) ? $arg['pay_price_freight_Num'] : 0;
 
-        $orderid_Num = $this->orderid_Num;
-
-        $cart_CartShopList = new ObjList();
-        $cart_CartShopList->construct_db(array(
-            'db_where_Arr' => array(
-                'orderid_Num' => $orderid_Num
-            ),
-            'model_name_Str' => 'CartShop',
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 9999
-        ));
-
-        $pay_price_total_Num = 0;
-        foreach($cart_CartShopList->obj_Arr as $key => $value_CartShop)
-        {
-            $pay_price_total_Num = $pay_price_total_Num + $value_CartShop->price_total_Num;
-        }
-        $pay_price_total_Num = $pay_price_total_Num + $pay_price_freight_Num;
-
-        $this->cart_CartShopList = $cart_CartShopList;
-        $this->pay_price_total_Num = $pay_price_total_Num;
         $this->pay_price_freight_Num = $pay_price_freight_Num;
+
+        $this->count_price_total();
+    }
+
+    public function change_coupon_count($arg)
+    {
+        $coupon_count_Num = !empty($arg['coupon_count_Num']) ? $arg['coupon_count_Num'] : 0;
+
+        $this->set('coupon_count_Num', 0);
+        $this->count_price_total();
+
+        $shop_rule_use_coupon_count_Setting = new Setting();
+        $shop_rule_use_coupon_count_Setting->construct_db([
+            'db_where_Arr' => [
+                'keyword' => 'shop_rule_use_coupon_count'
+            ]
+        ]);
+
+        $shop_rule_use_get_coupon_count_Setting = new Setting();
+        $shop_rule_use_get_coupon_count_Setting->construct_db([
+            'db_where_Arr' => [
+                'keyword' => 'shop_rule_use_get_coupon_count'
+            ]
+        ]);
+
+        $UserFieldShop = new UserFieldShop();
+        $UserFieldShop->construct_db([
+            'db_where_Arr' => [
+                'user.uid' => $this->uid_Num
+            ]
+        ]);
+
+        if(
+            $this->pay_price_total_Num >= $shop_rule_use_coupon_count_Setting->value_Str &&
+            $coupon_count_Num <= $shop_rule_use_get_coupon_count_Setting->value_Str &&
+            $coupon_count_Num <= $UserFieldShop->coupon_count_Num
+        )
+        {
+            $this->coupon_count_Num = $coupon_count_Num;
+            $this->count_price_total();
+            return TRUE;
+        }
+        else
+        {
+            return '優惠折扣數字錯誤';
+        }
     }
 
     public function add_cart($arg)
@@ -177,6 +205,7 @@ class OrderShop extends ObjDbBase
         $uid_Num = $this->uid_Num;
         $orderid_Num = $this->orderid_Num;
         $pay_price_freight_Num = $this->pay_price_freight_Num;
+        $coupon_count_Num = $this->coupon_count_Num;
 
         //將產品數量增加至原有的購物車
         $CartShop = new CartShop();
@@ -204,25 +233,7 @@ class OrderShop extends ObjDbBase
         }
         $CartShop->update();
 
-        $cart_CartShopList = new ObjList();
-        $cart_CartShopList->construct_db(array(
-            'db_where_Arr' => array(
-                'orderid_Num' => $orderid_Num
-            ),
-            'model_name_Str' => 'CartShop',
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 9999
-        ));
-
-        $pay_price_total_Num = 0;
-        foreach($cart_CartShopList->obj_Arr as $key => $value_CartShop)
-        {
-            $pay_price_total_Num = $pay_price_total_Num + $value_CartShop->price_total_Num;
-        }
-        $pay_price_total_Num = $pay_price_total_Num + $pay_price_freight_Num;
-
-        $this->cart_CartShopList = $cart_CartShopList;
-        $this->pay_price_total_Num = $pay_price_total_Num;
+        $this->count_price_total();
     }
 
     public function delete_cart($arg)
@@ -232,6 +243,7 @@ class OrderShop extends ObjDbBase
         $uid_Num = $this->uid_Num;
         $orderid_Num = $this->orderid_Num;
         $pay_price_freight_Num = $this->pay_price_freight_Num;
+        $coupon_count_Num = $this->coupon_count_Num;
 
         //將產品數量增加至原有的購物車
         $CartShop = new CartShop();
@@ -242,6 +254,15 @@ class OrderShop extends ObjDbBase
         ));
         $CartShop->delete();
 
+        $this->count_price_total();
+    }
+
+    public function count_price_total()
+    {
+        $orderid_Num = $this->orderid_Num;
+        $pay_price_freight_Num = $this->pay_price_freight_Num;
+        $coupon_count_Num = $this->coupon_count_Num;
+
         $cart_CartShopList = new ObjList();
         $cart_CartShopList->construct_db(array(
             'db_where_Arr' => array(
@@ -258,9 +279,11 @@ class OrderShop extends ObjDbBase
             $pay_price_total_Num = $pay_price_total_Num + $value_CartShop->price_total_Num;
         }
         $pay_price_total_Num = $pay_price_total_Num + $pay_price_freight_Num;
+        $pay_price_total_Num = $pay_price_total_Num - $coupon_count_Num;
 
         $this->cart_CartShopList = $cart_CartShopList;
         $this->pay_price_total_Num = $pay_price_total_Num;
+        $this->pay_price_freight_Num = $pay_price_freight_Num;
     }
 
     public function finish_order()
@@ -282,6 +305,48 @@ class OrderShop extends ObjDbBase
             $value_CartShop->StockProductShop->set('stocknum_Num', $value_CartShop->StockProductShop->stocknum_Num - $value_CartShop->amount_Num);
             $value_CartShop->StockProductShop->update();
         }
+
+        //扣除會員折扣金
+        $UserFieldShop = new UserFieldShop();
+        $UserFieldShop->construct_db([
+            'db_where_Arr' => [
+                'user.uid' => $this->uid_Num
+            ]
+        ]);
+        if($UserFieldShop->coupon_count_Num >= $this->coupon_count_Num)
+        {
+            $UserFieldShop->set('coupon_count_Num', $UserFieldShop->coupon_count_Num - $this->coupon_count_Num);
+            $UserFieldShop->update([
+                'db_update_Arr' => ['user_field_shop.coupon_count']
+            ]);
+        }
+        else if( $this->coupon_count_Num != 0 )
+        {
+            return '折扣金不足';
+        }
+
+        $shop_rule_coupon_count_Setting = new Setting();
+        $shop_rule_coupon_count_Setting->construct_db([
+            'db_where_Arr' => [
+                'keyword' => 'shop_rule_coupon_count'
+            ]
+        ]);
+
+        if($this->pay_price_total_Num >= $shop_rule_coupon_count_Setting->value_Str )
+        {
+            $shop_rule_get_coupon_count_Setting = new Setting();
+            $shop_rule_get_coupon_count_Setting->construct_db([
+                'db_where_Arr' => [
+                    'keyword' => 'shop_rule_get_coupon_count'
+                ]
+            ]);
+
+            $UserFieldShop->set('coupon_count_Num', $UserFieldShop->get('coupon_count_Num') + $shop_rule_get_coupon_count_Setting->value_Str );
+            $UserFieldShop->update([
+                'db_update_Arr' => ['user_field_shop.coupon_count']
+            ]);
+        }
+
 
         //設定訂單成功
         $this->order_status_Num = 0;

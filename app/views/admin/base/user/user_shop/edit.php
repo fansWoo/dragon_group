@@ -34,7 +34,7 @@
             <div class="spanLineLeft width300">
                 <?if(!empty($user_UserFieldShop->group_UserGroupList->obj_Arr)):?>
                 <div>
-                    <select name="groupids_Arr[]" disabled="false">
+                    <select name="groupids_Arr[]">
                         <option value="">沒有分類標籤</option>
                         <?foreach($UserGroupList->obj_Arr as $key2 => $value2_UserGroup):?>
                         <option value="<?=$value2_UserGroup->groupid_Num?>"<?if($user_UserFieldShop->group_UserGroupList->obj_Arr[0]->groupid_Num == $value2_UserGroup->groupid_Num):?> selected<?endif?>><?=$value2_UserGroup->groupname_Str?></option>
@@ -43,7 +43,7 @@
                 </div>
                 <?else:?>
                 <div>
-                    <select name="groupids_Arr[]" disabled="false">
+                    <select name="groupids_Arr[]">
                         <option value="">沒有分類標籤</option>
                         <?foreach($UserGroupList->obj_Arr as $key => $value_UserGroup):?>
                         <option value="<?=$value_UserGroup->groupid_Num?>"><?=$value_UserGroup->groupname_Str?></option>
@@ -51,13 +51,6 @@
                     </select>
                 </div>
                 <?endif?>
-            </div>
-        </div>
-        <div class="spanStage">
-            <div class="spanLineLeft">
-            </div>
-            <div class="spanLineLeft width500">
-                <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/classmeta/tablelist">會員群組列表</a>
             </div>
         </div>
     </div>
@@ -80,7 +73,7 @@
             <div class="spanLineRight">
                 <?if(!empty($user_UserFieldShop->uid_Num)):?><input type="hidden" name="uid_Num" value="<?=$user_UserFieldShop->uid_Num?>"><?endif?>
                 <input type="submit" class="submit" value="<?if(!empty($user_UserFieldShop->uid_Num)):?>儲存變更<?else:?>新增會員<?endif?>">
-                <?if(!empty($user_UserFieldShop->uid_Num)):?><span class="submit gray" onClick="fanswoo.check_href_action('確定要刪除嗎？', 'admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/delete/?productid=<?=$user_UserFieldShop->uid_Num?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除<?=$child3_title_Str?></span><?endif?>
+                <?if(!empty($user_UserFieldShop->uid_Num)):?><span class="submit gray" onClick="fanswoo.check_href_action('確定要刪除嗎？', 'admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/delete/?uid=<?=$user_UserFieldShop->uid_Num?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除<?=$child3_title_Str?></span><?endif?>
             </div>
         </div>
 	</div>

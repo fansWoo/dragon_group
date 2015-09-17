@@ -33,6 +33,8 @@ class ClassMeta extends ObjDbBase {
 	
 	public function construct($arg)
 	{
+        $data = $this->data;
+
         $classid_Num = !empty($arg['classid_Num']) ? $arg['classid_Num'] : 0;
         $uid_Num = !empty($arg['uid_Num']) ? $arg['uid_Num'] : 0;
         $classname_Str = !empty($arg['classname_Str']) ? $arg['classname_Str'] : '';
@@ -47,13 +49,6 @@ class ClassMeta extends ObjDbBase {
         $updatetime_inputtime_time_Str = !empty($arg['updatetime_inputtime_time_Str']) ? $arg['updatetime_inputtime_time_Str'] : '';
         $prioritynum_Num = !empty($arg['prioritynum_Num']) ? $arg['prioritynum_Num'] : 0;
         $status_Num = !empty($arg['status_Num']) ? $arg['status_Num'] : 1;
-        
-        //若uid為空則以登入者uid作為本物件之預設uid
-        if(empty($uid_Num) || empty($uid_Num))
-        {
-            $data['user'] = get_user();
-            $uid_Num = $data['user']['uid'];
-        }
         
         //建立ClassMetaList物件
         if($this->construct_class_Bln)
@@ -80,7 +75,6 @@ class ClassMeta extends ObjDbBase {
         
         //set
         $this->classid_Num = $classid_Num;
-        $this->uid_Num = $uid_Num;
         $this->classname_Str = $classname_Str;
         $this->amountnum_Num = $amountnum_Num;
         $this->modelname_Str = $modelname_Str;
@@ -91,6 +85,7 @@ class ClassMeta extends ObjDbBase {
 
         $this->set('content_Str', $content_Str);
         $this->set__slug_Str(['slug_Str' => $slug_Str]);
+        $this->set__uid_Num(['uid_Num' => $uid_Num]);
         
         
         return TRUE;

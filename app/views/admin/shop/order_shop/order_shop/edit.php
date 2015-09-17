@@ -75,17 +75,17 @@ $(function(){
 		    </div>
 		</div>
 	</div>
-    <?if($OrderShop->pay_status_Num == 1 && $OrderShop->pay_paytype_Str == 'atm'):?>
-	<div class="spanLine">
-	    <div class="spanStage">
+    <div class="spanLine">
+        <div class="spanStage">
             <div class="spanLineLeft">
-                付款總金額
+                訂單總金額
             </div>
-            <div class="spanLineLeft">
-                <?=$OrderShop->pay_price_total_Num?>（含運費總額）
-		    </div>
-		</div>
-	</div>
+            <div class="spanLineLeft width400">
+                NT$ <?=$OrderShop->pay_price_total_Num?> （包含運費 NT$ <?=$OrderShop->pay_price_freight_Num?> <?if($OrderShop->coupon_count_Num > 0):?>、 訂單折扣 NT$<?=$OrderShop->coupon_count_Num?> <?endif?>）
+            </div>
+        </div>
+    </div>
+    <?if($OrderShop->pay_status_Num == 1 && $OrderShop->pay_paytype_Str == 'atm'):?>
 	<div class="spanLine">
 	    <div class="spanStage">
             <div class="spanLineLeft">
@@ -295,8 +295,8 @@ $(function(){
                 貨物寄出時間
             </div>
             <div class="spanLineLeft">
-                <script src="app/js/jquery-ui-timepicker-addon/script.js"></script>
-                <link rel="stylesheet" type="text/css" href="app/js/jquery-ui-timepicker-addon/style.css"></link>
+                <script src="fanswoo-framework/js/jquery-ui-timepicker-addon/script.js"></script>
+                <link rel="stylesheet" type="text/css" href="fanswoo-framework/js/jquery-ui-timepicker-addon/style.css"></link>
                 <script>
                 $(function(){
                     $('#sendtime_Str').datetimepicker({

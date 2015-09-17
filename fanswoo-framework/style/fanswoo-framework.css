@@ -189,3 +189,5 @@ textarea:focus {
 input {
     vertical-align: middle;
 }
+
+[fanswoo-clone] { display: none; }

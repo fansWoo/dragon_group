@@ -9,71 +9,56 @@
 	<div class="spanLine">
 	    <div class="spanStage">
             <div class="spanLineLeft">
-                產品名稱
+                商品名稱
             </div>
             <div class="spanLineLeft width500">
-                <input type="text" class="text" name="name_Str" placeholder="請輸入產品名稱" value="<?=$showpiece_Showpiece->name_Str?>">
-		    </div>
-		</div>
-	</div>
-	<div class="spanLine">
-	    <div class="spanStage">
-            <div class="spanLineLeft">
-                產品首圖
-            </div>
-            <div class="spanLineLeft width500">
-                <div class="fileMultiple1"><input type="file" name="mainpicids_FileArr" accept="image/*"></div>
-                <?if(!empty($showpiece_Showpiece->mainpic_PicObjList->obj_Arr[0]->picid_Num)):?>
-                <div class="picidUploadList">
-                    <div fanswoo-picid="<?=$showpiece_Showpiece->mainpic_PicObjList->obj_Arr[0]->picid_Num?>" class="picidUploadLi">
-                        <div fanswoo-picDelete class="picDelete"></div>
-                        <img src="<?=$showpiece_Showpiece->mainpic_PicObjList->obj_Arr[0]->path_Arr['w50h50']?>">
-                        <input type="hidden" name="mainpicids_Arr[]" value="<?=$showpiece_Showpiece->mainpic_PicObjList->obj_Arr[0]->picid_Num?>">
-                    </div>
-                </div>
-                <?endif?>
-		    </div>
-		</div>
-	    <div class="spanStage">
-            <div class="spanLineLeft">
-            </div>
-            <div class="spanLineLeft width500">
-                <span class="gray">請上傳300x300之圖檔</span>
+                <input type="text" class="text" name="name_Str" placeholder="請輸入商品名稱" value="<?=$showpiece_Showpiece->name_Str?>">
 		    </div>
 		</div>
 	</div>
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
-                產品其它照片
+                商品圖片
             </div>
-            <div class="spanLineLeft width500">
-                <div fanswoo-fileMultiple><input type="file" name="picids_FilesArr[]" accept="image/*" multiple></div>
-                <?if(!empty($showpiece_Showpiece->pic_PicObjList->obj_Arr)):?>
-                <div class="picidUploadList">
+            <div class="spanLineRight">
+                <div fanswoo-pic_upload_ajax>上傳更多圖片</div>
+                <div class="picidUploadList" fanswoo-piclist>
+                    <div fanswoo-picid class="picidUploadLi" fanswoo-clone>
+                        <div class="pic"><img src="" fanswoo-picid_img></div>
+                        <div class="other">
+                            <div class="pic_copy"><input type="text" fanswoo-picid_path_input fanswoo-input_copy readonly /></div>
+                            <div fanswoo-pic_delete class="pic_delete">刪除圖片</div>
+                        </div>
+                        <input type="hidden" fanswoo-picid_input_hidden_picid name="picids_Arr[]">
+                    </div>
+                    <?if(!empty($showpiece_Showpiece->pic_PicObjList->obj_Arr)):?>
                     <?foreach($showpiece_Showpiece->pic_PicObjList->obj_Arr as $key => $value_PicObj):?>
                     <div fanswoo-picid="<?=$value_PicObj->picid_Num?>" class="picidUploadLi">
-                        <div fanswoo-picDelete class="picDelete"></div>
-                        <img src="<?=$value_PicObj->path_Arr['w50h50']?>">
-                        <input type="hidden" name="picids_Arr[]" value="<?=$value_PicObj->picid_Num?>">
+                        <div class="pic"><img src="<?=$value_PicObj->path_Arr['w50h50']?>" fanswoo-picid_img></div>
+                        <div class="other">
+                            <div class="pic_copy"><input type="text" fanswoo-picid_path_input fanswoo-input_copy readonly value="<?=$value_PicObj->path_Arr['w0h0']?>" /></div>
+                            <div fanswoo-pic_delete class="pic_delete">刪除圖片</div>
+                        </div>
+                        <input type="hidden" fanswoo-picid_input_hidden_picid name="picids_Arr[]" value="<?=$value_PicObj->picid_Num?>">
                     </div>
                     <?endforeach?>
+                    <?endif?>
                 </div>
-                <?endif?>
             </div>
         </div>
         <div class="spanStage">
             <div class="spanLineLeft">
             </div>
             <div class="spanLineLeft width500">
-                <span class="gray">請上傳300x300之圖檔</span>
+                <span class="gray">請上傳300x300之圖檔，多張圖檔將以第一張為默認顯示圖檔</span>
             </div>
         </div>
     </div>
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
-                產品分類
+                商品分類
             </div>
             <div class="spanLineLeft width500" fanswoo-selectEachDiv="class">
                 <?if(!empty($showpiece_Showpiece->class_ClassMetaList->obj_Arr)):?>
@@ -166,43 +151,69 @@
 	<div class="spanLine">
 	    <div class="spanStage">
             <div class="spanLineLeft">
-                產品簡介
+                商品簡介
             </div>
             <div class="spanLineLeft width500">
                 <textarea cols="80" id="synopsis_Str" name="synopsis_Str" rows="10"><?=$showpiece_Showpiece->synopsis_Str?></textarea>
 		    </div>
 		</div>
 	</div>
-	<div class="spanLine">
-	    <div class="spanStage">
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                產品內容
+            </div>
+            <div class="spanLineRight">
+                <div fanswoo-pic_upload_ajax>上傳更多圖片</div>
+                <div class="picidUploadList" fanswoo-piclist>
+                    <div fanswoo-picid class="picidUploadLi" fanswoo-clone>
+                        <div class="pic"><img src="" fanswoo-picid_img></div>
+                        <div class="other">
+                            <div class="pic_copy"><input type="text" fanswoo-picid_path_input fanswoo-input_copy readonly /></div>
+                            <div fanswoo-pic_delete class="pic_delete">刪除圖片</div>
+                        </div>
+                    </div>
+                </div>
+                <textarea cols="80" id="content" name="content_Str" rows="10"><?=$showpiece_Showpiece->content_Html?></textarea>
+                <script src="fanswoo-framework/js/ckeditor/ckeditor.js"></script>
+                <script>
+                    CKEDITOR.replace( 'content', {
+                        toolbar: 'html'
+                    });
+                </script>
+            </div>
+            <div class="spanLineLeft">
+            </div>
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
             <div class="spanLineLeft">
                 產品規格
             </div>
             <div class="spanLineRight">
+                <div fanswoo-pic_upload_ajax>上傳更多圖片</div>
+                <div class="picidUploadList" fanswoo-piclist>
+                    <div fanswoo-picid class="picidUploadLi" fanswoo-clone>
+                        <div class="pic"><img src="" fanswoo-picid_img></div>
+                        <div class="other">
+                            <div class="pic_copy"><input type="text" fanswoo-picid_path_input fanswoo-input_copy readonly /></div>
+                            <div fanswoo-pic_delete class="pic_delete">刪除圖片</div>
+                        </div>
+                    </div>
+                </div>
                 <textarea cols="80" id="content_specification" name="content_specification_Str" rows="10"><?=$showpiece_Showpiece->content_specification_Html?></textarea>
-                <script src="app/js/ckeditor/ckeditor.js"></script>
+                <script src="fanswoo-framework/js/ckeditor/ckeditor.js"></script>
                 <script>
                     CKEDITOR.replace( 'content_specification', {
-                        toolbar: 'bbcode'
+                        toolbar: 'html'
                     });
                 </script>
-		    </div>
+            </div>
             <div class="spanLineLeft">
             </div>
-		</div>
-	</div>
-	<div class="spanLine">
-	    <div class="spanStage">
-            <div class="spanLineLeft">
-                產品詳述
-            </div>
-            <div class="spanLineRight">
-                <textarea cols="80" id="content" name="content_Str" rows="10"><?=$showpiece_Showpiece->content_Html?></textarea>
-		    </div>
-            <div class="spanLineLeft">
-            </div>
-		</div>
-	</div>
+        </div>
+    </div>
 	<div class="spanLine">
 	    <div class="spanStage">
             <div class="spanLineLeft">
@@ -237,7 +248,7 @@
             </div>
             <div class="spanLineRight">
                 <?if(!empty($showpiece_Showpiece->showpieceid_Num)):?><input type="hidden" name="showpieceid_Num" value="<?=$showpiece_Showpiece->showpieceid_Num?>"><?endif?>
-                <input type="submit" class="submit" value="<?if(!empty($showpiece_Showpiece->showpieceid_Num)):?>儲存變更<?else:?>新增產品<?endif?>">
+                <input type="submit" class="submit" value="<?if(!empty($showpiece_Showpiece->showpieceid_Num)):?>儲存變更<?else:?>新增商品<?endif?>">
                 <?if(!empty($showpiece_Showpiece->showpieceid_Num)):?><span class="submit gray" onClick="fanswoo.check_href_action('確定要刪除嗎？', 'admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/delete/?showpieceid=<?=$showpiece_Showpiece->showpieceid_Num?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除<?=$child3_title_Str?></span><?endif?>
             </div>
         </div>

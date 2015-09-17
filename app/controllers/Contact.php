@@ -16,13 +16,13 @@ class Contact_Controller extends MY_Controller {
         $data = $this->data;
 
         //global
-        $data['global']['style'][] = 'temp/global';
-        $data['global']['style'][] = 'contact/index';
+        $data['global']['style'][] = 'app/css/temp/global.css';
+        $data['global']['style'][] = 'app/css/contact/index.css';
 		
-		$data['global']['style'][] = 'temp/header_bar';
-		$data['global']['style'][] = 'temp/footer_bar';
+		$data['global']['style'][] = 'app/css/temp/header_bar.css';
+		$data['global']['style'][] = 'app/css/temp/footer_bar.css';
 		
-	    $data['global']['js'][] = 'script_header_bar_mobile';
+	    $data['global']['js'][] = 'app/js/script_header_bar_mobile.js';
         
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
