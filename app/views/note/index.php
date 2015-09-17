@@ -35,44 +35,68 @@ $(function(){
 </div>
 <div class="content01">
 	<div class="left_area">
-		<div class="hot_note"> HOT NOTE</div>
-		<div class="nav">
-			<div class="father">
-				<a href="">Sed id dolor. In hac habitasse platea dictumst.</a>
-			</div>
-			<div class="father">
-				<a href="">Sed id dolor. In hac .</a>
-			</div>
-			<div class="father">
-				<a href="">Sed id dolor. In hac habitasse platea dictumst.</a>
-			</div>
-			<div class="father">
-				<a href="">Sed id dolor. In hac habitasse platea dictumst.</a>
-			</div>
-			<div class="father">
-				<a href="">Sed id dolor. In hac .</a>
-			</div>
-			<div class="father">
-				<a href="">Sed id dolor. In hac habitasse platea dictumst.</a>
-			</div>
-			<div class="father">
-				<a href="">Sed id dolor. In hac .</a>
+		<!-- <div class="hot_note">最新消息</div>
+			<div class="nav">
+				<?foreach($new_NoteFieldList->obj_Arr as $key => $value_NoteField):?>
+					<div class="father">
+						<a href="note/<?=$value_NoteField->noteid_Num?>"><?=$value_NoteField->title_Str?></a>
+	        		</div>
+	        	<?endforeach?>
+			</div> -->
+		<div class="hot_note">文章分類</div>
+			<div class="nav">
+				<?foreach($ClassMetaList->obj_Arr as $key => $value_ClassMeta):?>
+					<div class="father">
+						<a href="note/?class_slug=<?=$value_ClassMeta->slug_Str?>"><?=$value_ClassMeta->classname_Str?></a>
+					</div>
+				<?endforeach?>
 			</div>
 		</div>
-	</div>
 	<div class="right_area">
 		<div class="top_title_box">
 			<div class="title">
 				<img src="app/img/index/sketch_light.gif" class="sketch_light">
+				<?if($search_class_slug_Str == NULL):?>
 				<h1>最新消息</h1>
+				<?else:?>
+				<h1><?=$value_NoteField->class_ClassMetaList->obj_Arr[0]->classname_Str?></h1>
+				<?endif?>
 			</div>
 			<div class="sketch_grass">
 				<img src="app/img/index/sketch_grass2.gif">
 			</div>
 		</div>
 		<div class="text_area">
-			<?for($i=0;$i<6;$i++):?>
-			<a href="note/view" class="item_box">
+			<?foreach($NoteFieldList->obj_Arr as $key => $value_NoteField):?>
+			<a href="note/<?=$value_NoteField->noteid_Num?>" class="item_box">
+				<div class="center_box">
+					<div class="pic_box">
+						<div class="pic">
+							<?
+								$this->load->library('SimpleHtmlDom');
+								$html = new SimpleHtmlDom();
+								$html->load($value_NoteField->content_Html);
+								$img = $html->find('img', 0);
+							?>
+							<img src="<?=$img->src?>">
+							<!-- <img src="app/img/note/pic.jpg"> -->
+						</div>
+						<div class="dotted_bg"></div>
+					</div>
+					<div class="text_date_box">
+						<div class="date"><?=$value_NoteField->updatetime_DateTime->getdate_Arr['year']?> . <?=$value_NoteField->updatetime_DateTime->getdate_Arr['mon']?> . <?=$value_NoteField->updatetime_DateTime->getdate_Arr['mday']?></div>
+						<div class="text">
+							<h2><?=$value_NoteField->title_Str?></h2>
+							<p><?=mb_substr(strip_tags($value_NoteField->content_Html), 0, 150, 'utf-8')?></p>
+						</div>
+					</div>
+					<div  class="arrow">
+						<img src="app/img/note/arrow.png">
+					</div>
+				</div>
+			</a>
+			<?endforeach?>
+			<!-- <a href="note/view" class="item_box">
 				<div class="center_box">
 					<div class="pic_box">
 						<div class="pic">
@@ -91,19 +115,19 @@ $(function(){
 						<img src="app/img/note/arrow.png">
 					</div>
 				</div>
-			</a>
-			<?endfor?>
+			</a> -->
 
 			<div class="pager_bottom">
 				<div class="pageLinks_bg">
 					<div class="pageLinks">
-						<a class="prev"><img src="app/img/note/pager.png"></a>
-						<strong>1</strong>
+						<!-- <a class="prev"><img src="app/img/note/pager.png"></a> -->
+						<?=$page_link?>
+						<!-- <strong>1</strong>
 						<a>2</a>
 						<a>3</a>
 						<a>4</a>
-						<a>5</a>
-						<a class="next"><img src="app/img/note/pager.png"></a>
+						<a>5</a> -->
+						<!-- <a class="next"><img src="app/img/note/pager.png"></a> -->
 					</div>
 				</div>
 			</div>

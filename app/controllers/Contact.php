@@ -37,10 +37,10 @@ class Contact_Controller extends MY_Controller {
 
     public function contact_post()
     {
-        $this->form_validation->set_rules('username_Str', '姓名', 'required');
-        $this->form_validation->set_rules('email_Str', '信箱', 'required');
-        $this->form_validation->set_rules('sex_Str', '性別', 'required');
-        $this->form_validation->set_rules('classtype_Str[]', '急須改善的訴求', 'required');
+        $this->form_validation->set_rules('username_Str', '您的姓名', 'required');
+        $this->form_validation->set_rules('email_Str', '電子郵件', 'required');
+        // $this->form_validation->set_rules('phone_Str', '聯繫電話', 'required');
+        $this->form_validation->set_rules('content_Str', '內容', 'required');
 
 
         if ($this->form_validation->run() !== FALSE)
@@ -49,24 +49,14 @@ class Contact_Controller extends MY_Controller {
             $username_Str = $this->input->post('username_Str', TRUE);
             $email_Str = $this->input->post('email_Str', TRUE);
             $phone_Str = $this->input->post('phone_Str', TRUE);
-            $address_Str = $this->input->post('address_Str', TRUE);
-            $birthday_Str = $this->input->post('birthday_Str', TRUE);
-            $other_Str = $this->input->post('other_Str', TRUE);
-            $sex_Str = $this->input->post('sex_Str', TRUE);
-            $classtype_Str = $this->input->post('classtype_Str[]', TRUE);
             $content_Str = $this->input->post('content_Str', TRUE);
 
             //建構Contact物件，並且更新
-            $Contact = new ContactWhenyi();
+            $Contact = new Contact();
             $Contact->construct(array(
                 'username_Str' => $username_Str,
                 'email_Str' => $email_Str,
                 'phone_Str' => $phone_Str,
-                'address_Str' => $address_Str,
-                'birthday_Str' => $birthday_Str,
-                'other_Str' => $other_Str,
-                'sex_Str' => $sex_Str,
-                'classtype_Str' => implode(" / ",$classtype_Str),
                 'content_Str' => $content_Str,
                 'status_process_Num' => 1
             ));

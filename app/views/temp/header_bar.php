@@ -38,9 +38,12 @@ $(function(){
 				<div class="li">
 					<a class="button">關於我們</a>
 					<div class="down_box">
-						<a href="page/about" class="button2">了解龍安</a>
+						<?foreach($about_PageList->obj_Arr as $key => $value_PageList):?>
+						<a href="page/<?=$value_PageList->slug_Str?>" class="button2"><?=$value_PageList->title_Str?></a>
+						<?endforeach?>
+						<!-- <a href="page/about" class="button2">了解龍安</a>
 						<a href="page/about" class="button2">歷史沿革</a>
-						<a href="page/about" class="button2" >合作夥伴</a>
+						<a href="page/about" class="button2" >合作夥伴</a> -->
 					</div>
 				</div>
 				<div class="li"><a href="note" class="button">最新消息</a></div>

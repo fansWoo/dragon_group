@@ -10,11 +10,11 @@ class Note_Controller extends MY_Controller {
         $limitcount_Num = $this->input->get('limitcount');
         $limitcount_Num = !empty($limitcount_Num) ? $limitcount_Num : 10;
 
-        $search_class_slug_Str = $this->input->get('class_slug');
+        $data['search_class_slug_Str'] = $this->input->get('class_slug');
         $class_ClassMeta = new ClassMeta();
         $class_ClassMeta->construct_db(array(
             'db_where_Arr' => array(
-                'slug' => $search_class_slug_Str
+                'slug' => $data['search_class_slug_Str']
             )
         ));
         
@@ -28,18 +28,36 @@ class Note_Controller extends MY_Controller {
             ),
             'model_name_Str' => 'NoteField',
             'db_orderby_Arr' => array(
-                array('prioritynum', 'DESC'),
-                array('updatetime', 'DESC')
+                'prioritynum' => 'DESC',
+                'updatetime' => 'DESC'
+            ),
+            'db_where_deletenull_Bln' => TRUE,
+            'model_name_Str' => 'NoteField',
+            'limitstart_Num' => 0,
+            'limitcount_Num' => 7
+        ));
+
+        $data['NoteFieldList'] = new ObjList();
+        $data['NoteFieldList']->construct_db(array(
+            'db_where_Arr' => array(
+                'modelname' => 'note'
+            ),
+            'db_where_or_Arr' => array(
+                'classids' => array($class_ClassMeta->classid_Num)
+            ),
+            'model_name_Str' => 'NoteField',
+            'db_orderby_Arr' => array(
+                'prioritynum' => 'DESC',
+                'updatetime' => 'DESC'
             ),
             'db_where_deletenull_Bln' => TRUE,
             'model_name_Str' => 'NoteField',
             'limitstart_Num' => $limitstart_Num,
             'limitcount_Num' => $limitcount_Num
         ));
-        $data['page_link'] = $data['new_NoteFieldList']->create_links(array('base_url_Str' => 'note/'));
 
-        // echoe($data['new_NoteFieldList']);
-        
+        $data['page_link'] = $data['NoteFieldList']->create_links(array('base_url_Str' => 'note/'));
+
         $data['ClassMetaList'] = new ObjList();
         $data['ClassMetaList']->construct_db(array(
             'db_where_Arr' => array(
@@ -96,8 +114,8 @@ class Note_Controller extends MY_Controller {
             ),
             'model_name_Str' => 'NoteField',
             'db_orderby_Arr' => array(
-                array('prioritynum', 'DESC'),
-                array('updatetime', 'DESC')
+                'prioritynum' => 'DESC',
+                'updatetime' => 'DESC'
             ),
             'db_where_deletenull_Bln' => TRUE,
             'model_name_Str' => 'NoteField',
@@ -114,6 +132,8 @@ class Note_Controller extends MY_Controller {
         
         //global
         $data['global']['js'][] = 'app/js/script_header_bar_mobile.js';
+        $data['global']['style'][] = 'app/css/temp/header_bar.css';
+        $data['global']['style'][] = 'app/css/temp/footer_bar.css';
         $data['global']['style'][] = 'app/css/temp/global.css';
         $data['global']['style'][] = 'app/css/note/view.css';
         

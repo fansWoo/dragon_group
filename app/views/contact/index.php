@@ -111,18 +111,18 @@ $(function(){
 				感謝您瀏覽本公司網站，請詳細填寫以下表單並清楚告訴我們您的訴求，我們收到留言將會以最快速的速度與您聯絡，再次感謝您。</p>
 			</div>
 			<div class="form">
-				<form>
+				<?=form_open("contact/contact_post")?>
 					<div class="box">
 						<p>您的姓名</p>
-						<input  class="input1">
+						<input  class="input1" name="username_Str" placeholder="name">
 					</div>
 					<div class="box">
 						<p>聯繫電話</p>
-						<input  type="tel" class="input1"  placeholder="phone">
+						<input  type="tel" class="input1" name="phone_Str" placeholder="phone">
 					</div>
 					<div class="box">
 						<p>電子郵件</p>
-						<input  type="email" class="input1" placeholder="email">
+						<input  type="email" class="input1" name="email_Str" placeholder="email">
 					</div>
 					<div class="textarea">
 						<textarea name="content_Str"></textarea>
@@ -134,11 +134,7 @@ $(function(){
 					</div>
 				</form>
 			</div>
-
-		
-		
 		</div>
-</div>	
-
+	</div>
 <?=$temp['footer_bar']?>
 <?=$temp['body_end']?>

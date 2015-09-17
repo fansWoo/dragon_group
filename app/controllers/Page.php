@@ -41,8 +41,8 @@ class Page_Controller extends MY_Controller {
                 	'classids' => $data['ClassMeta']->classid_Num
 	            ),
 	            'db_orderby_Arr' => array(
-	                array('prioritynum', 'DESC'),
-	                array('pagerid', 'DESC')
+	            	'prioritynum' => 'DESC',
+                	'pagerid' => 'DESC'
 	            ),
 	            'model_name_Str' => 'Pager',
 	            'limitstart_Num' => 0,
@@ -51,6 +51,8 @@ class Page_Controller extends MY_Controller {
 
 	        //global
 			$data['global']['style'][] = 'app/css/temp/global.css';
+			$data['global']['style'][] = 'app/css/temp/header_bar.css';
+        	$data['global']['style'][] = 'app/css/temp/footer_bar.css';
 	        $data['global']['style'][] = 'app/css/pager/default.css';
 	        
 	        //temp

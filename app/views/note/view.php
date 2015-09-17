@@ -36,11 +36,19 @@ $(function(){
 <div class="content01">
 	<div class="left_area">
 		<div class="nav">
-			<div class="hot_note"> HOT NOTE</div>
+			<!-- <div class="hot_note"> 最新消息</div>
+			<?foreach($new_NoteFieldList->obj_Arr as $key => $value_NoteField):?>
 			<div class="father">
-				<a href="">Sed id dolor. In hac habitasse platea dictumst.</a>
+				<a href="note/<?=$value_NoteField->noteid_Num?>"><?=$value_NoteField->title_Str?></a>
 			</div>
-			<div class="father">
+			<?endforeach?> -->
+			<div class="hot_note">文章分類</div>
+				<?foreach($ClassMetaList->obj_Arr as $key => $value_ClassMeta):?>
+					<div class="father">
+						<a href="note/?class_slug=<?=$value_ClassMeta->slug_Str?>"><?=$value_ClassMeta->classname_Str?></a>
+					</div>
+				<?endforeach?>
+			<!-- <div class="father">
 				<a href="">Sed id dolor. In hac .</a>
 			</div>
 			<div class="father">
@@ -57,25 +65,26 @@ $(function(){
 			</div>
 			<div class="father">
 				<a href="">Sed id dolor. In hac .</a>
-			</div>
+			</div> -->
 		</div>
 	</div>
 	<div class="right_area">
 		<div class="top_title_box">
 			<div class="title">
 				<img src="app/img/index/sketch_light.gif" class="sketch_light">
-				<h1>最新消息標題</h1>
+				<h1><?=$NoteField->title_Str?></h1>
 			</div>
 			<div class="sketch_grass">
 				<img src="app/img/index/sketch_grass2.gif">
 			</div>
 		</div>
 		<div class="text_area">
-		
-			<img src=" app/img/note/pic.jpg">
+
+			<p><?=$NoteField->content_Html?></p>
+			<!-- <img src=" app/img/note/pic.jpg">
 			<p>我們已經在地服務將近20年，長期以來不斷照護著大直地區的居民，我們秉持著關懷的心與專業的技術，不斷更新醫療器材以及聘請優良的醫師來為大家服務，近年來更配合政府的免費健康服務，提供多元化的免費醫療檢查，歡迎大家多多利用，平時多關心家人及朋友的健康，並長期做運動來保健身體。您的支持與認同就是龍安最大的原動力。</p>
 			<p>Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.</p>
-			<p>Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.</p>
+			<p>Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.</p> -->
 		
 		</div>
 	</div>	

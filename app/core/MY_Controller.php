@@ -55,6 +55,28 @@ class MY_Controller extends FS_Controller
             ]);
         }
 
+        //關於我們頁籤
+        $about_ClassMeta = new ClassMeta();
+        $about_ClassMeta->construct_db(array(
+            'db_where_Arr' => array(
+                'slug' => 'about'
+            )
+        ));
+
+        $data['about_PageList'] = new ObjList();
+        $data['about_PageList']->construct_db(array(
+            'db_where_Arr' => array(
+                'classids' => $about_ClassMeta->classid_Num
+            ),
+            'db_orderby_Arr' => array(
+                'prioritynum' => 'DESC',
+                'pagerid' => 'DESC'
+            ),
+            'model_name_Str' => 'Pager',
+            'limitstart_Num' => 0,
+            'limitcount_Num' => 100
+        ));
+
         $this->data = $data;
     }
 }

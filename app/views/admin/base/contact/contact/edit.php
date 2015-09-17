@@ -36,7 +36,7 @@
             </div>
         </div>
     </div>
-    <div class="spanLine">
+    <!-- <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
                 詢問類別
@@ -45,7 +45,7 @@
                 <?=$Contact->classtype_Str?>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">

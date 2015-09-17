@@ -600,7 +600,7 @@ $(function(){
 		<img src="app/img/index/mobile/title03.png" class="title">
 		<div class="pic_box">
 			<img src="app/img/index/mobile/pic03.png" class="pic">
-			<a href="" class="enter">
+			<a href="http://www.yasin-beauty.com/" class="enter">
 				<img src="app/img/index/hover_text.png">
 			</a>
 		</div>
