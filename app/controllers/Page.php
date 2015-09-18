@@ -50,6 +50,7 @@ class Page_Controller extends MY_Controller {
 	        ));
 
 	        //global
+	        $data['global']['js'][] = 'app/js/script_header_bar_mobile.js';
 			$data['global']['style'][] = 'app/css/temp/global.css';
 			$data['global']['style'][] = 'app/css/temp/header_bar.css';
         	$data['global']['style'][] = 'app/css/temp/footer_bar.css';

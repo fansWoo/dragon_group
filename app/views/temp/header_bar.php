@@ -39,7 +39,7 @@ $(function(){
 					<a class="button">關於我們</a>
 					<div class="down_box">
 						<?foreach($about_PageList->obj_Arr as $key => $value_PageList):?>
-						<a href="page/<?=$value_PageList->slug_Str?>" class="button2"><?=$value_PageList->title_Str?></a>
+							<a href="page/<?=$value_PageList->slug_Str?>" class="button2"><?=$value_PageList->title_Str?></a>
 						<?endforeach?>
 						<!-- <a href="page/about" class="button2">了解龍安</a>
 						<a href="page/about" class="button2">歷史沿革</a>
@@ -65,9 +65,12 @@ $(function(){
 		<div class="header_father_area">
 			關於我們
 			<div class="child_area">
-				<a href="page/about">了解龍安</a>
+				<?foreach($about_PageList->obj_Arr as $key => $value_PageList):?>
+					<a href="page/<?=$value_PageList->slug_Str?>" class="button2"><?=$value_PageList->title_Str?></a>
+				<?endforeach?>
+				<!-- <a href="page/about">了解龍安</a>
 				<a href="page/about">歷史沿革</a>
-				<a href="page/about">合作夥伴</a>
+				<a href="page/about">合作夥伴</a> -->
 			</div>
 		</div>
 		<a class="li" href="note">最新消息</a>

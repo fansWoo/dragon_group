@@ -8,7 +8,7 @@ class Note_Controller extends MY_Controller {
 
         $limitstart_Num = $this->input->get('limitstart');
         $limitcount_Num = $this->input->get('limitcount');
-        $limitcount_Num = !empty($limitcount_Num) ? $limitcount_Num : 10;
+        $limitcount_Num = !empty($limitcount_Num) ? $limitcount_Num : 5;
 
         $data['search_class_slug_Str'] = $this->input->get('class_slug');
         $class_ClassMeta = new ClassMeta();

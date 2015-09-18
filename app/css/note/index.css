@@ -108,11 +108,11 @@ border-left:4px solid #666;transition:0.3s;letter-spacing:1px;padding:5px 5px 5p
 
 .content01 .right_area .pager_bottom{width:100%; margin-top:40px;padding-top:30px; background:url(../../img/default/line.png) top left repeat-x;}
 .content01 .right_area .pageLinks_bg {display:inline-block;position:relative; left:50%; }
-/*.content01 .right_area .pageLinks_bg .pageLinks{ height:auto;display:block;margin-left:-50%;background:#eee;margin-bottom:40px;text-align:center;color:#555;}
+.content01 .right_area .pageLinks_bg .pageLinks{ height:auto;display:block;margin-left:-50%;background:#eee;margin-bottom:40px;text-align:center;color:#555;}
 .content01 .right_area .pageLinks_bg .pageLinks a{display:block;float:left;width:20px;height:20px;float:left;margin:5px 5px;text-align:center;color:#888;border-radius:5px;padding:3px;}
-.content01 .right_area .pageLinks_bg .pageLinks a:hover,
+/*.content01 .right_area .pageLinks_bg .pageLinks a:hover,*/
 .content01 .right_area .pageLinks_bg .pageLinks strong:hover,
-.content01 .right_area .pageLinks_bg .pageLinks strong{float:left;margin:5px 5px;background:#b18850;color:#FFF;width:20px;height:20px;border-radius:5px;padding:3px;}*/
+.content01 .right_area .pageLinks_bg .pageLinks strong{float:left;margin:5px 5px;background:#b18850;color:#FFF;width:20px;height:20px;border-radius:5px;padding:3px;}
 /*.content01 .right_area .pageLinks_bg .pageLinks .prev {float:left;display:block;width:30px;height:30px;background:url(../../img/note/pager.png) no-repeat center center;background-size:contain; text-indent: -9999px;}*/
 /*.content01 .right_area .pageLinks_bg .pageLinks .prev img{width:12px;display:block;margin:0 auto; margin-top:-2px;opacity:0.6;}*/
 /*.content01 .right_area .pageLinks_bg .pageLinks .prev:hover{background:rgba(0,0,0,0);}*/
@@ -121,19 +121,21 @@ border-left:4px solid #666;transition:0.3s;letter-spacing:1px;padding:5px 5px 5p
 /*.content01 .right_area .pageLinks_bg .pageLinks .next:hover{background:rgba(0,0,0,0);}*/
 /*.content01 .right_area .pageLinks_bg .pageLinks .next img:hover{opacity:1;}*/
 
-.pageLinks{width:960px;overflow:hidden; margin-bottom:30px; }
+/*.pageLinks{width:630px;overflow:hidden; margin-bottom:30px;}*/
 /*.item_area .pageLinks{width:930px} */
-.pageLinks a{display:block;margin-left:5px;float:left;font-size:14px;color:#999;font-weight:300;padding-top:6px;padding-right:6px;}
-.pageLinks a:hover{color:#b18850;}
+/*.pageLinks a{display:block;margin-left:10px;float:left;font-size:14px;color:#666;font-weight:300;padding-top:6px;padding-right:6px;}
+.pageLinks a:hover{color:#b18850;}*/
 .pageLinks .page{display:none;}
 /*.pageLinks .page{padding:6px 8px;border-radius:8px;transition:0.3s;}
 .pageLinks .page:hover{background-color:rgba(138,27,110,1);border-radius:8px;color:#fff;}*/
-.pageLinks strong{padding:6px 8px;background:#b18850;border-radius:8px;font-size:14px;float:left;color:#fff;font-weight:300; }
-.pageLinks .next{float:left;display:block;height:30px;margin-top:-2px;background:url(../../img/note/pager.png) no-repeat center center;background-size:contain;opacity:0.5;transform:scale(-1);-webkit-transform:scale(-1);}
-.pageLinks .prev{float:left;display:block;height:30px;margin-top:-2px;background:url(../../img/note/pager.png) no-repeat center center;background-size:contain;opacity:0.5;margin-right:5px;}
-.pageLinks .first{float:left;margin-right:px;}
+/*.pageLinks strong{padding:5px 5px;background:#b18850;border-radius:3px;font-size:14px;float:left;color:#fff;font-weight:300; }*/
+.pageLinks .next{float:left;display:block;height:30px;margin-top:2px;background:url(../../img/note/pager.png) no-repeat center center;background-size:contain;opacity:0.5;transform:scale(-1);-webkit-transform:scale(-1);text-indent:-9999px;}
+.pageLinks .next:hover{opacity:1;}
+.pageLinks .prev{float:left;display:block;height:30px;margin-top:2px;background:url(../../img/note/pager.png) no-repeat center center;background-size:contain;opacity:0.5;margin-right:5px;text-indent:-9999px;}
+.pageLinks .prev:hover{opacity:1;}
+.pageLinks .first{float:left;margin-right:10px;display:none;}
 .pageLinks .first a{text-decoration:underline;display:none;}
-.pageLinks .last{float:left;margin-left:10px;text-decoration:underline;}
+.pageLinks .last{float:left;margin-left:10px;text-decoration:underline;display:none;}
 .pageLinks .last a{text-decoration:underline;display:none;}
 
 @media screen and (min-width:1400px){
