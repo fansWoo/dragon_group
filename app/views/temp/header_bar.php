@@ -35,14 +35,25 @@ $(function(){
 						<?foreach($about_PageList->obj_Arr as $key => $value_PageList):?>
 							<a href="page/<?=$value_PageList->slug_Str?>" class="button2"><?=$value_PageList->title_Str?></a>
 						<?endforeach?>
-						<!-- <a href="page/about" class="button2">了解龍安</a>
-						<a href="page/about" class="button2">歷史沿革</a>
-						<a href="page/about" class="button2" >合作夥伴</a> -->
 					</div>
 				</div>
 				<div class="li"><a href="note" class="button">最新消息</a></div>
-				<div class="li"><a href="page/<?=$value_PageList->slug_Str?>" class="button">服務項目</a></div>
-				<div class="li"><a href="page/<?=$value_PageList->slug_Str?>" class="button">案例分享</a></div>
+				<div class="li">
+					<a class="button">服務項目</a>
+					<div class="down_box">
+						<?foreach($services_PageList->obj_Arr as $key => $value_PageList):?>
+							<a href="page/<?=$value_PageList->slug_Str?>" class="button2"><?=$value_PageList->title_Str?></a>
+						<?endforeach?>
+					</div>
+				</div>
+				<div class="li">
+					<a class="button">案例分享</a>
+					<div class="down_box">
+						<?foreach($cases_PageList->obj_Arr as $key => $value_PageList):?>
+							<a href="page/<?=$value_PageList->slug_Str?>" class="button2"><?=$value_PageList->title_Str?></a>
+						<?endforeach?>
+					</div>
+				</div>
 				<div class="li"><a href="contact" class="button">聯繫我們</a></div>
 				<div class="li fb"><a href="https://www.facebook.com/DragonHealthcare?skip_nax_wizard=true&ref_type=bookmark" class="button fb"><img src="app/img/header/fb.png"></a></div>
 			</div>

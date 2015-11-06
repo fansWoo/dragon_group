@@ -77,6 +77,50 @@ class MY_Controller extends FS_Controller
             'limitcount_Num' => 100
         ));
 
+        //服務項目頁籤
+        $services_ClassMeta = new ClassMeta();
+        $services_ClassMeta->construct_db(array(
+            'db_where_Arr' => array(
+                'slug' => 'services'
+            )
+        ));
+
+        $data['services_PageList'] = new ObjList();
+        $data['services_PageList']->construct_db(array(
+            'db_where_Arr' => array(
+                'classids' => $services_ClassMeta->classid_Num
+            ),
+            'db_orderby_Arr' => array(
+                'prioritynum' => 'DESC',
+                'pagerid' => 'DESC'
+            ),
+            'model_name_Str' => 'Pager',
+            'limitstart_Num' => 0,
+            'limitcount_Num' => 100
+        ));
+
+        //案例分享頁籤
+        $cases_ClassMeta = new ClassMeta();
+        $cases_ClassMeta->construct_db(array(
+            'db_where_Arr' => array(
+                'slug' => 'cases'
+            )
+        ));
+
+        $data['cases_PageList'] = new ObjList();
+        $data['cases_PageList']->construct_db(array(
+            'db_where_Arr' => array(
+                'classids' => $cases_ClassMeta->classid_Num
+            ),
+            'db_orderby_Arr' => array(
+                'prioritynum' => 'DESC',
+                'pagerid' => 'DESC'
+            ),
+            'model_name_Str' => 'Pager',
+            'limitstart_Num' => 0,
+            'limitcount_Num' => 100
+        ));
+
         $this->data = $data;
     }
 }
