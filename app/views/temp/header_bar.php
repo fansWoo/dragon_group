@@ -23,11 +23,10 @@ $(function(){
 		$("html, body").animate({scrollTop: position}, speed, "swing");
 			return false;
 	});
-	
+	$(".child_area").hide();
 	$(".header_bar_mobile_content .header_father_area").click(function() {
 		$(this).toggleClass("active");
 		$(this).children(".child_area").slideToggle();
-		
 	});
 	
 });

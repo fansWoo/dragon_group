@@ -43,6 +43,8 @@ $(function(){
 			$('.wrap_shadow').animate({ opacity: 1 }, {
 				duration : 300
 			},'linear');
+			
+			$(".child_area").hide();
 		}
 	});
 	$(document).on('swipeleft', function(event){
@@ -105,6 +107,8 @@ $(function(){
 			setTimeout(function(){
 				$('.wrap_shadow').css('display', 'none');
 			}, swipe_data.duration * 2);
+			
+			$(".child_area").hide();
 		}
 		swipe_data.event_path = false;
 	});
