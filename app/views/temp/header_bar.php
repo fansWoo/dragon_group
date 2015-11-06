@@ -47,6 +47,8 @@ $(function(){
 					</div>
 				</div>
 				<div class="li"><a href="note" class="button">最新消息</a></div>
+				<div class="li"><a href="page/<?=$value_PageList->slug_Str?>" class="button">服務項目</a></div>
+				<div class="li"><a href="page/<?=$value_PageList->slug_Str?>" class="button">案例分享</a></div>
 				<div class="li"><a href="contact" class="button">聯繫我們</a></div>
 				<div class="li fb"><a href="https://www.facebook.com/DragonHealthcare?skip_nax_wizard=true&ref_type=bookmark" class="button fb"><img src="app/img/header/fb.png"></a></div>
 			</div>
