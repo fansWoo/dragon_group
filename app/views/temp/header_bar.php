@@ -3,13 +3,7 @@ $(function(){
 	
 	var window_width = $(window).width();
 	var window_height = $(window).height();
-	if(window_width <= 700){
-		$(window).resize(function(){
-			$(document).scrollTop(0);
-			location.href = ' ';
-		});
-	}
-	
+
 	$('a[href^=#]').click(function () {
 		var speed = 500;
 		var href = $(this).attr("href");
@@ -76,6 +70,8 @@ $(function(){
 			</div>
 		</div>
 		<a class="li" href="note">最新消息</a>
+		<a class="li" href="page/<?=$value_PageList->slug_Str?>">服務項目</a>
+		<a class="li" href="page/<?=$value_PageList->slug_Str?>">案例分享</a>
 		<a class="li" href="contact">聯繫我們</a>
 		<a class="li" href="https://www.facebook.com/DragonHealthcare?skip_nax_wizard=true&ref_type=bookmark">facebook</a>
 		<!--<a class="li" href="admin">後台</a>

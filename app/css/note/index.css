@@ -51,6 +51,11 @@ h1{font-size:34px;line-height:40px;letter-spacing:2px;}
 	
 
 }
+@media screen and ( max-width:699px ) and (min-width: 450px) {
+	
+	.top_banner_box{width:100%; height:300px;position:relative;margin-top:-30px; box-shadow:-10px -55px 10px rgba(0,0,0,0.5);}	
+	
+}
 @media screen and (max-width: 450px){
 	.top_banner_box{display:none;}
 	
@@ -203,7 +208,7 @@ border-left:4px solid #666;transition:0.3s;letter-spacing:1px;padding:5px 5px 5p
 
 @media screen and ( max-width:699px ) and (min-width: 450px) {
 	
-			
+		
 	
 }
 
@@ -223,18 +228,18 @@ border-left:4px solid #666;transition:0.3s;letter-spacing:1px;padding:5px 5px 5p
 	.content01 .right_area .text_area p{margin-bottom:10px;}
 	.content01 .right_area .text_area  a{display:block;}
 	.content01 .right_area .text_area .item_box{width:100%;overflow:hidden;height:120px;padding:10px 10px;background:url(../../img/default/line.png) bottom left repeat-x;overflow:hidden;}
-	.content01 .right_area .text_area .item_box .center_box{width:350px; margin:5px auto;}
-	.content01 .right_area .text_area .item_box .pic_box{width:100px;height:100px;margin-top:0px;}
+	.content01 .right_area .text_area .item_box .center_box{width:90%; margin:5px auto;}
+	.content01 .right_area .text_area .item_box .pic_box{width:100px;height:100px;margin-top:0px; margin-right:5px;}
 	.content01 .right_area .text_area .item_box .pic_box .pic{width:80px;height:80px}
 	.content01 .right_area .text_area .item_box .pic_box .pic img{width:100px;}
 	.content01 .right_area .text_area .item_box .pic_box .dotted_bg{width:90px;height:90px;}
 	
-	.content01 .right_area .text_area .item_box .text_date_box{height:90px;overflow:hidden;width:220px;float:left; margin-left:5px;margin-top:0px; }
+	.content01 .right_area .text_area .item_box .text_date_box{height:90px;overflow:hidden;width:56%;float:left;margin-top:0px;  margin:0 auto;}
 	.content01 .right_area .text_area .item_box .text_date_box .date{float:left;padding:3px 8px;background-color:#96601c;border-radius:5px; margin-bottom:8px;}
-	.content01 .right_area .text_area .item_box .text_date_box .text{float:left;width:220px;}
+	.content01 .right_area .text_area .item_box .text_date_box .text{float:left;width:100%;}
 	.content01 .right_area .text_area .item_box .text_date_box .text h2{color:#96601c; margin-bottom:5px;font-size:14px;line-height:16px;}
 	.content01 .right_area .text_area .item_box .text_date_box .text p{color:#777;}
-	.content01 .right_area .text_area .item_box .arrow{width:15px;position:absolute;right:30px;top:45px;transform:translateX(0px);-webkit-transform:translateX(0px);transition:0.3s;opacity:0.5;}
+	.content01 .right_area .text_area .item_box .arrow{width:13px;position:absolute;right:25px;top:45px;transform:translateX(0px);-webkit-transform:translateX(0px);transition:0.3s;opacity:0.8;}
 	.content01 .right_area .text_area .item_box .arrow img{width:100%;display:block;}
 	.content01 .right_area .text_area .item_box:hover .arrow{opacity:1;}
 	

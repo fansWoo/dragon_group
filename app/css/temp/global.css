@@ -6,7 +6,7 @@ html.agent-ie p{font-size:14px;line-height:22px;letter-spacing:2px;font-family:T
 
 
 /*RWD手機版自動調整.wrap大小*/
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 700px) {
 	body { overflow:hidden; }
 	.wrap { overflow-y: scroll; margin: 70px 0 0; padding: 0px;padding-top:20px; }
 	/*.wrap { overflow-y: scroll; margin: 50px 0 0; padding: 20px; }*/

@@ -4,6 +4,7 @@
 <script src="app/js/smooth_scrollerator.js"></script>
 <script>
 $(function(){
+	
 	$(document).scroll(function(){
 		var window_width = $(window).width();
 		var scroll_top = $(document).scrollTop();	

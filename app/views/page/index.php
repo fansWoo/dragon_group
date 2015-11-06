@@ -4,8 +4,15 @@
 <script src="app/js/smooth_scrollerator.js"></script>
 <script>
 $(function(){
+	var window_width = $(window).width();
+	if(window_width <= 700){
+		$(window).resize(function(){
+			$(document).scrollTop(0);
+			location.href = ' ';
+		});
+	}	
 	$(document).scroll(function(){
-		var window_width = $(window).width();
+		
 		var scroll_top = $(document).scrollTop();
 		$('.opacity0_coverbg').css('display', 'block');
 		setTimeout(function(){
