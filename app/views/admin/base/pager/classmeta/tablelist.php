@@ -5,11 +5,13 @@
 <div class="contentBox allWidth">
     <h3><?=$child3_title_Str?> > <?=$child4_title_Str?></h3>
     <h4>請選擇欲修改之<?=$child3_title_Str?></h4>
+    <?if(0):?>
     <div class="spanLine noneBg">
         <div class="spanLineLeft">
             <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/edit" class="button">新增<?=$child3_title_Str?></a>
         </div>
     </div>
+    <?endif?>
 	<div class="spanLine tableTitle">
         <div class="spanLineLeft text width300">
 			分類名稱

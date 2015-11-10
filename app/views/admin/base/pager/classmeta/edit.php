@@ -29,7 +29,7 @@
                 分類代號
             </div>
             <div class="spanLineLeft">
-                <input type="text" class="text" name="slug_Str" placeholder="標籤名稱" value="<?=$class_ClassMeta->slug_Str?>">
+                <?=$class_ClassMeta->slug_Str?>
             </div>
         </div>
         <div class="spanStage">
@@ -76,6 +76,7 @@
             </div>
         </div>
     </div>
+    <?if(0):?>
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
@@ -93,6 +94,7 @@
             </div>
         </div>
     </div>
+    <?endif?>
     <?if(!empty($class_ClassMeta->classid_Num)):?>
     <div class="spanLine">
         <div class="spanStage">
