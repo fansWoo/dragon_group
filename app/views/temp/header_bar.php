@@ -42,16 +42,15 @@ $(function(){
 			</div>
 			<div class="right_nav">
 				<div class="li">
-					<a class="button">關於我們</a>
+					<a class="button">關於龍安</a>
 					<div class="down_box">
 						<?foreach($about_PageList->obj_Arr as $key => $value_PageList):?>
 							<a href="page/<?=$value_PageList->slug_Str?>" class="button2"><div class="p"><?=$value_PageList->title_Str?></div></a>
 						<?endforeach?>
 					</div>
 				</div>
-				<div class="li"><a href="note" class="button">最新消息</a></div>
 				<div class="li">
-					<a class="button">服務項目</a>
+					<a class="button">療程項目</a>
 					<div class="down_box">
 						<?foreach($services_PageList->obj_Arr as $key => $value_PageList):?>
 							<a href="page/<?=$value_PageList->slug_Str?>" class="button2"><div class="p"><?=$value_PageList->title_Str?></div></a>
@@ -66,8 +65,9 @@ $(function(){
 						<?endforeach?>
 					</div>
 				</div>
-				<div class="li"><a href="contact" class="button">聯繫我們</a></div>
-				<div class="li fb"><a href="https://www.facebook.com/DragonHealthcare?skip_nax_wizard=true&ref_type=bookmark" class="button fb"><img src="app/img/header/fb.png"></a></div>
+				<div class="li"><a href="note" class="button">最新消息</a></div>
+				<div class="li"><a href="contact" class="button">現上預約</a></div>
+				<div class="li fb"><a href="https://www.facebook.com/DragonHealthcare?skip_nax_wizard=true&ref_type=bookmark" target="_blank" class="button fb"><img src="app/img/header/fb.png"></a></div>
 			</div>
 		</div>
 	</div>
@@ -83,7 +83,7 @@ $(function(){
 		<div class="scrollbar">
 			<a class="li" href="<?=base_url()?>">首頁</a>
 			<div class="header_father_area">
-				<p>關於我們</p>
+				<p>關於龍安</p>
 				<div class="child_area">
 					<?foreach($about_PageList->obj_Arr as $key => $value_PageList):?>
 						<a href="page/<?=$value_PageList->slug_Str?>" class="button2"><?=$value_PageList->title_Str?></a>
@@ -93,9 +93,8 @@ $(function(){
 					<a href="page/about">合作夥伴</a> -->
 				</div>
 			</div>
-			<a class="li" href="note">最新消息</a>
 			<div class="header_father_area">
-				<p>服務項目</p>
+				<p>療程項目</p>
 				<div class="child_area">
 					<?foreach($services_PageList->obj_Arr as $key => $value_PageList):?>
 						<a href="page/<?=$value_PageList->slug_Str?>" class="button2"><div class="p"><?=$value_PageList->title_Str?></div></a>
@@ -114,8 +113,9 @@ $(function(){
 					
 				</div>
 			</div>
-			<a class="li" href="contact">聯繫我們</a>
-			<a class="li" href="https://www.facebook.com/DragonHealthcare?skip_nax_wizard=true&ref_type=bookmark">facebook</a>
+			<a class="li" href="note">最新消息</a>
+			<a class="li" href="contact">現上預約</a>
+			<a class="li" href="https://www.facebook.com/DragonHealthcare?skip_nax_wizard=true&ref_type=bookmark" target="_blank">facebook</a>
 			<!--<a class="li" href="admin">後台</a>
 			<a class="li" href="user/logout">登出</a>-->
 		</div>	
