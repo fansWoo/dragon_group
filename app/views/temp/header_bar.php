@@ -66,7 +66,7 @@ $(function(){
 					</div>
 				</div>
 				<div class="li"><a href="note" class="button">最新消息</a></div>
-				<div class="li"><a href="contact" class="button">現上預約</a></div>
+				<div class="li"><a href="contact" class="button">線上預約</a></div>
 				<div class="li fb"><a href="https://www.facebook.com/DragonHealthcare?skip_nax_wizard=true&ref_type=bookmark" target="_blank" class="button fb"><img src="app/img/header/fb.png"></a></div>
 			</div>
 		</div>
@@ -114,7 +114,7 @@ $(function(){
 				</div>
 			</div>
 			<a class="li" href="note">最新消息</a>
-			<a class="li" href="contact">現上預約</a>
+			<a class="li" href="contact">線上預約</a>
 			<a class="li" href="https://www.facebook.com/DragonHealthcare?skip_nax_wizard=true&ref_type=bookmark" target="_blank">facebook</a>
 			<!--<a class="li" href="admin">後台</a>
 			<a class="li" href="user/logout">登出</a>-->
