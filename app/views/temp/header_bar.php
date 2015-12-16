@@ -42,12 +42,12 @@ $(function(){
 			</div>
 			<div class="right_nav">
 				<div class="li">
-					<a class="button">關於龍安</a>
-					<div class="down_box">
+					<a href="page/about" class="button">關於龍安</a>
+					<!--<div class="down_box">
 						<?foreach($about_PageList->obj_Arr as $key => $value_PageList):?>
 							<a href="page/<?=$value_PageList->slug_Str?>" class="button2"><div class="p"><?=$value_PageList->title_Str?></div></a>
 						<?endforeach?>
-					</div>
+					</div>-->
 				</div>
 				<div class="li">
 					<a class="button">療程項目</a>
