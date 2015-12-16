@@ -20,91 +20,156 @@ $(function(){
 		}
 	});
 	
-	$(".left_area .nav .father").click(function() {
-		$(this).toggleClass("active");
-		$(this).children(".child_area").slideToggle();
-		
-	});
 	$(" .phone_nav  .hide_box ").hide()
 	$(" .phone_nav .phone_father ").click(function() {
 		$(this).toggleClass("active");
 		$(" .phone_nav  .hide_box ").slideToggle();
 	});
+	
+	$(".child_area").hide();
+	$(".father_item").click(function() {
+		$(this).toggleClass("active");
+		$(this).children(".child_item").slideToggle();
+	});
+	
 });
 </script>
 
 <div class="top_banner_box">
-	<!--<div class="bg"></div>
-	<div class="text_pic_box">
-		<img src="app/img/default/heart.png">
-		<h2>Listen to the voice <br>
-			of the body...</h2>
-	</div>
-	<div class="bottom_pic"></div>-->
+	
+	<div class="text_box">	
+		<h2>為你打造美麗俏佳人</h2>
+		<h2>For you to create beautiful Bride</h2>
+	</div>	
 </div>
 <div class="content01">
 	<div class="left_area">
 		<div class="nav">
-			<div href="" class="father">
-				<a href="showpiece/view/?showpieceid=1" class="li">
-					歷史沿革
-					<span></span>
-				</a>
+			<div class="list_title">
+				療程項目
 			</div>
-			<div  class="father">
-				<a href="" class="li">
-					合作夥伴
-					<span></span>
-				</a>
-				<div class="child_area">
-					<a href="" class="button">啟美藥局</a>
-					<a href="" class="button">亞欣醫美診所</a>
-					<a href="" class="button" >USIES</a>
+			<div class="father_item">
+				<p>微整形</p>
+				<div class="child_item">
+					<?for($crcle=0;$crcle<6;$crcle++):?>
+					<a href="page/<?=$value_Pager->slug_Str?>"><span></span><div class="item">鈴鐺線拉提</div></a>
+					<?endfor?>
 				</div>
-		 </div>
-			<div  class="father">
-				<a href="" class="li">
-					服務項目
-					<span></span>
-				</a>
+				<img src="app/img/showpiece/footer_arrow.png">
+			</div>
+			<div class="father_item">
+				<p>整形外科</p>
+				<div class="child_item">
+					<a href="showpiece/1"><span></span><div class="item">鈴鐺線拉提</div></a>
+					<a href="showpiece/1"><span></span><div class="item">脂肪填補(臉部雕塑)</div></a>
+					<a href="showpiece/1"><span></span><div class="item">雙眼皮手術</div></a>
+					<a href="showpiece/1"><span></span><div class="item">眼袋手術</div></a>
+					<a href="showpiece/1"><span></span><div class="item">隆鼻手術</div></a>
+					<a href="showpiece/1"><span></span><div class="item">下巴整形</div></a>
+					<a href="showpiece/1"><span></span><div class="item">隆乳手術隆乳手術</div></a>
+					<a href="showpiece/1"><span></span><div class="item">z波黃金脂雕Ultra-Z(抽脂/體雕)</div></a>
+
+				</div>
+				<img src="app/img/showpiece/footer_arrow.png">
+			</div>
+			<div class="father_item">
+				<p>美機保養</p>
+				<div class="child_item">
+					<?for($crcle=0;$crcle<5;$crcle++):?>
+					<a href="showpiece/1"><span></span>frtgrtgryb6y</a>
+					<?endfor?>
+				</div>
+				<img src="app/img/showpiece/footer_arrow.png">
+			</div>
+			<div class="father_item">
+				<p>抗老化</p>
+				<div class="child_item">
+					<?for($crcle=0;$crcle<3;$crcle++):?>
+					<a href="showpiece/1"><span></span>frtgrtgryb6y</a>
+					<?endfor?>
+				</div>
+				<img src="app/img/showpiece/footer_arrow.png">
+			</div>
+			<div class="father_item">
+				<p>健康管理</p>
+				<div class="child_item">
+					
+					<a href="showpiece/1">frtgrtgryb6y</a>
+					
+				</div>
+				<img src="app/img/showpiece/footer_arrow.png">
 			</div>
 		</div>
-		<div class="phone_nav">
+		<!--<div class="phone_nav">
 			<div class="phone_father">
 				<?=$PagerField->title_Str?>
 				<span></span>
 			</div>
 			<div class="hide_box">
 			</div>
-		</div>
+		</div>-->
 	</div>
 	<div class="right_area">
+		<div class="navigation_box">
+			<span>療程項目</span> / <span class="color">整形外科</span>
+		</div>
 		<div class="top_title_box">
-			<div class="title">
-				<img src="app/img/index/sketch_light.gif" class="sketch_light">
-				<h1>鈴鐺線拉提</h1>
-				
-			</div>
-			<div class="sketch_grass">
-				<img src="app/img/index/sketch_grass2.gif">
+			<div class="long_box">
+				<div class="circle"></div>
+				<div class="line_short"></div>
+				<h1>整形外科</h1>
+				<div class="line_long"></div>
 			</div>
 		</div>
 		<div class="text_area">
-			<p></p> 
-			 <p>鈴鐺線拉提是一種微創拉皮術，手術只需局部麻醉，安全性高。手術一開始會於髮際線後方兩公分處開出約1.5CM左右的微創傷口(傷口隱密不易被察覺)。利用約1.5CM的傷口將塑形線固定在深層筋膜，再將特殊塑線材拉緊欲改善的部位並固定線材，達到積極改善鬆弛下垂的目的。</p>
-			<p>特點
-非手術性: 非手術性的療程，只需局部麻醉。
-快速: 療程時間約1小時。
-即時效果: 立即見效。
-恢復期短: 恢復期約一週。
-安全性: 獲美國食品藥物管理局(FDA)及歐洲藥品評鑑局(CE)及台灣衛福部核准三重認證。
-效果持久: 由於圓錐和線的設計強韌和持久度佳。LIFT(大鈴鐺線) 3~5年，SOFT(小鈴鐺線、圓錐線) 1~2年。
-降低不舒適性: 線的厚度上是很細，圓錐體的設計既軟又圓，大大降低針扎感。
-
-適應症:  30~35歲下垂程度明顯之肌膚狀況
-適應部位:  眉形拉提/眼尾下垂/法令紋/嘴邊肉/蘋果肌下垂/雙下巴/雞脖子/下顎線V-line拉提
-</p> 
-			 <img src="app/img/default/pic3.png">
+			<?for($crcle=0;$crcle<3;$crcle++):?>
+			<a href="showpiece/1" class="item_box">
+				<div class="pic_box">
+					<div class="bg"></div>
+					<img src="app/img/showpiece/01.jpg">	
+				</div>
+				<div class="right_box">
+					<div class="text">
+						<div class="p">
+							鈴鐺線拉提
+						</div>
+					</div>
+				</div>
+				<div class="arrow"></div>
+			</a>
+			<?endfor?>
+			<?for($crcle=0;$crcle<3;$crcle++):?>
+			<a href="showpiece/1" class="item_box">
+				<div class="pic_box">
+					<div class="bg"></div>
+					<img src="app/img/showpiece/06.jpg">	
+				</div>
+				<div class="right_box">
+					<div class="text">
+						<div class="p">
+							下巴整形
+						</div>
+					</div>
+				</div>
+				<div class="arrow"></div>
+			</a>
+			<?endfor?>
+			<?for($crcle=0;$crcle<2;$crcle++):?>
+			<a href="showpiece/1" class="item_box">
+				<div class="pic_box">
+					<div class="bg"></div>
+					<img src="app/img/showpiece/08.jpg">	
+				</div>
+				<div class="right_box">
+					<div class="text">
+						<div class="p">
+							z波黃金脂雕Ultra-Z(抽脂/體雕)
+						</div>
+					</div>
+				</div>
+				<div class="arrow"></div>
+			</a>
+			<?endfor?>
 		</div>
 	</div>
 </div>	

@@ -55,6 +55,7 @@ class Showpiece_Controller extends MY_Controller {
         ));
 
          //global
+		$data['global']['js'][] = 'app/js/script_header_bar_mobile.js';
         $data['global']['style'][] = 'app/css/temp/global.css';
         $data['global']['style'][] = 'app/css/showpiece/index.css';
 		$data['global']['style'][] = 'app/css/temp/header_bar.css';
@@ -77,7 +78,7 @@ class Showpiece_Controller extends MY_Controller {
         
         $showpieceid_Num = $this->input->get('showpieceid');
 
-        $data['Showpiece'] = new ShowpieceWhenyi();
+        $data['Showpiece'] = new Showpiece();
         $data['Showpiece']->construct_db(array(
             'db_where_Arr' => array(
                 'showpieceid' => $showpieceid_Num
@@ -116,9 +117,9 @@ class Showpiece_Controller extends MY_Controller {
         ));
         
        //global
-      
+		$data['global']['js'][] = 'app/js/script_header_bar_mobile.js';
 		$data['global']['style'][] = 'app/css/temp/global.css';
-        $data['global']['style'][] = 'app/css/showpiece/view';
+        $data['global']['style'][] = 'app/css/showpiece/view.css';
 		$data['global']['style'][] = 'app/css/temp/header_bar.css';
 		$data['global']['style'][] = 'app/css/temp/footer_bar.css';
         
