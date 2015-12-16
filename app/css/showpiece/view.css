@@ -109,7 +109,9 @@ h1{font-size:34px;line-height:40px;letter-spacing:2px;}
 .content01 .right_area .top_title_box .long_box  h1{  float:left;padding-left:13px; padding-right:11px;font-family:"bb" ;font-size:30px;}
 .content01 .right_area .text_area{width:100%;overflow:hidden; font-size:14px; color:#444; line-height:20px; letter-spacing:1px;}
 
-
+.content01 .right_area  .prev{ display:block;color:#555; width:60px;float:right; overflow:hidden; margin:40px 0px; letter-spacing:1px; }
+.content01 .right_area  .prev .arrow{ width:15px;height:15px; float:right; transform:rotate(90deg);  font-size:12px; margin-top:3px;}
+.content01 .right_area  .prev:hover{ color:#955f1c;}
 
 @media screen and (min-width:1400px){
 	
