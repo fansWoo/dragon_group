@@ -9,7 +9,7 @@
 	<div class="spanLine">
 	    <div class="spanStage">
             <div class="spanLineLeft">
-                商品名稱
+                療程項目名稱
             </div>
             <div class="spanLineLeft width500">
                 <input type="text" class="text" name="name_Str" placeholder="請輸入商品名稱" value="<?=$showpiece_Showpiece->name_Str?>">
@@ -19,7 +19,7 @@
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
-                商品圖片
+                療程項目圖片
             </div>
             <div class="spanLineRight">
                 <div fanswoo-pic_upload_ajax>上傳更多圖片</div>
@@ -51,117 +51,59 @@
             <div class="spanLineLeft">
             </div>
             <div class="spanLineLeft width500">
-                <span class="gray">請上傳300x300之圖檔，多張圖檔將以第一張為默認顯示圖檔</span>
+                <span class="gray">請上傳200x200之圖檔，多張圖檔將以第一張為默認顯示圖檔</span>
             </div>
         </div>
     </div>
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
-                商品分類
+                項目分類標籤
             </div>
-            <div class="spanLineLeft width500" fanswoo-selectEachDiv="class">
+            <div class="spanLineLeft width300">
                 <?if(!empty($showpiece_Showpiece->class_ClassMetaList->obj_Arr)):?>
-                <?foreach($showpiece_Showpiece->class_ClassMetaList->obj_Arr as $key => $value_ClassMeta):?>
-                    <div class="selectLine" fanswoo-selectEachLine>
-                        <span class="floatleft">分類 <span fanswoo-selectEachLineCount></span> ：</span>
-                        <select fanswoo-selectEachLineMaster="class">
-                            <option value="">沒有分類標籤</option>
-                            <?foreach($class2_ClassMetaList->obj_Arr as $key2 => $value2_ClassMeta):?>
-                            <option value="<?=$value2_ClassMeta->classid_Num?>"<?if($value_ClassMeta->class_ClassMetaList->obj_Arr[0]->classid_Num == $value2_ClassMeta->classid_Num):?> selected<?endif?>><?=$value2_ClassMeta->classname_Str?></option>
-                            <?endforeach?>
-                        </select>
-                        <span fanswoo-selectEachLineSlave="class">
-                        <?foreach($class2_ClassMetaList->obj_Arr as $key2 => $value2_ClassMeta):?>
-                            <select fanswoo-selectValue="<?=$value2_ClassMeta->classid_Num?>" fanswoo-selectName="classids_Arr[]"<?if($value_ClassMeta->class_ClassMetaList->obj_Arr[0]->classid_Num == $value2_ClassMeta->classid_Num):?> name="classids_Arr[]"<?else:?> style="display:none;"<?endif?>>
-                                <option value="">沒有分類標籤</option>
-                                <?
-                                    $test_ClassMetaList = new ObjList();
-                                    $test_ClassMetaList->construct_db(array(
-                                        'db_where_Arr' => array(
-                                            'modelname_Str' => 'showpiece'
-                                        ),
-                                        'db_where_or_Arr' => array(
-                                            'classids' => array($value2_ClassMeta->classid_Num)
-                                        ),
-                                        'model_name_Str' => 'ClassMeta',
-                                        'limitstart_Num' => 0,
-                                        'limitcount_Num' => 100
-                                    ));
-                                ?>
-                                <?foreach($test_ClassMetaList->obj_Arr as $key3 => $value3_ClassMeta):?>
-                                <option value="<?=$value3_ClassMeta->classid_Num?>"<?if($value_ClassMeta->classid_Num == $value3_ClassMeta->classid_Num):?> selected<?endif?>><?=$value3_ClassMeta->classname_Str?></option>
-                                <?endforeach?>
-                            </select>
-                        <?endforeach?>
-                        </span>
-                    </div>
-                <?endforeach?>
-                <?endif?>
-                <div class="selectLine" fanswoo-selectEachLine>
-                    <span class="floatleft">分類 <span fanswoo-selectEachLineCount></span> ：</span>
-                    <select fanswoo-selectEachLineMaster="class">
+                <div>
+                    <select name="classids_Arr[]">
                         <option value="">沒有分類標籤</option>
-                        <?foreach($class2_ClassMetaList->obj_Arr as $key2 => $value2_ClassMeta):?>
-                        <option value="<?=$value2_ClassMeta->classid_Num?>"><?=$value2_ClassMeta->classname_Str?></option>
+                        <?foreach($class_ClassMetaList->obj_Arr as $key2 => $value2_NoteClass):?>
+                        <option value="<?=$value2_NoteClass->classid_Num?>"<?if($showpiece_Showpiece->class_ClassMetaList->obj_Arr[0]->classid_Num == $value2_NoteClass->classid_Num):?> selected<?endif?>><?=$value2_NoteClass->classname_Str?></option>
                         <?endforeach?>
                     </select>
-                    <span fanswoo-selectEachLineSlave="class">
-                    <?foreach($class2_ClassMetaList->obj_Arr as $key2 => $value2_ClassMeta):?>
-                        <select name="classids_Arr[]" fanswoo-selectValue="<?=$value2_ClassMeta->classid_Num?>" fanswoo-selectName="classids_Arr[]" style="display:none;">
-                            <option value="">沒有分類標籤</option>
-                            <?
-                                $test_ClassMetaList = new ObjList();
-                                $test_ClassMetaList->construct_db(array(
-                                    'db_where_Arr' => array(
-                                        'modelname_Str' => 'showpiece'
-                                    ),
-                                    'db_where_or_Arr' => array(
-                                        'classids' => array($value2_ClassMeta->classid_Num)
-                                    ),
-                                    'model_name_Str' => 'ClassMeta',
-                                    'limitstart_Num' => 0,
-                                    'limitcount_Num' => 100
-                                ));
-                            ?>
-                            <?foreach($test_ClassMetaList->obj_Arr as $key3 => $value3_ClassMeta):?>
-                            <option value="<?=$value3_ClassMeta->classid_Num?>"><?=$value3_ClassMeta->classname_Str?></option>
-                            <?endforeach?>
-                        </select>
-                    <?endforeach?>
-                    </span>
                 </div>
+                <?else:?>
+                <div>
+                    <select name="classids_Arr[]">
+                        <option value="">沒有分類標籤</option>
+                        <?foreach($class_ClassMetaList->obj_Arr as $key => $value_ClassMeta):?>
+                        <option value="<?=$value_ClassMeta->classid_Num?>"><?=$value_ClassMeta->classname_Str?></option>
+                        <?endforeach?>
+                    </select>
+                </div>
+                <?endif?>
             </div>
         </div>
         <div class="spanStage">
             <div class="spanLineLeft">
             </div>
             <div class="spanLineLeft width500">
-                <span class="gray">請選擇二級分類及分類標籤，多種分類可以重複選取</span>
-            </div>
-        </div>
-        <div class="spanStage">
-            <div class="spanLineLeft">
-            </div>
-            <div class="spanLineLeft width500">
-                <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/classmeta2/tablelist">管理二級分類</a>
+                <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/classmeta/tablelist">管理項目分類</a>
             </div>
         </div>
     </div>
-	<div class="spanLine">
+	<!-- <div class="spanLine">
 	    <div class="spanStage">
             <div class="spanLineLeft">
-                商品簡介
+                療程項目簡介
             </div>
             <div class="spanLineLeft width500">
                 <textarea cols="80" id="synopsis_Str" name="synopsis_Str" rows="10"><?=$showpiece_Showpiece->synopsis_Str?></textarea>
 		    </div>
 		</div>
-	</div>
+	</div> -->
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
-                產品內容
+                療程項目內容
             </div>
             <div class="spanLineRight">
                 <div fanswoo-pic_upload_ajax>上傳更多圖片</div>
@@ -186,7 +128,7 @@
             </div>
         </div>
     </div>
-    <div class="spanLine">
+    <!-- <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
                 產品規格
@@ -213,7 +155,7 @@
             <div class="spanLineLeft">
             </div>
         </div>
-    </div>
+    </div> -->
 	<div class="spanLine">
 	    <div class="spanStage">
             <div class="spanLineLeft">
@@ -227,8 +169,9 @@
             <div class="spanLineLeft">
             </div>
             <div class="spanLineRight">
+                <p class="gray">優先排序值較高者，其排序較為前面</p>
             </div>
-		</div>
+        </div>
 	</div>
     <?if(!empty($showpiece_Showpiece->showpieceid_Num)):?>
     <div class="spanLine">
@@ -248,7 +191,7 @@
             </div>
             <div class="spanLineRight">
                 <?if(!empty($showpiece_Showpiece->showpieceid_Num)):?><input type="hidden" name="showpieceid_Num" value="<?=$showpiece_Showpiece->showpieceid_Num?>"><?endif?>
-                <input type="submit" class="submit" value="<?if(!empty($showpiece_Showpiece->showpieceid_Num)):?>儲存變更<?else:?>新增商品<?endif?>">
+                <input type="submit" class="submit" value="<?if(!empty($showpiece_Showpiece->showpieceid_Num)):?>儲存變更<?else:?>新增療程項目<?endif?>">
                 <?if(!empty($showpiece_Showpiece->showpieceid_Num)):?><span class="submit gray" onClick="fanswoo.check_href_action('確定要刪除嗎？', 'admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/delete/?showpieceid=<?=$showpiece_Showpiece->showpieceid_Num?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除<?=$child3_title_Str?></span><?endif?>
             </div>
         </div>

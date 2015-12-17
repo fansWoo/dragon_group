@@ -37,85 +37,35 @@
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
-                產品分類
+                頁面分類標籤
             </div>
-            <?if(!empty($PagerField->class_ClassMetaList->obj_Arr)):?>
-                <?foreach($PagerField->class_ClassMetaList->obj_Arr as $key => $value_ClassMeta):?>
-                    <div class="selectLine" fanswoo-selectEachLine>
-                        <span class="floatleft">分類：</span>
-                        <select fanswoo-selectEachLineMaster="class">
-                            <option value="">沒有分類標籤</option>
-                            <?foreach($class_ClassMetaList->obj_Arr as $key2 => $value2_ClassMeta):?>
-                            <option value="<?=$value2_ClassMeta->classid_Num?>"<?if($value_ClassMeta->class_ClassMetaList->obj_Arr[0]->classid_Num == $value2_ClassMeta->classid_Num):?> selected<?endif?>><?=$value2_ClassMeta->classname_Str?></option>
-                            <?endforeach?>
-                        </select>
-                        <span fanswoo-selectEachLineSlave="class">
-                        <?foreach($class_ClassMetaList->obj_Arr as $key2 => $value2_ClassMeta):?>
-                            <select fanswoo-selectValue="<?=$value2_ClassMeta->classid_Num?>" fanswoo-selectName="classids_Arr[]"<?if($value_ClassMeta->class_ClassMetaList->obj_Arr[0]->classid_Num == $value2_ClassMeta->classid_Num):?> name="classids_Arr[]"<?else:?> style="display:none;"<?endif?>>
-                                <option value="">沒有分類標籤</option>
-                                <?
-                                    $test_ClassMetaList = new ObjList();
-                                    $test_ClassMetaList->construct_db(array(
-                                        'db_where_Arr' => array(
-                                            'modelname_Str' => 'pager'
-                                        ),
-                                        'db_where_or_Arr' => array(
-                                            'classids' => array($value2_ClassMeta->classid_Num)
-                                        ),
-                                        'model_name_Str' => 'ClassMeta',
-                                        'limitstart_Num' => 0,
-                                        'limitcount_Num' => 100
-                                    ));
-                                ?>
-                                <?foreach($test_ClassMetaList->obj_Arr as $key3 => $value3_ClassMeta):?>
-                                <option value="<?=$value3_ClassMeta->classid_Num?>"<?if($value_ClassMeta->classid_Num == $value3_ClassMeta->classid_Num):?> selected<?endif?>><?=$value3_ClassMeta->classname_Str?></option>
-                                <?endforeach?>
-                            </select>
-                        <?endforeach?>
-                        </span>
-                    </div>
-                <?endforeach?>
-                <?else:?>
-                <div class="selectLine" fanswoo-selectEachLine>
-                    <span class="floatleft">分類：</span>
-                    <select fanswoo-selectEachLineMaster="class">
+            <div class="spanLineLeft width300">
+                <?if(!empty($PagerField->class_ClassMetaList->obj_Arr)):?>
+                <div>
+                    <select name="classids_Arr[]">
                         <option value="">沒有分類標籤</option>
-                        <?foreach($class_ClassMetaList->obj_Arr as $key2 => $value2_ClassMeta):?>
-                        <option value="<?=$value2_ClassMeta->classid_Num?>"><?=$value2_ClassMeta->classname_Str?></option>
+                        <?foreach($PagerClassMetaList->obj_Arr as $key2 => $value2_NoteClass):?>
+                        <option value="<?=$value2_NoteClass->classid_Num?>"<?if($PagerField->class_ClassMetaList->obj_Arr[0]->classid_Num == $value2_NoteClass->classid_Num):?> selected<?endif?>><?=$value2_NoteClass->classname_Str?></option>
                         <?endforeach?>
                     </select>
-                    <span fanswoo-selectEachLineSlave="class">
-                    <?foreach($class_ClassMetaList->obj_Arr as $key2 => $value2_ClassMeta):?>
-                        <select name="classids_Arr[]" fanswoo-selectValue="<?=$value2_ClassMeta->classid_Num?>" fanswoo-selectName="classids_Arr[]" style="display:none;">
-                            <option value="">沒有分類標籤</option>
-                            <?
-                                $test_ClassMetaList = new ObjList();
-                                $test_ClassMetaList->construct_db(array(
-                                    'db_where_Arr' => array(
-                                        'modelname_Str' => 'pager'
-                                    ),
-                                    'db_where_or_Arr' => array(
-                                        'classids' => array($value2_ClassMeta->classid_Num)
-                                    ),
-                                    'model_name_Str' => 'ClassMeta',
-                                    'limitstart_Num' => 0,
-                                    'limitcount_Num' => 100
-                                ));
-                            ?>
-                            <?foreach($test_ClassMetaList->obj_Arr as $key3 => $value3_ClassMeta):?>
-                            <option value="<?=$value3_ClassMeta->classid_Num?>"><?=$value3_ClassMeta->classname_Str?></option>
-                            <?endforeach?>
-                        </select>
-                    <?endforeach?>
-                    </span>
                 </div>
-            <?endif?>
+                <?else:?>
+                <div>
+                    <select name="classids_Arr[]">
+                        <option value="">沒有分類標籤</option>
+                        <?foreach($PagerClassMetaList->obj_Arr as $key => $value_ClassMeta):?>
+                        <option value="<?=$value_ClassMeta->classid_Num?>"><?=$value_ClassMeta->classname_Str?></option>
+                        <?endforeach?>
+                    </select>
+                </div>
+                <?endif?>
+            </div>
         </div>
         <div class="spanStage">
             <div class="spanLineLeft">
             </div>
             <div class="spanLineLeft width500">
-                <span class="gray">請選擇二級分類及分類標籤，多種分類可以重複選取</span>
+                <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/classmeta/tablelist">管理項目分類</a>
             </div>
         </div>
     </div>

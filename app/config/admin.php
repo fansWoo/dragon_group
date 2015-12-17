@@ -6,7 +6,7 @@ $config['group_purview_Arr'] = array(
 	),
 	'2' => array(//總管理員，看得到除了系統管理員以外的所有管理員
 		array('base', 'global', 'global', 'common'),
-		// array('base', 'global', 'global', 'email'),
+		array('base', 'global', 'global', 'email'),
 		array('base', 'global', 'global', 'seo'),
 		array('base', 'global', 'global', 'plugin'),
 		// array('base', 'advertising', 'advertising', 'edit'),
@@ -29,14 +29,14 @@ $config['group_purview_Arr'] = array(
 		// array('base', 'user', 'classmeta', 'tablelist'),
 		array('base', 'pager', 'pager', 'edit'),
 		array('base', 'pager', 'pager', 'tablelist'),
-		array('base', 'pager', 'classmeta', 'edit'),
-		array('base', 'pager', 'classmeta', 'tablelist'),
+		// array('base', 'pager', 'classmeta', 'edit'),
+		// array('base', 'pager', 'classmeta', 'tablelist'),
 		// array('base', 'pager', 'classmeta2', 'edit'),
 		// array('base', 'pager', 'classmeta2', 'tablelist'),
-		// array('base', 'showpiece', 'showpiece', 'edit'),
-		// array('base', 'showpiece', 'showpiece', 'tablelist'),
-		// array('base', 'showpiece', 'classmeta', 'edit'),
-		// array('base', 'showpiece', 'classmeta', 'tablelist'),
+		array('base', 'showpiece', 'showpiece', 'edit'),
+		array('base', 'showpiece', 'showpiece', 'tablelist'),
+		array('base', 'showpiece', 'classmeta', 'edit'),
+		array('base', 'showpiece', 'classmeta', 'tablelist'),
 		// array('base', 'showpiece', 'classmeta2', 'edit'),
 		// array('base', 'showpiece', 'classmeta2', 'tablelist'),
 		array('base', 'contact', 'contact', 'edit'),
@@ -172,29 +172,29 @@ $config['admin_sidebox'] = array(
 					)
 				),
 				'showpiece' => array(
-					'title' => '商品展示',
+					'title' => '療程項目',
 					'child3' => array(
 						'showpiece' => array(
-							'title' => '產品',
+							'title' => '療程項目',
 							'child4' => array(
 								'edit' => array('title' => '編輯'),
 								'tablelist' => array('title' => '列表')
 							)
 						),
 						'classmeta' => array(
-							'title' => '產品分類',
+							'title' => '項目分類',
 							'child4' => array(
 								'edit' => array('title' => '編輯'),
 								'tablelist' => array('title' => '列表')
 							)
 						),
-						'classmeta2' => array(
-							'title' => '二級分類',
-							'child4' => array(
-								'edit' => array('title' => '編輯'),
-								'tablelist' => array('title' => '列表')
-							)
-						)
+						// 'classmeta2' => array(
+						// 	'title' => '二級分類',
+						// 	'child4' => array(
+						// 		'edit' => array('title' => '編輯'),
+						// 		'tablelist' => array('title' => '列表')
+						// 	)
+						// )
 					)
 				),
 				'user' => array(

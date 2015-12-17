@@ -12,13 +12,13 @@
 	</div>
 	<div class="spanLine tableTitle">
         <div class="spanLineLeft text width100">
-			產品ID
+			療程項目ID
         </div>
-        <div class="spanLineLeft text width500">
-			產品名稱
+        <div class="spanLineLeft text width300">
+			療程項目名稱
         </div>
         <div class="spanLineLeft text width150">
-            產品分類標籤
+            項目分類標籤
         </div>
 	</div>
     <?php echo form_open("admin/$child1_name_Str/$child2_name_Str/$child3_name_Str/{$child4_name_Str}_post/") ?>
@@ -26,8 +26,8 @@
             <div class="spanLineLeft text width100">
                 <input type="number" class="text" style="margin-left:-6px;" value="<?=!empty($search_showpieceid_Num)?$search_showpieceid_Num:''?>" name="search_showpieceid_Num" placeholder="請填寫ID">
             </div>
-            <div class="spanLineLeft text width500">
-                <input type="text" class="text" style="margin-left:-6px;" value="<?=!empty($search_name_Str)?$search_name_Str:''?>" name="search_name_Str" placeholder="請填寫產品名稱">
+            <div class="spanLineLeft text width300">
+                <input type="text" class="text" style="margin-left:-6px;" value="<?=!empty($search_name_Str)?$search_name_Str:''?>" name="search_name_Str" placeholder="請填寫療程項目名稱">
             </div>
             <div class="spanLineLeft text width150">
                 <select name="search_class_slug_Str" style="margin-left:-6px;">
@@ -48,7 +48,7 @@
         <div class="spanLineLeft text width100">
             <?=$value_Showpiece->showpieceid_Num?>
         </div>
-        <div class="spanLineLeft text width500">
+        <div class="spanLineLeft text width300">
             <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/edit/?showpieceid=<?=$value_Showpiece->showpieceid_Num?>"><?=$value_Showpiece->name_Str?></a>
         </div>
         <div class="spanLineLeft text width150">

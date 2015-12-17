@@ -43,17 +43,12 @@ $(function(){
 			<div class="right_nav">
 				<div class="li">
 					<a href="page/about" class="button">關於龍安</a>
-					<!--<div class="down_box">
-						<?foreach($about_PageList->obj_Arr as $key => $value_PageList):?>
-							<a href="page/<?=$value_PageList->slug_Str?>" class="button2"><div class="p"><?=$value_PageList->title_Str?></div></a>
-						<?endforeach?>
-					</div>-->
 				</div>
 				<div class="li">
 					<a class="button">療程項目</a>
 					<div class="down_box">
-						<?foreach($services_PageList->obj_Arr as $key => $value_PageList):?>
-							<a href="page/<?=$value_PageList->slug_Str?>" class="button2"><div class="p"><?=$value_PageList->title_Str?></div></a>
+						<?foreach($showpiece_ClassMetaList->obj_Arr as $key => $value_showpiece_ClassMeta):?>
+							<a href="showpiece?class_slug=<?=$value_showpiece_ClassMeta->slug_Str?>" class="button2"><div class="p"><?=$value_showpiece_ClassMeta->classname_Str?></div></a>
 						<?endforeach?>
 					</div>
 				</div>
@@ -82,26 +77,13 @@ $(function(){
 	<div class="header_bar_mobile_content">
 		<div class="scrollbar">
 			<a class="li" href="<?=base_url()?>">首頁</a>
-			<div class="header_father_area">
-				<p>關於龍安</p>
-				<div class="child_area">
-					<?foreach($about_PageList->obj_Arr as $key => $value_PageList):?>
-						<a href="page/<?=$value_PageList->slug_Str?>" class="button2"><?=$value_PageList->title_Str?></a>
-					<?endforeach?>
-					<!-- <a href="page/about">了解龍安</a>
-					<a href="page/about">歷史沿革</a>
-					<a href="page/about">合作夥伴</a> -->
-				</div>
-			</div>
+			<a class="li" href="page/about">關於龍安</a>
 			<div class="header_father_area">
 				<p>療程項目</p>
 				<div class="child_area">
-					<?foreach($services_PageList->obj_Arr as $key => $value_PageList):?>
-						<a href="page/<?=$value_PageList->slug_Str?>" class="button2"><div class="p"><?=$value_PageList->title_Str?></div></a>
+					<?foreach($showpiece_ClassMetaList->obj_Arr as $key => $value_showpiece_ClassMeta):?>
+						<a href="showpiece?class_slug=<?=$value_showpiece_ClassMeta->slug_Str?>" class="button2"><div class="p"><?=$value_showpiece_ClassMeta->classname_Str?></div></a>
 					<?endforeach?>
-					<!-- <a href="page/about">了解龍安</a>
-					<a href="page/about">歷史沿革</a>
-					<a href="page/about">合作夥伴</a> -->
 				</div>
 			</div>
 			<div class="header_father_area">
@@ -110,14 +92,11 @@ $(function(){
 					<?foreach($cases_PageList->obj_Arr as $key => $value_PageList):?>
 						<a href="page/<?=$value_PageList->slug_Str?>" class="button2"><div class="p"><?=$value_PageList->title_Str?></div></a>
 					<?endforeach?>
-					
 				</div>
 			</div>
 			<a class="li" href="note">最新消息</a>
 			<a class="li" href="contact">線上預約</a>
 			<a class="li" href="https://www.facebook.com/DragonHealthcare?skip_nax_wizard=true&ref_type=bookmark" target="_blank">facebook</a>
-			<!--<a class="li" href="admin">後台</a>
-			<a class="li" href="user/logout">登出</a>-->
 		</div>	
 	</div>
 	<div class="wrap_shadow"></div>

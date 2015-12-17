@@ -55,50 +55,6 @@ class MY_Controller extends FS_Controller
             ]);
         }
 
-        //關於我們頁籤
-        $about_ClassMeta = new ClassMeta();
-        $about_ClassMeta->construct_db(array(
-            'db_where_Arr' => array(
-                'slug' => 'about'
-            )
-        ));
-
-        $data['about_PageList'] = new ObjList();
-        $data['about_PageList']->construct_db(array(
-            'db_where_Arr' => array(
-                'classids' => $about_ClassMeta->classid_Num
-            ),
-            'db_orderby_Arr' => array(
-                'prioritynum' => 'DESC',
-                'pagerid' => 'DESC'
-            ),
-            'model_name_Str' => 'Pager',
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 100
-        ));
-
-        //服務項目頁籤
-        $services_ClassMeta = new ClassMeta();
-        $services_ClassMeta->construct_db(array(
-            'db_where_Arr' => array(
-                'slug' => 'services'
-            )
-        ));
-
-        $data['services_PageList'] = new ObjList();
-        $data['services_PageList']->construct_db(array(
-            'db_where_Arr' => array(
-                'classids' => $services_ClassMeta->classid_Num
-            ),
-            'db_orderby_Arr' => array(
-                'prioritynum' => 'DESC',
-                'pagerid' => 'DESC'
-            ),
-            'model_name_Str' => 'Pager',
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 100
-        ));
-
         //案例分享頁籤
         $cases_ClassMeta = new ClassMeta();
         $cases_ClassMeta->construct_db(array(
@@ -117,6 +73,21 @@ class MY_Controller extends FS_Controller
                 'pagerid' => 'DESC'
             ),
             'model_name_Str' => 'Pager',
+            'limitstart_Num' => 0,
+            'limitcount_Num' => 100
+        ));
+
+        //療程項目列表
+        $data['showpiece_ClassMetaList'] = new ObjList();
+        $data['showpiece_ClassMetaList']->construct_db(array(
+            'db_where_Arr' => array(
+                'modelname_Str' => 'showpiece'
+            ),
+            'db_orderby_Arr' => array(
+                'prioritynum' => 'DESC',
+                'classid' => 'DESC'
+            ),
+            'model_name_Str' => 'ClassMeta',
             'limitstart_Num' => 0,
             'limitcount_Num' => 100
         ));

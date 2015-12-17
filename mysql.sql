@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主機: localhost
--- 建立日期: 2015-11-06: 14:01:38
+-- 建立日期: 2015-12-17: 17:20:23
 -- 伺服器版本: 5.6.21
 -- PHP 版本: 5.6.3
 
@@ -43,26 +43,6 @@ CREATE TABLE IF NOT EXISTS `fs_advertising` (
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `fs_advertising_class`
---
-
-CREATE TABLE IF NOT EXISTS `fs_advertising_class` (
-  `classid` mediumint(8) NOT NULL,
-  `classname` char(40) NOT NULL,
-  `status` int(1) NOT NULL DEFAULT '0',
-  UNIQUE KEY `classid` (`classid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
---
--- 資料表的匯出資料 `fs_advertising_class`
---
-
-INSERT INTO `fs_advertising_class` (`classid`, `classname`, `status`) VALUES
-(1, '首頁廣告', 1);
-
--- --------------------------------------------------------
-
---
 -- 資料表結構 `fs_class`
 --
 
@@ -86,15 +66,14 @@ CREATE TABLE IF NOT EXISTS `fs_class` (
 --
 
 INSERT INTO `fs_class` (`classid`, `classname`, `slug`, `content`, `uid`, `amountnum`, `modelname`, `classids`, `prioritynum`, `updatetime`, `status`) VALUES
-(528501, '網頁設計', '528501', '', 528501, 0, '', '', 0, '0000-00-00 00:00:00', 1),
 (528518, '專業諮詢', 'df036cd3', '', 528502, 0, 'note', '', 0, '2015-09-17 17:32:59', 1),
-(528576, '首頁', '357a5bec', '', 528503, 0, 'advertising', '', 5, '2015-03-14 16:32:06', 1),
-(528619, '上方導航欄', 'topheader', '', 528501, 0, 'pager2', '', 0, '2015-09-17 19:11:57', 1),
-(528592, 'test2', '1fad5a43', 'test2', 528501, 0, 'pic', '', 0, '2015-07-14 02:02:20', 1),
-(528620, '關於我們', 'about', '', 528501, 0, 'pager', '528619', 0, '2015-09-17 19:12:14', 1),
 (528618, '醫療美容', '35786c51', '', 528502, 0, 'note', '', 0, '2015-09-17 17:28:08', 1),
-(528621, '服務項目', 'services', '', 528501, 0, 'pager', '528619', 0, '2015-11-06 13:49:12', 1),
-(528622, '案例分享', 'cases', '', 528501, 0, 'pager', '528619', 0, '2015-11-06 13:49:52', 1);
+(528622, '案例分享', 'cases', '', 528502, 0, 'pager', '', 0, '2015-12-17 17:18:04', 1),
+(528623, '整形外科', '021e5f22', '', 528501, 0, 'showpiece', '', 0, '2015-12-17 15:30:43', 1),
+(528624, '健康管理', '57e5d136', '', 528501, 0, 'showpiece', '', 0, '2015-12-17 15:36:22', 1),
+(528625, '抗老化', '5d9f1190', '', 528501, 0, 'showpiece', '', 0, '2015-12-17 15:36:32', 1),
+(528626, '美肌保養', '7e13d1d1', '', 528501, 0, 'showpiece', '', 0, '2015-12-17 15:36:45', 1),
+(528627, '微整形', '92bebf88', '', 528501, 0, 'showpiece', '', 0, '2015-12-17 15:37:01', 1);
 
 -- --------------------------------------------------------
 
@@ -208,11 +187,7 @@ CREATE TABLE IF NOT EXISTS `fs_pager` (
 --
 
 INSERT INTO `fs_pager` (`pagerid`, `uid`, `username`, `title`, `slug`, `href`, `classids`, `target`, `viewnum`, `prioritynum`, `updatetime`, `status`) VALUES
-(1, 528501, '', '關於龍安', 'b44ff655', '', '528620', 0, 0, 3, '2015-09-17 19:12:21', 1),
-(2, 528501, '', '歷史沿革', '3030f227', '', '528620', 0, 0, 2, '2015-09-17 19:12:27', 1),
-(3, 528501, '', '合作夥伴', 'b7382494', '', '528620', 0, 0, 2, '2015-09-17 19:12:32', 1),
-(4, 528502, '', '服務項目', '23a76905', '', '528621', 0, 0, 0, '2015-11-06 13:59:40', 1),
-(5, 528502, '', '案例分享', 'aceade27', '', '528622', 0, 0, 0, '2015-11-06 13:58:51', 1);
+(1, 528502, '', '案例分享', 'aceade27', '', '528622', 0, 0, 0, '2015-11-06 13:58:51', 1);
 
 -- --------------------------------------------------------
 
@@ -231,11 +206,7 @@ CREATE TABLE IF NOT EXISTS `fs_pager_field` (
 --
 
 INSERT INTO `fs_pager_field` (`pagerid`, `content`) VALUES
-(1, '<p style="font-family: ''Times New Roman'', ''LiHei Pro'', 儷黑體, sans-serif; margin: 0px 0px 10px; padding: 0px; font-size: 14px; line-height: 22px; letter-spacing: 2px; color: rgb(0, 0, 0);">關於龍安<br />\r\n我們已經在地服務將近20年，長期以來不斷照護著大直地區的居民，我們秉持著關懷的心與專業的技術，不斷更新醫療器材以及聘請優良的醫師來為大家服務，近年來更配合政府的免費健康服務，提供多元化的免費醫療檢查，歡迎大家多多利用，平時多關心家人及朋友的健康，並長期做運動來保健身體。您的支持與認同就是龍安最大的原動力。</p>\r\n\r\n<p style="font-family: ''Times New Roman'', ''LiHei Pro'', 儷黑體, sans-serif; margin: 0px 0px 10px; padding: 0px; font-size: 14px; line-height: 22px; letter-spacing: 2px; color: rgb(0, 0, 0);">Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.</p>\r\n\r\n<p style="font-family: ''Times New Roman'', ''LiHei Pro'', 儷黑體, sans-serif; margin: 0px 0px 10px; padding: 0px; font-size: 14px; line-height: 22px; letter-spacing: 2px; color: rgb(0, 0, 0);">Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.<br />\r\n<img src="http://localhost/dr/app/img/default/pic3.png" style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; border: 0px; display: block; margin: 30px auto; color: rgb(0, 0, 0); font-size: medium; line-height: 19.2px;" /></p>\r\n'),
-(2, '<p style="font-family: ''Times New Roman'', ''LiHei Pro'', 儷黑體, sans-serif; margin: 0px 0px 10px; padding: 0px; font-size: 14px; line-height: 22px; letter-spacing: 2px; color: rgb(0, 0, 0);">歷史沿革<br />\r\n我們已經在地服務將近20年，長期以來不斷照護著大直地區的居民，我們秉持著關懷的心與專業的技術，不斷更新醫療器材以及聘請優良的醫師來為大家服務，近年來更配合政府的免費健康服務，提供多元化的免費醫療檢查，歡迎大家多多利用，平時多關心家人及朋友的健康，並長期做運動來保健身體。您的支持與認同就是龍安最大的原動力。</p>\r\n\r\n<p style="font-family: ''Times New Roman'', ''LiHei Pro'', 儷黑體, sans-serif; margin: 0px 0px 10px; padding: 0px; font-size: 14px; line-height: 22px; letter-spacing: 2px; color: rgb(0, 0, 0);">Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.</p>\r\n\r\n<p style="font-family: ''Times New Roman'', ''LiHei Pro'', 儷黑體, sans-serif; margin: 0px 0px 10px; padding: 0px; font-size: 14px; line-height: 22px; letter-spacing: 2px; color: rgb(0, 0, 0);">Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.<br />\r\n<img src="http://localhost/dr/app/img/default/pic3.png" style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; border: 0px; display: block; margin: 30px auto; font-size: medium; line-height: 19.2px;" /></p>\r\n'),
-(3, '<p style="font-family: ''Times New Roman'', ''LiHei Pro'', 儷黑體, sans-serif; margin: 0px 0px 10px; padding: 0px; font-size: 14px; line-height: 22px; letter-spacing: 2px; color: rgb(0, 0, 0);">合作夥伴<br />\r\n我們已經在地服務將近20年，長期以來不斷照護著大直地區的居民，我們秉持著關懷的心與專業的技術，不斷更新醫療器材以及聘請優良的醫師來為大家服務，近年來更配合政府的免費健康服務，提供多元化的免費醫療檢查，歡迎大家多多利用，平時多關心家人及朋友的健康，並長期做運動來保健身體。您的支持與認同就是龍安最大的原動力。</p>\r\n\r\n<p style="font-family: ''Times New Roman'', ''LiHei Pro'', 儷黑體, sans-serif; margin: 0px 0px 10px; padding: 0px; font-size: 14px; line-height: 22px; letter-spacing: 2px; color: rgb(0, 0, 0);">Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.</p>\r\n\r\n<p style="font-family: ''Times New Roman'', ''LiHei Pro'', 儷黑體, sans-serif; margin: 0px 0px 10px; padding: 0px; font-size: 14px; line-height: 22px; letter-spacing: 2px; color: rgb(0, 0, 0);">Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.<br />\r\n<img src="http://localhost/dr/app/img/default/pic3.png" style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; border: 0px; display: block; margin: 30px auto; font-size: medium; line-height: 19.2px;" /></p>\r\n'),
-(4, '<p style="font-family: ''Times New Roman'', ''LiHei Pro'', 儷黑體, sans-serif; margin: 0px 0px 10px; padding: 0px; font-size: 14px; line-height: 22px; letter-spacing: 2px; color: rgb(0, 0, 0);">服務項目<br />\r\n我們已經在地服務將近20年，長期以來不斷照護著大直地區的居民，我們秉持著關懷的心與專業的技術，不斷更新醫療器材以及聘請優良的醫師來為大家服務，近年來更配合政府的免費健康服務，提供多元化的免費醫療檢查，歡迎大家多多利用，平時多關心家人及朋友的健康，並長期做運動來保健身體。您的支持與認同就是龍安最大的原動力。</p>\r\n\r\n<p style="font-family: ''Times New Roman'', ''LiHei Pro'', 儷黑體, sans-serif; margin: 0px 0px 10px; padding: 0px; font-size: 14px; line-height: 22px; letter-spacing: 2px; color: rgb(0, 0, 0);">Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.</p>\r\n\r\n<p style="font-family: ''Times New Roman'', ''LiHei Pro'', 儷黑體, sans-serif; margin: 0px 0px 10px; padding: 0px; font-size: 14px; line-height: 22px; letter-spacing: 2px; color: rgb(0, 0, 0);">Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.</p>\r\n'),
-(5, '<p style="font-family: ''Times New Roman'', ''LiHei Pro'', 儷黑體, sans-serif; margin: 0px 0px 10px; padding: 0px; font-size: 14px; line-height: 22px; letter-spacing: 2px; color: rgb(0, 0, 0);">服務項目<br />\r\n我們已經在地服務將近20年，長期以來不斷照護著大直地區的居民，我們秉持著關懷的心與專業的技術，不斷更新醫療器材以及聘請優良的醫師來為大家服務，近年來更配合政府的免費健康服務，提供多元化的免費醫療檢查，歡迎大家多多利用，平時多關心家人及朋友的健康，並長期做運動來保健身體。您的支持與認同就是龍安最大的原動力。</p>\r\n\r\n<p style="font-family: ''Times New Roman'', ''LiHei Pro'', 儷黑體, sans-serif; margin: 0px 0px 10px; padding: 0px; font-size: 14px; line-height: 22px; letter-spacing: 2px; color: rgb(0, 0, 0);">Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.</p>\r\n\r\n<p style="font-family: ''Times New Roman'', ''LiHei Pro'', 儷黑體, sans-serif; margin: 0px 0px 10px; padding: 0px; font-size: 14px; line-height: 22px; letter-spacing: 2px; color: rgb(0, 0, 0);">Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.</p>\r\n');
+(1, '<p style="font-family: ''Times New Roman'', ''LiHei Pro'', 儷黑體, sans-serif; margin: 0px 0px 10px; padding: 0px; font-size: 14px; line-height: 22px; letter-spacing: 2px; color: rgb(0, 0, 0);">服務項目<br />\r\n我們已經在地服務將近20年，長期以來不斷照護著大直地區的居民，我們秉持著關懷的心與專業的技術，不斷更新醫療器材以及聘請優良的醫師來為大家服務，近年來更配合政府的免費健康服務，提供多元化的免費醫療檢查，歡迎大家多多利用，平時多關心家人及朋友的健康，並長期做運動來保健身體。您的支持與認同就是龍安最大的原動力。</p>\r\n\r\n<p style="font-family: ''Times New Roman'', ''LiHei Pro'', 儷黑體, sans-serif; margin: 0px 0px 10px; padding: 0px; font-size: 14px; line-height: 22px; letter-spacing: 2px; color: rgb(0, 0, 0);">Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.</p>\r\n\r\n<p style="font-family: ''Times New Roman'', ''LiHei Pro'', 儷黑體, sans-serif; margin: 0px 0px 10px; padding: 0px; font-size: 14px; line-height: 22px; letter-spacing: 2px; color: rgb(0, 0, 0);">Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.</p>\r\n');
 
 -- --------------------------------------------------------
 
@@ -264,7 +235,8 @@ CREATE TABLE IF NOT EXISTS `fs_pic` (
 --
 
 INSERT INTO `fs_pic` (`picid`, `uid`, `title`, `filename`, `size`, `type`, `md5`, `classids`, `thumb`, `prioritynum`, `updatetime`, `status`) VALUES
-(3, 528501, 'pic.jpg', 'pic.jpg', 48892, 'image/jpeg', '35a0fdc9ca9d7a35', '', 'w50h50,w300h300,w600h600', 0, '2015-09-18 09:40:44', 1);
+(3, 528501, 'pic.jpg', 'pic.jpg', 48892, 'image/jpeg', '35a0fdc9ca9d7a35', '', 'w50h50,w300h300,w600h600', 0, '2015-09-18 09:40:44', 1),
+(4, 528501, '04.jpg', '04.jpg', 37952, 'image/jpeg', '042727dc100e9028', '', 'w50h50,w300h300,w600h600', 0, '2015-12-17 16:44:03', 1);
 
 -- --------------------------------------------------------
 
@@ -740,7 +712,83 @@ INSERT INTO `fs_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activ
 ('ece6cb4f54ba5cd95e7078d8ffc7e230', '220.133.138.76', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.93 Safari/537.36', 1442538194, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
 ('061b1ad9a5c152b7845b7f63fb852ee7', '117.19.2.203', 'Mozilla/5.0 (Linux; Android 4.4.2; SGH-N075T Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.96 Mo', 1442539804, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
 ('f4886819d265a5dc3de3b028c65d6070', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.93 Safari/537.36', 1442540386, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
-('c757b1fa76e8d4691be8d5af42f569e1', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36', 1446788796, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";}');
+('c757b1fa76e8d4691be8d5af42f569e1', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36', 1446788796, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";}'),
+('2645814b1d0559c316b26302375b2ab4', '220.133.138.76', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36', 1446789901, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";}'),
+('acda087d5ec252fcbb3873b14eadc30e', '220.133.138.76', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36', 1446789946, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";}'),
+('5b087de7d0e0d4fa8705d27cbb0bdb75', '220.133.138.76', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36', 1446792388, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('b11fffad98f9263c061f5987e650e48e', '66.102.7.170', 'Google favicon', 1446952373, ''),
+('9ba2a8bac8c33e3acc3dbe90bae8cc86', '66.102.7.156', 'Google favicon', 1446952374, ''),
+('c93a52c1d7e46b9c1ca10a34c3020ca0', '220.133.38.69', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36', 1446988888, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";}'),
+('96a32b4b7cba963ff67726ae1d49cf0c', '219.71.107.253', 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_0_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13A452 [FBAN/FBI', 1447007669, ''),
+('ed450f5ace05998defae6cc3eaf0f169', '66.102.7.170', 'Google favicon', 1447044607, ''),
+('d70eaa9be1b00e212f7f4bf9f6258f00', '66.102.7.156', 'Google favicon', 1447044608, ''),
+('526f4dbd3c6b1504692166341e318b1a', '114.25.234.253', 'Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko', 1447059942, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";}'),
+('7bccba4955ec977ff7a28d295ffd6189', '220.133.138.76', 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345', 1447120288, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('bc85fa3ae9ffb658c2b026747a3ee36a', '220.133.138.76', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36', 1447120369, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";}'),
+('952a82d5268c102004bfdaa54052afe8', '66.102.7.170', 'Google favicon', 1447133474, ''),
+('12f5b41bc954d6331fded6714112486c', '66.102.7.156', 'Google favicon', 1447133474, ''),
+('7523d86b70c01c80704dad939f72fd11', '27.247.79.194', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36', 1447175257, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";}'),
+('844b61be6cce257e25dde6c4e0ea0d4e', '66.102.7.156', 'Google favicon', 1447254283, ''),
+('5cb7a2c9cb11b3369dc331ca3bd6d832', '66.102.7.170', 'Google favicon', 1447254283, ''),
+('011075f1ab16cebcb55f09d9e33e7458', '66.102.7.156', 'Google favicon', 1447341069, ''),
+('c38637e9a8e1609efd3b3efbbec3d1e9', '66.102.7.163', 'Google favicon', 1447341069, ''),
+('4d48d6cf134e5a3c91b466c343894c03', '220.133.138.76', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1447379536, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('a8b817877319060ae0e60296713241a5', '66.102.7.163', 'Google favicon', 1447545209, ''),
+('62a9ee69c886bf2808d5c874607ddcaa', '66.102.7.156', 'Google favicon', 1447545211, ''),
+('6bcf626f30f14a3e3d6a43e705211c83', '66.220.156.117', 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)', 1447587587, ''),
+('dff52a7fac10e549b004201cc0e84e06', '66.220.156.117', 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)', 1447587588, ''),
+('700c96199ae7a18bc171b2c80af62259', '66.102.7.170', 'Google favicon', 1447651184, ''),
+('3180b4bafb11f0ae447da8982e1c4ba5', '66.102.7.156', 'Google favicon', 1447651184, ''),
+('a00f76e61ffd6ce177bbf0c44f7f9c9c', '220.133.38.69', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1447651557, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";}'),
+('cc15dc84d95e305d8de9faff9776f7f9', '114.25.238.80', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1447749271, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";}'),
+('7e4ca30093ac38a4cc3d50577ae8d11f', '59.124.185.162', 'Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.132 Safari/537.36', 1447985881, ''),
+('58ba320d625dd5c8e918dc9ff9528502', '66.249.84.214', 'Google favicon', 1448382936, ''),
+('7280dd89f4852092f3af439566f1d5ec', '66.249.84.210', 'Google favicon', 1448382937, ''),
+('2b14d437a1adf475a3cc6e722e2066b3', '122.116.80.252', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:42.0) Gecko/20100101 Firefox/42.0', 1448437558, ''),
+('b3e756e88f9bb62e8c4de33cb2de6efb', '66.220.156.109', 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)', 1448437558, ''),
+('e0f78729a8fa962a0fe20d3360e72bd8', '66.220.156.109', 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)', 1448437559, ''),
+('b4ab5e0edb15898b9400b80f6a1d7f36', '66.249.80.19', 'Google favicon', 1448689851, ''),
+('729a42cf97027352ba13ed49b81904d2', '66.249.80.19', 'Google favicon', 1448689851, ''),
+('dc08867ec56bae975692cb2e2eb80b5a', '66.249.80.19', 'Google favicon', 1448782584, ''),
+('9e3d2a98beb87c8d238f7412cab9cd0c', '66.249.80.19', 'Google favicon', 1448782584, ''),
+('b44f053c628e22543d3a322e0a829304', '66.249.80.1', 'Google favicon', 1448849081, ''),
+('a3c667b7a0d9f88288cbe0474ac18a57', '66.249.80.1', 'Google favicon', 1448849081, ''),
+('9c630a539040243193127cb7341635e9', '66.249.80.19', 'Google favicon', 1448953224, ''),
+('b7d947cd11c284c65adf02bc8b885c86', '66.249.80.19', 'Google favicon', 1448953225, ''),
+('27a67f478732332dd0ea37a0f7c13588', '66.249.84.206', 'Google favicon', 1448966619, ''),
+('df18e4524683f2f8a9331c3e2d942888', '66.249.84.214', 'Google favicon', 1448966619, ''),
+('10dfbcfea69e6781c76c8231fbc684d8', '180.204.146.153', 'Mozilla/5.0 (Linux; Android 4.4.4; SM-G530Y Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/33.0', 1449036333, ''),
+('608716f918d477dcb3db37f61047306e', '66.249.80.10', 'Google favicon', 1449039761, ''),
+('36ff97673f39ebe5b2a98b23299ca709', '66.249.80.19', 'Google favicon', 1449039762, ''),
+('e7a618caa714c598c18858de6d0d8a69', '66.249.88.48', 'Google favicon', 1449124135, ''),
+('829bcf4f1f44c3604552797c9ee7d2a8', '66.249.88.59', 'Google favicon', 1449124135, ''),
+('6f7461e3e3282e92376430a3164bc228', '66.249.80.19', 'Google favicon', 1449198085, ''),
+('9cc9289635d9f614c9c52a1a69275f53', '66.249.80.19', 'Google favicon', 1449198085, ''),
+('f719775e46f1b66c51f3fee8f123ddc9', '173.252.114.113', '0', 1449285307, ''),
+('6f3d48b7cd0ba6a6f5152ab9b1aadbf4', '173.252.114.113', '0', 1449285308, ''),
+('1e8373069830d8a74136b9bb8ee14255', '111.243.56.69', 'Mozilla/5.0 (Linux; Android 4.4.2; LG-D802 Build/KOT49I.D80220c) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490', 1449320516, ''),
+('8ab18a8b46050d1560c66f71747eb1a5', '173.252.88.185', 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)', 1449320517, ''),
+('f178c3f532a0f946a94dc0a920d230f2', '173.252.88.185', 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)', 1449320518, ''),
+('8351f6e7e65395cf223c689db1b7dc7d', '66.249.80.10', 'Google favicon', 1449385357, ''),
+('b7fb99504e166494ba27c2fd4908a05a', '66.249.80.10', 'Google favicon', 1449385357, ''),
+('b1d09f23c8dad6f1e0bf906518cb6cf3', '114.25.228.54', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36', 1449483101, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";}'),
+('b146d930baa01b59d94facb128edb440', '66.249.80.10', 'Google favicon', 1449494615, ''),
+('567c91ed3aa80e27c4c277de7d6acef6', '66.249.80.10', 'Google favicon', 1449494615, ''),
+('6d4a2f764c3a8225e8a55bf459e82412', '114.25.237.235', 'Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; Touch; rv:11.0) like Gecko', 1449556292, ''),
+('f474341429d84bdf854567a9bee534c8', '114.25.237.235', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64; Trident/7.0; Touch; rv:11.0) like Gecko', 1449556293, ''),
+('6fba010eafa492cae8a4f20f01e018c8', '123.192.211.198', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/601.3.9 (KHTML, like Gecko) Version/9.0.2 Safari/601.3.9', 1449803911, ''),
+('9437fed44d2c8f598db2a8e6f6ba3561', '66.249.80.10', 'Mozilla/5.0 (Windows NT 6.1; rv:6.0) Gecko/20110814 Firefox/6.0 Google Favicon', 1449997360, ''),
+('42ecbc18f98e69977c684eb9a55ed240', '66.249.80.1', 'Mozilla/5.0 (Windows NT 6.1; rv:6.0) Gecko/20110814 Firefox/6.0 Google Favicon', 1449997360, ''),
+('0666f71233f9313e0f00a83a2634046b', '220.136.112.129', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.80 Safari/537.36', 1450077755, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('097a298b4af8a07a3f988b574fe432af', '114.37.105.201', 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13C75 [FBAN/FBIOS;', 1450114876, '');
+INSERT INTO `fs_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
+('d81cd6c4efa13de09c3ea25472af01de', '220.136.115.88', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.80 Safari/537.36', 1450147763, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('a988670a2ab46d356986a7c98168fe8b', '173.252.105.116', '0', 1450149517, ''),
+('63a77785f56a2589b4ebc6ad8d3064e1', '173.252.105.116', '0', 1450149518, ''),
+('29ab3b707b4fd28d4bb67dd41947f67a', '66.249.80.19', 'Mozilla/5.0 (Windows NT 6.1; rv:6.0) Gecko/20110814 Firefox/6.0 Google Favicon', 1450151422, ''),
+('5a1433fbc1547496c9a9bc2ee8fd3fbf', '66.249.80.1', 'Mozilla/5.0 (Windows NT 6.1; rv:6.0) Gecko/20110814 Firefox/6.0 Google Favicon', 1450151422, ''),
+('e926405b743d8a99d392a5ce908a05de', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.80 Safari/537.36', 1450336502, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('344915d77749275d881b761a157145ce', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 1450342844, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";}');
 
 -- --------------------------------------------------------
 
@@ -768,156 +816,14 @@ INSERT INTO `fs_setting` (`keyword`, `value`, `modelname`, `status`) VALUES
 ('website_script_plugin_custom', '', '', 1),
 ('website_script_plugin_ga', '', '', 1),
 ('website_script_plugin_fb', '', '', 1),
-('note_order', 'priority', '', 1),
-('note_amount', '5', '', 1),
 ('website_title_name', 'fansWoo 瘋沃科技', '', 1),
 ('website_title_introduction', '網站測試中', '', 1),
-('index_activity_content', 'test', '', 1),
-('index_activity_image', 'app/img/bg8.jpg', '', 1),
-('index_showroom_content', 'test', '', 1),
-('index_showroom_image', 'app/img/bg6.jpg', '', 1),
-('index_news_image', 'app/img/bg9.jpg', '', 1),
-('index_news_content', 'test', '', 1),
-('page_story_title1', 'test', 'page_story', 1),
-('page_story_text1', 'test', '', 1),
-('page_story_content1', 'test', '', 1),
-('page_story_title2', 'test2', '', 1),
-('page_story_text2', 'test2', '', 1),
-('page_story_content2', 'test2', '', 1),
-('page_story_title3', 'test3', '', 1),
-('page_story_text3', 'test3', '', 1),
-('page_story_content3', 'test3', '', 1),
-('page_story_title4', 'test4', '', 1),
-('page_story_text4', 'test4', '', 1),
-('shop_hot_product', '528502\r\n528504\r\n528505', 'shop', 1),
-('shop_hot_showpiece', '528502\r\n528505', 'showpiece/list', 1),
 ('smtp_email', 'service@fanswoo.com', 'smtp', 1),
 ('smtp_password', '1234qwera', 'smtp', 1),
 ('smtp_ssl_checkbox', '1', 'smtp', 1),
 ('smtp_account', 'yi@fanswoo.com', 'smtp', 1),
 ('smtp_host', 'smtp.gmail.com', 'smtp', 1),
-('smtp_username', 'Ipix', 'smtp', 1);
-
--- --------------------------------------------------------
-
---
--- 資料表結構 `fs_shop_cart`
---
-
-CREATE TABLE IF NOT EXISTS `fs_shop_cart` (
-  `cartid` mediumint(8) NOT NULL,
-  `orderid` mediumint(8) NOT NULL,
-  `productid` mediumint(8) NOT NULL,
-  `stockid` mediumint(8) NOT NULL,
-  `uid` mediumint(8) NOT NULL,
-  `price` mediumint(8) NOT NULL,
-  `amount` mediumint(8) NOT NULL,
-  `status` int(1) NOT NULL,
-  UNIQUE KEY `cartid` (`cartid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
---
--- 資料表的匯出資料 `fs_shop_cart`
---
-
-INSERT INTO `fs_shop_cart` (`cartid`, `orderid`, `productid`, `stockid`, `uid`, `price`, `amount`, `status`) VALUES
-(528531, 528517, 528504, 0, 528501, 500, 1, -1),
-(528532, 528517, 528509, 0, 528501, 0, 1, -1),
-(528533, 528517, 528507, 0, 528501, 3, 1, 1),
-(528534, 528518, 528504, 0, 528501, 500, 1, -1),
-(528535, 528518, 528504, 0, 528501, 500, 1, -1),
-(528536, 528518, 528505, 0, 528501, 123, 1, -1),
-(528537, 528518, 528507, 0, 528501, 3, 1, -1),
-(528538, 528518, 528505, 0, 528501, 123, 1, 1),
-(528539, 528519, 528505, 0, 528501, 123, 1, -1),
-(528540, 528519, 528509, 0, 528501, 0, 1, -1),
-(528541, 528520, 528504, 0, 528511, 500, 1, -1),
-(528542, 528520, 528505, 0, 528511, 123, 1, -1),
-(528543, 528521, 528504, 0, 528501, 500, 1, -1),
-(528544, 528520, 528504, 0, 528501, 500, 2, 1),
-(528545, 528521, 528504, 0, 528511, 500, 2, -1),
-(528546, 528521, 528507, 0, 528511, 3, 1, -1),
-(528547, 528521, 528502, 0, 528511, 0, 1, -1),
-(528548, 528521, 528504, 0, 528511, 500, 1, 1),
-(528549, 528522, 528505, 0, 528511, 123, 1, 1),
-(528550, 528523, 528505, 0, 528501, 123, 1, -1),
-(528551, 528523, 0, 0, 528501, 0, 1, -1),
-(528552, 528523, 0, 0, 528501, 0, 1, -1),
-(528553, 528523, 528502, 0, 528501, 1000, 2, -1),
-(528554, 528523, 528502, 0, 528501, 1000, 6, -1),
-(528555, 528523, 528502, 0, 528501, 1000, 1, -1),
-(528556, 528523, 528502, 0, 528501, 1000, 4, 1);
-
--- --------------------------------------------------------
-
---
--- 資料表結構 `fs_shop_order`
---
-
-CREATE TABLE IF NOT EXISTS `fs_shop_order` (
-  `orderid` mediumint(8) NOT NULL,
-  `uid` mediumint(8) NOT NULL,
-  `receive_name` char(32) DEFAULT '',
-  `receive_phone` char(32) DEFAULT '',
-  `receive_time` char(32) DEFAULT '',
-  `receive_address` char(100) DEFAULT '',
-  `receive_remark` text NOT NULL,
-  `pay_paytype` char(32) DEFAULT '',
-  `pay_sendtype` char(32) DEFAULT '',
-  `pay_price_total` mediumint(10) DEFAULT '0',
-  `pay_price_freight` mediumint(10) DEFAULT '0',
-  `pay_account` char(50) DEFAULT '',
-  `pay_name` char(32) DEFAULT '',
-  `pay_paytime` datetime NOT NULL,
-  `pay_remark` text NOT NULL,
-  `pay_status` int(1) DEFAULT '0',
-  `paycheck_status` int(1) DEFAULT '0',
-  `product_status` int(1) DEFAULT '0',
-  `order_status` int(1) DEFAULT '0',
-  `sendtime` datetime NOT NULL,
-  `setuptime` datetime NOT NULL,
-  `updatetime` datetime NOT NULL,
-  `status` int(1) DEFAULT '0',
-  UNIQUE KEY `ordersid` (`orderid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- 資料表結構 `fs_shop_product`
---
-
-CREATE TABLE IF NOT EXISTS `fs_shop_product` (
-  `productid` mediumint(8) NOT NULL,
-  `uid` mediumint(8) NOT NULL,
-  `name` char(100) NOT NULL,
-  `price` mediumint(10) NOT NULL,
-  `mainpicids` char(100) NOT NULL,
-  `classids` char(100) NOT NULL,
-  `content` text NOT NULL,
-  `content_specification` text NOT NULL,
-  `synopsis` text NOT NULL,
-  `picids` char(100) NOT NULL,
-  `prioritynum` mediumint(8) NOT NULL,
-  `updatetime` datetime NOT NULL,
-  `status` int(1) NOT NULL,
-  UNIQUE KEY `productid` (`productid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- 資料表結構 `fs_shop_stock`
---
-
-CREATE TABLE IF NOT EXISTS `fs_shop_stock` (
-  `stockid` mediumint(8) NOT NULL,
-  `stocknum` mediumint(8) NOT NULL,
-  `status` int(11) NOT NULL,
-  `productid` mediumint(8) NOT NULL,
-  `classid` mediumint(8) NOT NULL,
-  UNIQUE KEY `stockid` (`stockid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+('smtp_username', 'fansWoo', 'smtp', 1);
 
 -- --------------------------------------------------------
 
@@ -943,6 +849,15 @@ CREATE TABLE IF NOT EXISTS `fs_showpiece` (
   `status` int(1) NOT NULL,
   UNIQUE KEY `showpieceid` (`showpieceid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- 資料表的匯出資料 `fs_showpiece`
+--
+
+INSERT INTO `fs_showpiece` (`showpieceid`, `uid`, `name`, `price`, `mainpicids`, `classids`, `content`, `content_specification`, `barcode`, `synopsis`, `picids`, `color`, `prioritynum`, `updatetime`, `status`) VALUES
+(1, 528501, '雙眼皮手術', 0, '', '528623', '<span style="line-height: 20.8px;">Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.</span>', '', '', '', '4', '', '0', '2015-12-17 16:44:06', 1),
+(3, 528501, '埋線拉提', 0, '', '528627', '', '', '', '', '', '', '0', '2015-12-17 16:12:07', 1),
+(2, 528501, '鈴鐺線拉提', 0, '', '528623', '<span style="line-height: 20.8px;">Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.</span>', '', '', '', '', '', '0', '2015-12-17 15:38:02', 1);
 
 -- --------------------------------------------------------
 

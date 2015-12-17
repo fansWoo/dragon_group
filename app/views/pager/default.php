@@ -9,14 +9,9 @@ $(function(){
 		var scroll_top = $(document).scrollTop();	
 		if(window_width > 450 && window_width <= 1400){
 
-			
-			
 		}
 		if(window_width >= 1400){
 			
-			
-			
-		
 		}
 	});
 	
@@ -53,29 +48,6 @@ $(function(){
 					</a>
 				</div>
 			<?endforeach?>
-			<!-- <div href="" class="father">
-				<a href="" class="li">
-					歷史沿革
-					<span></span>
-				</a>
-			</div>
-			<div  class="father">
-				<a href="" class="li">
-					合作夥伴
-					<span></span>
-				</a> -->
-				<!--<div class="child_area">
-					<a href="" class="button">啟美藥局</a>
-					<a href="" class="button">亞欣醫美診所</a>
-					<a href="" class="button" >USIES</a>
-				</div>-->
-			<!-- </div>
-			<div  class="father">
-				<a href="" class="li">
-					服務項目
-					<span></span>
-				</a>
-			</div> -->
 		</div>
 		<div class="phone_nav">
 			<div class="phone_father">
@@ -85,10 +57,6 @@ $(function(){
 			<div class="hide_box">
 				<?foreach($PagerList->obj_Arr as $key => $value_Pager):?>
 					<a href="page/<?=$value_Pager->slug_Str?>" class="li"><?=$value_Pager->title_Str?></a>	
-					<!-- <a href="" class="li">關於龍安</a>
-					<a href="" class="li">歷史沿革</a>
-					<a href="" class="li">合作夥伴</a>
-					<a href="" class="li">服務項目</a> -->
 				<?endforeach?>
 			</div>
 		</div>
@@ -106,13 +74,8 @@ $(function(){
 		</div>
 		<div class="text_area">
 			<p><?=$PagerField->content_Html?></p>
-			<!-- <p>我們已經在地服務將近20年，長期以來不斷照護著大直地區的居民，我們秉持著關懷的心與專業的技術，不斷更新醫療器材以及聘請優良的醫師來為大家服務，近年來更配合政府的免費健康服務，提供多元化的免費醫療檢查，歡迎大家多多利用，平時多關心家人及朋友的健康，並長期做運動來保健身體。您的支持與認同就是龍安最大的原動力。</p>
-			<p>Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.</p>
-			<p>Sed id dolor. In hac habitasse platea dictumst. Maecenas diam ligula, vulputate vitae, mollis at, ullamcorper non, velit. Donec in velit. Sed lacus nisl, vestibulum sed, vehicula et, commodo eu, ligula. Duis vel lacus. In tincidunt. Vestibulum elit. Praesent hendrerit. Suspendisse venenatis.</p> -->
-			<!-- <img src="app/img/default/pic3.png"> -->
 		</div>
 	</div>
 </div>	
-
 <?=$temp['footer_bar']?>
 <?=$temp['body_end']?>

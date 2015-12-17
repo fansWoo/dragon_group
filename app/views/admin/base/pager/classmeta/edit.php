@@ -41,6 +41,7 @@
             </div>
         </div>
     </div>
+    <?if(0):?>
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
@@ -76,6 +77,7 @@
             </div>
         </div>
     </div>
+    <?endif?>
     <?if(0):?>
     <div class="spanLine">
         <div class="spanStage">

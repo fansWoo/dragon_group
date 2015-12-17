@@ -52,15 +52,15 @@ class Showpiece_Controller extends MY_Controller {
             'limitcount_Num' => 100
         ));
         
-        $data['class2_ClassMetaList'] = new ObjList();
-        $data['class2_ClassMetaList']->construct_db(array(
-            'db_where_Arr' => array(
-                'modelname_Str' => 'showpiece_class2'
-            ),
-            'model_name_Str' => 'ClassMeta',
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 100
-        ));
+        // $data['class2_ClassMetaList'] = new ObjList();
+        // $data['class2_ClassMetaList']->construct_db(array(
+        //     'db_where_Arr' => array(
+        //         'modelname_Str' => 'showpiece_class2'
+        //     ),
+        //     'model_name_Str' => 'ClassMeta',
+        //     'limitstart_Num' => 0,
+        //     'limitcount_Num' => 100
+        // ));
 
         //global
         $data['global']['style'][] = 'app/css/admin/global.css';
