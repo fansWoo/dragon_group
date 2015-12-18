@@ -9,10 +9,10 @@
 	<div class="spanLine">
 	    <div class="spanStage">
             <div class="spanLineLeft">
-                聯繫人名稱
+                聯繫人
             </div>
             <div class="spanLineLeft width500">
-                <?=$Contact->username_Str?>
+                <?=$Contact->username_Str?> <?if($Contact->sex_status_Num == 1):?>先生<?elseif($Contact->sex_status_Num == 2):?>小姐<?endif?>
 		    </div>
 		</div>
 	</div>
@@ -36,16 +36,16 @@
             </div>
         </div>
     </div>
-    <!-- <div class="spanLine">
+    <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
-                詢問類別
+                療程項目
             </div>
             <div class="spanLineLeft width500">
                 <?=$Contact->classtype_Str?>
             </div>
         </div>
-    </div> -->
+    </div>
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
@@ -53,6 +53,26 @@
             </div>
             <div class="spanLineLeft width500">
                 <?=$Contact->content_Str?>
+            </div>
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                就診紀錄
+            </div>
+            <div class="spanLineLeft width500">
+                <?if($Contact->visit_status_Num == 1):?>初診<?elseif($Contact->visit_status_Num == 2):?>複診<?endif?>
+            </div>
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                同意狀態
+            </div>
+            <div class="spanLineLeft width500">
+                <?if($Contact->agree_personal_data_status_Num == 0):?>未勾選<?elseif($Contact->agree_personal_data_status_Num == 1):?>同意提供個人資料作為諮詢通知範圍內之蒐集、處理及利用<?endif?>
             </div>
         </div>
     </div>

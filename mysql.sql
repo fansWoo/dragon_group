@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主機: localhost
--- 建立日期: 2015-12-17: 17:20:23
+-- 建立日期: 2015-12-18: 10:34:55
 -- 伺服器版本: 5.6.21
 -- PHP 版本: 5.6.3
 
@@ -86,10 +86,12 @@ CREATE TABLE IF NOT EXISTS `fs_contact` (
   `username` char(100) NOT NULL,
   `email` char(100) CHARACTER SET latin1 NOT NULL,
   `phone` char(100) CHARACTER SET latin1 NOT NULL,
-  `company` char(100) NOT NULL,
   `content` text NOT NULL,
-  `status_process` int(11) NOT NULL,
   `classtype` char(100) NOT NULL,
+  `sex_status` int(1) NOT NULL,
+  `visit_status` int(1) NOT NULL,
+  `agree_personal_data_status` int(1) NOT NULL,
+  `status_process` int(11) NOT NULL,
   `updatetime` datetime NOT NULL,
   `status` int(1) NOT NULL,
   UNIQUE KEY `contactid` (`contactid`)
@@ -99,8 +101,8 @@ CREATE TABLE IF NOT EXISTS `fs_contact` (
 -- 資料表的匯出資料 `fs_contact`
 --
 
-INSERT INTO `fs_contact` (`contactid`, `username`, `email`, `phone`, `company`, `content`, `status_process`, `classtype`, `updatetime`, `status`) VALUES
-(1, 'Mimi Chang', 'mimi@fanswoo.com', '0912345678', '', 'Hello!', 1, '', '2015-09-17 16:06:21', 1);
+INSERT INTO `fs_contact` (`contactid`, `username`, `email`, `phone`, `content`, `classtype`, `sex_status`, `visit_status`, `agree_personal_data_status`, `status_process`, `updatetime`, `status`) VALUES
+(1, 'Mimi Chang', 'mimi@fanswoo.com', '0912345678', 'TEST', '雙眼皮手術', 2, 1, 1, 2, '2015-12-18 10:34:33', 1);
 
 -- --------------------------------------------------------
 

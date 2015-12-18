@@ -15,13 +15,23 @@ class Contact_Controller extends MY_Controller {
     {
         $data = $this->data;
 
+        $data['ShowpieceList'] = new ObjList();
+        $data['ShowpieceList']->construct_db(array(
+            'db_orderby_Arr' => array(
+                array('prioritynum', 'DESC'),
+                array('showpieceid', 'DESC')
+            ),
+            'db_where_deletenull_Bln' => TRUE,
+            'model_name_Str' => 'Showpiece',
+            'limitstart_Num' => 0,
+            'limitcount_Num' => 999
+        ));
+
         //global
         $data['global']['style'][] = 'app/css/temp/global.css';
         $data['global']['style'][] = 'app/css/contact/index.css';
-		
 		$data['global']['style'][] = 'app/css/temp/header_bar.css';
 		$data['global']['style'][] = 'app/css/temp/footer_bar.css';
-		
 	    $data['global']['js'][] = 'app/js/script_header_bar_mobile.js';
         
         //temp
@@ -38,10 +48,12 @@ class Contact_Controller extends MY_Controller {
     public function contact_post()
     {
         $this->form_validation->set_rules('username_Str', '您的姓名', 'required');
+        $this->form_validation->set_rules('sex_status_Num', '您的姓別', 'required');
         $this->form_validation->set_rules('email_Str', '電子郵件', 'required');
-        // $this->form_validation->set_rules('phone_Str', '聯繫電話', 'required');
+        $this->form_validation->set_rules('classtype_Str', '療程項目', 'required');
         $this->form_validation->set_rules('content_Str', '內容', 'required');
-
+        $this->form_validation->set_rules('visit_status_Num', '就診紀錄', 'required');
+        $this->form_validation->set_rules('agree_personal_data_status_Num', '同意狀態', 'required');
 
         if ($this->form_validation->run() !== FALSE)
         {
@@ -50,14 +62,22 @@ class Contact_Controller extends MY_Controller {
             $email_Str = $this->input->post('email_Str', TRUE);
             $phone_Str = $this->input->post('phone_Str', TRUE);
             $content_Str = $this->input->post('content_Str', TRUE);
+            $classtype_Str = $this->input->post('classtype_Str', TRUE);
+            $sex_status_Num = $this->input->post('sex_status_Num', TRUE);
+            $visit_status_Num = $this->input->post('visit_status_Num', TRUE);
+            $agree_personal_data_status_Num = $this->input->post('agree_personal_data_status_Num', TRUE);
 
             //建構Contact物件，並且更新
-            $Contact = new Contact();
+            $Contact = new ContactDg();
             $Contact->construct(array(
                 'username_Str' => $username_Str,
                 'email_Str' => $email_Str,
                 'phone_Str' => $phone_Str,
                 'content_Str' => $content_Str,
+                'classtype_Str' => $classtype_Str,
+                'sex_status_Num' => $sex_status_Num,
+                'visit_status_Num' => $visit_status_Num,
+                'agree_personal_data_status_Num' => $agree_personal_data_status_Num,
                 'status_process_Num' => 1
             ));
             $Contact->update();
