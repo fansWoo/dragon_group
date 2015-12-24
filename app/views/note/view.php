@@ -9,18 +9,11 @@ $(function(){
 		var scroll_top = $(document).scrollTop();	
 		if(window_width > 450 && window_width <= 1400){
 
-			
-			
 		}
 		if(window_width >= 1400){
-			
-			
-			
-		
+
 		}
 	});
-	
-
 });
 </script>
 <div class="content01">
@@ -29,7 +22,7 @@ $(function(){
 			<div class="long_box">
 				<div class="circle"></div>
 				<div class="line_short"></div>
-				<h1>最新消息</h1>
+				<h1><?=$NoteField->class_ClassMetaList->obj_Arr[0]->classname_Str?></h1>
 				<div class="line_long"></div>
 			</div>
 		</div>
@@ -37,10 +30,9 @@ $(function(){
 			<div class="text_area">
 				<div class="title_box">
 					<div class="title"><?=$NoteField->title_Str?></div>
-					<div class="date"><div class="line"></div>2015.08.31</div>
+					<div class="date"><div class="line"></div><?=$NoteField->updatetime_DateTime->getdate_Arr['year']?> . <?=sprintf("%02d",$NoteField->updatetime_DateTime->getdate_Arr['mon'])?> . <?=sprintf("%02d",$NoteField->updatetime_DateTime->getdate_Arr['mday'])?></div>
 				</div>
 				<p><?=$NoteField->content_Html?></p>
-
 			</div>
 			<a href="note" class="more">
 				BACK <span>▲</span>
@@ -48,12 +40,6 @@ $(function(){
 		</div>
 		<div class="right_list">
 			<div class="nav">
-				<!-- <div class="hot_note"> 最新消息</div>
-				<?foreach($new_NoteFieldList->obj_Arr as $key => $value_NoteField):?>
-				<div class="father">
-					<a href="note/<?=$value_NoteField->noteid_Num?>"><?=$value_NoteField->title_Str?></a>
-				</div>
-				<?endforeach?> -->
 				<div class="hot_note">文章分類</div>
 					<?foreach($ClassMetaList->obj_Arr as $key => $value_ClassMeta):?>
 						<a href="note/?class_slug=<?=$value_ClassMeta->slug_Str?>" class="father">

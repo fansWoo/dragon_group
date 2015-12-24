@@ -72,14 +72,6 @@
 			</div>
 		</div>
 		<div class="right_list">
-			<!-- <div class="hot_note">最新消息</div>
-				<div class="nav">
-					<?foreach($new_NoteFieldList->obj_Arr as $key => $value_NoteField):?>
-						<div class="father">
-							<a href="note/<?=$value_NoteField->noteid_Num?>"><?=$value_NoteField->title_Str?></a>
-						</div>
-					<?endforeach?>
-				</div> -->
 			<div class="hot_note">文章分類</div>
 				<div class="nav">
 					<?foreach($ClassMetaList->obj_Arr as $key => $value_ClassMeta):?>
@@ -88,9 +80,9 @@
 						</a>
 					<?endforeach?>
 				</div>
+			</div>
 		</div>	
 	</div>
 </div>
-
 <?=$temp['footer_bar']?>
 <?=$temp['body_end']?>

@@ -17,25 +17,6 @@ class Note_Controller extends MY_Controller {
                 'slug' => $data['search_class_slug_Str']
             )
         ));
-        
-        $data['new_NoteFieldList'] = new ObjList();
-        $data['new_NoteFieldList']->construct_db(array(
-            'db_where_Arr' => array(
-                'modelname' => 'note'
-            ),
-            'db_where_or_Arr' => array(
-                'classids' => array($data['class_ClassMeta']->classid_Num)
-            ),
-            'model_name_Str' => 'NoteField',
-            'db_orderby_Arr' => array(
-                'prioritynum' => 'DESC',
-                'updatetime' => 'DESC'
-            ),
-            'db_where_deletenull_Bln' => TRUE,
-            'model_name_Str' => 'NoteField',
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 7
-        ));
 
         $data['NoteFieldList'] = new ObjList();
         $data['NoteFieldList']->construct_db(array(
@@ -43,7 +24,7 @@ class Note_Controller extends MY_Controller {
                 'modelname' => 'note'
             ),
             'db_where_or_Arr' => array(
-                'classids' => array($class_ClassMeta->classid_Num)
+                'classids' => array($data['class_ClassMeta']->classid_Num)
             ),
             'model_name_Str' => 'NoteField',
             'db_orderby_Arr' => array(
@@ -106,22 +87,6 @@ class Note_Controller extends MY_Controller {
             'limitstart_Num' => 0,
             'limitcount_Num' => 100
         ));
-        
-        $data['new_NoteFieldList'] = new ObjList();
-        $data['new_NoteFieldList']->construct_db(array(
-            'db_where_Arr' => array(
-                'modelname' => 'note'
-            ),
-            'model_name_Str' => 'NoteField',
-            'db_orderby_Arr' => array(
-                'prioritynum' => 'DESC',
-                'updatetime' => 'DESC'
-            ),
-            'db_where_deletenull_Bln' => TRUE,
-            'model_name_Str' => 'NoteField',
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 5
-        ));
 
         $data['NoteField'] = new NoteField();
         $data['NoteField']->construct_db(array(
@@ -144,12 +109,6 @@ class Note_Controller extends MY_Controller {
         $data['temp']['footer_bar'] = $this->load->view('temp/footer_bar', $data, TRUE);
         $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
         
-        //輸出模板
-        $this->load->view('note/view', $data);
-    }
-
-    public function slug($slug_Str)
-    {
         //輸出模板
         $this->load->view('note/view', $data);
     }
