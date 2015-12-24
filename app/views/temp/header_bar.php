@@ -79,6 +79,7 @@ $(function(){
 			<a class="li" href="<?=base_url()?>">首頁</a>
 			<a class="li" href="page/about">關於龍安</a>
 			<div class="header_father_area">
+				<img src="app/img/footer_arrow2.png" class="arrow">
 				<p>療程項目</p>
 				<div class="child_area">
 					<?foreach($showpiece_ClassMetaList->obj_Arr as $key => $value_showpiece_ClassMeta):?>
@@ -87,6 +88,7 @@ $(function(){
 				</div>
 			</div>
 			<div class="header_father_area">
+				<img src="app/img/footer_arrow2.png" class="arrow">
 				<p>案例分享</p>
 				<div class="child_area">
 					<?foreach($cases_PageList->obj_Arr as $key => $value_PageList):?>

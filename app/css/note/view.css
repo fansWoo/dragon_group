@@ -78,6 +78,8 @@ h1{font-size:34px;line-height:40px;letter-spacing:2px;}
  .right_list .nav{width:100%;}
  .right_list .nav .father{display:block;width:100%;padding:15px 0px; overflow:hidden; margin:0px auto;transition:0.3s;position:relative; border-top:1px solid #96601c;}
  .right_list .nav .father p{ width:90%; margin:0 auto;font-size:14px;display:block;text-align:left;line-height:16px;color:#666;transition:0.3s;letter-spacing:1px; text-align:center;}
+ .right_list .nav .father:hover{background-color:#fff;}
+ .right_list .nav .father:hover p{color:#96601c;}
 
 .content01 .ietm_area{width:100%; float:left;position:relative; }
 .content01  .ietm_area .top_title_box{width:100%;margin-bottom:15px;padding-bottom:15px;height:auto;position:relative; overflow:hidden;}

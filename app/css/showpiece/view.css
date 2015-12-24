@@ -122,11 +122,11 @@ h1{font-size:34px;line-height:40px;letter-spacing:2px;}
 .content01 .right_area .top_title_box .long_box .circle {float:left; width:12px; height:12px; border:3px solid #f4b538; border-radius:25px; margin-top:11px;}
 .content01 .right_area .top_title_box .long_box .line_short {float:left;width:30px; height:3px; background-color:#f4b538; margin-left:-2px; margin-top:18px;}
 .content01 .right_area .top_title_box .long_box .line_long {float:left;width:600px; height:3px;background-color:#f4b538; margin-top:18px;}
-.content01 .right_area .top_title_box .long_box  h1{  float:left;padding-left:13px; padding-right:11px;font-family:"bb" ;font-size:30px;}
-.content01 .right_area .text_area{width:100%;overflow:hidden; font-size:14px; color:#444; line-height:20px; letter-spacing:1px;}
+.content01 .right_area .top_title_box .long_box  h1{ float:left;padding-left:13px; padding-right:11px;font-family:"bb" ;font-size:30px;}
+.content01 .right_area .text_area{width:100%;overflow:hidden; font-size:14px; color:#444;  line-height:150%; letter-spacing:1.5px;}
 
-.content01 .right_area  .prev{ display:block;color:#555; width:60px;float:right; overflow:hidden; margin:40px 0px; letter-spacing:1px; }
-.content01 .right_area  .prev .arrow{ width:15px;height:15px; float:right; transform:rotate(90deg);  font-size:12px; margin-top:3px;}
+.content01 .right_area  .prev{ display:block;color:#555; width:70px;float:right; overflow:hidden; margin:40px 0px; letter-spacing:1px; }
+.content01 .right_area  .prev .arrow{ width:15px;height:15px; float:left; transform:rotate(-90deg);-webkit-transform:rotate(-90deg);font-size:12px; margin-top:-1px; margin-right:3px;}
 .content01 .right_area  .prev:hover{ color:#955f1c;}
 
 @media screen and (min-width:1600px){
@@ -187,16 +187,16 @@ h1{font-size:34px;line-height:40px;letter-spacing:2px;}
 	
 		.content01 .left_area{display:none;}
 		
-		.content01{width:100%;margin:40px auto 40px  auto;height:auto;overflow:hidden;padding-top:0px;-webkit-animation:p201509070239 1s ;animation: p201509070239 1s ; }
-		.content01 .right_area{width:300px;float:none;background:none; padding-left:0px; margin:0 auto;}
-		.content01 .right_area .navigation_box{ font-size:12px; overflow:hidden; margin-bottom:8px; letter-spacing:1px; float:right;color:#666;}
+		.content01{width:100%;margin:20px auto 40px  auto;height:auto;overflow:hidden;padding-top:0px;-webkit-animation:p201509070239 1s ;animation: p201509070239 1s ; }
+		.content01 .right_area{width:92%;float:none;background:none; padding-left:0px; margin:0 auto;}
+		.content01 .right_area .navigation_box{ font-size:12px; overflow:hidden; margin-bottom:0px; letter-spacing:1px; float:right;color:#666;}
 		.content01 .right_area .navigation_box .color{ color:#955f1c;}
 		.content01 .right_area .top_title_box{width:100%;margin-bottom:15px;padding-bottom:15px;height:auto;/* background:url(../../img/default/line.png) bottom left repeat-x; */position:relative; overflow:hidden;}
-		.content01 .right_area .top_title_box .long_box{width:1500px; overflow:hidden;}
-		.content01 .right_area .top_title_box .long_box .circle {float:left; width:8px; height:8px; border:3px solid #f4b538; border-radius:25px; margin-top:14px;}
-		.content01 .right_area .top_title_box .long_box .line_short {display:none;}
-		.content01 .right_area .top_title_box .long_box .line_long {float:left;width:1000px; height:3px;background-color:#f4b538; margin-top:18px;}
-		.content01 .right_area .top_title_box .long_box  h1{  float:left;padding-left:8px; padding-right:10px;}
+		.content01 .right_area .top_title_box .long_box{width:100%; overflow:hidden;}
+		.content01 .right_area .top_title_box .long_box .circle {display:none;}
+		.content01 .right_area .top_title_box .long_box .line_short {display:block;width:1000px;margin-bottom:10px;}
+		.content01 .right_area .top_title_box .long_box .line_long {float:left;width:1000px; height:3px;background-color:#f4b538; margin-top:10px;}
+		.content01 .right_area .top_title_box .long_box  h1{  float:none;padding-left:8px; padding-right:10px; text-align:center;}
 
 		.content01 .right_area .text_area{width:100%;overflow:hidden;}
 		.content01 .right_area .text_area .item_box{ display:block;width:296px;margin:0 auto; margin-right:0px;margin-bottom:15px;height:100px; overflow:hidden;float:none;}
@@ -204,6 +204,7 @@ h1{font-size:34px;line-height:40px;letter-spacing:2px;}
 		.content01 .right_area .text_area .right_box .text{width:98%; }
 		.content01 .right_area .text_area .right_box .text .p{width:150px;}
 		.content01 .right_area .text_area .item_box .arrow{right:3px; }
+		
 
 
 

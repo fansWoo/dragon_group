@@ -61,6 +61,9 @@ h1{font-size:34px;line-height:40px;letter-spacing:2px;}
  .right_list .nav{width:100%;}
  .right_list .nav .father{display:block;width:100%;padding:15px 0px; overflow:hidden; margin:0px auto;transition:0.3s;position:relative; border-top:1px solid #96601c;}
  .right_list .nav .father p{ width:90%; margin:0 auto;font-size:14px;display:block;text-align:left;line-height:16px;color:#666;transition:0.3s;letter-spacing:1px; text-align:center;}
+ .right_list .nav .father:hover{background-color:#fff;}
+ .right_list .nav .father:hover p{color:#96601c;}
+
 
 .content01 .ietm_area{width:850px;position:relative;margin:0 auto;padding-left:150px;}
 .content01  .ietm_area .top_title_box{width:100%;margin-bottom:15px;padding-bottom:15px;height:auto;position:relative; overflow:hidden;}
@@ -72,7 +75,7 @@ h1{font-size:34px;line-height:40px;letter-spacing:2px;}
 .content01 .top_title_box  h1{  float:left;padding-left:10px; padding-right:10px;font-family:"bb"}
 
 
-.content01 .center_area{width:580px;float:left;min-height:600px;}
+.content01 .center_area{width:580px;float:left;min-height:600px;overflow:hidden;}
 .content01 .center_area .text_area{width:100%;}
 .content01 .center_area .text_area p{margin-bottom:10px;}
 .content01 .center_area .text_area  a{display:block;}
@@ -145,7 +148,24 @@ h1{font-size:34px;line-height:40px;letter-spacing:2px;}
 	
 }
 
-@media screen and ( max-width:960px ) and (min-width:700px) {
+
+@media screen and ( max-width:1024px ) and (min-width:960px) {
+
+	.content01 .left_bg{width:230px; height:710px;}
+	.content01 .left_bg img{width:180px; margin-top:-25px;margin-left:-90px;}
+
+	 .right_list{width:180px;}
+
+	.content01 .ietm_area{width:660px;position:relative;margin:0 auto;padding-left:170px;}
+	.content01  .ietm_area .top_title_box{margin-bottom:5px;padding-bottom:10px;}
+	.content01 .center_area{width:450px;float:left;min-height:600px;}
+
+	.content01 .center_area .text_area .item_box:nth-of-type(1){padding:0px 10px 15px 0px; }
+
+	
+}
+
+@media screen and ( max-width:959px ) and (min-width:700px) {
 
 	.content01 .left_bg{ display:none; }
 	.right_list{width:200px;height:auto;float:right; border:1px solid #96601c; background-color:rgba(255,255,255,0.4); /* position:fixed;top:220px;right:170px; */}

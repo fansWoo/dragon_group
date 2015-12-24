@@ -41,6 +41,22 @@ h1{font-size:34px;line-height:40px;letter-spacing:2px;}
 	0% {opacity:0;transform:translate(0px , 20px );}
 	100% {opacity:1;transform:translate(0px , 0px );}
 }
+@media screen and (min-width: 1600px) {
+	
+	.top_banner_box{width:100%; height:337px;position:relative;margin-top:90px;}
+	.top_banner_box .text_box{width:600px; height:60px; margin:60px auto 0 auto; padding-left:300px; }
+	.top_banner_box h2{font-size:30px;letter-spacing:2px;line-height:36px;margin-bottom:8px;}
+
+}
+
+@media screen and ( max-width:1600px ) and (min-width: 1400px) {
+
+	.top_banner_box{width:100%; height:287px;position:relative;margin-top:90px;}
+	.top_banner_box .text_box{width:600px; height:60px; margin:60px auto 0 auto; padding-left:300px; }
+	.top_banner_box h2{font-size:26px;letter-spacing:2px;line-height:26px;margin-bottom:5px;}
+
+
+}
 @media screen and ( max-width:1024px ) and (min-width: 960px) {
 
 	.top_banner_box{width:100%; height:237px;position:relative;margin-top:60px;background:url(../../img/about/bg.png)  bottom left ;background-size:cover;  }
@@ -57,7 +73,7 @@ h1{font-size:34px;line-height:40px;letter-spacing:2px;}
 @media screen and (max-width: 700px) {
 
 	.top_banner_box{width:100%; height:237px;position:relative;margin-top:-20px;background:url(../../img/about/bg.png) bottom center; background-size:cover; overflow:hidden;}
-	.top_banner_box .text_box{width:300px; height:60px; margin:20px auto 0 auto; padding-left:20px; }
+	.top_banner_box .text_box{width:300px; height:60px; margin:30px auto 0 auto; padding-left:20px; }
 	
 }
 
@@ -94,6 +110,56 @@ h1{font-size:34px;line-height:40px;letter-spacing:2px;}
 
 #map{display:none;}
 
+@media screen and (min-width: 1650px) {
+
+	
+	.content01{width:1250px;margin:40px auto 0px  auto;padding-bottom:40px;position:relative; z-index:1; }
+	.content01 .shadow_bg{width:1180px; height:1280px; background:url(../../img/contact/bg.png);}
+	.content01  .center_area{width:1180px;height:1280px; padding-bottom:50px;  margin-top:-190px;}
+	
+	.content01  .center_area .title_box{width:85%; margin:0px auto 0px auto; padding-top:80px;   }
+	.content01  .center_area .title_box .center{width:335px; margin: 0 auto; font-size:32px; letter-spacing:2px;  padding-left:10px; }
+	.content01  .center_area .title_box .center img{ margin:0 10px;}
+
+
+	.content01  .center_area .text_box{width:85%;}
+	.content01  .center_area .text_box p{font-size:20px; letter-spacing:4px;line-height:26px;}
+
+	.content01  .center_area  .contact_box{width:85%;}
+	.content01  .center_area  .contact_box .title{width:100%;font-size:20px; margin-bottom:30px; margin-left:30px;}
+	.content01  .center_area  .contact_box .box{float:left; padding:0 38px; border-left:1px solid #c6c6c6; height:50px;}
+	.content01  .center_area  .contact_box .box img{width:25px;margin-right:13px;}
+	.content01  .center_area  .contact_box .box .text{float:left; font-size:20px;}
+
+
+
+}
+
+@media screen and ( max-width:1649px ) and (min-width: 1400px) {
+
+	
+	.content01{width:1150px;margin:40px auto 0px  auto;padding-bottom:40px;position:relative; z-index:1; }
+	.content01 .shadow_bg{width:1070px; height:1250px; background:url(../../img/contact/bg.png);}
+	.content01  .center_area{width:1050px;height:1250px; padding-bottom:50px;margin-top:-150px; }
+	
+	.content01  .center_area .title_box{width:85%; margin:0px auto 0px auto; padding-top:80px;   }
+	.content01  .center_area .title_box .center{width:335px; margin: 0 auto; font-size:32px; letter-spacing:2px;  padding-left:10px; }
+	.content01  .center_area .title_box .center img{ margin:0 10px;}
+
+
+	.content01  .center_area .text_box{width:85%;}
+	.content01  .center_area .text_box p{font-size:19px; letter-spacing:4px;line-height:26px;}
+
+	.content01  .center_area  .contact_box{width:85%;}
+	.content01  .center_area  .contact_box .title{width:100%; margin-bottom:30px; margin-left:30px;}
+	.content01  .center_area  .contact_box .box{float:left; padding:0 21px; border-left:1px solid #c6c6c6; height:50px;}
+	.content01  .center_area  .contact_box .box img{width:23px;margin-right:13px;}
+	.content01  .center_area  .contact_box .box .text{float:left; font-size:16px;}
+
+
+
+}
+
 @media screen and ( max-width:1024px ) and (min-width: 960px) {
 
 	.content01{width:830px;margin:40px auto 0px  auto;padding-bottom:40px;position:relative; z-index:1; }
@@ -112,7 +178,6 @@ h1{font-size:34px;line-height:40px;letter-spacing:2px;}
 	.content01  .center_area  .map_box{width:95%; margin:0px auto 0px auto; padding:35px 0px 35px 0px;  }
 	.content01  .center_area  .map_box img{width:100%;  }
 		
-	
 
 }
 
@@ -146,7 +211,7 @@ h1{font-size:34px;line-height:40px;letter-spacing:2px;}
 
 	.content01{width:100%;margin:40px auto 0px  auto;padding-bottom:40px;position:relative; z-index:1; }
 	.content01 .shadow_bg{ display:none;}
-	.content01  .center_area{width:90%; height:auto; margin:0 auto;  margin-top:-150px; position:relative;z-index:1;  }
+	.content01  .center_area{width:90%; height:auto; margin:0 auto;  margin-top:-130px; position:relative;z-index:1;  }
 	.content01  .center_area .big_title{position:absolute;  width:180px; top:-40px; left:65px;}
 	
 	.content01  .center_area .line{position:absolute;}
