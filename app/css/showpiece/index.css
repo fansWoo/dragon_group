@@ -116,7 +116,7 @@ h1{font-size:34px;line-height:40px;letter-spacing:2px;}
 .content01 .right_area{width:640px;float:right;background:url(../../img/default/line2.png) top left repeat-y; padding-left:40px;}
 .content01 .right_area .navigation_box{ font-size:12px; overflow:hidden; margin-bottom:8px; letter-spacing:1px; float:right;color:#666;}
 .content01 .right_area .navigation_box .color{ color:#955f1c;}
-.content01 .right_area .top_title_box{width:100%;margin-bottom:15px;padding-bottom:15px;height:auto;/* background:url(../../img/default/line.png) bottom left repeat-x; */position:relative; overflow:hidden;}
+.content01 .right_area .top_title_box{width:100%;margin-bottom:15px;padding-bottom:15px;height:auto;position:relative; overflow:hidden;}
 .content01 .right_area .top_title_box .long_box{width:1500px; overflow:hidden;}
 .content01 .right_area .top_title_box .long_box .circle {float:left; width:12px; height:12px; border:3px solid #f4b538; border-radius:25px; margin-top:11px;}
 .content01 .right_area .top_title_box .long_box .line_short {float:left;width:30px; height:3px; background-color:#f4b538; margin-left:-2px; margin-top:18px;}

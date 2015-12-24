@@ -11,8 +11,8 @@ class Note_Controller extends MY_Controller {
         $limitcount_Num = !empty($limitcount_Num) ? $limitcount_Num : 5;
 
         $data['search_class_slug_Str'] = $this->input->get('class_slug');
-        $class_ClassMeta = new ClassMeta();
-        $class_ClassMeta->construct_db(array(
+        $data['class_ClassMeta']= new ClassMeta();
+        $data['class_ClassMeta']->construct_db(array(
             'db_where_Arr' => array(
                 'slug' => $data['search_class_slug_Str']
             )
@@ -24,7 +24,7 @@ class Note_Controller extends MY_Controller {
                 'modelname' => 'note'
             ),
             'db_where_or_Arr' => array(
-                'classids' => array($class_ClassMeta->classid_Num)
+                'classids' => array($data['class_ClassMeta']->classid_Num)
             ),
             'model_name_Str' => 'NoteField',
             'db_orderby_Arr' => array(
