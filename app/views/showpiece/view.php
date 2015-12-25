@@ -22,7 +22,7 @@ $(function(){
 	});
 	
 	$(".child_area").hide();
-	$(".father_item").mouseenter(function() {
+	$(".father_item").click(function() {
 		$(this).toggleClass("active");
 		$(this).children(".child_item").slideToggle();
 	});
@@ -43,7 +43,7 @@ $(function(){
 			</div>
 			<?foreach($class_ClassMetaList->obj_Arr as $key => $value_ClassMeta):?>
 				<div class="father_item">
-				<a href="showpiece?class_slug=<?=$value_ClassMeta->slug_Str?>" style="color:#955f1c;">
+				<a  style="color:#955f1c;"> <!--href="showpiece?class_slug=<?=$value_ClassMeta->slug_Str?>"-->
 					<p><?=$value_ClassMeta->classname_Str?></p>
 				</a>
 					<div class="child_item">

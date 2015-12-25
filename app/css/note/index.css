@@ -148,6 +148,21 @@ h1{font-size:34px;line-height:40px;letter-spacing:2px;}
 	
 }
 
+@media screen and ( max-width:1280px ) and (min-width:1024px) {
+
+	.content01 .left_bg{width:270px; height:760px;}
+	.content01 .left_bg img{width:200px; margin-top:-25px;margin-left:-100px;}
+
+	 .right_list{width:175px;}
+
+	.content01 .ietm_area{width:780px;position:relative;margin:0 auto;padding-left:170px;}
+	.content01  .ietm_area .top_title_box{margin-bottom:5px;padding-bottom:10px;}
+	.content01 .center_area{width:570px;float:left;min-height:600px;}
+
+	.content01 .center_area .text_area .item_box:nth-of-type(1){padding:0px 10px 15px 0px; }
+
+	
+}
 
 @media screen and ( max-width:1024px ) and (min-width:960px) {
 

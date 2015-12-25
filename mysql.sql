@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10.9
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
--- 主機: localhost
--- 建立日期: 2015-12-24: 14:05:43
--- 伺服器版本: 5.6.26
--- PHP 版本: 5.5.28
+-- 主機: localhost:3306
+-- 產生時間： 2015 年 12 月 25 日 19:51
+-- 伺服器版本: 5.5.44-MariaDB
+-- PHP 版本： 5.6.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,10 +14,10 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- 資料庫: `fanswoo_com_dragon_group`
+-- 資料庫： `fanswoo_com_dragon_group_test`
 --
 
 -- --------------------------------------------------------
@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- 資料表結構 `fs_advertising`
 --
 
-CREATE TABLE IF NOT EXISTS `fs_advertising` (
+CREATE TABLE `fs_advertising` (
   `advertisingid` mediumint(8) NOT NULL,
   `uid` mediumint(8) NOT NULL,
   `title` char(100) NOT NULL,
@@ -36,8 +36,7 @@ CREATE TABLE IF NOT EXISTS `fs_advertising` (
   `classids` char(100) NOT NULL,
   `prioritynum` mediumint(8) NOT NULL,
   `updatetime` datetime NOT NULL,
-  `status` int(1) NOT NULL,
-  UNIQUE KEY `advertisingid` (`advertisingid`)
+  `status` int(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -46,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `fs_advertising` (
 -- 資料表結構 `fs_class`
 --
 
-CREATE TABLE IF NOT EXISTS `fs_class` (
+CREATE TABLE `fs_class` (
   `classid` mediumint(8) NOT NULL,
   `classname` char(40) NOT NULL,
   `slug` char(40) NOT NULL DEFAULT '',
@@ -57,8 +56,7 @@ CREATE TABLE IF NOT EXISTS `fs_class` (
   `classids` char(100) NOT NULL,
   `prioritynum` mediumint(8) NOT NULL,
   `updatetime` datetime NOT NULL,
-  `status` int(1) NOT NULL DEFAULT '0',
-  UNIQUE KEY `classid` (`classid`)
+  `status` int(1) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -76,7 +74,8 @@ INSERT INTO `fs_class` (`classid`, `classname`, `slug`, `content`, `uid`, `amoun
 (528627, '微整形', '92bebf88', '', 528501, 0, 'showpiece', '', 0, '2015-12-17 15:37:01', 1),
 (528628, '微整形', '7816', '', 528502, 0, 'note', '', 0, '2015-12-23 16:32:21', 1),
 (528629, '健康管理', '45612', '', 528502, 0, 'note', '', 0, '2015-12-23 16:32:46', 1),
-(528630, '整形外科', 'grtt', '', 528502, 0, 'note', '', 0, '2015-12-23 16:33:29', 1);
+(528630, '整形外科', 'grtt', '', 528502, 0, 'note', '', 0, '2015-12-23 16:33:29', 1),
+(528631, '療程圖片', '907e42e8', '', 528502, 0, 'pic', '', 0, '2015-12-25 17:58:56', 1);
 
 -- --------------------------------------------------------
 
@@ -84,7 +83,7 @@ INSERT INTO `fs_class` (`classid`, `classname`, `slug`, `content`, `uid`, `amoun
 -- 資料表結構 `fs_contact`
 --
 
-CREATE TABLE IF NOT EXISTS `fs_contact` (
+CREATE TABLE `fs_contact` (
   `contactid` mediumint(8) NOT NULL,
   `username` char(100) NOT NULL,
   `email` char(100) CHARACTER SET latin1 NOT NULL,
@@ -94,8 +93,7 @@ CREATE TABLE IF NOT EXISTS `fs_contact` (
   `status_process` int(11) NOT NULL,
   `classtype` char(100) NOT NULL,
   `updatetime` datetime NOT NULL,
-  `status` int(1) NOT NULL,
-  UNIQUE KEY `contactid` (`contactid`)
+  `status` int(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -111,8 +109,8 @@ INSERT INTO `fs_contact` (`contactid`, `username`, `email`, `phone`, `company`, 
 -- 資料表結構 `fs_note`
 --
 
-CREATE TABLE IF NOT EXISTS `fs_note` (
-  `noteid` mediumint(8) unsigned NOT NULL,
+CREATE TABLE `fs_note` (
+  `noteid` mediumint(8) UNSIGNED NOT NULL,
   `uid` mediumint(8) NOT NULL DEFAULT '0',
   `title` char(50) NOT NULL DEFAULT '',
   `username` char(30) NOT NULL DEFAULT '',
@@ -123,8 +121,7 @@ CREATE TABLE IF NOT EXISTS `fs_note` (
   `replynum` mediumint(8) DEFAULT NULL,
   `prioritynum` mediumint(8) DEFAULT NULL,
   `updatetime` datetime DEFAULT NULL,
-  `status` int(1) NOT NULL DEFAULT '0',
-  UNIQUE KEY `noteid` (`noteid`)
+  `status` int(1) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -148,10 +145,9 @@ INSERT INTO `fs_note` (`noteid`, `uid`, `title`, `username`, `picids`, `classids
 -- 資料表結構 `fs_note_field`
 --
 
-CREATE TABLE IF NOT EXISTS `fs_note_field` (
+CREATE TABLE `fs_note_field` (
   `noteid` mediumint(8) NOT NULL,
-  `content` text NOT NULL,
-  UNIQUE KEY `noteid` (`noteid`)
+  `content` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -175,8 +171,8 @@ INSERT INTO `fs_note_field` (`noteid`, `content`) VALUES
 -- 資料表結構 `fs_pager`
 --
 
-CREATE TABLE IF NOT EXISTS `fs_pager` (
-  `pagerid` mediumint(8) unsigned NOT NULL,
+CREATE TABLE `fs_pager` (
+  `pagerid` mediumint(8) UNSIGNED NOT NULL,
   `uid` mediumint(8) NOT NULL,
   `username` char(30) NOT NULL,
   `title` char(100) NOT NULL,
@@ -187,8 +183,7 @@ CREATE TABLE IF NOT EXISTS `fs_pager` (
   `viewnum` mediumint(8) NOT NULL,
   `prioritynum` mediumint(8) NOT NULL,
   `updatetime` datetime NOT NULL,
-  `status` int(1) NOT NULL,
-  PRIMARY KEY (`pagerid`)
+  `status` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -204,10 +199,9 @@ INSERT INTO `fs_pager` (`pagerid`, `uid`, `username`, `title`, `slug`, `href`, `
 -- 資料表結構 `fs_pager_field`
 --
 
-CREATE TABLE IF NOT EXISTS `fs_pager_field` (
-  `pagerid` mediumint(8) unsigned NOT NULL,
-  `content` text NOT NULL,
-  PRIMARY KEY (`pagerid`)
+CREATE TABLE `fs_pager_field` (
+  `pagerid` mediumint(8) UNSIGNED NOT NULL,
+  `content` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -223,7 +217,7 @@ INSERT INTO `fs_pager_field` (`pagerid`, `content`) VALUES
 -- 資料表結構 `fs_pic`
 --
 
-CREATE TABLE IF NOT EXISTS `fs_pic` (
+CREATE TABLE `fs_pic` (
   `picid` mediumint(8) NOT NULL,
   `uid` mediumint(8) NOT NULL,
   `title` char(100) NOT NULL,
@@ -235,8 +229,7 @@ CREATE TABLE IF NOT EXISTS `fs_pic` (
   `thumb` char(100) NOT NULL,
   `prioritynum` mediumint(8) NOT NULL,
   `updatetime` datetime NOT NULL,
-  `status` int(1) NOT NULL,
-  UNIQUE KEY `picid` (`picid`)
+  `status` int(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -247,7 +240,42 @@ INSERT INTO `fs_pic` (`picid`, `uid`, `title`, `filename`, `size`, `type`, `md5`
 (3, 528501, 'pic.jpg', 'pic.jpg', 48892, 'image/jpeg', '35a0fdc9ca9d7a35', '', 'w50h50,w300h300,w600h600', 0, '2015-09-18 09:40:44', 1),
 (4, 528501, '04.jpg', '04.jpg', 37952, 'image/jpeg', '042727dc100e9028', '', 'w50h50,w300h300,w600h600', 0, '2015-12-17 16:44:03', 1),
 (5, 528502, 'pic.jpg', 'pic.jpg', 275665, 'image/jpeg', 'bfa380439fb7eb73', '', 'w50h50,w300h300,w600h600', 0, '2015-12-24 13:37:05', 1),
-(6, 528502, 'pic.jpg', 'pic.jpg', 275665, 'image/jpeg', 'ca837e06e7d741b5', '', 'w50h50,w300h300,w600h600', 0, '2015-12-24 14:57:03', 1);
+(6, 528502, 'pic.jpg', 'pic.jpg', 275665, 'image/jpeg', 'ca837e06e7d741b5', '', 'w50h50,w300h300,w600h600', 0, '2015-12-24 14:57:03', 1),
+(7, 528502, 'image003.jpg', 'image003.jpg', 105684, 'image/jpeg', '5c631ae83369642c', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 17:58:28', 1),
+(8, 528502, 'image005.jpg', 'image005.jpg', 48345, 'image/jpeg', '4a86b6d0b648dba9', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 17:58:28', 1),
+(9, 528502, 'image007.jpg', 'image007.jpg', 211007, 'image/jpeg', 'a5cbe0445e124854', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 17:58:28', 1),
+(10, 528502, 'image009.jpg', 'image009.jpg', 165318, 'image/jpeg', 'fa07fdaff51455ad', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 17:58:28', 1),
+(11, 528502, 'image011.jpg', 'image011.jpg', 85766, 'image/jpeg', 'be318cc1ee54e6be', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 17:58:28', 1),
+(12, 528502, 'image013.jpg', 'image013.jpg', 98676, 'image/jpeg', '563cfe9c39ee95ad', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 17:58:28', 1),
+(13, 528502, 'image015.jpg', 'image015.jpg', 94536, 'image/jpeg', 'a8caaee79154f022', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 17:58:28', 1),
+(14, 528502, 'image017.jpg', 'image017.jpg', 105975, 'image/jpeg', '02de54ca26b2d472', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 17:58:28', 1),
+(15, 528502, 'image019.jpg', 'image019.jpg', 14578, 'image/jpeg', '47d2287a97b04e00', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 17:58:28', 1),
+(16, 528502, 'image021.png', 'image021.png', 173028, 'image/png', '5d1aa19889f079f7', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 17:58:28', 1),
+(17, 528502, 'image023.jpg', 'image023.jpg', 32435, 'image/jpeg', '30dd2c4e7119fd8d', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 17:58:28', 1),
+(18, 528502, 'image025.jpg', 'image025.jpg', 65395, 'image/jpeg', 'e6f585b4322bf42f', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 17:58:28', 1),
+(19, 528502, 'image026.jpg', 'image026.jpg', 49658, 'image/jpeg', '6efbbb46cb4f6b76', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 17:58:28', 1),
+(20, 528502, 'image028.jpg', 'image028.jpg', 66145, 'image/jpeg', '40239b46661c50ac', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 17:58:28', 1),
+(21, 528502, 'image030.jpg', 'image030.jpg', 63694, 'image/jpeg', '83d8b84937149ac4', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 17:58:28', 1),
+(22, 528502, 'image032.png', 'image032.png', 140564, 'image/png', '49237bbdfb1b54c9', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 17:58:28', 1),
+(23, 528502, 'image034.png', 'image034.png', 122985, 'image/png', 'e9821117f79d296c', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 17:58:28', 1),
+(24, 528502, 'image036.jpg', 'image036.jpg', 100014, 'image/jpeg', 'f1bfc2c46962a992', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 17:58:28', 1),
+(25, 528502, 'image038.png', 'image038.png', 28959, 'image/png', '2c598e08d0cc0225', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 17:58:28', 1),
+(26, 528502, 'image040.png', 'image040.png', 95752, 'image/png', '3ea88950983fbae5', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 17:58:28', 1),
+(27, 528502, 'image038.png', 'image038.png', 28959, 'image/png', '16dc090d3e2ce0f1', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 18:08:29', -1),
+(28, 528502, 'image038.jpg', 'image038.jpg', 27026, 'image/jpeg', 'e23fbe8b52c659bb', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 18:09:06', 1),
+(29, 528502, 'image042.jpg', 'image042.jpg', 103805, 'image/jpeg', '58bc086850b3140a', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 18:10:34', 1),
+(30, 528502, 'image044.jpg', 'image044.jpg', 65721, 'image/jpeg', '8a4e4ef1f0f1acb3', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 18:11:23', 1),
+(31, 528502, 'image046.jpg', 'image046.jpg', 254440, 'image/jpeg', '930f3aa240988095', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 18:11:23', 1),
+(32, 528502, 'image048.jpg', 'image048.jpg', 195547, 'image/jpeg', '22ee96c05bd879d3', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 18:13:40', 1),
+(33, 528502, 'image050.png', 'image050.png', 271854, 'image/png', '63ad00f1775332b0', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 18:14:10', 1),
+(34, 528502, 'image052.jpg', 'image052.jpg', 203742, 'image/jpeg', 'c73e8ad7f05fbeea', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 18:14:55', 1),
+(35, 528502, 'image054.jpg', 'image054.jpg', 138440, 'image/jpeg', '569de46451b071cc', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 18:14:55', 1),
+(36, 528502, 'image056.jpg', 'image056.jpg', 64668, 'image/jpeg', '18329c66ba14e64c', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 18:14:55', 1),
+(37, 528502, 'image058.jpg', 'image058.jpg', 52967, 'image/jpeg', '10563a961d7bfdb4', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 18:14:55', 1),
+(38, 528502, 'image060.jpg', 'image060.jpg', 48082, 'image/jpeg', '468bfcf2fe87c3cf', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 18:14:55', 1),
+(39, 528502, 'image062.jpg', 'image062.jpg', 50505, 'image/jpeg', '316131689e05f93e', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 18:14:55', 1),
+(40, 528502, 'image064.jpg', 'image064.jpg', 68046, 'image/jpeg', 'f2cc327aee9d7de0', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 18:14:55', 1),
+(41, 528502, 'image066.jpg', 'image066.jpg', 81637, 'image/jpeg', '430638ce45c4f536', '', 'w50h50,w300h300,w600h600', 0, '2015-12-25 18:17:02', 1);
 
 -- --------------------------------------------------------
 
@@ -255,15 +283,12 @@ INSERT INTO `fs_pic` (`picid`, `uid`, `title`, `filename`, `size`, `type`, `md5`
 -- 資料表結構 `fs_sessions`
 --
 
-CREATE TABLE IF NOT EXISTS `fs_sessions` (
+CREATE TABLE `fs_sessions` (
   `session_id` varchar(40) NOT NULL DEFAULT '0',
   `ip_address` varchar(45) NOT NULL DEFAULT '0',
   `user_agent` varchar(120) NOT NULL,
-  `last_activity` int(10) unsigned NOT NULL DEFAULT '0',
-  `user_data` text NOT NULL,
-  PRIMARY KEY (`session_id`),
-  UNIQUE KEY `session_id` (`session_id`),
-  KEY `last_activity_idx` (`last_activity`)
+  `last_activity` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `user_data` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -846,7 +871,20 @@ INSERT INTO `fs_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activ
 ('39f0bcad51bfc798522040a16f148300', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile', 1450954050, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";}'),
 ('aa2f801f4c83614f8e891c5fe256fa93', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 1450954490, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";}'),
 ('d52ab779bd1860f240b5d0824e8c1e0d', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile', 1450955295, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";}'),
-('97f5f9921b35713e0457dea32cc64125', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 1450955315, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";}');
+('97f5f9921b35713e0457dea32cc64125', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 1450955315, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";}'),
+('47125cae6fbfbee701390b8250ed6106', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile', 1450962594, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";}'),
+('77fd79bce0f430de27eba2695c957899', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 1450963086, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";}'),
+('3b77b5c31f6da2417636020ff5814057', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile', 1450963111, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";}'),
+('2e8a169b3607661e085c904ea65064e4', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 1450963997, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";}'),
+('ffffd1c4a87f5c31f4e20fe1e52a208a', '::1', 'Mozilla/5.0 (Linux; Android 4.2.2; GT-I9505 Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.59 Mobi', 1451010334, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";}'),
+('f07c1c6cbfdac36398937a43cc6810e1', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 1451010389, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";}'),
+('0ab6151f7d876b3c0c38f85d0afcbe6c', '118.169.165.85', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 1451013343, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('599bd2c574108e5816d544f97e7c56d3', '101.14.162.207', 'Mozilla/5.0 (Linux; Android 4.4.2; SGH-N075T Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.96 Mo', 1451013577, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('60c34b15fdde9b3db6e6eca0a197ef68', '118.169.165.85', 'Mozilla/5.0 (Linux; Android 4.2.2; GT-I9505 Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.59 Mobi', 1451013735, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('cfdad00286e9defd1b337810b1bcb2bf', '118.169.165.85', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 1451013850, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('007f0c45ad49195e0dd0f88124856c1f', '118.169.165.85', 'Mozilla/5.0 (Linux; Android 4.2.2; GT-I9505 Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.59 Mobi', 1451013888, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('d5df605b42bb13777330e9616eeb52dc', '118.169.165.85', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 1451014188, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('a70cfb2fc43228c69ed71ea28d73b559', '118.169.165.85', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 1451036934, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";}');
 
 -- --------------------------------------------------------
 
@@ -854,12 +892,11 @@ INSERT INTO `fs_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activ
 -- 資料表結構 `fs_setting`
 --
 
-CREATE TABLE IF NOT EXISTS `fs_setting` (
+CREATE TABLE `fs_setting` (
   `keyword` char(32) NOT NULL,
   `value` text NOT NULL,
   `modelname` char(32) NOT NULL DEFAULT '',
-  `status` int(1) NOT NULL DEFAULT '0',
-  UNIQUE KEY `keyword` (`keyword`)
+  `status` int(1) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -889,7 +926,7 @@ INSERT INTO `fs_setting` (`keyword`, `value`, `modelname`, `status`) VALUES
 -- 資料表結構 `fs_showpiece`
 --
 
-CREATE TABLE IF NOT EXISTS `fs_showpiece` (
+CREATE TABLE `fs_showpiece` (
   `showpieceid` mediumint(8) NOT NULL,
   `uid` mediumint(8) NOT NULL,
   `name` char(32) NOT NULL,
@@ -904,8 +941,7 @@ CREATE TABLE IF NOT EXISTS `fs_showpiece` (
   `color` char(100) NOT NULL,
   `prioritynum` mediumtext NOT NULL,
   `updatetime` datetime NOT NULL,
-  `status` int(1) NOT NULL,
-  UNIQUE KEY `showpieceid` (`showpieceid`)
+  `status` int(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -913,15 +949,31 @@ CREATE TABLE IF NOT EXISTS `fs_showpiece` (
 --
 
 INSERT INTO `fs_showpiece` (`showpieceid`, `uid`, `name`, `price`, `mainpicids`, `classids`, `content`, `content_specification`, `barcode`, `synopsis`, `picids`, `color`, `prioritynum`, `updatetime`, `status`) VALUES
-(1, 528502, '雙眼皮手術', 0, '', '528623', '<br />\r\n<span style="font-size:250%;"><strong>*</strong></span><br />\r\n根據統計，<span style="color:#dd7824;">美國每一年,&nbsp;約有300,000&nbsp;人作了眼睛的美容手術。</span>眼皮手術被認為是超過35歲以上，被詢問及執行的整容手術。因為眼睛外形以及眼袋占了人類面部表情的絕大部分。因此人們經常在決定接受拉皮手術前，先考慮作眼皮手術。<br />\r\n<br />\r\n<span style="color:#dd7824;">龍安診所量身定制眼部整形手術，不僅考慮到臉部五官和諧，讓你擁有自然、理想的眼形</span><br />\r\n<br />\r\n東方人的眼皮，因為圖中黃色的脂肪層位置過於向下延伸所以造成雙眼皮形成不易，而不論何種手術方式就是像圖中黃線所示，讓這兩個地方連結在一起來形成一個皺摺&nbsp;(雙眼皮)<br />\r\n<br />\r\n<strong><span style="font-size:120%;"><span style="color:#96601c;">手術方法</span></span><br />\r\n<br />\r\n縫合法</strong><br />\r\n透過三到四個小切口，利用不可吸收縫線將提眼肌膜固定於皮下組織，形成雙眼皮。優點是術後腫脹少、復原快，缺點是僅適用年輕、眼皮薄的客人，如果體質不易形成疤痕者，雙眼皮會隨著歲月變淺、變窄。<br />\r\n&nbsp;<br />\r\n<strong>切開法</strong><br />\r\n沿著雙眼皮線完全切開，類似的縫線固定方式。優點是疤痕為整條形成，而非三點，效果較能長久持續，而且不論皮膚、脂肪、肌肉鬆弛均能處理，二次手術也多需採用此種方式。缺點是手術造成的傷害較大，術後的復原較久，有時會因為術後的照顧、客人的體質、傷口的發炎、醫師的技巧，造成ㄧ些不可抗拒的不盡理想的結果。所幸，大部分的併發症，有經驗的醫師多能處理善後。&nbsp;<br />\r\n&nbsp;<br />\r\n<strong>迷你切口</strong><br />\r\n中央部份有一個一公分長的切開式傷口，以切開式的手術方法進行，內外側再各用一針縫合式的方法，來加強並修飾線條。可說是綜合上述兩種方式的優點，復原比切開式方法快速，效果維持較單純縫合法久，缺點是比較無法處理所有的二次手術。<br />\r\n&nbsp;<br />\r\n<strong>訂書針雙眼皮</strong><br />\r\n為連續縫合式雙眼皮手術的一種，原本發表的日本醫師，會使用一種特製的縫針，來進行手術，但是後來大家發現其實影響不大。許多人會以為連續縫合的方式，會很不腫，恢復很快，事實不然。因為連續縫合，血液回流被阻斷的更多，所以腫脹程度有時會因個人差異，有可能會相當久。<br />\r\n&nbsp;<br />\r\n<strong>無痕雙眼皮手術</strong><br />\r\n這一個方法，學術界並沒有，所以應該指的是從眼皮內側，就是眼結膜切開傷口，由內部來進行雙眼皮手術。但是因為縫線的打結點太靠近眼結膜，有時會造成眼睛的不適。<br />\r\n<br />\r\n<br />\r\n<br />\r\n&nbsp;', '', '', '', '4', '', '0', '2015-12-24 20:12:39', 1),
+(1, 528502, '雙眼皮手術', 0, '', '528623', '<img alt="" src="http://test.fanswoo.com/dragon_group/app/pic/00/00/00/15-47d2287a97b04e00.jpg" /><br />\r\n根據統計，<span style="color:#dd7824;">美國每一年,&nbsp;約有300,000&nbsp;人作了眼睛的美容手術。</span>眼皮手術被認為是超過35歲以上，被詢問及執行的整容手術。因為眼睛外形以及眼袋占了人類面部表情的絕大部分。因此人們經常在決定接受拉皮手術前，先考慮作眼皮手術。<br />\r\n<br />\r\n<span style="color:#dd7824;">龍安診所量身定制眼部整形手術，不僅考慮到臉部五官和諧，讓你擁有自然、理想的眼形</span><br />\r\n<br />\r\n東方人的眼皮，因為圖中黃色的脂肪層位置過於向下延伸所以造成雙眼皮形成不易，而不論何種手術方式就是像圖中黃線所示，讓這兩個地方連結在一起來形成一個皺摺&nbsp;(雙眼皮)<br />\r\n<br />\r\n<strong><span style="font-size:120%;"><span style="color:#96601c;">手術方法</span></span><br />\r\n<br />\r\n縫合法</strong><br />\r\n透過三到四個小切口，利用不可吸收縫線將提眼肌膜固定於皮下組織，形成雙眼皮。優點是術後腫脹少、復原快，缺點是僅適用年輕、眼皮薄的客人，如果體質不易形成疤痕者，雙眼皮會隨著歲月變淺、變窄。<br />\r\n&nbsp;<br />\r\n<strong>切開法</strong><br />\r\n沿著雙眼皮線完全切開，類似的縫線固定方式。優點是疤痕為整條形成，而非三點，效果較能長久持續，而且不論皮膚、脂肪、肌肉鬆弛均能處理，二次手術也多需採用此種方式。缺點是手術造成的傷害較大，術後的復原較久，有時會因為術後的照顧、客人的體質、傷口的發炎、醫師的技巧，造成ㄧ些不可抗拒的不盡理想的結果。所幸，大部分的併發症，有經驗的醫師多能處理善後。&nbsp;<br />\r\n&nbsp;<br />\r\n<strong>迷你切口</strong><br />\r\n中央部份有一個一公分長的切開式傷口，以切開式的手術方法進行，內外側再各用一針縫合式的方法，來加強並修飾線條。可說是綜合上述兩種方式的優點，復原比切開式方法快速，效果維持較單純縫合法久，缺點是比較無法處理所有的二次手術。<br />\r\n&nbsp;<br />\r\n<strong>訂書針雙眼皮</strong><br />\r\n為連續縫合式雙眼皮手術的一種，原本發表的日本醫師，會使用一種特製的縫針，來進行手術，但是後來大家發現其實影響不大。許多人會以為連續縫合的方式，會很不腫，恢復很快，事實不然。因為連續縫合，血液回流被阻斷的更多，所以腫脹程度有時會因個人差異，有可能會相當久。<br />\r\n&nbsp;<br />\r\n<strong>無痕雙眼皮手術</strong><br />\r\n這一個方法，學術界並沒有，所以應該指的是從眼皮內側，就是眼結膜切開傷口，由內部來進行雙眼皮手術。但是因為縫線的打結點太靠近眼結膜，有時會造成眼睛的不適。<br />\r\n<br />\r\n<br />\r\n<br />\r\n&nbsp;', '', '', '', '4', '', '0', '2015-12-25 18:03:40', 1),
 (3, 528501, '埋線拉提', 0, '', '528627', '', '', '', '', '', '', '0', '2015-12-17 16:12:07', 1),
-(2, 528502, '鈴鐺線拉提', 0, '', '528623', '<br />\r\n<span style="font-size:300%;">*</span>\r\n<div style="text-align: center;"><span style="color:#96601c;"><strong><span style="font-size:150%;">詩立愛鈴鐺線拉提</span></strong></span></div>\r\n<br />\r\n鈴鐺線拉提是一種微創拉皮術，手術只需局部麻醉，安全性高。手術一開始會於髮際線後方兩公分處開出約1.5CM左右的微創傷口(傷口隱密不易被察覺)。利用約1.5CM的傷口將塑形線固定在深層筋膜，再將特殊塑線材拉緊欲改善的部位並固定線材，達到積極改善鬆弛下垂的目的。<br />\r\n<br />\r\n<br />\r\n<span style="font-size: 39px; line-height: 62.4px;">*</span><br />\r\n<span style="color:#96601c;"><span style="font-family:微軟正黑體;"><span style="font-size:120%;"><strong>特點</strong></span></span></span><br />\r\n<br />\r\n<strong>非手術性:</strong> &nbsp;非手術性的療程，只需局部麻醉。<br />\r\n<br />\r\n<strong>快速 :</strong> &nbsp;療程時間約1小時。<br />\r\n<br />\r\n<strong>即時效果 : </strong>&nbsp;立即見效。<br />\r\n<br />\r\n<strong>恢復期短 :</strong> &nbsp;恢復期約一週。<br />\r\n<br />\r\n<strong>安全性 :</strong> &nbsp;獲美國食品藥物管理局(FDA)及歐洲藥品評鑑局(CE)及台灣衛福部核准三重認證。<br />\r\n<br />\r\n<strong>效果持久 :&nbsp;</strong>由於圓錐和線的設計強韌和持久度佳。LIFT(大鈴鐺線)&nbsp;3~5年，SOFT(小鈴鐺線、圓錐線) 1~2年。<br />\r\n<br />\r\n<strong>降低不舒適性 :</strong>&nbsp;線的厚度上是很細，圓錐體的設計既軟又圓，大大降低針扎感。<br />\r\n<br />\r\n<strong>適應症 :</strong> &nbsp;30~35歲下垂程度明顯之肌膚狀況<br />\r\n<br />\r\n<strong>適應部位 :</strong> &nbsp;眉形拉提/眼尾下垂/法令紋/嘴邊肉/蘋果肌下垂/雙下巴/雞脖子/下顎線V-line拉提<br />\r\n<br />\r\n<br />\r\n<span style="color:#96601c;"><span style="font-size:120%;"><strong>術前準備</strong></span></span><br />\r\n<br />\r\n１．心臟疾病者、懷孕婦女、癌症患者、具糖尿病/蟹足腫/紅斑性狼<a href="http://homepage.vghtpe.gov.tw/~air/htm/disease01.html">瘡</a>等體質、免疫系統功能異常者、硬皮症、淋巴性水腫、泡疹或嚴重皮膚病者需由醫師評估是否適合本療程。<br />\r\n<br />\r\n２．治療前2週暫緩執行任何雷射、換膚或A酸等治療；前3個月停止服用口服A酸。<br />\r\n<br />\r\n３．如治療部位有開放性傷口、皮膚感染、發炎中、乾癢不適、曬傷、濕疹、毛囊炎、長期使用類固醇/非類固醇/消炎性止痛藥物者或精神心智狀 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;況不佳者暫不執行療程，需經醫師評估。<br />\r\n<br />\r\n４．治療部位如有人工填充物或近１個月內有注射微整填充物，需經醫師評估。<br />\r\n<br />\r\n<br />\r\n<span style="color:#96601c;"><strong><span style="font-size:120%;">術後照顧</span></strong></span><br />\r\n<br />\r\n１．術後泛紅、腫脹、搔癢、緊繃感等現象可冰敷減緩不適。勿過度揉捏治療部位。<br />\r\n<br />\r\n２．術後兩週內勿做臉部大動作和表情，如大笑、張大口；勿食用過硬食物，如堅果類、口香糖。<br />\r\n<br />\r\n３．術後兩週內勿做牙科治療、臉部美容療程光療和按摩、三溫暖、游泳、劇烈運動及勿趴睡請仰睡<br />\r\n<br />\r\n４．術後一週內勿抽菸、喝酒；不吃麻辣重口味食物和食用海鮮。<br />\r\n<br />\r\n５．隨時保持傷口及周圍清潔乾燥。<br />\r\n<br />\r\n６．術後一週內盡量不上妝。<br />\r\n<br />\r\n７．術後一週內遵照醫師指示服用及塗抹消炎藥物。<br />\r\n<br />\r\n８．治療成效會因個人膚況不同而有所差異。<br />\r\n<br />\r\n<br />\r\n<span style="font-size:120%;"><span style="color:#96601c;"><strong>二至三年後，可再做二次拉提&nbsp;</strong></span></span><br />\r\n<br />\r\n<br />\r\n&nbsp;', '', '', '', '', '', '0', '2015-12-24 20:01:43', 1),
+(2, 528502, '鈴鐺線拉提', 0, '', '528623', '<img alt="" src="http://test.fanswoo.com/dragon_group/app/pic/00/00/00/07-5c631ae83369642c.jpg" /><br />\r\n&nbsp;\r\n<div style="text-align: center;"><span style="color:#96601c;"><strong><span style="font-size:150%;">詩立愛鈴鐺線拉提</span></strong></span></div>\r\n<br />\r\n鈴鐺線拉提是一種微創拉皮術，手術只需局部麻醉，安全性高。手術一開始會於髮際線後方兩公分處開出約1.5CM左右的微創傷口(傷口隱密不易被察覺)。利用約1.5CM的傷口將塑形線固定在深層筋膜，再將特殊塑線材拉緊欲改善的部位並固定線材，達到積極改善鬆弛下垂的目的。<br />\r\n<br />\r\n<br />\r\n<img alt="" src="http://test.fanswoo.com/dragon_group/app/pic/00/00/00/08-4a86b6d0b648dba9.jpg" /><br />\r\n<br />\r\n<span style="color:#96601c;"><span style="font-family:微軟正黑體;"><span style="font-size:120%;"><strong>特點</strong></span></span></span><br />\r\n<br />\r\n<strong>非手術性:</strong> &nbsp;非手術性的療程，只需局部麻醉。<br />\r\n<br />\r\n<strong>快速 :</strong> &nbsp;療程時間約1小時。<br />\r\n<br />\r\n<strong>即時效果 : </strong>&nbsp;立即見效。<br />\r\n<br />\r\n<strong>恢復期短 :</strong> &nbsp;恢復期約一週。<br />\r\n<br />\r\n<strong>安全性 :</strong> &nbsp;獲美國食品藥物管理局(FDA)及歐洲藥品評鑑局(CE)及台灣衛福部核准三重認證。<br />\r\n<br />\r\n<strong>效果持久 :&nbsp;</strong>由於圓錐和線的設計強韌和持久度佳。LIFT(大鈴鐺線)&nbsp;3~5年，SOFT(小鈴鐺線、圓錐線) 1~2年。<br />\r\n<br />\r\n<strong>降低不舒適性 :</strong>&nbsp;線的厚度上是很細，圓錐體的設計既軟又圓，大大降低針扎感。<br />\r\n<br />\r\n<strong>適應症 :</strong> &nbsp;30~35歲下垂程度明顯之肌膚狀況<br />\r\n<br />\r\n<strong>適應部位 :</strong> &nbsp;眉形拉提/眼尾下垂/法令紋/嘴邊肉/蘋果肌下垂/雙下巴/雞脖子/下顎線V-line拉提<br />\r\n<br />\r\n<br />\r\n<span style="color:#96601c;"><span style="font-size:120%;"><strong>術前準備</strong></span></span><br />\r\n<br />\r\n１．心臟疾病者、懷孕婦女、癌症患者、具糖尿病/蟹足腫/紅斑性狼<a href="http://homepage.vghtpe.gov.tw/~air/htm/disease01.html">瘡</a>等體質、免疫系統功能異常者、硬皮症、淋巴性水腫、泡疹或嚴重皮膚病者需由醫師評估是否適合本療程。<br />\r\n<br />\r\n２．治療前2週暫緩執行任何雷射、換膚或A酸等治療；前3個月停止服用口服A酸。<br />\r\n<br />\r\n３．如治療部位有開放性傷口、皮膚感染、發炎中、乾癢不適、曬傷、濕疹、毛囊炎、長期使用類固醇/非類固醇/消炎性止痛藥物者或精神心智狀 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;況不佳者暫不執行療程，需經醫師評估。<br />\r\n<br />\r\n４．治療部位如有人工填充物或近１個月內有注射微整填充物，需經醫師評估。<br />\r\n<br />\r\n<br />\r\n<span style="color:#96601c;"><strong><span style="font-size:120%;">術後照顧</span></strong></span><br />\r\n<br />\r\n１．術後泛紅、腫脹、搔癢、緊繃感等現象可冰敷減緩不適。勿過度揉捏治療部位。<br />\r\n<br />\r\n２．術後兩週內勿做臉部大動作和表情，如大笑、張大口；勿食用過硬食物，如堅果類、口香糖。<br />\r\n<br />\r\n３．術後兩週內勿做牙科治療、臉部美容療程光療和按摩、三溫暖、游泳、劇烈運動及勿趴睡請仰睡<br />\r\n<br />\r\n４．術後一週內勿抽菸、喝酒；不吃麻辣重口味食物和食用海鮮。<br />\r\n<br />\r\n５．隨時保持傷口及周圍清潔乾燥。<br />\r\n<br />\r\n６．術後一週內盡量不上妝。<br />\r\n<br />\r\n７．術後一週內遵照醫師指示服用及塗抹消炎藥物。<br />\r\n<br />\r\n８．治療成效會因個人膚況不同而有所差異。<br />\r\n<br />\r\n<br />\r\n<span style="font-size:120%;"><span style="color:#96601c;"><strong>二至三年後，可再做二次拉提&nbsp;</strong></span></span><br />\r\n<br />\r\n<br />\r\n&nbsp;', '', '', '', '', '', '0', '2015-12-25 18:01:55', 1),
 (4, 528502, '脂肪填補(臉部雕塑)', 0, '', '528623', '<br />\r\n脂肪是人體的組織，由身體某部位取出，再移植到他處不會有排斥的問題，且可存活及成長，是安全又能掘凸補凹、兩全其美的好方法。<br />\r\n<br />\r\n原理為抽取身體內多餘的脂肪，經細胞優化與高純度生長因子添加處理，注射到所需部位，利用自體脂肪做填充物，填補顏面上先天或後天的凹陷或不足，達到豐盈拉提的效果，因是採自體的脂肪，故不易產生任何排斥或不良反應，針對臉部的填充通常一次就能達到理想效果，只有極少部分人，會需要再次補加強，以達到完美的效果。　<br />\r\n<br />\r\n<strong>凹陷的修正</strong> - 如夫妻宮、太陽穴、眼袋、下巴、蘋果肌、豐額、臉頰凹陷、疤痕凹陷。<br />\r\n<br />\r\n<strong>皺紋的改善</strong> - 如皺眉紋、法令紋等。<br />\r\n<br />\r\n<br />\r\n<span style="color:#96601c;"><strong><span style="font-size:120%;">術前須知</span></strong></span><br />\r\n<br />\r\n１．兩週前請停用含阿斯匹林成分藥物。<br />\r\n<br />\r\n２．治療前請告知醫師目前正在使用的所有藥物及過往治療病史。<br />\r\n<br />\r\n<br />\r\n<strong style="color: rgb(150, 96, 28); line-height: 20.8px;"><span style="font-size: 15.6px;">術後照顧</span></strong><br />\r\n<br />\r\n１．治療後３天內可適度冰敷注射部位，並避免用力壓迫。<br />\r\n<br />\r\n２．治療後兩個月內請避免至高溫場所，以免傷口未癒合完全，而造成感染。<br />\r\n<br />\r\n３．治療後請維持正常生活作息，勿食用刺激性食物。<br />\r\n<br />\r\n&nbsp;', '', '', '', '', '', '0', '2015-12-24 20:05:31', 1),
-(5, 528502, '眼袋手術', 0, '', '528623', '<br />\r\n<br />\r\n<span style="font-size:250%;"><strong>*</strong></span><br />\r\n<br />\r\n東方人的外貌，最早呈現老態的部位就是眼袋的部分，除了少部分人因為遺傳體質，從小就有眼袋外，大部分的人都是20、30歲以後，下眼袋才逐漸長出來，一旦有了眼袋，不僅看起來沒有精神，有會讓人顯得老氣橫秋，不過，只要動刀在下眼瞼把脂肪拿掉，就可以讓外表看起來年輕許多。<br />\r\n<br />\r\n<strong style="font-size: 32.5px; line-height: 52px;">*</strong><br />\r\n<br />\r\n<span style="color:#96601c;"><span style="font-size:120%;"><strong>內開式眼袋手術</strong></span></span><br />\r\n<br />\r\n手術時間約30分鐘，適合眼袋形成以眼眶的脂肪為主的年輕人，眼皮彈性佳或肌肉與皮膚沒有鬆弛下垂者，可從眼瞼內抽除眼袋內脂肪，從外在看不出疤痕；此手術因為由眼瞼內結膜切開，優點是恢復期短，但是只適合沒有眼皮鬆弛的眼袋者。<br />\r\n<br />\r\n&nbsp;<strong style="font-size: 32.5px; line-height: 52px;">*</strong><br />\r\n<br />\r\n<span style="line-height: 20.8px; color: rgb(150, 96, 28);"><span style="font-size: 15.6px;"><strong>外開式眼袋手術</strong></span></span><br />\r\n<br />\r\n手術時間約一小時。眼袋的形成主要原因是下眼瞼筋膜鬆弛，造成眼眶脂肪的凸出。所以單純抽去眼部脂肪，已經普遍不被目前的整形外科醫師認同。現在多是將脂肪塞回眼眶內，並加強縫緊肌膜；或是將多餘凸出的脂肪，鋪到淚溝處來改善凹陷。有時如果淚溝的凹陷太嚴重，眼眶內脂肪不夠，還需要再由其他地方提供自體脂肪，才會有個滿意的結果。<br />\r\n<br />\r\n<span style="font-size:250%;"><strong>*</strong></span><br />\r\n<br style="line-height: 20.8px;" />\r\n<br style="line-height: 20.8px;" />\r\n<br />\r\n<br />\r\n&nbsp;', '', '', '', '', '', '0', '2015-12-24 20:19:35', 1),
-(6, 528502, '隆鼻手術', 0, '', '528623', '<br />\r\n鼻子位於臉的正中心，也是全臉最突出的位置，要有精緻的五官比例，鼻型是重要的關鍵在面相學上，好看的鼻子與「財運」是息息相關的。<br />\r\n<br />\r\n<strong><span style="font-size:250%;">*</span><br />\r\n<span style="color:#96601c;">常見的隆鼻手術分為：</span></strong><br />\r\n<br />\r\n韓式隆鼻、日式隆鼻、美式隆鼻、兩段式隆鼻、耳朵軟骨、鼻中隔軟骨、肋骨軟骨、異體軟骨、矽膠、Gore-Tex、卡麥拉．．．到底有多少種隆鼻手術啊？<br />\r\n<br />\r\n手術傷口而言，就是開放式及封閉式兩種，開放式的傷口就是在鼻中柱的地方會有一條連接兩側的傷口，封閉式則在鼻孔內，單側或是兩側。<br />\r\n<br />\r\n<span style="color:#96601c;"><strong>植入物的材料而言分為以下二種:&nbsp;</strong></span><br />\r\n<br />\r\n&nbsp;\r\n<table align="center" border="1" cellpadding="0" cellspacing="0" style="width:95%;" width="95%">\r\n	<tbody>\r\n		<tr>\r\n			<td style="width: 25%; height: 27px; text-align: center;"><br />\r\n			<strong>耳朵軟骨</strong><br />\r\n			&nbsp;</td>\r\n			<td style="width: 30%; height: 27px; text-align: center;"><strong>鼻中隔軟骨</strong></td>\r\n			<td style="height: 27px; text-align: center;"><strong>肋骨軟骨</strong>&nbsp;<strong>(</strong><strong>自體 或異體)</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td style="text-align: center;"><strong>傷口</strong></td>\r\n			<td style="text-align: center;">耳前或耳後</td>\r\n			<td style="text-align: center;">鼻腔內鼻中隔上</td>\r\n			<td style="text-align: center;">前胸</td>\r\n		</tr>\r\n		<tr>\r\n			<td style="text-align: center;"><strong>特性</strong></td>\r\n			<td style="text-align: center;">最軟、有彈性</td>\r\n			<td style="text-align: center;">較硬</td>\r\n			<td style="text-align: center;">最硬</td>\r\n		</tr>\r\n		<tr>\r\n			<td style="text-align: center;"><strong>來源</strong></td>\r\n			<td style="text-align: center;">左右耳，有一定可以取出的量</td>\r\n			<td style="text-align: center;">取出量略多於耳軟骨</td>\r\n			<td style="text-align: center;">幾乎可以說是沒有限制，但是年齡的影響也較大</td>\r\n		</tr>\r\n		<tr>\r\n			<td style="text-align: center;"><strong>用途</strong></td>\r\n			<td style="text-align: center;">多用於鼻頭的造型設計</td>\r\n			<td style="text-align: center;">多用於鼻頭、鼻樑的支撐支架</td>\r\n			<td style="text-align: center;">片狀可用於支撐支架，切碎後可用於鼻樑之加高</td>\r\n		</tr>\r\n		<tr>\r\n			<td style="text-align: center;"><strong>弱點</strong></td>\r\n			<td style="text-align: center;">無法提供過大的支撐力</td>\r\n			<td style="text-align: center;">取得技術較難，鼻尖的塑形較不柔軟</td>\r\n			<td style="text-align: center;">取得技術較難，而且前胸有疤痕，被吸收率前兩者，有彎曲(warping)的機會</td>\r\n		</tr>\r\n		<tr>\r\n			<td style="text-align: center;"><strong>優點</strong></td>\r\n			<td style="text-align: center;">鼻頭造型有彈性，適合皮膚較薄者</td>\r\n			<td style="text-align: center;">支撐力夠強，可以讓皮膚較厚者得到較大改善</td>\r\n			<td style="text-align: center;">支撐力超強，是男性及非常朝天鼻的較佳選擇</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n<br />\r\n<br />\r\n<span style="color:#96601c;"><strong><span style="font-size:120%;">鼻頭手術</span></strong></span><br />\r\n<br />\r\n東方人的鼻翼較易於因過度外擴而有鼻孔過大，所以接受鼻翼鼻孔整型手術者幾乎都是為了要縮鼻翼、縮鼻孔。鼻翼過度外擴會造成鼻孔過大，且破壞鼻翼、鼻頭、鼻樑和鼻根之間的和諧比例，藉由切除部分的兩側鼻翼來改善外擴的鼻翼，進而改善鼻孔形狀。鼻頭整型手術主要是通過手術的方式糾正先天和後天的鼻頭不正或者是鼻頭肥大。鼻頭過大、過小、角度過度向上或下垂都可藉由手術改善美觀。<br />\r\n<br />\r\n<span style="color:#96601c;"><strong><span style="font-size:120%;">常見鼻形問題</span></strong></span><br />\r\n<br />\r\n<span style="color:#000000;"><span style="font-size:120%;"><span style="font-size:250%;">*</span></span></span><br />\r\n<strong>改善方法<br />\r\n<br />\r\n★蒜頭鼻、蓮霧鼻&nbsp;</strong><br />\r\n&nbsp;因為鼻翼軟骨肥大造成鼻頭過大。改善方法是將鼻翼軟骨的上緣切除，讓鼻頭變小。<br />\r\n<br />\r\n<strong style="line-height: 20.8px;">★</strong><strong>無鼻尖和鼻頭</strong><br style="line-height: 20.8px;" />\r\n用自體的耳軟骨移植到鼻頭，甚至鼻中柱前面來撐起鼻頭，讓鼻頭更立體更自然。<br />\r\n<br />\r\n<strong style="line-height: 20.8px;">★</strong><strong>提高鼻頭</strong><br style="line-height: 20.8px;" />\r\n&nbsp;對縫鼻中格軟骨，可以再加上鼻中膈軟骨，藉以撐起鼻頭，使鼻頭更立體，同時使鼻孔形狀更漂亮。<br />\r\n<br />\r\n<strong style="line-height: 20.8px;">★</strong><strong>鷹勾鼻</strong><br />\r\n鼻尖過長或下垂。改善方法是將過長的鼻翼軟骨、鼻中膈軟骨切除。<br />\r\n<br />\r\n<strong>★獅子鼻</strong><br />\r\n&nbsp;鼻翼較有過度外擴，造成鼻孔過大。改善方法是透過「縮鼻翼」、「縮鼻孔」的鼻孔整型手術<br />\r\n<br />\r\n<strong style="line-height: 20.8px;">★</strong><strong>朝天鼻</strong><br />\r\n鼻孔向上。改善方法是克服鼻子皮膚張力來增加鼻子的長度，並用自體軟骨來矯正鼻尖及朝天的鼻孔。(縮鼻翼分別:內縮、外縮)<br />\r\n<br />\r\n<strong>★歪鼻</strong><br />\r\n&nbsp;根據不同的歪斜方向有分為「Ｃ型」「Ｓ型」及「側斜型」歪鼻。改善方法是依不同的歪斜方向來矯正鼻骨、鼻中膈軟骨、鼻翼軟骨和上鼻側軟骨。<br />\r\n<br />\r\n<span style="color:#96601c;"><strong><span style="font-size:120%;">我該選擇何種隆鼻手術？</span></strong></span><br />\r\n<br />\r\n沒有哪一種隆鼻手術方式是最好的，只有你適合哪一種隆鼻手術。<br />\r\n讓熟悉各種隆鼻方式的醫師來為您選擇，您該進行何種手術。<br />\r\n<br />\r\n<br />\r\n&nbsp;', '', '', '', '', '', '0', '2015-12-24 20:41:59', 1),
-(7, 528502, '下巴整形', 0, '', '528623', '<div style="text-align: center;"><span style="color:#96601c;"><strong><span style="font-size:200%;">下巴決定臉型</span></strong></span></div>\r\n<br />\r\n下巴可以決定一個人的臉型，下巴內縮或過短，會讓人留下顴骨過高或雙頰過寬的印象，如果擁有尖而精緻的完美下巴比例，會有縮小臉部的視覺效果。<br />\r\n<br />\r\n<strong><span style="font-size:250%;">*</span></strong><br />\r\n短下巴或下巴內縮的人，脖子看起來就會比較短，臉也會看起來比較短比較圓，而且視覺效果也會顯得嘴巴突出。(如圖一)<br />\r\n<br />\r\n<br />\r\n&nbsp;<br />\r\n<strong><span style="font-size:120%;"><span style="color:#96601c;">改善短下巴的方式:</span></span><br />\r\n<br />\r\n永久 : </strong>使用卡麥拉墊下巴手術(可加自體脂肪會更自然)<br />\r\n<br />\r\n<strong>有時效性 : </strong>水微晶、微晶瓷、玻尿酸...注射<br />\r\n<br />\r\n<br />\r\n<br />\r\n<strong style="line-height: 20.8px;"><span style="font-size: 15.6px;"><span style="color: rgb(150, 96, 28);">完美下巴比例:</span></span></strong><br />\r\n<br />\r\n<strong style="line-height: 20.8px;"><span style="font-size: 15.6px;"><span style="font-size:250%;">*</span></span></strong><br />\r\n<br />\r\n1. 下巴要比眉間垂直線突出3MM<br />\r\n2. 鼻頭和下巴間放一把尺時，下嘴唇應略微碰到尺<br />\r\n3. 從側面看時，下巴要比從人中到下巴的垂直線突出<br />\r\n4. 嘴巴與下巴連接部位需成為S曲線<br />\r\n5. 將臉劃分上、中下比例應成為1:1:1<br />\r\n<br />\r\n<br />\r\n<strong style="line-height: 20.8px;"><span style="font-size: 15.6px;"><span style="color: rgb(150, 96, 28);">墊下巴的材質:</span></span></strong><br />\r\n<br />\r\n<span style="line-height: 20.8px;">1.&nbsp;</span>傳統的矽膠材質(缺點:線條不順)<br />\r\n<span style="line-height: 20.8px;">2.&nbsp;</span>傳統的人工骨材質(缺點:下巴太寬不夠秀氣)<br />\r\n<span style="line-height: 20.8px;">3.&nbsp;</span>卡麥拉(線條漂亮、較不易位、觸感佳、自然度高)<br />\r\n&nbsp;<br />\r\n<br />\r\n<br />\r\n&nbsp;', '', '', '', '', '', '0', '2015-12-24 20:51:09', 1),
-(8, 528502, '隆乳手術', 0, '', '528623', '<div style="text-align: center;"><strong><span style="font-size:150%;"><span style="color:#96601c;">擁有飽滿事業線不是夢</span></span></strong><br />\r\n&nbsp;</div>\r\n隆胸手術分為假體豐胸與自體脂肪豐胸兩大主流，常見假體隆胸為鹽水袋、果凍矽膠，果凍矽膠又分為:光滑面、絨毛面。目前台灣很少見的合併手術「自體脂肪+果凍矽膠」，效果非常的好，但相對的價位也比較高，優點是結合自體肪脂的柔軟觸感並雕塑身型，及果凍矽膠可一次升級好幾個罩杯的效果，最重要的是不需要按摩。<br />\r\n<br />\r\n<strong><span style="font-size:250%;">*</span></strong><br />\r\n&nbsp;\r\n<div><strong>自體脂肪: </strong><br />\r\n<br />\r\n自體脂肪是一種天然填充劑，使用患者本身的脂肪，抽出後經過提煉及純化後再注射進乳房內，來源取得方便，使用它注射隆胸所留下的疤痕非常微小，又能改善假體隆胸的不自然異物感。 自體脂肪移植豐胸術後胸部會有像MC時般的腫脹感，而自體脂肪臉部移植部位術後同樣會有腫脹感，而抽脂部位會有些腫痛，視個人情況約一至兩三周逐漸消腫緩解，可以由醫師評估個人狀況給予塑身衣輔助修復消腫。自體脂肪隆乳外觀及觸感與乳房組織相似，自然柔軟，隆乳的同時又可以去除身體多餘的脂肪，達到雕塑身型的效果，一舉兩得，胸部幾乎無痛感無疤痕。</div>\r\n<br />\r\n<strong>果凍矽膠：</strong><br />\r\n<br />\r\n適合想一次升級較多罩杯，且身上無多餘脂肪可移植者，術後需配合按摩。但近年來，自體脂肪隆胸有逐漸超越的趨勢，一般來說，果凍矽膠的觸感會優於傳統的鹽水袋，那麼光滑面與絨毛面的觸感是否有差異呢&nbsp;?其實光滑面的果凍矽膠於彎腰時比較不易產生皺折，相較於絨毛面，光滑面的觸感比較軟Ｑ接近真乳，但術後三個月需要不斷的按摩，必免莢膜孿縮。而絨毛面的優點就是手術過程短恢復快，術後的腫脹或瘀血也會跟著少很多，還有術後較無疼痛感且不需按摩，缺點就是觸感較光滑面不佳球感較重。<br />\r\n<br />\r\n<strong>自體+果凍矽膠(合併手術)：</strong><br />\r\n<br />\r\n適合想一次升級較多罩杯，又想要有自然柔軟的效果，最重要的是不需要按摩。這種手術在韓國很常見，但台灣很少醫生會做，手術需要花費很多時間，且價位較高。但優點是它結合了二者的優點，排除二者的缺點，自體脂肪最多可升級到一個半的罩杯，不能改變胸部的形狀，但又有雕塑身型的好處。果凍矽膠可一次升級較多的罩杯，但術後需要按摩。現在很多客人在詢問此項手術，相信未來隆乳的客人大部份會選擇這種方式。<br />\r\n<br />\r\n<br />\r\n<span style="font-size:150%;"><span style="color:#96601c;"><strong>光滑面和絨毛面如何選擇呢?</strong></span></span><br />\r\n<br />\r\n若放的是絨毛面，術後不必按摩，而光滑面義乳則較須按摩絨毛面表面與周邊組織黏附性較好較不容易產生莢膜攣縮，大多是客人因選擇特定乳房外觀(如水滴型)才需絨毛面義乳因為較容易維持特定的外型，所以術後不需要按摩;&nbsp;若放光滑面的，按摩便十分重要。按摩除了能讓乳房柔軟、不變硬之外，還可讓外形更自然。<br />\r\n<br />\r\n<br />\r\n<br />\r\n&nbsp;', '', '', '', '', '', '0', '2015-12-24 20:56:49', 1),
-(9, 528502, 'z波黃金脂雕Ultra-Z(抽脂/體雕)', 0, '', '528623', '<div style="text-align: center;"><span style="font-size:150%;"><strong><span style="color:#96601c;">擁有人魚線/馬甲線不是夢</span></strong></span><br />\r\n&nbsp;</div>\r\n\r\n<div>Ｚ波黃金脂雕又稱超音波溶脂，主要是利用高頻率的超音波快速震盪作用，在不傷害神經和血管的條件下將脂肪細胞膜碎解，將脂肪乳麋化再利用抽吸管抽出，比起傳統抽脂將結構完整的脂肪強力吸出，對神經血管的傷害降低了許多，手術的出血量控制到更低，抽出物中幾乎都是脂肪,&nbsp;術後不但恢復期縮短，之後的表面凹凸不平和局部鬆弛的情形也大幅降低許多。對於比較硬的纖維化脂肪：例如背部及臀部，以及曾經做過抽脂手術仍有殘餘脂肪需要處理的部位，也能有效地軟化並震碎脂肪組織，達到更好的抽脂效果。<br />\r\n<br />\r\n<strong>Z波黃金脂雕的優點</strong><br />\r\n<br />\r\n1. &nbsp;安全性高：針對脂肪細胞乳化，不傷害重要神經及血管<br />\r\n2. &nbsp; 低疼痛感、 低出血及其他傷害<br />\r\n3. &nbsp; 術後復原期短<br />\r\n4. &nbsp;手術同時緊緻肌膚&nbsp;<br />\r\n5. &nbsp; 局部雕塑效果佳<br />\r\n&nbsp;</div>\r\n', '', '', '', '', '', '0', '2015-12-24 20:58:43', 1);
+(5, 528502, '眼袋手術', 0, '', '528623', '<br />\r\n<span style="font-size:250%;"><strong><img alt="" src="http://test.fanswoo.com/dragon_group/app/pic/00/00/00/16-5d1aa19889f079f7.jpg" /></strong></span><br />\r\n<br />\r\n東方人的外貌，最早呈現老態的部位就是眼袋的部分，除了少部分人因為遺傳體質，從小就有眼袋外，大部分的人都是20、30歲以後，下眼袋才逐漸長出來，一旦有了眼袋，不僅看起來沒有精神，有會讓人顯得老氣橫秋，不過，只要動刀在下眼瞼把脂肪拿掉，就可以讓外表看起來年輕許多。<br />\r\n<br />\r\n<img alt="" src="http://test.fanswoo.com/dragon_group/app/pic/00/00/00/17-30dd2c4e7119fd8d.jpg" /><br />\r\n<br />\r\n<span style="color:#96601c;"><span style="font-size:120%;"><strong>內開式眼袋手術</strong></span></span><br />\r\n<br />\r\n手術時間約30分鐘，適合眼袋形成以眼眶的脂肪為主的年輕人，眼皮彈性佳或肌肉與皮膚沒有鬆弛下垂者，可從眼瞼內抽除眼袋內脂肪，從外在看不出疤痕；此手術因為由眼瞼內結膜切開，優點是恢復期短，但是只適合沒有眼皮鬆弛的眼袋者。<br />\r\n<br />\r\n<img alt="" src="http://test.fanswoo.com/dragon_group/app/pic/00/00/00/18-e6f585b4322bf42f.jpg" /><br />\r\n<br />\r\n<span style="line-height: 20.8px; color: rgb(150, 96, 28);"><span style="font-size: 15.6px;"><strong>外開式眼袋手術</strong></span></span><br />\r\n<br />\r\n手術時間約一小時。眼袋的形成主要原因是下眼瞼筋膜鬆弛，造成眼眶脂肪的凸出。所以單純抽去眼部脂肪，已經普遍不被目前的整形外科醫師認同。現在多是將脂肪塞回眼眶內，並加強縫緊肌膜；或是將多餘凸出的脂肪，鋪到淚溝處來改善凹陷。有時如果淚溝的凹陷太嚴重，眼眶內脂肪不夠，還需要再由其他地方提供自體脂肪，才會有個滿意的結果。<br />\r\n<br />\r\n<span style="font-size:250%;"><strong><img alt="" src="http://test.fanswoo.com/dragon_group/app/pic/00/00/00/19-6efbbb46cb4f6b76.jpg" /></strong></span><br />\r\n<br style="line-height: 20.8px;" />\r\n<br style="line-height: 20.8px;" />\r\n<br />\r\n<br />\r\n&nbsp;', '', '', '', '', '', '0', '2015-12-25 18:05:27', 1),
+(6, 528502, '隆鼻手術', 0, '', '528623', '鼻子位於臉的正中心，也是全臉最突出的位置，要有精緻的五官比例，鼻型是重要的關鍵在面相學上，好看的鼻子與「財運」是息息相關的。<br />\r\n<br />\r\n<strong><span style="font-size:250%;"><img alt="" src="http://test.fanswoo.com/dragon_group/app/pic/00/00/00/20-40239b46661c50ac.jpg" /></span><br />\r\n<span style="color:#96601c;">常見的隆鼻手術分為：</span></strong><br />\r\n<br />\r\n韓式隆鼻、日式隆鼻、美式隆鼻、兩段式隆鼻、耳朵軟骨、鼻中隔軟骨、肋骨軟骨、異體軟骨、矽膠、Gore-Tex、卡麥拉．．．到底有多少種隆鼻手術啊？<br />\r\n<br />\r\n手術傷口而言，就是開放式及封閉式兩種，開放式的傷口就是在鼻中柱的地方會有一條連接兩側的傷口，封閉式則在鼻孔內，單側或是兩側。<br />\r\n<br />\r\n<span style="color:#96601c;"><strong>植入物的材料而言分為以下二種:&nbsp;</strong></span><br />\r\n<br />\r\n&nbsp;\r\n<table align="center" border="1" cellpadding="0" cellspacing="0" style="width:95%;" width="95%">\r\n	<tbody>\r\n		<tr>\r\n			<td style="width: 25%; height: 27px; text-align: center;"><br />\r\n			<strong>耳朵軟骨</strong><br />\r\n			&nbsp;</td>\r\n			<td style="width: 30%; height: 27px; text-align: center;"><strong>鼻中隔軟骨</strong></td>\r\n			<td style="height: 27px; text-align: center;"><strong>肋骨軟骨</strong>&nbsp;<strong>(</strong><strong>自體 或異體)</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td style="text-align: center;"><strong>傷口</strong></td>\r\n			<td style="text-align: center;">耳前或耳後</td>\r\n			<td style="text-align: center;">鼻腔內鼻中隔上</td>\r\n			<td style="text-align: center;">前胸</td>\r\n		</tr>\r\n		<tr>\r\n			<td style="text-align: center;"><strong>特性</strong></td>\r\n			<td style="text-align: center;">最軟、有彈性</td>\r\n			<td style="text-align: center;">較硬</td>\r\n			<td style="text-align: center;">最硬</td>\r\n		</tr>\r\n		<tr>\r\n			<td style="text-align: center;"><strong>來源</strong></td>\r\n			<td style="text-align: center;">左右耳，有一定可以取出的量</td>\r\n			<td style="text-align: center;">取出量略多於耳軟骨</td>\r\n			<td style="text-align: center;">幾乎可以說是沒有限制，但是年齡的影響也較大</td>\r\n		</tr>\r\n		<tr>\r\n			<td style="text-align: center;"><strong>用途</strong></td>\r\n			<td style="text-align: center;">多用於鼻頭的造型設計</td>\r\n			<td style="text-align: center;">多用於鼻頭、鼻樑的支撐支架</td>\r\n			<td style="text-align: center;">片狀可用於支撐支架，切碎後可用於鼻樑之加高</td>\r\n		</tr>\r\n		<tr>\r\n			<td style="text-align: center;"><strong>弱點</strong></td>\r\n			<td style="text-align: center;">無法提供過大的支撐力</td>\r\n			<td style="text-align: center;">取得技術較難，鼻尖的塑形較不柔軟</td>\r\n			<td style="text-align: center;">取得技術較難，而且前胸有疤痕，被吸收率前兩者，有彎曲(warping)的機會</td>\r\n		</tr>\r\n		<tr>\r\n			<td style="text-align: center;"><strong>優點</strong></td>\r\n			<td style="text-align: center;">鼻頭造型有彈性，適合皮膚較薄者</td>\r\n			<td style="text-align: center;">支撐力夠強，可以讓皮膚較厚者得到較大改善</td>\r\n			<td style="text-align: center;">支撐力超強，是男性及非常朝天鼻的較佳選擇</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n<br />\r\n<br />\r\n<span style="color:#96601c;"><strong><span style="font-size:120%;">鼻頭手術</span></strong></span><br />\r\n<br />\r\n東方人的鼻翼較易於因過度外擴而有鼻孔過大，所以接受鼻翼鼻孔整型手術者幾乎都是為了要縮鼻翼、縮鼻孔。鼻翼過度外擴會造成鼻孔過大，且破壞鼻翼、鼻頭、鼻樑和鼻根之間的和諧比例，藉由切除部分的兩側鼻翼來改善外擴的鼻翼，進而改善鼻孔形狀。鼻頭整型手術主要是通過手術的方式糾正先天和後天的鼻頭不正或者是鼻頭肥大。鼻頭過大、過小、角度過度向上或下垂都可藉由手術改善美觀。<br />\r\n<br />\r\n<span style="color:#96601c;"><strong><span style="font-size:120%;">常見鼻形問題</span></strong></span><br />\r\n<br />\r\n<span style="color:#000000;"><span style="font-size:120%;"><span style="font-size:250%;"><img alt="" src="http://test.fanswoo.com/dragon_group/app/pic/00/00/00/21-83d8b84937149ac4.jpg" style="width: 600px; height: 250px;" /></span></span></span><br />\r\n<strong>改善方法<br />\r\n<br />\r\n★蒜頭鼻、蓮霧鼻&nbsp;</strong><br />\r\n&nbsp;因為鼻翼軟骨肥大造成鼻頭過大。改善方法是將鼻翼軟骨的上緣切除，讓鼻頭變小。<br />\r\n<br />\r\n<strong style="line-height: 20.8px;">★</strong><strong>無鼻尖和鼻頭</strong><br style="line-height: 20.8px;" />\r\n用自體的耳軟骨移植到鼻頭，甚至鼻中柱前面來撐起鼻頭，讓鼻頭更立體更自然。<br />\r\n<br />\r\n<strong style="line-height: 20.8px;">★</strong><strong>提高鼻頭</strong><br style="line-height: 20.8px;" />\r\n&nbsp;對縫鼻中格軟骨，可以再加上鼻中膈軟骨，藉以撐起鼻頭，使鼻頭更立體，同時使鼻孔形狀更漂亮。<br />\r\n<br />\r\n<strong style="line-height: 20.8px;">★</strong><strong>鷹勾鼻</strong><br />\r\n鼻尖過長或下垂。改善方法是將過長的鼻翼軟骨、鼻中膈軟骨切除。<br />\r\n<br />\r\n<strong>★獅子鼻</strong><br />\r\n&nbsp;鼻翼較有過度外擴，造成鼻孔過大。改善方法是透過「縮鼻翼」、「縮鼻孔」的鼻孔整型手術<br />\r\n<br />\r\n<strong style="line-height: 20.8px;">★</strong><strong>朝天鼻</strong><br />\r\n鼻孔向上。改善方法是克服鼻子皮膚張力來增加鼻子的長度，並用自體軟骨來矯正鼻尖及朝天的鼻孔。(縮鼻翼分別:內縮、外縮)<br />\r\n<br />\r\n<strong>★歪鼻</strong><br />\r\n&nbsp;根據不同的歪斜方向有分為「Ｃ型」「Ｓ型」及「側斜型」歪鼻。改善方法是依不同的歪斜方向來矯正鼻骨、鼻中膈軟骨、鼻翼軟骨和上鼻側軟骨。<br />\r\n<br />\r\n<span style="color:#96601c;"><strong><span style="font-size:120%;">我該選擇何種隆鼻手術？</span></strong></span><br />\r\n<br />\r\n沒有哪一種隆鼻手術方式是最好的，只有你適合哪一種隆鼻手術。<br />\r\n讓熟悉各種隆鼻方式的醫師來為您選擇，您該進行何種手術。<br />\r\n<br />\r\n<br />\r\n&nbsp;', '', '', '', '', '', '0', '2015-12-25 18:06:24', 1),
+(7, 528502, '下巴整形', 0, '', '528623', '<div style="text-align: center;"><span style="font-size:150%;"><span style="color:#96601c;"><strong>下巴決定臉型</strong></span></span></div>\r\n<br />\r\n下巴可以決定一個人的臉型，下巴內縮或過短，會讓人留下顴骨過高或雙頰過寬的印象，如果擁有尖而精緻的完美下巴比例，會有縮小臉部的視覺效果。<br />\r\n<br />\r\n<strong><span style="font-size:250%;"><img alt="" src="http://test.fanswoo.com/dragon_group/app/pic/00/00/00/22-49237bbdfb1b54c9.jpg" /></span></strong><br />\r\n短下巴或下巴內縮的人，脖子看起來就會比較短，臉也會看起來比較短比較圓，而且視覺效果也會顯得嘴巴突出。(如圖一)<br />\r\n<br />\r\n<br />\r\n&nbsp;<br />\r\n<strong><span style="font-size:120%;"><span style="color:#96601c;">改善短下巴的方式:</span></span><br />\r\n<br />\r\n永久 : </strong>使用卡麥拉墊下巴手術(可加自體脂肪會更自然)<br />\r\n<br />\r\n<strong>有時效性 : </strong>水微晶、微晶瓷、玻尿酸...注射<br />\r\n<br />\r\n<br />\r\n<br />\r\n<strong style="line-height: 20.8px;"><span style="font-size: 15.6px;"><span style="color: rgb(150, 96, 28);">完美下巴比例:</span></span></strong><br />\r\n<br />\r\n<strong style="line-height: 20.8px;"><span style="font-size: 15.6px;"><span style="font-size:250%;"><img alt="" src="http://test.fanswoo.com/dragon_group/app/pic/00/00/00/23-e9821117f79d296c.jpg" style="width: 600px; height: 180px;" /></span></span></strong><br />\r\n<br />\r\n1. 下巴要比眉間垂直線突出3MM<br />\r\n2. 鼻頭和下巴間放一把尺時，下嘴唇應略微碰到尺<br />\r\n3. 從側面看時，下巴要比從人中到下巴的垂直線突出<br />\r\n4. 嘴巴與下巴連接部位需成為S曲線<br />\r\n5. 將臉劃分上、中下比例應成為1:1:1<br />\r\n<br />\r\n<br />\r\n<strong style="line-height: 20.8px;"><span style="font-size: 15.6px;"><span style="color: rgb(150, 96, 28);">墊下巴的材質:</span></span></strong><br />\r\n<br />\r\n<span style="line-height: 20.8px;">1.&nbsp;</span>傳統的矽膠材質(缺點:線條不順)<br />\r\n<span style="line-height: 20.8px;">2.&nbsp;</span>傳統的人工骨材質(缺點:下巴太寬不夠秀氣)<br />\r\n<span style="line-height: 20.8px;">3.&nbsp;</span>卡麥拉(線條漂亮、較不易位、觸感佳、自然度高)<br />\r\n&nbsp;<br />\r\n<br />\r\n<br />\r\n&nbsp;', '', '', '', '', '', '0', '2015-12-25 18:06:57', 1),
+(8, 528502, '隆乳手術', 0, '', '528623', '<div style="text-align: center;"><strong><span style="font-size:150%;"><span style="color:#96601c;">擁有飽滿事業線不是夢</span></span></strong><br />\r\n&nbsp;</div>\r\n隆胸手術分為假體豐胸與自體脂肪豐胸兩大主流，常見假體隆胸為鹽水袋、果凍矽膠，果凍矽膠又分為:光滑面、絨毛面。目前台灣很少見的合併手術「自體脂肪+果凍矽膠」，效果非常的好，但相對的價位也比較高，優點是結合自體肪脂的柔軟觸感並雕塑身型，及果凍矽膠可一次升級好幾個罩杯的效果，最重要的是不需要按摩。<br />\r\n<br />\r\n<img alt="" src="http://test.fanswoo.com/dragon_group/app/pic/00/00/00/24-f1bfc2c46962a992.jpg" style="width: 650px; height: 400px;" /><br />\r\n&nbsp;\r\n<div><strong>自體脂肪: </strong><br />\r\n<br />\r\n自體脂肪是一種天然填充劑，使用患者本身的脂肪，抽出後經過提煉及純化後再注射進乳房內，來源取得方便，使用它注射隆胸所留下的疤痕非常微小，又能改善假體隆胸的不自然異物感。 自體脂肪移植豐胸術後胸部會有像MC時般的腫脹感，而自體脂肪臉部移植部位術後同樣會有腫脹感，而抽脂部位會有些腫痛，視個人情況約一至兩三周逐漸消腫緩解，可以由醫師評估個人狀況給予塑身衣輔助修復消腫。自體脂肪隆乳外觀及觸感與乳房組織相似，自然柔軟，隆乳的同時又可以去除身體多餘的脂肪，達到雕塑身型的效果，一舉兩得，胸部幾乎無痛感無疤痕。</div>\r\n<br />\r\n<strong>果凍矽膠：</strong><br />\r\n<br />\r\n適合想一次升級較多罩杯，且身上無多餘脂肪可移植者，術後需配合按摩。但近年來，自體脂肪隆胸有逐漸超越的趨勢，一般來說，果凍矽膠的觸感會優於傳統的鹽水袋，那麼光滑面與絨毛面的觸感是否有差異呢&nbsp;?其實光滑面的果凍矽膠於彎腰時比較不易產生皺折，相較於絨毛面，光滑面的觸感比較軟Ｑ接近真乳，但術後三個月需要不斷的按摩，必免莢膜孿縮。而絨毛面的優點就是手術過程短恢復快，術後的腫脹或瘀血也會跟著少很多，還有術後較無疼痛感且不需按摩，缺點就是觸感較光滑面不佳球感較重。<br />\r\n<br />\r\n<strong>自體+果凍矽膠(合併手術)：</strong><br />\r\n<br />\r\n適合想一次升級較多罩杯，又想要有自然柔軟的效果，最重要的是不需要按摩。這種手術在韓國很常見，但台灣很少醫生會做，手術需要花費很多時間，且價位較高。但優點是它結合了二者的優點，排除二者的缺點，自體脂肪最多可升級到一個半的罩杯，不能改變胸部的形狀，但又有雕塑身型的好處。果凍矽膠可一次升級較多的罩杯，但術後需要按摩。現在很多客人在詢問此項手術，相信未來隆乳的客人大部份會選擇這種方式。<br />\r\n<br />\r\n<br />\r\n<span style="font-size:150%;"><span style="color:#96601c;"><strong>光滑面和絨毛面如何選擇呢?</strong></span></span><br />\r\n<br />\r\n若放的是絨毛面，術後不必按摩，而光滑面義乳則較須按摩絨毛面表面與周邊組織黏附性較好較不容易產生莢膜攣縮，大多是客人因選擇特定乳房外觀(如水滴型)才需絨毛面義乳因為較容易維持特定的外型，所以術後不需要按摩;&nbsp;若放光滑面的，按摩便十分重要。按摩除了能讓乳房柔軟、不變硬之外，還可讓外形更自然。<br />\r\n<br />\r\n<br />\r\n<br />\r\n&nbsp;', '', '', '', '', '', '0', '2015-12-25 18:07:32', 1),
+(9, 528502, 'z波黃金脂雕Ultra-Z(抽脂/體雕)', 0, '', '528623', '<div style="text-align: center;"><span style="font-size:150%;"><strong><span style="color:#96601c;">擁有人魚線/馬甲線不是夢</span></strong></span><br />\r\n&nbsp;</div>\r\n\r\n<div>Ｚ波黃金脂雕又稱超音波溶脂，主要是利用高頻率的超音波快速震盪作用，在不傷害神經和血管的條件下將脂肪細胞膜碎解，將脂肪乳麋化再利用抽吸管抽出，比起傳統抽脂將結構完整的脂肪強力吸出，對神經血管的傷害降低了許多，手術的出血量控制到更低，抽出物中幾乎都是脂肪,&nbsp;術後不但恢復期縮短，之後的表面凹凸不平和局部鬆弛的情形也大幅降低許多。對於比較硬的纖維化脂肪：例如背部及臀部，以及曾經做過抽脂手術仍有殘餘脂肪需要處理的部位，也能有效地軟化並震碎脂肪組織，達到更好的抽脂效果。<br />\r\n<br />\r\n<strong>Z波黃金脂雕的優點</strong><br />\r\n<br />\r\n1. &nbsp;安全性高：針對脂肪細胞乳化，不傷害重要神經及血管<br />\r\n2. &nbsp; 低疼痛感、 低出血及其他傷害<br />\r\n3. &nbsp; 術後復原期短<br />\r\n4. &nbsp;手術同時緊緻肌膚&nbsp;<br />\r\n5. &nbsp; 局部雕塑效果佳<br />\r\n&nbsp;</div>\r\n', '', '', '', '', '', '0', '2015-12-24 20:58:43', 1),
+(10, 528502, '4D埋線', 0, '', '528627', '<br />\r\n有別於一般填充物注射，除了刺激膠原蛋白增生成，也能給肌膚多一層支撐力。<br />\r\n&nbsp;<br />\r\n臉部老化鬆弛的主因是皮下組織膠原蛋白的流失，如不想被動地等膠原蛋白自行慢慢回補，可直接加強皮下支撐力。利用可吸收性的材質植入皮下，如同一張網狀般排列組合，再加上它本身特性，就可達到加強皮下組織支撐力，改善組織鬆弛下垂現象方式，這就是埋線的原理。<br />\r\n<br />\r\n<strong><span style="font-size:250%;"><img alt="" src="http://test.fanswoo.com/dragon_group/app/pic/00/00/00/28-e23fbe8b52c659bb.jpg" /></span></strong><br />\r\n韓國新一代無痕拉皮術「4D埋線拉皮」，使用外科手術縫線線材，埋入皮膚拉提及刺激膠原蛋白增生並擁有美國FDA及韓國KFDA的認證，安全性相當高，具調整性，立即見效，持續時間可長達約9個月之久。線材吸收後，其所誘發增生的膠原蛋白產生的效果，最多約可持續2年的時間，長期的效應則會促使膠原蛋白增生，血管新生，血液循環增加，產生皮膚更新的效應，達到緊實拉提及膚質改善的結果。<br />\r\n<br />\r\n利用極細小的針頭，無刀、無痕、免全身麻醉，將PDO縫線帶入皮膚組織包覆，會呈現一個V字型的線條，線會像一個「結」一樣，緊緻的在定點不動，使附近的肌肉及脂肪也就被固定在原處，不會往下墬，立即產生提拉的緊緻效果，上班族女性更可以隔天立即上妝。為了使消費者更加放心。針頭與PDO(polydioxanone)外科縫線是「4D埋線」的主要材料。<br />\r\n<br />\r\n<br />\r\n<span style="color:#96601c;"><strong><span style="font-size:120%;">療程注意事項</span></strong></span><br />\r\n<br />\r\n1.&nbsp;針孔痕跡:大部分的針孔痕跡，一般半小時內即會消失，不需要擔心疤痕問題<br />\r\n<br />\r\n2. 瘀青與腫脹:瘀青是最常見的術後問題，術後立即冰敷與良好的醫師操作手法可以有效地較低術後瘀青與腫脹發生率與程度，至少持續三天是需要的。一般亦會伴隨程度輕微的腫脹。但均會隨時間而緩解。<br />\r\n<br />\r\n3. 局部痛感:剛接受完治療後數日內，當重壓治療區時，輕微的痛感是正常的，會隨時間而緩解，可配合醫師建議藥物使用。<br />\r\n<br />\r\n4. 線頭突出:有極少數的治療者接受治療後會有線頭一位或突出的現象，良好的醫師操作手法是關鍵。建議數後數日內盡可能減少臉部大動作的表情以減少發生率。<br />\r\n<br />\r\n5. 避免刺激性食物，例如:喝酒、抽菸、海鮮等<br />\r\n<br />\r\n6. 術後避免接觸埋線區域、可輕柔的化妝、卸妝、洗臉。<br />\r\n<br />\r\n7. 術後2週避免三溫暖、烤箱、蒸氣泡湯。<br />\r\n<br />\r\n<br />\r\n&nbsp;', '', '', '', '', '', '0', '2015-12-25 18:09:14', 1),
+(11, 528502, '洢蓮絲奇蹟針', 0, '', '528627', '<img alt="" src="http://test.fanswoo.com/dragon_group/app/pic/00/00/00/26-3ea88950983fbae5.jpg" /><br style="line-height: 20.8px;" />\r\n<span style="line-height: 20.8px;">洢蓮絲EllANS&Eacute;來自荷英共同研發。Poly-caprolactone(PCL)是洢蓮絲的主要成分，數十年來作為骨科用植體、手術縫合線、臉部填充物等可被人體吸收的植體，有助於合成膠原蛋白，在人體內水分和二氧化碳作用下可以完全被分解吸收和排出的安全物質。洢蓮絲EllANS&Eacute;是一種創新成份的皮膚充填劑，與以往充填劑不同的特色，是它同時結合了玻尿酸、晶亮瓷直接組織充填的功能，以及Sculptra刺激膠原蛋白拉提的緊緻功能。與普通玻尿酸維持時間6至9個月相比，洢蓮絲的維持時間約3年以上，能促進生成膠原蛋白、改善皺紋、使肌膚恢復彈性。注射洢蓮絲兩年後能完全被人體分解吸收後，可讓膠原蛋白再增生，繼續加強肌膚Q嫩，幾乎無副作用，安全性極高。</span><br style="line-height: 20.8px;" />\r\n<br style="line-height: 20.8px;" />\r\n<strong style="line-height: 20.8px;">特點</strong><br />\r\n<br style="line-height: 20.8px;" />\r\n<span style="line-height: 20.8px;">１．有顯著填充效果，無須再花費半年等待肌膚再生膠原蛋白。</span><br style="line-height: 20.8px;" />\r\n<span style="line-height: 20.8px;">２．主成分PCL微晶球不斷刺激膠原蛋白，代替且填補被代謝的凝膠</span><span style="line-height: 20.8px;">。</span><br />\r\n<span style="line-height: 20.8px;">３．三個優於其他填充劑的特性：持續作用、可選擇維持效果年限、可完全被人體吸收，又稱三合一完美奇蹟針。</span><br style="line-height: 20.8px;" />\r\n<span style="line-height: 20.8px;">４．成份是聚已內酯及生物降解材料，並非動物、植物或人類來源，治療前不需施行過敏測試，治療後也不產生過敏反應。</span><br style="line-height: 20.8px;" />\r\n<span style="line-height: 20.8px;">&nbsp;5．</span><span style="line-height: 20.8px;">非手術性：非手術性的療程，只需局部麻醉。</span><br style="line-height: 20.8px;" />\r\n<br style="line-height: 20.8px;" />\r\n<strong style="line-height: 20.8px;">快速：&nbsp;</strong><span style="line-height: 20.8px;">注射簡單快速且不須測試過敏反應，一個小時左右便能完成治療。</span><br style="line-height: 20.8px;" />\r\n<span style="line-height: 20.8px;">&nbsp;</span><br style="line-height: 20.8px;" />\r\n<strong style="line-height: 20.8px;">恢復期短：</strong><span style="line-height: 20.8px;">治療後可能發生腫脹發紅，約在24小時內便會消失。</span><br style="line-height: 20.8px;" />\r\n<br style="line-height: 20.8px;" />\r\n<strong style="line-height: 20.8px;">安全性：</strong><span style="line-height: 20.8px;">FDA(美國食品藥物監督管理局)及歐盟(CE-marked)認證核准上市可吸收</span><span style="line-height: 20.8px;">之醫療產品，其安全性已被證實。&nbsp;</span><br style="line-height: 20.8px;" />\r\n<br style="line-height: 20.8px;" />\r\n<strong style="line-height: 20.8px;">效果持久：</strong><span style="line-height: 20.8px;">ELLANS&Eacute;原廠提供四個版本可供選擇，S,M,L與E，成份相同，不同於</span><span style="line-height: 20.8px;">效果持久度。目前台灣衛服部核准ELLANS&Eacute;-S型號，維持時間為一年</span><span style="line-height: 20.8px;">以上。</span><br style="line-height: 20.8px;" />\r\n<br style="line-height: 20.8px;" />\r\n<strong style="line-height: 20.8px;">降低不舒適性：</strong><span style="line-height: 20.8px;">治療前可搭配麻醉劑使用，或在治療後搭配冰敷，減少治療的不</span><span style="line-height: 20.8px;">適。</span><br style="line-height: 20.8px;" />\r\n<br style="line-height: 20.8px;" />\r\n<strong style="line-height: 20.8px;">副作用：</strong><span style="line-height: 20.8px;">大部分患者在施打後並不會有副作用，但還是可能會有些微腫脹、發紅或</span><span style="line-height: 20.8px;">瘀青等可能，這些情形大都會在3-7日內消失。</span><br style="line-height: 20.8px;" />\r\n<br style="line-height: 20.8px;" />\r\n<br style="line-height: 20.8px;" />\r\n<br style="line-height: 20.8px;" />\r\n<span style="color:#96601c;"><strong><span style="font-size:120%;">術前準備:</span></strong></span><br />\r\n<br />\r\n１．因個人紋路深淺及想達到的立體度不同，因此所需的療程次數也不盡相同，還是需與專業醫師做溝通評估。<br />\r\n２．懷孕、哺乳或18歲以下婦女使用EllANS&Eacute;的安全性尚未確定。<br />\r\n３．使用能夠延長出血的藥物，如阿斯匹靈或沃法令阻凝劑的病人，當使用任何注射時，在注射的部位可能經歷瘀傷增加或出血。<br />\r\n４．治療禁忌：有嚴重過敏者、已知對其中成份過敏者、治療部位正有急性或慢性感染者、蟹足腫、正在服用類固醇者、治療部位曾接受過永久植入物（例&nbsp;如矽膠隆鼻）。<br />\r\n<br />\r\n<br />\r\n<strong style="color: rgb(150, 96, 28); line-height: 20.8px;"><span style="font-size: 15.6px;">術後照顧:</span></strong><br />\r\n<br />\r\n1.&nbsp;作用，這些狀況會在3-7日內消失。<br />\r\n2.&nbsp;術後一週內避免過度曝曬於陽光下。<br />\r\n3.術後搭配冰敷，可減少治療的不適。<br />\r\n4.&nbsp;術後如進行雷射治療、化學脫皮術後可能發生如腫脹、發紅或瘀青等副、或任何其他積極皮膚反應的療程，可能在注射部位會引起發炎反應。<br />\r\n5.&nbsp;免動刀、傷口小，術後可立即上班。<br />\r\n<img alt="" src="http://test.fanswoo.com/dragon_group/app/pic/00/00/00/29-58bc086850b3140a.jpg" style="width: 600px; height: 574px;" />', '', '', '', '', '', '0', '2015-12-25 18:10:51', 1),
+(12, 528502, '3D聚左旋乳酸', 0, '', '528627', '<div style="margin: 0cm 0cm 12pt; vertical-align: baseline; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;"><strong style="color: rgb(0, 0, 0); font-size: 13.3333px; line-height: 21.3333px;"><span style="font-size: 33.3333px;"><img alt="" src="http://test.fanswoo.com/dragon_group/app/pic/00/00/00/30-8a4e4ef1f0f1acb3.jpg" /></span></strong>\r\n<h1 style="margin: 0cm 0cm 12pt; vertical-align: baseline; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;"><span style="font-size: 10pt; color: black;">精準深入，喚起膠原蛋白增生</span></h1>\r\n<span lang="EN-US" style="font-size: 10pt; color: black; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">3D</span><span style="font-size: 10pt; color: black; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">聚左旋乳酸<span lang="EN-US">-</span>舒顏萃於<span lang="EN-US">2010</span>年在台灣上市，有別於一般傳統的注射充劑<span lang="EN-US">(ex.</span>玻尿酸、膠原蛋白&hellip;等<span lang="EN-US">)&nbsp;3D</span>聚左旋乳酸是一種與生物相容、不會引起體內排斥，以及能被體內自行分解，分解成二氧化碳、水、<span lang="EN-US">&nbsp;</span>醣後亦可自行代謝的物質。一開始是使用於填補愛滋病患臉部凹陷皮膚，<span lang="EN-US">2009</span>年美國食品藥物管理局（<span lang="EN-US">FDA</span>）核准使用在改善臉部皺紋。<span lang="EN-US">&nbsp;</span>台灣衛生福利部也於<span lang="EN-US">2010</span>年<span lang="EN-US">7</span>月通過核准用於改善臉部皺紋。</span></div>\r\n<img alt="" src="http://test.fanswoo.com/dragon_group/app/pic/00/00/00/31-930f3aa240988095.jpg" style="line-height: 20.8px;" /><br />\r\n<span style="line-height: 20.8px;">3D聚左旋乳酸Sculptra，又被稱為「液態拉皮」，適合做全臉的雕塑治療，治療後可以改善包括法令紋、木偶紋等各深淺紋路，讓夫妻宮（太陽穴）飽滿、蘋果肌及臉頰圓潤飽滿、改善下顎線條、增加臉部肌膚彈性，回復到少女時豐潤年輕的臉龐。</span><br />\r\nSculptra在注入肌膚的同時，也會刺激自體膠原蛋白活躍分泌，臉部注射效果持續性可長達25個月，依照施打的方式，來慢慢填補凹陷或達到肌膚的緊緻，Sculptra進入組織後，會被噬菌細胞、纖維母細胞包圍，注射後局部會有膨脤情況，但1~3天水份會被吸收，只剩下藥物繼續刺激膠原蛋白增生。<br />\r\n<br />\r\n<span style="color:#96601c;"><strong><span style="font-size:120%;">注射3D聚左旋乳酸術前/術後注意事項</span></strong></span><br />\r\n<br />\r\n1. &nbsp;蟹足腫體質患者,在治療前須依醫師指示評估膚況。<br />\r\n2.&nbsp;少數敏感肌因注射物質產生敏感性丘疹及結節，治療前須經醫師指示評估皮膚狀況。<br />\r\n3.&nbsp;剛注射後局部會有輕微水腫現象，大約1~3天隨著代謝逐漸消退。<br />\r\n4.&nbsp;3D聚左旋乳酸可同時改善臉部皺紋，但不可治療於雙唇及眼瞼處。<br />\r\n5.&nbsp;當皮膚水腫情形消退後，會暫時重現原本缺陷，但在接下來的數週，Sculptra將會刺激自體膠原蛋白新生來填補因膠原蛋白流失而造成的凹陷皺褶或鬆弛。<br />\r\n6.&nbsp;&nbsp;注射後注射部位立即按摩，之後持續按摩5天，每日5次，每次按摩5分鐘，有助於3D聚左旋乳酸平均分布於真皮組織中，使雕塑輪廓達到更好效果。(如上圖)<br />\r\n7.&nbsp;術後修護期短，但少數治療者會出現少許瘀青，因此建議術後1小時可在注射部位冰敷加壓以減少瘀青產生。<br />\r\n8.&nbsp;&nbsp;原本的皮膚凹陷一開始可能會再度出現，但凹陷會在數週內隨著SCULPTRA治￼療效果的逐漸顯現而改善。<br />\r\n9.&nbsp;童顏針Sculptra注射後的一般常見反應，包括在注射範圍出現腫脹、微 紅、輕微疼痛或癢、瘀青、針孔微細痂皮。症狀通常會在注射後1~14天自動消退。術後可立即冰敷減緩腫脹疼痛感,並配合醫師指示於注射部位按摩，避免顆粒形成，術後三天建議口服抗生素以避免感染。<br />\r\n<br />\r\n<img alt="" src="http://test.fanswoo.com/dragon_group/app/pic/00/00/00/32-22ee96c05bd879d3.jpg" /><br />\r\n<br />\r\n&nbsp;\r\n<h1 style="line-height: 40pt; margin: 0cm 0cm 12pt; vertical-align: baseline; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">&nbsp;</h1>\r\n<br />\r\n<br />\r\n<span style="line-height: 20.8px;">&nbsp;</span>', '', '', '', '', '', '0', '2015-12-25 18:13:52', 1),
+(13, 528502, '玻尿酸', 0, '', '528627', '<div style="text-align: center;"><br />\r\n<span style="color:#96601c;"><span style="font-size:150%;"><strong>打造貴婦肌，改善凹陷老態</strong></span></span></div>\r\n\r\n<p><img alt="" src="http://test.fanswoo.com/dragon_group/app/pic/00/00/00/33-63ad00f1775332b0.jpg" /><br />\r\n玻尿酸原本就存在於人體，是一種透明多醣類膠狀物質，會隨著年齡的增加而減少，因此會造成臉部的凹陷、老態，透過注射外來的玻尿酸到凹陷的肌膚中，可以增加水分、體積和彈性，也有除皺的效果。除了用來填補法令紋、蘋果肌、淚溝及太陽穴之外，還可以用來隆鼻、豐唇、豐頰等，因為成分安全、人體可吸收，因此玻尿酸受到愛美人士的歡迎。需視個人情況而定，療程效果約可維持6-12個月左右。<br />\r\n<br />\r\n玻尿酸(Hyaluronic Acid)首先由美國研究者Meyer等人自脊椎動物體中分離出來，是一種性能優良的生化物質，廣泛應用於醫藥、生化、食品等領域。注射用玻尿酸為經過純化、可與體內原有透明質酸融合的非蛋白質多醣體，注射後可使皮膚膨漲、皺紋變平、安全性高。目前廣泛使用於法令紋、嘴角凹紋、額眉間皺紋的填補，甚至可以用在修飾鼻尖鼻樑、豐唇、墊下巴、淚溝填補、蘋果肌、太陽穴等。<br />\r\n<br />\r\n<strong>適應症</strong><br />\r\n<br />\r\n拉提下垂眼尾、抬頭紋、眉間紋、眼尾紋、鼻形增高、耳垂在造、淚溝紋、泡眼、豐頰、鼻形改造、法令紋、笑紋、下巴修型、豐唇、脣形再造。<br />\r\n<br />\r\n<br />\r\n<span style="color:#96601c;"><strong><span style="font-size:120%;">治療內容</span></strong></span><br />\r\n<br />\r\n臉部皮膚由外而內分別是表皮、真皮及皮下組織，真皮的基質含有大量玻尿酸以保持水分，如因日曬、年老而流失，皮膚就會顯出皺紋及鬆弛。全世界有超過300萬以上的患者，使用以玻尿酸為基礎的產品。<br />\r\n<br />\r\n<br />\r\n&nbsp;</p>\r\n', '', '', '', '', '', '0', '2015-12-25 18:14:25', 1),
+(14, 528502, '水微晶', 0, '', '528627', '<img alt="" src="http://test.fanswoo.com/dragon_group/app/pic/00/00/00/34-c73e8ad7f05fbeea.jpg" /><br />\r\n<br />\r\n<span style="color:#96601c;"><span style="font-size:120%;"><strong>水微晶：玻尿酸結構升級，提升支撐力</strong></span></span><br />\r\n<br />\r\n水微晶可以說是玻尿酸的升級版，強化原本比較脆弱的玻尿酸結構，延長玻尿酸分子留存在體內的壽命，所以水微晶的塑形效果比起傳統玻尿酸來說更持久，但效果也是維持半年到一年左右。支撐立體線條水微晶提昇了玻尿酸的黏度與彈性，而黏度與彈性是影響塑形力強弱的關鍵，黏度與彈性優良的玻尿酸，不僅可以施打於紋路及凹陷部位，更適合應用於需要高度塑形力的部位，而且術後的觸感自然，柔軟有彈力宛如天生。<br />\r\n<br />\r\n<strong style="font-size: 32.5px; line-height: 52px;"><img alt="" src="http://test.fanswoo.com/dragon_group/app/pic/00/00/00/35-569de46451b071cc.jpg" /><br />\r\n<img alt="" src="http://test.fanswoo.com/dragon_group/app/pic/00/00/00/36-18329c66ba14e64c.jpg" /><br />\r\n<img alt="" src="http://test.fanswoo.com/dragon_group/app/pic/00/00/00/37-10563a961d7bfdb4.jpg" /><br />\r\n<img alt="" src="http://test.fanswoo.com/dragon_group/app/pic/00/00/00/38-468bfcf2fe87c3cf.jpg" /><br />\r\n<img alt="" src="http://test.fanswoo.com/dragon_group/app/pic/00/00/00/39-316131689e05f93e.jpg" /><br />\r\n<img alt="" src="http://test.fanswoo.com/dragon_group/app/pic/00/00/00/40-f2cc327aee9d7de0.jpg" /></strong><br />\r\n<span style="color:#96601c;"><strong><span style="font-size:120%;">適用部位</span></strong></span><br />\r\n<br />\r\n只要是凹陷及皺紋都可以改善<br />\r\n<br />\r\n例如：淚溝、眼窩凹陷、夫妻宮凹陷、蘋果肌不飽滿、顴骨紋法令紋、木偶紋、豐唇、嘴角下垂、唇線不明顯、豐頰、豐額、豐耳垂、山根、下巴、臉型不對稱等、對於皮膚乾荒也有很好的治療效果。<br />\r\n<br />\r\n&nbsp;', '', '', '', '', '', '0', '2015-12-25 18:16:15', 1),
+(15, 528502, '肉毒桿菌', 0, '', '528627', '剛出生的肌膚有如一張白紙，隨著皮下肌肉的活躍使得皮膚產生摺皺，微動態紋剛出現時使用肉毒桿菌能預防皺紋，動態紋現後使用肉毒桿菌能舒解皺紋<br />\r\n<br />\r\n<strong><span style="font-size:120%;">治療內容</span></strong><br />\r\n<br />\r\n由醫師診斷可使用肉毒桿菌素的部位，利用極細針頭將少量肉毒桿菌素精確注入，注射所引起的疼痛感非常輕微，治療後可立即正常活動；注射後約2~3天，肉毒桿菌素即開始發揮功效，直至第7天可獲完全效果，一般而言可維持四個月以上。當藥品療效漸漸消失，皺紋也會慢慢回復，您只須每年治療2~3次，即可維持理想的治療效果。臨床研究顯示，肉毒桿菌素治療會隨著治療次數增加而延長效果的持續時間，故未來可逐漸減少治療次數。不需住院開刀、不需麻醉、不留疤痕，療程雖短，但除皺效果極佳！<br />\r\n<br />\r\n<br />\r\n<strong style="line-height: 20.8px;"><span style="font-size: 15.6px;">適應症</span></strong><br />\r\n<br />\r\n抬頭紋、魚尾紋、皺眉紋、法令紋、頸紋、臥蠶、八字眉、國字臉、嘴角下垂、手汗、腋下異味、多汗症、蘿蔔腿、過度出油毛孔粗大。<br />\r\n<br />\r\n<span style="font-size:250%;"><img alt="" src="http://test.fanswoo.com/dragon_group/app/pic/00/00/00/41-430638ce45c4f536.jpg" /></span><br />\r\n&nbsp;\r\n<table align="center" border="1" cellpadding="0" cellspacing="0" style="width:482px;" width="482">\r\n	<tbody>\r\n		<tr>\r\n			<td style="width:92px;height:26px;">&nbsp;</td>\r\n			<td style="width: 144px; height: 26px; text-align: center;"><strong>肉毒桿菌素注射</strong></td>\r\n			<td style="width: 111px; height: 26px; text-align: center;"><strong>臉部抽脂</strong></td>\r\n			<td style="width: 134px; height: 26px; text-align: center;"><strong>削骨手術</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td style="width: 92px; height: 26px; text-align: center;"><strong>適應對象</strong></td>\r\n			<td style="width: 144px; height: 26px; text-align: center;">咬肌肥厚</td>\r\n			<td style="width: 111px; height: 26px; text-align: center;">脂肪肥厚</td>\r\n			<td style="width: 134px; height: 26px; text-align: center;">下顎骨方正突出</td>\r\n		</tr>\r\n		<tr>\r\n			<td style="width: 92px; height: 27px; text-align: center;"><strong>收費</strong></td>\r\n			<td style="width: 144px; height: 27px; text-align: center;">最低</td>\r\n			<td style="width: 111px; height: 27px; text-align: center;">較高</td>\r\n			<td style="width: 134px; height: 27px; text-align: center;">最高</td>\r\n		</tr>\r\n		<tr>\r\n			<td style="width: 92px; height: 28px; text-align: center;"><strong>療程時間</strong></td>\r\n			<td style="width: 144px; height: 28px; text-align: center;">10~15分鐘</td>\r\n			<td style="width: 111px; height: 28px; text-align: center;">2小時</td>\r\n			<td style="width: 134px; height: 28px; text-align: center;">2~5小時</td>\r\n		</tr>\r\n		<tr>\r\n			<td style="width: 92px; height: 36px; text-align: center;"><strong>恢復期</strong></td>\r\n			<td style="width: 144px; height: 36px; text-align: center;">術後可立即正常活動</td>\r\n			<td style="width: 111px; height: 36px; text-align: center;">約一個月</td>\r\n			<td style="width: 134px; height: 36px; text-align: center;">約6週</td>\r\n		</tr>\r\n		<tr>\r\n			<td style="width: 92px; height: 29px; text-align: center;"><strong>成效</strong></td>\r\n			<td style="width: 144px; height: 29px; text-align: center;">1個月可見成果並可維持半年左右，重複注射後效果可越來越持久。</td>\r\n			<td style="width: 111px; height: 29px; text-align: center;">依醫師指示照護可獲得改善，若脂肪肥胖復發則須再度抽脂。</td>\r\n			<td style="width: 134px; height: 29px; text-align: center;">依醫師指示照護可獲明顯改善，通常一次手術即可。</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n<br />\r\n<br />\r\n&nbsp;', '', '', '', '', '', '0', '2015-12-25 18:17:13', 1),
+(16, 528502, '淨膚雷射', 0, '', '528626', '<br />\r\n主要是利用1064nm銣雅克雷射的波長深入上皮層，破壞黑色素，達到除斑效果，治療過程溫和不痛，只會有短暫的泛紅、恢復期很短，很適合想除斑的女性；另外，它對於改善色素型黑眼圈的效果也很好。<br />\r\n<br />\r\n<span style="color:#96601c;">&nbsp;<span style="font-size:120%;"><strong>淨膚雷射與其他方法比較</strong></span></span><br />\r\n<br />\r\n淨膚雷射是繼脈衝光之後最近發展的午休美顏術，治療後無傷口，可以立即上班、上妝，效果持久遠超過傳統皮膚容方式；不同於一般雷射光，淨膚雷射是屬於非侵入性雷射美容技術，不會如磨皮雷射引起結痂、疼痛、流血、感染，也不會像果酸(化學)換膚引起皮膚不良反應。另外，對毛孔粗大及換膚治療的功效則比脈衝光來得有效，又較無疼痛，&nbsp;而且治療後不反黑，比脈衝光更適合黃種人，更能滿足大部份愛美的消費者。&nbsp;<br />\r\n<br />\r\n<br />\r\n<span style="font-size:120%;"><strong><span style="color:#96601c;">術前準備</span></strong></span><br />\r\n<br />\r\n１．治療前一週須停用Ａ酸、果酸、水楊酸、去角質、熱蒸及含有酒精和植物性、&nbsp;精油成分保養品。<br />\r\n２．治療前一&nbsp;週須加強防曬措施。<br />\r\n３．可擦拭修護類及保濕類之精華液、潤膚乳、霜（ｅｘ：玻尿酸、ＥＧＦ、藍銅、膠原蛋白)等保養肌膚，增加修復及加強效果。<br />\r\n<br />\r\n<br />\r\n<strong style="font-size: 15.6px; line-height: 24.96px;"><span style="color: rgb(150, 96, 28);">術後照顧</span></strong><br />\r\n<br />\r\n１．治療後一週內勿使用含有果酸或酒精成份化妝水及保養品，避免做臉，勿用磨砂膏，勿用熱水洗臉。<br />\r\n２．治療後請加強保濕。<br />\r\n３．平日加強防曬，每日早上及外出前應擦拭SPF50以上之防曬乳，應減少戶外活動，勿直接曝曬陽光。<br />\r\n<br />\r\n<br />\r\n<br />\r\n<br />\r\n&nbsp;', '', '', '', '', '', '0', '2015-12-25 10:45:46', 1),
+(17, 528502, '杏仁酸', 0, '', '528626', '<div style="text-align: center;"><br />\r\n<span style="color:#96601c;"><strong><span style="font-size:150%;">杏仁酸煥膚<br />\r\n炫耀新生般光滑淨白美膚</span></strong></span><br />\r\n<br />\r\n<br />\r\n&nbsp;</div>\r\n\r\n<div><strong><span style="color:#96601c;"><span style="font-size:120%;">杏仁酸煥膚原理</span></span></strong><br />\r\n<br />\r\n杏仁酸的分子量比一般常用的果酸大上2倍多，且是親脂性果酸，與皮膚親和力最高深入皮膚產生作用時，肌膚的感受是較溫和不刺激，且不產生紅腫現象。<br />\r\n<br />\r\n<strong><span style="font-size:120%;"><span style="color:#96601c;">杏仁酸煥膚用途</span></span></strong><br />\r\n<br />\r\n拯救美背更新肌膚，為油脂過盛、毛孔阻塞、角化、粉刺、痘痘、暗沈、粗糙、等身體肌膚所設計。<br />\r\n<br />\r\n<br />\r\n<strong><span style="font-size:120%;"><span style="color:#96601c;">杏仁酸煥膚效能</span></span></strong><br />\r\n<br />\r\n1. 快速代謝肥厚角質<br />\r\n2.&nbsp;改善色素沉澱<br />\r\n3. 減緩毛孔角化<br />\r\n4. 淡化青春痘疤痕<br />\r\n5. 減低毛孔阻塞<br />\r\n6.&nbsp;賦活淨白肌膚<br />\r\n<br />\r\n<br />\r\n<strong><span style="font-size:120%;"><span style="color:#96601c;">杏仁酸煥膚治療前注意事項</span></span></strong><br />\r\n<br />\r\n1. 前一週應停止背部護膚美容、脫毛、磨砂膏、海綿、使用A酸產品、避免背部肌膚曬傷。<br />\r\n2. 前三天應停止使用果酸等刺激性產品、藥品。<br />\r\n<br />\r\n<br />\r\n<span style="color:#96601c;"><strong><span style="font-size:120%;">杏仁酸煥膚治療後注意事項</span></strong></span><br />\r\n<br />\r\n1. 暫停使用其他外用藥品或含藥的化妝品，口服藥則可續用。<br />\r\n2. 若有產生結痂者，經數日會自然脫落，勿搔抓或剝除。<br />\r\n3. 煥膚部位避免日曬，出門前需使用防曬係數大於20的防曬乳液。<br />\r\n<br />\r\n&nbsp;</div>\r\n', '', '', '', '', '', '0', '2015-12-25 10:54:44', 1),
+(18, 528502, '量子醫學、淨脈生化雷射', 0, '', '528625', '<span style="line-height: 20.8px;">提供文案</span>', '', '', '', '', '', '0', '2015-12-25 11:00:20', 1),
+(19, 528502, '抗癌症疫苗注射', 0, '', '528625', '<span style="line-height: 20.8px;">提供文案</span>', '', '', '', '', '', '0', '2015-12-25 11:00:14', 1),
+(20, 528502, '重金屬檢測及治療', 0, '', '528625', '<span style="line-height: 20.8px;">提供文案</span>', '', '', '', '', '', '0', '2015-12-25 11:00:08', 1),
+(21, 528501, '排毒、整和治療', 0, '', '528625', '<span style="line-height: 20.8px;">提供文案</span>', '', '', '', '', '', '0', '2015-12-25 19:48:08', 1),
+(22, 528502, '自律神經檢測', 0, '', '528624', '<span style="line-height: 20.8px;">提供文案</span>', '', '', '', '', '', '0', '2015-12-25 10:59:57', 1),
+(23, 528502, '食品營養諮詢', 0, '', '528624', '提供文案', '', '', '', '', '', '0', '2015-12-25 10:59:52', 1),
+(24, 528502, '腹部超音波篩檢', 0, '', '528624', '請提供文案', '', '', '', '', '', '0', '2015-12-25 11:00:50', 1),
+(25, 528502, '婚前健康檢查', 0, '', '528624', '<span style="line-height: 20.8px;">請提供文案</span>', '', '', '', '', '', '0', '2015-12-25 11:01:06', 1);
 
 -- --------------------------------------------------------
 
@@ -929,15 +981,14 @@ INSERT INTO `fs_showpiece` (`showpieceid`, `uid`, `name`, `price`, `mainpicids`,
 -- 資料表結構 `fs_user`
 --
 
-CREATE TABLE IF NOT EXISTS `fs_user` (
+CREATE TABLE `fs_user` (
   `uid` mediumint(8) NOT NULL,
   `email` char(32) NOT NULL,
   `username` char(32) NOT NULL,
   `picids` char(100) NOT NULL,
   `groupids` char(100) NOT NULL,
   `updatetime` datetime NOT NULL,
-  `status` int(1) NOT NULL,
-  UNIQUE KEY `uid` (`uid`)
+  `status` int(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -956,12 +1007,11 @@ INSERT INTO `fs_user` (`uid`, `email`, `username`, `picids`, `groupids`, `update
 -- 資料表結構 `fs_user_field_shop`
 --
 
-CREATE TABLE IF NOT EXISTS `fs_user_field_shop` (
+CREATE TABLE `fs_user_field_shop` (
   `uid` mediumint(8) NOT NULL,
   `receive_name` char(100) DEFAULT '',
   `receive_phone` char(100) NOT NULL DEFAULT '',
-  `receive_address` char(100) NOT NULL DEFAULT '',
-  UNIQUE KEY `uid` (`uid`)
+  `receive_address` char(100) NOT NULL DEFAULT ''
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -980,11 +1030,10 @@ INSERT INTO `fs_user_field_shop` (`uid`, `receive_name`, `receive_phone`, `recei
 -- 資料表結構 `fs_user_group`
 --
 
-CREATE TABLE IF NOT EXISTS `fs_user_group` (
+CREATE TABLE `fs_user_group` (
   `groupid` mediumint(8) NOT NULL,
   `groupname` char(40) NOT NULL,
-  `status` int(1) NOT NULL DEFAULT '0',
-  UNIQUE KEY `groupid` (`groupid`)
+  `status` int(1) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -1003,7 +1052,7 @@ INSERT INTO `fs_user_group` (`groupid`, `groupname`, `status`) VALUES
 -- 資料表結構 `fs_user_verification`
 --
 
-CREATE TABLE IF NOT EXISTS `fs_user_verification` (
+CREATE TABLE `fs_user_verification` (
   `uid` mediumint(8) NOT NULL,
   `email` char(32) NOT NULL,
   `password` char(32) NOT NULL,
@@ -1012,8 +1061,7 @@ CREATE TABLE IF NOT EXISTS `fs_user_verification` (
   `change_email_key` char(6) NOT NULL,
   `change_email_updatetime` datetime NOT NULL,
   `facebookid` mediumint(12) NOT NULL,
-  `googleid` mediumint(12) NOT NULL,
-  UNIQUE KEY `uid` (`uid`)
+  `googleid` mediumint(12) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -1025,6 +1073,102 @@ INSERT INTO `fs_user_verification` (`uid`, `email`, `password`, `password_salt`,
 (528503, 'admin2@fanswoo.com', 'b2b5410b5f94eea7feff94aab7ba763e', 'f3ab44', '12345678', '', '0000-00-00 00:00:00', 0, 0),
 (528502, 'admin@fanswoo.com', 'caf77603f131efe6b052eba84f65ff9d', 'db5afb', '12345678', '', '0000-00-00 00:00:00', 0, 0),
 (528504, 'test@fanswoo.com', '4476e1b3311ef7703d03d8b7ec4d503c', '4da76f', '12345678', '', '0000-00-00 00:00:00', 0, 0);
+
+--
+-- 已匯出資料表的索引
+--
+
+--
+-- 資料表索引 `fs_advertising`
+--
+ALTER TABLE `fs_advertising`
+  ADD UNIQUE KEY `advertisingid` (`advertisingid`);
+
+--
+-- 資料表索引 `fs_class`
+--
+ALTER TABLE `fs_class`
+  ADD UNIQUE KEY `classid` (`classid`);
+
+--
+-- 資料表索引 `fs_contact`
+--
+ALTER TABLE `fs_contact`
+  ADD UNIQUE KEY `contactid` (`contactid`);
+
+--
+-- 資料表索引 `fs_note`
+--
+ALTER TABLE `fs_note`
+  ADD UNIQUE KEY `noteid` (`noteid`);
+
+--
+-- 資料表索引 `fs_note_field`
+--
+ALTER TABLE `fs_note_field`
+  ADD UNIQUE KEY `noteid` (`noteid`);
+
+--
+-- 資料表索引 `fs_pager`
+--
+ALTER TABLE `fs_pager`
+  ADD PRIMARY KEY (`pagerid`);
+
+--
+-- 資料表索引 `fs_pager_field`
+--
+ALTER TABLE `fs_pager_field`
+  ADD PRIMARY KEY (`pagerid`);
+
+--
+-- 資料表索引 `fs_pic`
+--
+ALTER TABLE `fs_pic`
+  ADD UNIQUE KEY `picid` (`picid`);
+
+--
+-- 資料表索引 `fs_sessions`
+--
+ALTER TABLE `fs_sessions`
+  ADD PRIMARY KEY (`session_id`),
+  ADD UNIQUE KEY `session_id` (`session_id`),
+  ADD KEY `last_activity_idx` (`last_activity`);
+
+--
+-- 資料表索引 `fs_setting`
+--
+ALTER TABLE `fs_setting`
+  ADD UNIQUE KEY `keyword` (`keyword`);
+
+--
+-- 資料表索引 `fs_showpiece`
+--
+ALTER TABLE `fs_showpiece`
+  ADD UNIQUE KEY `showpieceid` (`showpieceid`);
+
+--
+-- 資料表索引 `fs_user`
+--
+ALTER TABLE `fs_user`
+  ADD UNIQUE KEY `uid` (`uid`);
+
+--
+-- 資料表索引 `fs_user_field_shop`
+--
+ALTER TABLE `fs_user_field_shop`
+  ADD UNIQUE KEY `uid` (`uid`);
+
+--
+-- 資料表索引 `fs_user_group`
+--
+ALTER TABLE `fs_user_group`
+  ADD UNIQUE KEY `groupid` (`groupid`);
+
+--
+-- 資料表索引 `fs_user_verification`
+--
+ALTER TABLE `fs_user_verification`
+  ADD UNIQUE KEY `uid` (`uid`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

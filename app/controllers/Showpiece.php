@@ -29,10 +29,11 @@ class Showpiece_Controller extends MY_Controller {
             ),
             'db_where_deletenull_Bln' => TRUE,
             'model_name_Str' => 'Showpiece',
-            'limitstart_Num' => $limitstart_Num,
-            'limitcount_Num' => $limitcount_Num
+            'limitstart_Num' => 0,
+            'limitcount_Num' => 999
         ));
         $data['page_link'] = $data['showpiece_ShowpieceList']->create_links(array('base_url_Str' => 'showpiece/?class_slug='.$data['search_class_slug_Str']));
+		
         $data['class_ClassMetaList'] = new ObjList();
         $data['class_ClassMetaList']->construct_db(array(
             'db_where_Arr' => array(
