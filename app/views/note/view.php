@@ -42,7 +42,7 @@ $(function(){
 			<div class="nav">
 				<div class="hot_note">文章分類</div>
 					<a href="note" class="father">
-						<p>最新消息</p>
+						<p>消息總覽</p>
 					</a>
 					<?foreach($ClassMetaList->obj_Arr as $key => $value_ClassMeta):?>
 						<a href="note/?class_slug=<?=$value_ClassMeta->slug_Str?>" class="father">

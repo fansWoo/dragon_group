@@ -113,7 +113,7 @@ h1{font-size:34px;line-height:40px;letter-spacing:2px;}
 
 
 @font-face{ font-family:bb; src: url(../../fonts/bb.ttf) format("truetype") ;}
-.content01 .right_area{width:640px;float:right;background:url(../../img/default/line2.png) top left repeat-y; padding-left:40px;min-height:700px; padding-bottom:50px;}
+.content01 .right_area{width:670px;float:right; padding-left:40px;min-height:700px; padding-bottom:50px;}
 .content01 .right_area .navigation_box{ font-size:12px; overflow:hidden; margin-bottom:8px; letter-spacing:1px; float:right;color:#666;}
 .content01 .right_area .navigation_box a{ color:#666;}
 .content01 .right_area .navigation_box .color{ color:#955f1c;}

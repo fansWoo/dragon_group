@@ -97,7 +97,8 @@ h1{font-size:34px;line-height:40px;letter-spacing:2px;}
 .content01 .center_area .text_area .title_box .title{color:#96601c;font-size:28px; letter-spacing:1.5px; padding:0px 0px 20px 0px;font-weight:500;}
 .content01 .center_area .text_area .title_box .date{ font-size:14px;color:#96601c;float:right;letter-spacing:1.5px;}
 .content01 .center_area .text_area .title_box .date .line{width:40px;height:1px;background:#96601c;float:left; margin:7px 10px;}
-.content01 .center_area .text_area img{ display:block;margin:0px auto;}
+.content01 .center_area .text_area img{ width:100%;display:block;margin:0px auto;}
+.content01 .center_area .text_area table{ width:100%;}
 
 .content01 .center_area  .more{width:65px;position:absolute;right:10px;bottom:10px;transition:0.3s; color:#888;font-size:13px; letter-spacing:1px;}
 .content01 .center_area  .more span{transform:rotate(-90deg) scale(0.7);-webkit-transform:rotate(-90deg) scale(0.7) ;display:block;float:left;font-size:12px; margin-right:5px;  }
