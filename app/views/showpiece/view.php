@@ -60,7 +60,7 @@ $(function(){
 	</div>
 	<div class="right_area">
 		<div class="navigation_box">
-			<span>療程項目</span> / <span class="color"><?=$class_ClassMeta->classname_Str?></span>
+			<span>療程項目</span> / <a href="showpiece?class_slug=<?=$search_class_slug_Str?>"class="color"><?=$class_ClassMeta->classname_Str?></a>
 		</div>
 		<div class="top_title_box">
 			<div class="long_box">
