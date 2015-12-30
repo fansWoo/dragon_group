@@ -98,7 +98,7 @@ h1{font-size:34px;line-height:40px;letter-spacing:2px;}
 .content01 .left_area .nav .father_item{display: block; width: 100%; padding:0px 0px 0px 0px; min-height:55px; height: auto; color: #955f1c;letter-spacing:2px;transition:0.3s;-webkit-transition:0.3s;border-bottom:1px solid rgba(255,255,255,0.2); position:relative;border-top:2px solid #955f1c;background:rgba(255,255,255,0.4);cursor: pointer;}
 .content01 .left_area .nav .father_item:nth-of-type(1){border-top:0px;}
 .content01 .left_area .nav .father_item p{ width:100%;display:block; font-size:16px;text-align:center;line-height:55px; }
-.content01 .left_area .nav .father_item:hover{}
+.content01 .left_area .nav .father_item:hover{background:rgba(255,255,255,0.9); }
 .content01 .left_area .nav .father_item .child_item{width:100%;display:none;padding:10px 0px 15px 0px; overflow:hidden; border-top:1px dashed #955f1c;background:rgba(244,181,56,0.4);}
 .content01 .left_area .nav .father_item .child_item a{ display:block;height:auto; width:90%;padding: 6px 0px 6px 15px;color:#955f1c; line-height:22px;margin:0 auto;overflow:hidden; }
 .content01 .left_area .nav .father_item .child_item a .item{ float:left; width:85%;}
@@ -113,7 +113,7 @@ h1{font-size:34px;line-height:40px;letter-spacing:2px;}
 
 
 @font-face{ font-family:bb; src: url(../../fonts/bb.ttf) format("truetype") ;}
-.content01 .right_area{width:670px;float:right; padding-left:40px; min-height:700px; padding-bottom:50px;}
+.content01 .right_area{width:670px;float:right; padding-left:40px; min-height:400px; padding-bottom:50px;}
 .content01 .right_area .navigation_box{ font-size:12px; overflow:hidden; margin-bottom:8px; letter-spacing:1px; float:right;color:#666;}
 .content01 .right_area .navigation_box .color{ color:#955f1c;}
 .content01 .right_area .top_title_box{width:100%;margin-bottom:15px;padding-bottom:15px;height:auto;position:relative; overflow:hidden;}
