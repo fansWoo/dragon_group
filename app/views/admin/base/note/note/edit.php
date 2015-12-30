@@ -134,7 +134,15 @@
                 <input type="number" class="text width100" name="prioritynum_Num" min="0" value="<?=$NoteField->prioritynum_Num?>">
             </div>
 		</div>
+        <div class="spanStage">
+            <div class="spanLineLeft">
+            </div>
+            <div class="spanLineRight">
+                <p class="gray">優先排序指數越高，排序順序越前面</p>
+            </div>
+        </div>
 	</div>
+    <?if(0):?>
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
@@ -145,7 +153,6 @@
             </div>
         </div>
     </div>
-    <?if(0):?>
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">

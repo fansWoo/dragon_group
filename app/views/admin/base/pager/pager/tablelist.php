@@ -14,7 +14,7 @@
         <div class="spanLineLeft text width100">
 			頁面ID
         </div>
-        <div class="spanLineLeft text width500">
+        <div class="spanLineLeft text width400">
 			頁面標題
         </div>
         <div class="spanLineLeft text width150">
@@ -26,7 +26,7 @@
             <div class="spanLineLeft text width100">
                 <input type="number" class="text" style="margin-left:-6px;" value="<?=!empty($search_pagerid_Num)?$search_pagerid_Num:''?>" name="search_pagerid_Num" placeholder="請填寫ID">
             </div>
-            <div class="spanLineLeft text width500">
+            <div class="spanLineLeft text width400">
                 <input type="text" class="text" style="margin-left:-6px;" value="<?=!empty($search_title_Str)?$search_title_Str:''?>" name="search_title_Str" placeholder="請填寫頁面標題">
             </div>
             <div class="spanLineLeft text width150">
@@ -48,7 +48,7 @@
         <div class="spanLineLeft text width100">
             <?=$value_Pager->pagerid_Num?>
         </div>
-        <div class="spanLineLeft text width500">
+        <div class="spanLineLeft text width400">
             <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/edit/?pagerid=<?=$value_Pager->pagerid_Num?>"><?=$value_Pager->title_Str?></a>
         </div>
         <div class="spanLineLeft text width150">
@@ -60,7 +60,7 @@
             <span class="gray">沒有分類標籤</span>
             <?endif?>
         </div>
-        <div class="spanLineLeft width300 hoverHidden">
+        <div class="spanLineLeft width100 hoverHidden">
             <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/edit/?pagerid=<?=$value_Pager->pagerid_Num?>">編輯</a>
             <span class="ahref" onClick="fanswoo.check_href_action('確定要刪除嗎？', 'admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/delete/?pagerid=<?=$value_Pager->pagerid_Num?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除</span>
         </div>

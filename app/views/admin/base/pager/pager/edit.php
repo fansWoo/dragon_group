@@ -61,6 +61,7 @@
                 <?endif?>
             </div>
         </div>
+        <?if(0):?>
         <div class="spanStage">
             <div class="spanLineLeft">
             </div>
@@ -68,6 +69,7 @@
                 <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/classmeta/tablelist">管理項目分類</a>
             </div>
         </div>
+        <?endif?>
     </div>
 	<div class="spanLine">
 	    <div class="spanStage">

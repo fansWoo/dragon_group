@@ -14,24 +14,21 @@
         <div class="spanLineLeft text width100">
 			文章ID
         </div>
-        <div class="spanLineLeft text width500">
+        <div class="spanLineLeft text width400">
 			文章標題
         </div>
-        <?if(0):?>
         <div class="spanLineLeft text width150">
             文章分類標籤
         </div>
-        <?endif?>
 	</div>
     <?php echo form_open("admin/$child1_name_Str/$child2_name_Str/$child3_name_Str/{$child4_name_Str}_post/") ?>
         <div class="spanLine">
             <div class="spanLineLeft text width100">
                 <input type="number" class="text" style="margin-left:-6px;" value="<?=!empty($search_noteid_Num)?$search_noteid_Num:''?>" name="search_noteid_Num" placeholder="請填寫ID">
             </div>
-            <div class="spanLineLeft text width500">
+            <div class="spanLineLeft text width400">
                 <input type="text" class="text" style="margin-left:-6px;" value="<?=!empty($search_title_Str)?$search_title_Str:''?>" name="search_title_Str" placeholder="請填寫文章標題">
             </div>
-            <?if(0):?>
             <div class="spanLineLeft text width150">
                 <select name="search_class_slug_Str" style="margin-left:-6px;">
                     <option value="">不透過分類標籤篩選</option>
@@ -40,7 +37,6 @@
                     <?endforeach?>
                 </select>
             </div>
-            <?endif?>
             <div class="spanLineLeft text width150">
                 <input type="submit" class="button" style="height: 30px; margin-left:-6px;" value="篩選">
             </div>
@@ -52,10 +48,9 @@
         <div class="spanLineLeft text width100">
             <?=$value_Note->noteid_Num?>
         </div>
-        <div class="spanLineLeft text width500">
+        <div class="spanLineLeft text width400">
             <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/edit/?noteid=<?=$value_Note->noteid_Num?>"><?=$value_Note->title_Str?></a>
         </div>
-        <?if(0):?>
         <div class="spanLineLeft text width150">
             <?if(!empty($value_Note->class_ClassMetaList->obj_Arr)):?>
             <?foreach($value_Note->class_ClassMetaList->obj_Arr as $key => $value_ClassMeta):?>
@@ -65,8 +60,7 @@
             <span class="gray">沒有分類標籤</span>
             <?endif?>
         </div>
-        <?endif?>
-        <div class="spanLineLeft width300 hoverHidden">
+        <div class="spanLineLeft width100 hoverHidden">
             <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/edit/?noteid=<?=$value_Note->noteid_Num?>">編輯</a>
             <span class="ahref" onClick="fanswoo.check_href_action('確定要刪除嗎？', 'admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/delete/?noteid=<?=$value_Note->noteid_Num?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除</span>
         </div>
